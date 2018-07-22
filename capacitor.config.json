@@ -1,0 +1,7 @@
+{
+  "appId": "in.nishkal",
+  "appName": "Quark",
+  "bundledWebRuntime": false,
+  "webDir": "www",
+  "windowsAndroidStudioPath": "G:\\Installation\\androidstudio\\bin\\studio64.exe"
+}
