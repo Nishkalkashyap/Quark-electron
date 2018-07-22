@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "Quark",
   "version": "1.0.0",
@@ -59,3 +60,66 @@
   "author": "",
   "license": "ISC"
 }
+=======
+{
+  "name": "Quark",
+  "version": "1.0.0",
+  "description": "Serial Port UI",
+  "main": "index.js",
+  "scripts": {
+    "electron:start": "electron ./",
+    "install": "./node_modules/.bin/electron-rebuild",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "dist--f": "build",
+    "dist" : "electron-builder --x64",
+    "gh-publish" : "electron-builder --x64 -p always"
+  },
+  "build": {
+    "appId": "in.nishkal",
+    "productName": "Quark",
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "license": "LICENSE",
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "dependencies": {
+    "@capacitor/electron": "^1.0.0-beta.0",
+    "electron-is-dev": "^0.3.0",
+    "electron-reload": "^1.2.5",
+    "electron-updater": "^3.0.3",
+    "express": "^4.16.3",
+    "firmata": "^0.19.1",
+    "ip": "^1.1.5",
+    "johnny-five": "^0.15.0",
+    "performance-now": "^2.1.0",
+    "serialport": "^6.2.1",
+    "socket.io": "^2.1.1",
+    "usb": "^1.3.2"
+  },
+  "devDependencies": {
+    "@types/firmata": "^0.19.0",
+    "@types/ip": "0.0.31",
+    "@types/serialport": "^6.0.3",
+    "electron": "^2.0.3",
+    "electron-rebuild": "^1.8.1"
+  },
+  "keywords": [
+    "capacitor",
+    "electron"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+>>>>>>> 7613d6bdb6fe4925bcf17d2525267d5f96aa11a4

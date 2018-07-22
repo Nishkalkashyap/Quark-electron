@@ -79,5 +79,3 @@ app.on('activate', function () {
     createWindow();
   }
 });
-
-// Define any IPC or other custom functionality below here
