@@ -1,46 +1,27 @@
 {
-  "name": "Quark",
+  "name": "capacitor-app",
   "version": "1.0.0",
-  "description": "Serial Port UI",
+  "description": "An Amazing Capacitor App",
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./",
     "install": "./node_modules/.bin/electron-rebuild",
     "postinstall": "electron-builder install-app-deps",
-    "pack": "electron-builder --dir",
-    "dist--f": "build",
-    "dist" : "electron-builder --x64",
-    "gh-publish" : "electron-builder --x64 -p always"
+    "pack": "installer --dir "
   },
   "build": {
-    "appId": "in.nishkal",
-    "productName": "Quark",
-    "directories": {
-      "output": "build"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true,
-      "license": "LICENSE",
-      "runAfterFinish": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
-    }
+    "appId": "COM.MAGNETAR",
+    "productName": "Magnetar"
   },
   "dependencies": {
     "@capacitor/electron": "^1.0.0-beta.0",
     "electron-is-dev": "^0.3.0",
+    "electron-rebuild": "^1.7.3",
     "electron-reload": "^1.2.5",
-    "electron-updater": "^3.0.3",
     "express": "^4.16.3",
     "firmata": "^0.19.1",
     "ip": "^1.1.5",
     "johnny-five": "^0.15.0",
-    "performance-now": "^2.1.0",
     "serialport": "^6.2.1",
     "socket.io": "^2.1.1",
     "usb": "^1.3.2"
@@ -49,8 +30,7 @@
     "@types/firmata": "^0.19.0",
     "@types/ip": "0.0.31",
     "@types/serialport": "^6.0.3",
-    "electron": "^2.0.3",
-    "electron-rebuild": "^1.8.1"
+    "electron": "^2.0.3"
   },
   "keywords": [
     "capacitor",

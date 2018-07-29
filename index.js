@@ -31,6 +31,7 @@ async function createWindow() {
     height: 600,
     width: 800,
     show: false,
+    frame : false
   });
 
   let server = new Server.SocketServer(4300, mainWindow);
@@ -38,7 +39,7 @@ async function createWindow() {
 
   if (isDevMode) {
     // Set our above template to the Menu Object if we are in development mode, dont want users having the devtools.
-    Menu.setApplicationMenu(Menu.buildFromTemplate(menu.menuTemplateDev));
+    // Menu.setApplicationMenu(Menu.buildFromTemplate(menu.menuTemplateDev));
     // If we are developers we might as well open the devtools by default.
     mainWindow.webContents.openDevTools();
   }
@@ -79,3 +80,5 @@ app.on('activate', function () {
     createWindow();
   }
 });
+
+// Define any IPC or other custom functionality below here
