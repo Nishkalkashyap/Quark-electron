@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./",
-    "install": "./node_modules/.bin/electron-rebuild.cmd",
+    "install": "./node_modules/.bin/electron-rebuild",
     "postinstall": "electron-builder install-app-deps",
     "pack": "installer --dir ",
     "dist--f": "build",
