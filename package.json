@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./",
-    "install": "./node_modules/.bin/electron-rebuild",
+    "install": "./node_modules/.bin/electron-rebuild.cmd",
     "postinstall": "electron-builder install-app-deps",
     "pack": "installer --dir ",
     "dist--f": "build",
@@ -14,10 +14,12 @@
     "dist-all": "electron-builder --x64 --win --linux"
   },
   "build": {
-    "publish": [{
-      "provider": "generic",
-      "url": "https://autoupdate.diymechatronics.com"
-    }],
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://autoupdate.diymechatronics.com"
+      }
+    ],
     "appId": "in.nishkal",
     "productName": "Quark",
     "directories": {

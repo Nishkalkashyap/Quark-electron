@@ -11,7 +11,7 @@ const {
 
 
 const Server = require('./node/server');
-require('./node/auto-updater').checkForUpdates();
+const updater = require('./node/auto-updater');
 // const menu = require('./node/menu');
 // require('electron-reload', __dirname);
 
@@ -44,6 +44,7 @@ async function createWindow() {
 
 
   let server = new Server.SocketServer(4300, mainWindow);
+  updater.checkForUpdates();
 
 
   // if (isDevMode) {
