@@ -1,7 +1,7 @@
 const {
   app,
   BrowserWindow,
-  Menu
+  // Menu
 } = require('electron');
 const isDevMode = require('electron-is-dev');
 const {

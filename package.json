@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./",
-    "install": "./node_modules/.bin/electron-rebuild",
     "postinstall": "electron-builder install-app-deps",
     "pack": "installer --dir ",
     "dist--f": "build",
     "dist-win": "electron-builder --x64 --win",
     "dist-linux": "electron-builder --x64 --linux",
-    "dist-all": "electron-builder --x64 --win --linux"
+    "dist-all": "electron-builder --x64 --win --linux",
+    "distt": "electron-builder --x64"
   },
   "build": {
     "publish": [
