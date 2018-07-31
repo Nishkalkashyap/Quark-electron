@@ -29,13 +29,9 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
-src/assets/elementor/elementor
-/android
-/gulp-watch/node_modules
 
 
 electron-builder.env
-app/assets
 build
 
 .DS_Store
