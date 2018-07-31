@@ -1,16 +1,24 @@
 {
-  "name": "capacitor-app",
+  "name": "Quark",
   "version": "1.0.0",
-  "description": "An Amazing Capacitor App",
+  "description": "A new way to control electronics",
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./",
+    "install": "./node_modules/.bin/electron-rebuild",
     "postinstall": "electron-builder install-app-deps",
     "pack": "installer --dir ",
     "dist--f": "build",
-    "dist": "electron-builder --x64"
+    "dist": "electron-builder --x64",
+    "dist-all": "electron-builder --x64 "
   },
   "build": {
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://autoupdate.diymechatronics.com"
+      }
+    ],
     "appId": "in.nishkal",
     "productName": "Quark",
     "directories": {
@@ -38,6 +46,7 @@
     "firmata": "^0.19.1",
     "ip": "^1.1.5",
     "johnny-five": "^0.15.0",
+    "performance-now": "^2.1.0",
     "serialport": "^6.2.1",
     "socket.io": "^2.1.1",
     "usb": "^1.3.2"

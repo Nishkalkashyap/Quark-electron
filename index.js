@@ -10,7 +10,8 @@ const {
 } = require('@capacitor/electron');
 
 
-// const Server = require('./node/server');
+const Server = require('./node/server');
+require('./node/auto-updater').checkForUpdates();
 // const menu = require('./node/menu');
 // require('electron-reload', __dirname);
 
@@ -31,8 +32,8 @@ let splashScreen = null;
 let useSplashScreen = true;
 
 
-// async function createWindow() {
-function createWindow() {
+async function createWindow() {
+  // function createWindow() {
   // Define our main window size
   mainWindow = new BrowserWindow({
     height: 600,
@@ -42,33 +43,33 @@ function createWindow() {
   });
 
 
-  // let server = new Server.SocketServer(4300, mainWindow);
+  let server = new Server.SocketServer(4300, mainWindow);
 
 
-  if (isDevMode) {
+  // if (isDevMode) {
     // Set our above template to the Menu Object if we are in development mode, dont want users having the devtools.
     // Menu.setApplicationMenu(Menu.buildFromTemplate(menu.menuTemplateDev));
     // If we are developers we might as well open the devtools by default.
     mainWindow.webContents.openDevTools();
+  // }
+
+  if (useSplashScreen) {
+    splashScreen = new CapacitorSplashScreen(mainWindow);
+    splashScreen.init();
+  } else {
+    // fileServer.on('listening', () => {
+    // mainWindow.loadURL(`http://localhost:8100`);
+    // });
+
+    mainWindow.loadURL(await injectCapacitor(`file://${__dirname}/app/index.html`), {
+      baseURLForDataURL: `file://${__dirname}/app/`
+    });
+
+    mainWindow.webContents.on('dom-ready', () => {
+      mainWindow.show();
+    });
   }
-
-  // if (useSplashScreen) {
-  //   splashScreen = new CapacitorSplashScreen(mainWindow);
-  //   splashScreen.init();
-  // } else {
-  // fileServer.on('listening', () => {
-  mainWindow.loadURL(`http://localhost:8100`);
-  // });
-
-  // mainWindow.loadURL(await injectCapacitor(`file://${__dirname}/app/index.html`), {
-  //   baseURLForDataURL: `file://${__dirname}/app/`
-  // });
-
-  mainWindow.webContents.on('dom-ready', () => {
-    mainWindow.show();
-  });
 }
-// }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
