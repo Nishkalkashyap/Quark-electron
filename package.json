@@ -1,6 +1,6 @@
 {
   "name": "Quark",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A new way to control electronics",
   "main": "index.js",
   "scripts": {
@@ -9,16 +9,15 @@
     "postinstall": "electron-builder install-app-deps",
     "pack": "installer --dir ",
     "dist--f": "build",
-    "dist": "electron-builder --x64",
-    "dist-all": "electron-builder --x64 "
+    "dist-win": "electron-builder --x64 --win",
+    "dist-linux": "electron-builder --x64 --linux",
+    "dist-all": "electron-builder --x64 --win --linux"
   },
   "build": {
-    "publish": [
-      {
-        "provider": "generic",
-        "url": "https://autoupdate.diymechatronics.com"
-      }
-    ],
+    "publish": [{
+      "provider": "generic",
+      "url": "https://autoupdate.diymechatronics.com"
+    }],
     "appId": "in.nishkal",
     "productName": "Quark",
     "directories": {
@@ -26,6 +25,13 @@
     },
     "win": {
       "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "appImage": {
+      "systemIntegration": "ask",
+      "license": "LICENSE"
     },
     "nsis": {
       "oneClick": false,
@@ -59,8 +65,8 @@
     "electron-rebuild": "^1.8.2"
   },
   "keywords": [
-    "capacitor",
-    "electron"
+    "Quark",
+    "Electron"
   ],
   "author": "Nishkal Kashyap",
   "license": "ISC"
