@@ -10,9 +10,15 @@ const {
 } = require('@capacitor/electron');
 
 
-const Server = require('./node/server');
-const menu = require('./node/menu');
-require('electron-reload', __dirname);
+// const Server = require('./node/server');
+// const menu = require('./node/menu');
+// require('electron-reload', __dirname);
+
+
+// let express = require('express');
+// const expressApp = express();
+// expressApp.use(express.static('./app'));
+// let fileServer = expressApp.listen(4301);
 
 
 // Place holders for our windows so they don't get garbage collected.
@@ -25,16 +31,18 @@ let splashScreen = null;
 let useSplashScreen = true;
 
 
-async function createWindow() {
+// async function createWindow() {
+function createWindow() {
   // Define our main window size
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
     show: false,
-    frame : false
+    frame: false
   });
 
-  let server = new Server.SocketServer(4300, mainWindow);
+
+  // let server = new Server.SocketServer(4300, mainWindow);
 
 
   if (isDevMode) {
@@ -44,19 +52,23 @@ async function createWindow() {
     mainWindow.webContents.openDevTools();
   }
 
-  if (useSplashScreen) {
-    splashScreen = new CapacitorSplashScreen(mainWindow);
-    splashScreen.init();
-  } else {
-    mainWindow.loadURL(await injectCapacitor(`file://${__dirname}/app/index.html`), {
-      baseURLForDataURL: `file://${__dirname}/app/`
-    });
-    mainWindow.webContents.on('dom-ready', () => {
-      mainWindow.show();
-    });
-  }
+  // if (useSplashScreen) {
+  //   splashScreen = new CapacitorSplashScreen(mainWindow);
+  //   splashScreen.init();
+  // } else {
+  // fileServer.on('listening', () => {
+  mainWindow.loadURL(`http://localhost:8100`);
+  // });
 
+  // mainWindow.loadURL(await injectCapacitor(`file://${__dirname}/app/index.html`), {
+  //   baseURLForDataURL: `file://${__dirname}/app/`
+  // });
+
+  mainWindow.webContents.on('dom-ready', () => {
+    mainWindow.show();
+  });
 }
+// }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -73,7 +85,6 @@ app.on('window-all-closed', function () {
 });
 
 app.on('activate', function () {
-
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {

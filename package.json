@@ -5,19 +5,35 @@
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./",
-    "install": "./node_modules/.bin/electron-rebuild",
     "postinstall": "electron-builder install-app-deps",
-    "pack": "installer --dir "
+    "pack": "installer --dir ",
+    "dist--f": "build",
+    "dist": "electron-builder --x64"
   },
   "build": {
-    "appId": "COM.MAGNETAR",
-    "productName": "Magnetar"
+    "appId": "in.nishkal",
+    "productName": "Quark",
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "license": "LICENSE",
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   },
   "dependencies": {
     "@capacitor/electron": "^1.0.0-beta.0",
     "electron-is-dev": "^0.3.0",
-    "electron-rebuild": "^1.7.3",
     "electron-reload": "^1.2.5",
+    "electron-updater": "^3.0.3",
     "express": "^4.16.3",
     "firmata": "^0.19.1",
     "ip": "^1.1.5",
@@ -30,12 +46,13 @@
     "@types/firmata": "^0.19.0",
     "@types/ip": "0.0.31",
     "@types/serialport": "^6.0.3",
-    "electron": "^2.0.3"
+    "electron": "^2.0.3",
+    "electron-rebuild": "^1.8.2"
   },
   "keywords": [
     "capacitor",
     "electron"
   ],
-  "author": "",
+  "author": "Nishkal Kashyap",
   "license": "ISC"
 }
