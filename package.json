@@ -26,8 +26,7 @@
       "output": "dist"
     },
     "win": {
-      "target": "nsis",
-      "certificateFile" : "Nishkal Kashyap.pfx"
+      "target": "nsis"
     },
     "linux": {
       "target": "AppImage"
