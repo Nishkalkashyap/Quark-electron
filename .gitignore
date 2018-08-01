@@ -32,7 +32,8 @@ $RECYCLE.BIN/
 
 
 electron-builder.env
-build
+# build/
+*.pfx
 
 .DS_Store
 Thumbs.db

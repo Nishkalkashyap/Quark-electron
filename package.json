@@ -23,10 +23,11 @@
     "appId": "in.nishkal",
     "productName": "Quark",
     "directories": {
-      "output": "build"
+      "output": "dist"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "certificateFile" : "Nishkal Kashyap.pfx"
     },
     "linux": {
       "target": "AppImage"
