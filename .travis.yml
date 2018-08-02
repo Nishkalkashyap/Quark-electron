@@ -23,4 +23,4 @@ install:
   - npm install
 script:
   - npm install
-  - npm dist-linux  
+  - npm run dist-linux  
