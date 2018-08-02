@@ -20,9 +20,7 @@
       "output": "dist"
     },
     "win": {
-      "target": "nsis",
-      "npmRebuild": false,
-      "nodeGypRebuild": false
+      "target": "nsis"
     },
     "linux": {
       "target": "AppImage"
