@@ -4,7 +4,7 @@
   "description": "A new way to control electronics",
   "main": "index.js",
   "scripts": {
-    "install" : "electron-rebuild",
+    "install": "electron-rebuild",
     "pack-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds ",
     "dist-win": "electron-builder --x64 --win --prepackaged release-builds/Quark-win32-x64",
     "dist-linux": "electron-builder --x64 --linux"
@@ -66,5 +66,5 @@
     "Electron"
   ],
   "author": "Nishkal Kashyap",
-  "license": "ISC"
+  "license": "Apache 2.0"
 }
