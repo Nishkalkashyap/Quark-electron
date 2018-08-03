@@ -61,6 +61,6 @@ deploy:
   bucket: "autoupdate.diymechatronics.com"
   skip_cleanup: true
   acl: public-read
-  local-dir: dist
+  local-dir: build
   on:
     branch: release
