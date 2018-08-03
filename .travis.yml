@@ -52,10 +52,7 @@ script:
   - npm install
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run build-mac; fi
-  - ls -la
-  - pwd
-  - cd build
-  - ls -la
+  - tar -cvf build_$TRAVIS_OS_NAME.tar build
 
 #Deploy Configuration
 deploy:
@@ -66,6 +63,7 @@ deploy:
   bucket: "autoupdate.diymechatronics.com"
   skip_cleanup: true
   acl: public-read
-  local-dir: ./build
+  file:
+    - build_$TRAVIS_OS_NAME.tar
   on:
     branch: release
