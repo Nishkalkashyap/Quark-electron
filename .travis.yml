@@ -16,6 +16,7 @@ matrix:
 branches:
   only:
     - master
+    - release
 language: node_js
 node_js:
   - "8"
@@ -48,8 +49,8 @@ before_install:
 #Script Configuration
 script:
   - npm install
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux
-    else npm run build-mac
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run build-mac; fi
 
 #Deploy Configuration
 deploy:
