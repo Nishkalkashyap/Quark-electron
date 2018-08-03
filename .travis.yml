@@ -48,7 +48,7 @@ before_install:
 script:
   - npm install
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux
-    else npm run build-mac
+    else npm run build-mac; fi
 
 #Deploy Configuration
 deploy:
