@@ -8,39 +8,9 @@
     "postinstall": "electron-builder install-app-deps",
     "pack-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds ",
     "dist-win": "electron-builder --x64 --win --prepackaged release-builds/Quark-win32-x64",
-    "dist-linux": "electron-builder --x64 --linux"
-  },
-  "build": {
-    "publish": [
-      {
-        "provider": "generic",
-        "url": "https://autoupdate.diymechatronics.com"
-      }
-    ],
-    "appId": "in.nishkal",
-    "productName": "Quark",
-    "directories": {
-      "output": "dist"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "linux": {
-      "target": "AppImage"
-    },
-    "appImage": {
-      "systemIntegration": "ask",
-      "license": "LICENSE"
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true,
-      "license": "LICENSE",
-      "runAfterFinish": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
-    }
+    "build-linux": "electron-builder --x64 --linux",
+    "build-mac": "electron-builder --x64 --mac",
+    "build-win": "npm run pack-win && npm run dist-win"
   },
   "dependencies": {
     "@capacitor/electron": "^1.0.0-beta.0",
@@ -68,5 +38,5 @@
     "Electron"
   ],
   "author": "Nishkal Kashyap",
-  "license": "Apache 2.0"
+  "license": "ISC"
 }
