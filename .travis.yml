@@ -53,6 +53,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run build-mac; fi
   - tar -cvf build_$TRAVIS_OS_NAME.tar build
+  - ls -lah
 
 #Deploy Configuration
 deploy:
