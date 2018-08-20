@@ -4,8 +4,9 @@
   "description": "A new way to control electronics",
   "main": "index.js",
   "scripts": {
+    "start": "electron .",
     "test": "mocha",
-    "postinstall": "electron-builder install-app-deps",
+    "install": "electron-rebuild",
     "pack-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds ",
     "dist-win": "electron-builder --x64 --win --prepackaged release-builds/Quark-win32-x64",
     "build-linux": "electron-builder --x64 --linux",
@@ -18,10 +19,12 @@
     "electron-updater": "^3.0.3",
     "express": "^4.16.3",
     "ip": "^1.1.5",
-    "johnny-five": "^0.15.0",
+    "node-pty": "^0.7.6",
+    "node-pty-prebuilt": "^0.7.6",
     "performance-now": "^2.1.0",
     "socket.io": "^2.1.1",
-    "usb": "^1.3.2"
+    "usb": "^1.3.2",
+    "xterm": "^3.6.0"
   },
   "devDependencies": {
     "@types/firmata": "^0.19.0",
@@ -30,7 +33,9 @@
     "electron": "^2.0.3",
     "electron-builder": "^20.26.1",
     "electron-packager": "^12.1.0",
+    "johnny-five": "^0.15.0",
     "mocha": "^5.2.0",
+    "serialport": "^6.2.2",
     "spectron": "^3.8.0"
   },
   "keywords": [

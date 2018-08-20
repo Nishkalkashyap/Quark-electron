@@ -1,172 +1,399 @@
-webpackJsonp([5],{
+webpackJsonp([4],{
 
-/***/ 120:
-/***/ (function(module, exports) {
-
-module.exports = require('electron');
-
-/***/ }),
-
-/***/ 143:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ElectronServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utilities_electron_resources__ = __webpack_require__(380);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ElectronServiceProvider = /** @class */ (function () {
-    function ElectronServiceProvider(platform) {
-        this.platform = platform;
-        this.platform.is('electron') ? this.injectElectron() : console.log('Cannot Inject Electron');
-        console.log('Auto updater');
+/* harmony export (immutable) */ __webpack_exports__["c"] = addGlobalVariablesFromDump;
+/* harmony export (immutable) */ __webpack_exports__["a"] = addCSSFromDump;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return logger; });
+/* harmony export (immutable) */ __webpack_exports__["b"] = addClassFromDump;
+function addGlobalVariablesFromDump(_this) {
+    var defaults = JSON.parse(_this.global_config.defaultSettings.getValue());
+    for (var _i = 0, _a = Object.keys(defaults.styles.theme); _i < _a.length; _i++) {
+        var color = _a[_i];
+        for (var _b = 0, _c = Object.keys(defaults.styles.theme[color]); _b < _c.length; _b++) {
+            var type = _c[_b];
+            _this.document.documentElement.style.setProperty("--" + color + "-color-" + type, defaults.styles.theme[color][type]);
+            // console.log(`--${color}-color-${type}`, defaults.styles.theme[color][type]);
+        }
     }
-    ElectronServiceProvider.prototype.injectElectron = function () {
-        console.log('Injecting Electron');
-        var _a = __webpack_require__(120).remote, Menu = _a.Menu, MenuItem = _a.MenuItem, app = _a.app, dialog = _a.dialog, BrowserWindow = _a.BrowserWindow, getCurrentWebContents = _a.getCurrentWebContents;
-        this.MenuItem = MenuItem;
-        this.Menu = Menu;
-        this.app = app;
-        this.dialog = dialog;
-        this.BrowserWindow = BrowserWindow;
-        this.currentWebContents = getCurrentWebContents();
-        // console.log(location.hostname, location.origin, location.href, location.host);
-    };
-    ElectronServiceProvider.prototype.editorContextMenu = function () {
-        if (this.platform.is('electron')) {
-            var menu = this.Menu.buildFromTemplate(__WEBPACK_IMPORTED_MODULE_2__utilities_electron_resources__["a" /* contextMenu */]);
-            var win = this.BrowserWindow.fromWebContents(this.currentWebContents);
-            menu.popup({
-                window: win, callback: function () {
-                    console.log('Closing');
-                }
+}
+function addCSSFromDump(data) {
+    try {
+        var prevStyle = document.getElementById("style-" + data.config.id);
+        prevStyle.parentNode.removeChild(prevStyle);
+    }
+    catch (err) {
+        null;
+    }
+    var edit = String().concat("}", data.code.css.getValue());
+    edit = edit.replace(/}/g, "}." + data.config.css_class + " ");
+    edit = edit.slice(1, edit.length - data.config.css_class.length - 2);
+    var style = document.createElement('style');
+    style.setAttribute('id', "style-" + data.config.id);
+    style.innerHTML = edit;
+    document.body.appendChild(style);
+}
+var logger = {
+    data: [],
+    log: function (message, indent, fullColor) {
+        logger.data.push({ message: message, indent: indent, type: 'log', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
+    },
+    warn: function (message, indent, fullColor) {
+        logger.data.push({ message: message, indent: indent, type: 'warn', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
+    },
+    error: function (message, indent, fullColor) {
+        logger.data.push({ message: message, indent: indent, type: 'error', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
+    },
+    right: function (message, indent, fullColor) {
+        logger.data.push({ message: message, indent: indent, type: 'right', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
+    },
+    indent: function (message, indent, fullColor) {
+        logger.data.push({ message: message, indent: indent, type: 'indent', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
+    }
+};
+function addClassFromDump(component, globalConfigJS) {
+    // let json: globalConfigInterface["js"] = JSON.parse(globalConfigJS.getValue());
+    // switch (component.class) {
+    //     case 'Accelerometer':
+    //         json.components.push(five_Accelerometer);
+    //         break;
+    //     case 'Altimeter':
+    //         json.components.push(five_Altimeter);
+    //         break;
+    //     case 'Animation':
+    //         json.components.push(five_Animation);
+    //         break;
+    //     case 'Barometer':
+    //         json.components.push(five_Barometer);
+    //         break;
+    //     case 'Board':
+    //         json.components.push(five_Board);
+    //         break;
+    //     case 'Boards':
+    //         json.components.push(five_Boards);
+    //         break;
+    //     case 'Button':
+    //         json.components.push(five_Button);
+    //         break;
+    //     case 'Compass':
+    //         json.components.push(five_Compass);
+    //         break;
+    //     case 'ESC':
+    //         json.components.push(five_ESC);
+    //         break;
+    //     case 'ESCs':
+    //         json.components.push(five_ESCs);
+    //         break;
+    //     case 'Expander':
+    //         json.components.push(five_Expander);
+    //         break;
+    //     case 'Fn':
+    //         json.components.push(five_Fn);
+    //         break;
+    //     case 'GPS':
+    //         json.components.push(five_GPS);
+    //         break;
+    //     case 'Gyro':
+    //         json.components.push(five_Gyro);
+    //         break;
+    //     case 'Hygrometer':
+    //         json.components.push(five_Hygrometer);
+    //         break;
+    //     case 'IMU':
+    //         json.components.push(five_IMU);
+    //         break;
+    //     case 'IR.Reflect.Array':
+    //         json.components.push(five_IR_Reflect_Array);
+    //         break;
+    //     case 'Joystick':
+    //         json.components.push(five_Joystick);
+    //         break;
+    //     case 'Keypad':
+    //         json.components.push(five_Keypad);
+    //         break;
+    //     case 'LCD':
+    //         json.components.push(five_LCD);
+    //         break;
+    //     case 'Led':
+    //         json.components.push(five_Led);
+    //         break;
+    //     case 'Led.Digits':
+    //         json.components.push(five_LedDotDigits);
+    //         break;
+    //     case 'Led.Matrix':
+    //         json.components.push(five_LedDotMatrix);
+    //         break;
+    //     case 'Led.RGB':
+    //         json.components.push(five_LedDotRGB);
+    //         break;
+    //     case 'Leds':
+    //         json.components.push(five_Leds);
+    //         break;
+    //     case 'Light':
+    //         json.components.push(five_Light);
+    //         break;
+    //     case 'Motion':
+    //         json.components.push(five_Motion);
+    //         break;
+    //     case 'Motor':
+    //         json.components.push(five_Motor);
+    //         break;
+    //     case 'Motors':
+    //         json.components.push(five_Motors);
+    //         break;
+    //     case 'Multi':
+    //         json.components.push(five_Multi);
+    //         break;
+    //     case 'Piezo':
+    //         json.components.push(five_Piezo);
+    //         break;
+    //     case 'Pin':
+    //         json.components.push(five_Pin);
+    //         break;
+    //     case 'Proximity':
+    //         json.components.push(five_Proximity);
+    //         break;
+    //     case 'Relay':
+    //         json.components.push(five_Relay);
+    //         break;
+    //     case 'Relays':
+    //         json.components.push(five_Relays);
+    //         break;
+    //     case 'Sensor':
+    //         json.components.push(five_Sensor);
+    //         break;
+    //     case 'Servo':
+    //         json.components.push(five_Servo);
+    //         break;
+    //     case 'Servos':
+    //         json.components.push(five_Servos);
+    //         break;
+    //     case 'ShiftRegister':
+    //         json.components.push(five_ShiftRegister);
+    //         break;
+    //     case 'Stepper':
+    //         json.components.push(five_Stepper);
+    //         break;
+    //     case 'Switch':
+    //         json.components.push(five_Switch);
+    //         break;
+    //     case 'Thermometer':
+    //         json.components.push(five_Thermometer);
+    //         break;
+    //     default:
+    //         break;
+    // }
+    // globalConfigJS.setValue(js_beautify(JSON.stringify(json), { indent_size: 2 }));
+}
+//# sourceMappingURL=global-service-dump.js.map
+
+/***/ }),
+
+/***/ 162:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["d"] = showSaveDialogFromDump;
+/* harmony export (immutable) */ __webpack_exports__["b"] = saveFileFromDump;
+/* harmony export (immutable) */ __webpack_exports__["c"] = showOpenDialogFromDump;
+/* harmony export (immutable) */ __webpack_exports__["a"] = openFileFromDump;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_service_global_service_dump__ = __webpack_require__(152);
+
+function showSaveDialogFromDump(_this) {
+    var timestamp = new Date(Date.now());
+    var string = "Quark-" + timestamp.getDate() + "-" + timestamp.getMonth() + "-" + timestamp.getFullYear();
+    _this.dialog.showSaveDialog(_this.BrowserWindow.fromWebContents(_this.currentWebContents), {
+        title: 'Save Dashboard',
+        defaultPath: string + ".qrk",
+        filters: [{
+                extensions: ['qrk'],
+                name: 'Quark'
+            }]
+    }, function (filePath) {
+        saveFileFromDump(_this, filePath);
+    });
+}
+function saveFileFromDump(_this, filePath, fileName, fileData) {
+    var self = _this;
+    makeDirectory();
+    function makeDirectory() {
+        if (filePath) {
+            __WEBPACK_IMPORTED_MODULE_0__global_service_global_service_dump__["d" /* logger */].right("Saving file at : " + filePath, 40);
+            var parse = self.Path.parse(filePath);
+            var exists = self.fs.existsSync(parse.dir + "\\" + parse.name);
+            console.log('Exists', exists);
+            if (exists) {
+                makeFile();
+            }
+            else {
+                self.fs.mkdir(parse.dir + "\\" + parse.name, function (err) {
+                    makeDirectoryErrorHandle(err);
+                });
+            }
+        }
+        else {
+            __WEBPACK_IMPORTED_MODULE_0__global_service_global_service_dump__["d" /* logger */].warn('Operation canceled by user', 40);
+        }
+    }
+    function makeDirectoryErrorHandle(err) {
+        if (err) {
+            self.showAlert('error', "" + err.name, "" + err.message, ['Close']);
+            return;
+        }
+        else {
+            makeFile();
+        }
+    }
+    function makeFile() {
+        var parse = self.Path.parse(filePath);
+        if (fileName) {
+            self.fs.writeFile(parse.dir + "\\" + parse.name + "\\" + fileName, fileData, function (err) {
+                filwWriteErrorHandle(err, parse);
             });
         }
         else {
-            console.log('Sorry not electron');
+            self.fs.writeFile(parse.dir + "\\" + parse.name + "\\" + parse.name + ".qrk", JSON.stringify(self.gsp.getQuarkFile()), function (err) {
+                filwWriteErrorHandle(err, parse);
+            });
         }
-    };
-    ElectronServiceProvider.prototype.minimize = function () {
-        this.platform.is('electron') ?
-            this.BrowserWindow.getFocusedWindow().minimize() : null;
-    };
-    ElectronServiceProvider.prototype.maximise = function () {
-        if (this.platform.is('electron')) {
-            if (this.BrowserWindow.getFocusedWindow().isMaximized()) {
-                this.BrowserWindow.getFocusedWindow().unmaximize();
+    }
+    function filwWriteErrorHandle(err, parse) {
+        if (err) {
+            self.showAlert('error', "Error : " + err.name, "" + err.message, ['Close']);
+            return;
+        }
+        else {
+            if (!fileName) {
+                self.gsp.electronConfig.parsedPath = self.Path.parse(parse.dir + "\\" + parse.name + "\\" + parse.name + ".qrk");
+                _this.events.publish('electron-service-dump : menu-bar && console : run-zone');
+                setRecentDocumentsStorageFromDump(self, parse.dir + "\\" + parse.name + "\\" + parse.name + ".qrk");
+                __WEBPACK_IMPORTED_MODULE_0__global_service_global_service_dump__["d" /* logger */].right("File saved at : " + self.gsp.electronConfig.parsedPath.dir, 40);
             }
             else {
-                this.BrowserWindow.getFocusedWindow().maximize();
+                if (fileName == 'package.json') {
+                    self.runNpmInstall();
+                }
             }
         }
-    };
-    ElectronServiceProvider.prototype.closeWindow = function () {
-        this.platform.is('electron') ?
-            this.app.quit() : null;
-    };
-    ElectronServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
-    ], ElectronServiceProvider);
-    return ElectronServiceProvider;
-}());
-
-//# sourceMappingURL=electron-service.js.map
-
-/***/ }),
-
-/***/ 144:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocketServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_service_global_service__ = __webpack_require__(51);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var SocketServiceProvider = /** @class */ (function () {
-    function SocketServiceProvider(events, gsp) {
-        this.events = events;
-        this.gsp = gsp;
-        this.appEvents();
     }
-    SocketServiceProvider.prototype.connectToSocketServer = function (url) {
-        console.log('Connecting');
-        // this.socket = socketIo(`${url}:4300`);
-        // this.socket.connect();
-        // this.eventListeners();
-    };
-    SocketServiceProvider.prototype.eventListeners = function () {
-        var _this = this;
-        this.socket.on('connected', function () {
-            console.log("Connected at " + _this.socket.id);
-            _this.events.publish('socket-service : connect-mobile : connected');
-        });
-        this.socket.on('com-port-list', function (list) {
-            _this.gsp.comPortList = list;
-            console.log(list);
-        });
-        this.socket.on('com-port-error', function (err) {
-            console.log(err);
-        });
-        this.socket.on('update-renderer', function (closure) {
-            console.log(closure);
-            _this.events.publish('socket-service : misc-components : update-renderer', closure);
-        });
-    };
-    SocketServiceProvider.prototype.appEvents = function () {
-        var _this = this;
-        this.events.subscribe('page-designer : socket-service : initialize', function () {
-            var code = _this.gsp.designerComponents.map(function (val) {
-                var data = val.data;
-                return { functionName: data.config.function, code: data.code.js.getValue() };
+}
+function showOpenDialogFromDump(_this) {
+    _this.dialog.showOpenDialog(_this.BrowserWindow.fromWebContents(_this.currentWebContents), {
+        filters: [{
+                extensions: ['qrk'],
+                name: 'Quark'
+            }],
+        properties: ['openFile']
+    }, function (filePath) {
+        if (filePath) {
+            openFileFromDump(filePath[0], _this);
+        }
+    });
+}
+function openFileFromDump(filePath, _this, isOpeningNewWindow) {
+    var self = _this;
+    readFile(filePath);
+    function readFile(filePath) {
+        if (filePath) {
+            self.fs.readFile(filePath, 'utf8', function (err, data) {
+                callbackHandle(err, data);
             });
-            console.log(code);
-            _this.socket.emit('initialize', _this.gsp.global_config.js.getValue(), code);
+        }
+    }
+    function callbackHandle(err, data) {
+        if (err) {
+            deleteRecentDocumentsStorageFromDump(self, filePath);
+            if (isOpeningNewWindow) {
+                self.showAlert('error', err.name, err.message, ['Close'])
+                    .then(function () {
+                    self.BrowserWindow.fromWebContents(self.currentWebContents).close();
+                })
+                    .catch(function () {
+                    self.BrowserWindow.fromWebContents(self.currentWebContents).close();
+                });
+            }
+            else {
+                self.showAlert('error', err.name, err.message, ['Close']);
+            }
+        }
+        else {
+            self.gsp.parseQuarkFile(data)
+                .then(function () {
+                self.BrowserWindow.fromWebContents(_this.currentWebContents).show();
+                _this.currentWebContents.openDevTools();
+                _this.app.setBadgeCount(_this.BrowserWindow.getAllWindows().length);
+                var parse = _this.Path.parse(filePath);
+                self.gsp.electronConfig.parsedPath = self.Path.parse(parse.dir + "\\" + parse.name + ".qrk");
+                setRecentDocumentsStorageFromDump(self, parse.dir + "\\" + parse.name + ".qrk");
+                _this.events.publish('electron-service-dump : menu-bar && console : run-zone');
+            })
+                .catch(function () {
+                if (isOpeningNewWindow) {
+                    self.showAlert('error', err.name, err.message, ['Close'])
+                        .then(function () {
+                        self.BrowserWindow.fromWebContents(self.currentWebContents).close();
+                    })
+                        .catch(function () {
+                        self.BrowserWindow.fromWebContents(self.currentWebContents).close();
+                    });
+                }
+                else {
+                    __WEBPACK_IMPORTED_MODULE_0__global_service_global_service_dump__["d" /* logger */].error('Failed parsing file. The file may be corrupt!', null, true);
+                    self.showAlert('error', 'Operation Failed', 'Failed to parse file', ['Close']);
+                }
+            });
+        }
+    }
+}
+function setRecentDocumentsStorageFromDump(_this, filePath) {
+    var recentDocuments = window.localStorage.getItem('recentDocuments');
+    if (recentDocuments) {
+        var parse = JSON.parse(recentDocuments);
+        var filter = parse.filter(function (val) {
+            if (val == filePath) {
+                return val;
+            }
         });
-        this.events.subscribe('page-designer : socket-service : connect-to-board', function () {
-            _this.socket.emit('connect-to-board');
+        if (filter.length == 0) {
+            parse.push(filePath);
+            window.localStorage.setItem('recentDocuments', JSON.stringify(parse));
+        }
+        _this.openRecentDocumentsArray = [];
+        _this.openRecentDocumentsArray = parse.map(function (val) {
+            var parse = _this.Path.parse(val);
+            return { name: parse.name, path: val };
         });
-        this.events.subscribe('misc-components : socket-service : firmata', function (functionName, args) {
-            _this.gsp.currentTab.mode == 'CSS' ? null :
-                _this.socket.emit('firmata', functionName, args);
-        });
-    };
-    SocketServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_2__global_service_global_service__["a" /* GlobalServiceProvider */]])
-    ], SocketServiceProvider);
-    return SocketServiceProvider;
-}());
-
-//# sourceMappingURL=socket-service.js.map
+        console.log('Recent docs exist', parse);
+    }
+    else {
+        window.localStorage.setItem('recentDocuments', JSON.stringify([filePath]));
+        console.log('Recent docs do not exist', [filePath]);
+    }
+}
+function deleteRecentDocumentsStorageFromDump(_this, filePath) {
+    var filterIndex = null;
+    var docs = JSON.parse(window.localStorage.getItem('recentDocuments'));
+    docs.filter(function (val, index) {
+        if (val == filePath) {
+            filterIndex = index;
+        }
+    });
+    docs.splice(filterIndex, 1);
+    window.localStorage.setItem('recentDocuments', JSON.stringify(docs));
+    _this.openRecentDocumentsArray = [];
+    _this.openRecentDocumentsArray = docs.map(function (val) {
+        var parse = _this.Path.parse(val);
+        return { name: parse.name, path: val };
+    });
+    console.log(_this.openRecentDocumentsArray);
+}
+//# sourceMappingURL=electron-service-assets-save&&open.js.map
 
 /***/ }),
 
-/***/ 154:
+/***/ 203:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -179,32 +406,28 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 154;
+webpackEmptyAsyncContext.id = 203;
 
 /***/ }),
 
-/***/ 198:
+/***/ 245:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/code-mirror/code-mirror.module": [
-		422,
-		4
-	],
 	"../pages/connect-mobile/connect-mobile.module": [
-		423,
+		805,
 		3
 	],
 	"../pages/designer/designer.module": [
-		424,
+		808,
 		0
 	],
 	"../pages/landing/landing.module": [
-		425,
+		806,
 		2
 	],
 	"../pages/menu/menu.module": [
-		426,
+		807,
 		1
 	]
 };
@@ -219,118 +442,24 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 198;
+webpackAsyncContext.id = 245;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 262:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__hover_hover__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__codebar_codebar__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__status_bar_status_bar__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabs_bar_tabs_bar__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__activity_bar_activity_bar__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__widgets_widgets__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__css_inspector_css_inspector__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__console_console__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__menu_bar_menu_bar__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_material__ = __webpack_require__(85);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var ComponentsModule = /** @class */ (function () {
-    function ComponentsModule() {
-    }
-    ComponentsModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */],
-                __WEBPACK_IMPORTED_MODULE_3__hover_hover__["a" /* HoverComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__codebar_codebar__["a" /* CodebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__status_bar_status_bar__["a" /* StatusBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__tabs_bar_tabs_bar__["a" /* TabsBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__activity_bar_activity_bar__["a" /* ActivityBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__widgets_widgets__["a" /* WidgetsComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__["a" /* MtrButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__["a" /* MtrRangeComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__["a" /* CodeEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__css_inspector_css_inspector__["a" /* CssInspectorComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__console_console__["a" /* ConsoleComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__menu_bar_menu_bar__["a" /* MenuBarComponent */],
-            ],
-            imports: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_material__["f" /* MatTooltipModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_material__["b" /* MatMenuModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_material__["e" /* MatTabsModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_material__["d" /* MatSnackBarModule */]
-            ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */],
-                __WEBPACK_IMPORTED_MODULE_3__hover_hover__["a" /* HoverComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__codebar_codebar__["a" /* CodebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__status_bar_status_bar__["a" /* StatusBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__tabs_bar_tabs_bar__["a" /* TabsBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__activity_bar_activity_bar__["a" /* ActivityBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__widgets_widgets__["a" /* WidgetsComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__["a" /* MtrButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__["a" /* MtrRangeComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__["a" /* CodeEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__css_inspector_css_inspector__["a" /* CssInspectorComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__console_console__["a" /* ConsoleComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__menu_bar_menu_bar__["a" /* MenuBarComponent */],
-            ],
-            entryComponents: [__WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */], __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__["a" /* MtrButtonComponent */], __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__["a" /* MtrRangeComponent */], __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__["a" /* CodeEditorComponent */]]
-        })
-    ], ComponentsModule);
-    return ComponentsModule;
-}());
-
-//# sourceMappingURL=components.module.js.map
-
-/***/ }),
-
-/***/ 263:
+/***/ 246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MtrToggleComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utilities_code_samples__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utilities_code_samples__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_codemirror__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_js_beautify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -386,7 +515,7 @@ var MtrToggleComponent = /** @class */ (function () {
     };
     MtrToggleComponent.prototype.onInitialize = function () {
         var _this = this;
-        var config = JSON.parse(this.gsp.global_config.js.getValue());
+        var config = JSON.parse(this.gsp.global_config.json.getValue());
         var my_rendered_view = config.rendered_views.filter(function (val) {
             return val.id == _this.data.config.id;
         });
@@ -401,7 +530,7 @@ var MtrToggleComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'mtr-toggle',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\mtr-toggle\mtr-toggle.html"*/'<div [id]="id" [class]="data.config.css_class">\n\n  <div class="hover toggle-container">\n\n    <hover [component]="component" (clickEvent)="openTab($event)"></hover>\n\n    <ion-toggle (ionChange)="change($event)"></ion-toggle>\n\n    <!-- <p [innerHTML]="data.config.object"></p> -->\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\mtr-toggle\mtr-toggle.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__["a" /* GlobalServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__["a" /* GlobalServiceProvider */]])
     ], MtrToggleComponent);
     return MtrToggleComponent;
 }());
@@ -410,19 +539,435 @@ var MtrToggleComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 25:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_codemirror__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_js_beautify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__global_service_dump__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(38);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+var GlobalServiceProvider = /** @class */ (function () {
+    function GlobalServiceProvider(events, document) {
+        this.events = events;
+        this.document = document;
+        this.global_config = {
+            json: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.stringify(__WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__["f" /* firmata_config */].js), { indent_size: 2 }), 'application/ld+json'),
+            css: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["css_beautify"])(__WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__["f" /* firmata_config */].css, { indent_size: 2 }), 'css'),
+            code: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(__WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__["f" /* firmata_config */].code, { indent_size: 2 }), 'javascript'),
+            defaultSettings: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.stringify(__WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__["g" /* globalSettings */]), { indent_size: 2 }), 'application/ld+json'),
+            projectSettings: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])('{  }'), 'application/ld+json'),
+            userSettings: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])('{  }'), 'application/ld+json'),
+        };
+        this.tabsArray = [];
+        this.currentTab = {
+            other: "globalConfigJSON",
+            mode: "JSON"
+        };
+        this.designerComponents = [];
+        this.comPortList = [];
+        this.consoleData = {
+            top: -200,
+            data: __WEBPACK_IMPORTED_MODULE_5__global_service_dump__["d" /* logger */].data
+        };
+        this.electronConfig = {
+            parsedPath: null,
+            quarkFile: this.getQuarkFile()
+        };
+        this.showLoading = false;
+        this.appEvents();
+        Object(__WEBPACK_IMPORTED_MODULE_5__global_service_dump__["c" /* addGlobalVariablesFromDump */])(this);
+        __WEBPACK_IMPORTED_MODULE_5__global_service_dump__["d" /* logger */].log('Initializing Global Service');
+    }
+    GlobalServiceProvider.prototype.appEvents = function () {
+        var _this = this;
+        this.events.subscribe('misc-components : global-service : add-component', function (component) {
+            var flag = _this.designerComponents.filter(function (val) { return val.data.config.id == component.data.config.id; });
+            if (flag.length == 0) {
+                _this.designerComponents.push(component);
+                var data = component.data;
+                var json = JSON.parse(_this.global_config.json.getValue());
+                json.rendered_views.push({ component: data.config.component, id: data.config.id, variable: data.config.variable });
+                _this.global_config.json.setValue(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.stringify(json), { indent_size: 2 }));
+            }
+        });
+        this.events.subscribe('misc-components : global-service : add-tab', function (tab) {
+            var data = tab.component.data;
+            var newArray = _this.tabsArray.find(function (val) {
+                if (val.component != undefined) {
+                    return val.component.data.config.id == data.config.id && val.mode == tab.mode;
+                }
+            });
+            if (newArray == undefined) {
+                _this.tabsArray.push(tab);
+                console.log(_this.tabsArray);
+            }
+        });
+        this.events.subscribe('activity-bar : global-service : add-tab', function (tab) {
+            var newArray = _this.tabsArray.find(function (val) {
+                if (val.other != undefined) {
+                    return val.other == tab.other && val.mode == tab.mode;
+                }
+            });
+            if (newArray == undefined) {
+                switch (tab.other) {
+                    case "globalConfigJSON":
+                        _this.tabsArray.push({ mode: "JSON", other: "globalConfigJSON" });
+                        break;
+                    case "globalConfigCSS":
+                        _this.tabsArray.push({ mode: "CSS", other: "globalConfigCSS" });
+                        break;
+                    case "globalConfigSetup":
+                        _this.tabsArray.push({ mode: "Javascript", other: "globalConfigSetup" });
+                        break;
+                    case "globalConfigDefaultSettings":
+                        _this.tabsArray.push({ mode: "JSON", other: "globalConfigDefaultSettings" });
+                        break;
+                    default:
+                        console.log("No tab");
+                        break;
+                }
+            }
+        });
+        this.events.subscribe('page-menu : global-service : add-class', function (component) {
+            Object(__WEBPACK_IMPORTED_MODULE_5__global_service_dump__["b" /* addClassFromDump */])(component, _this.global_config.json);
+        });
+        this.events.subscribe('page-designer : global-service : update-settings', function () {
+            console.log(_this.global_config.projectSettings.getValue());
+        });
+    };
+    GlobalServiceProvider.prototype.getQuarkFile = function () {
+        var file = {
+            globalConfig: {
+                js: this.global_config.json.getValue(),
+                css: this.global_config.css.getValue(),
+                code: this.global_config.code.getValue(),
+                styles: this.global_config.defaultSettings.getValue()
+            },
+            designerComponents: this.designerComponents.map(function (val) {
+                var data = val.data;
+                var dataSub = {};
+                dataSub.config = Object.assign({}, data.config);
+                dataSub.localData = Object.assign({}, data.localData);
+                dataSub.code = {};
+                dataSub.code.js = data.code.js.getValue();
+                dataSub.code.css = data.code.css.getValue();
+                return JSON.stringify(dataSub);
+            })
+        };
+        return file;
+    };
+    GlobalServiceProvider.prototype.parseQuarkFile = function (file) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var newDesignerComponents = [];
+            try {
+                var parse = JSON.parse(file);
+                _this.global_config.json = new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(parse.globalConfig.js, { indent_size: 2 }), 'application/ld+json');
+                _this.global_config.css = new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["css_beautify"])(parse.globalConfig.css, { indent_size: 2 }), 'css');
+                _this.global_config.code = new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(parse.globalConfig.code, { indent_size: 2 }), 'javascript');
+                _this.global_config.defaultSettings = new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(parse.global_config.styles, { indent_size: 2 }), 'application/ld+json');
+                if (parse.designerComponents.length > 0) {
+                    parse.designerComponents.forEach(function (data, index) {
+                        newDesignerComponents[index] = {};
+                        newDesignerComponents[index].data = {};
+                        newDesignerComponents[index].data = JSON.parse(data);
+                        newDesignerComponents[index].data.code = {};
+                        newDesignerComponents[index].data.code.js = new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.parse(data).code.js, { indent_size: 2 }), 'javascript');
+                        newDesignerComponents[index].data.code.css = new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["css_beautify"])(JSON.parse(data).code.css, { indent_size: 2 }), 'css');
+                    });
+                }
+                _this.designerComponents = [];
+                _this.designerComponents = newDesignerComponents;
+                _this.events.publish('global-service : page-designer && page-code-mirror : recreate-designer-components');
+                resolve();
+            }
+            catch (err) {
+                reject(err);
+            }
+        });
+    };
+    GlobalServiceProvider.prototype.addCSS = function (data) {
+        Object(__WEBPACK_IMPORTED_MODULE_5__global_service_dump__["a" /* addCSSFromDump */])(data);
+    };
+    GlobalServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__["b" /* DOCUMENT */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */], Document])
+    ], GlobalServiceProvider);
+    return GlobalServiceProvider;
+}());
+
+//# sourceMappingURL=global-service.js.map
+
+/***/ }),
+
+/***/ 263:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = createNewFileFromDump;
+/* harmony export (immutable) */ __webpack_exports__["c"] = newWindowHandleFromDump;
+/* harmony export (immutable) */ __webpack_exports__["e"] = showSnackBarFromDump;
+/* harmony export (immutable) */ __webpack_exports__["b"] = createNewWindowFromDump;
+/* harmony export (immutable) */ __webpack_exports__["d"] = showAlertFromDump;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_my_dashboards_my_dashboards__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_new_file_dialog_new_file_dialog__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__electron_service_assets_save_open__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utilities_code_samples__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_js_beautify__);
+
+
+
+
+
+function createNewFileFromDump(_this) {
+    var timestamp = new Date(Date.now());
+    var string = "Quark-" + timestamp.getDate() + "-" + timestamp.getMonth() + "-" + timestamp.getFullYear();
+    _this.dialog.showSaveDialog(_this.BrowserWindow.fromWebContents(_this.currentWebContents), {
+        title: 'Save Dashboard',
+        defaultPath: string + ".qrk",
+        filters: [{
+                extensions: ['qrk'],
+                name: 'Quark'
+            }]
+    }, function (filePath) {
+        Object(__WEBPACK_IMPORTED_MODULE_2__electron_service_assets_save_open__["b" /* saveFileFromDump */])(_this, filePath);
+        Object(__WEBPACK_IMPORTED_MODULE_2__electron_service_assets_save_open__["b" /* saveFileFromDump */])(_this, filePath, 'package.json', Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.stringify(__WEBPACK_IMPORTED_MODULE_3__utilities_code_samples__["h" /* packageJSON */])));
+    });
+}
+function newWindowHandleFromDump(_this) {
+    if ("" + _this.mainProcess.env.PATH_TO_OPEN_IN_NEW_WINDOW.length == '0') {
+        _this.BrowserWindow.fromWebContents(_this.currentWebContents).show();
+        _this.currentWebContents.openDevTools();
+    }
+    else {
+        var path = _this.mainProcess.env.PATH_TO_OPEN_IN_NEW_WINDOW;
+        _this.mainProcess.env.PATH_TO_OPEN_IN_NEW_WINDOW = "";
+        Object(__WEBPACK_IMPORTED_MODULE_2__electron_service_assets_save_open__["a" /* openFileFromDump */])(path, _this, true);
+        console.log("Total Browser Windows", _this.BrowserWindow.length);
+    }
+}
+;
+function showSnackBarFromDump(_this, component) {
+    var config = {
+        horizontalPosition: 'right',
+        panelClass: "mtr-" + component + "-component-snack-bar",
+        announcementMessage: "Hello"
+    };
+    if (component == 'my-dashboards') {
+        _this.snackBarRef = _this.snackBar.openFromComponent(__WEBPACK_IMPORTED_MODULE_0__components_my_dashboards_my_dashboards__["a" /* MyDashboardsComponent */], config);
+    }
+    else {
+        _this.snackBarRef = _this.snackBar.openFromComponent(__WEBPACK_IMPORTED_MODULE_1__components_new_file_dialog_new_file_dialog__["a" /* NewFileDialogComponent */], config);
+    }
+}
+function createNewWindowFromDump(_this, filePath) {
+    _this.mainProcess.env.PATH_TO_OPEN_IN_NEW_WINDOW = "" + filePath;
+    var newWindow = new _this.BrowserWindow({
+        height: 600,
+        width: 800,
+        show: false,
+        frame: false
+    });
+    newWindow.loadURL("http://localhost:8100");
+}
+function showAlertFromDump(_this, type, title, message, buttons, resolve) {
+    _this.dialog.showMessageBox(_this.BrowserWindow.fromWebContents(_this.currentWebContents), {
+        type: type,
+        title: title,
+        message: message,
+        buttons: buttons
+    }, function (response) {
+        resolve(response);
+    });
+}
+//# sourceMappingURL=electron-service-dump.js.map
+
+/***/ }),
+
 /***/ 264:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyDashboardsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_authentication_service_authentication_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var MyDashboardsComponent = /** @class */ (function () {
+    function MyDashboardsComponent(asp, changeDetector, events) {
+        var _this = this;
+        this.asp = asp;
+        this.changeDetector = changeDetector;
+        this.events = events;
+        this.dashboardsList = [];
+        this.showLoading = true;
+        this.dashboardsList = this.asp.userDashboards.getValue();
+        this.asp.userDashboards.subscribe(function (dashboards) {
+            _this.dashboardsList = dashboards;
+            if (_this.dashboardsList != null) {
+                _this.showLoading = false;
+            }
+            console.log(_this.showLoading);
+            _this.changeDetector.markForCheck();
+        });
+        if (this.dashboardsList == null) {
+            this.asp.getDashboards();
+        }
+        else {
+            this.showLoading = false;
+        }
+    }
+    MyDashboardsComponent.prototype.closeSnackBar = function () {
+        this.events.publish('component-new-file-dialog && component-my-dashboards : electron-service : close-snackbar');
+    };
+    MyDashboardsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'my-dashboards',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\my-dashboards\my-dashboards.html"*/'<div class="page-template page-template-elementor_canvas page page-id-315 woocommerce-js elementor-default elementor-template-canvas elementor-page elementor-page-315"\n\n  data-elementor-device-mode="mobile">\n\n  <div class="elementor elementor-315">\n\n    <div class="elementor-inner">\n\n      <div class="elementor-section-wrap">\n\n        <section data-id="738514d" class="elementor-element elementor-element-738514d elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-middle elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-narrow">\n\n            <div class="elementor-row">\n\n              <div data-id="95b4c92" class="elementor-element elementor-element-95b4c92 mtr-my-dashboards-heading elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="9a37315" class="elementor-element elementor-element-9a37315 elementor-headline--style-rotate elementor-widget elementor-widget-animated-headline"\n\n                      data-settings="{&quot;headline_style&quot;:&quot;rotate&quot;,&quot;animation_type&quot;:&quot;flip&quot;,&quot;rotating_text&quot;:&quot;Dashboards&quot;}"\n\n                      data-element_type="animated-headline.default">\n\n                      <div class="elementor-widget-container">\n\n                        <h1 class="elementor-headline elementor-headline-animation-type-flip">\n\n                          <span class="elementor-headline-plain-text elementor-headline-text-wrapper">Your</span>\n\n                          <span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper" style="width: 102px;">\n\n                            <span class="elementor-headline-dynamic-text elementor-headline-text-active">Dashboards</span>\n\n                          </span>\n\n                        </h1>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div data-id="4044663" class="elementor-element elementor-element-4044663 mtr-my-dashboards-button elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="2e06d36" class="elementor-element elementor-element-2e06d36 elementor-align-right elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div tappable (click)="closeSnackBar()" class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-text">Dismiss</span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n        <ng-template [ngIf]="!showLoading">\n\n          <section *ngIf="!showLoading" data-id="1552e98" class="content-section elementor-element elementor-element-1552e98 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-middle elementor-section elementor-top-section"\n\n            data-element_type="section" style="width: 100%; left: 0px;">\n\n            <div *ngFor="let dashboard of dashboardsList" class="elementor-container elementor-column-gap-narrow">\n\n              <div class="elementor-row">\n\n                <div data-id="8abb3ca" class="elementor-element elementor-element-8abb3ca elementor-column elementor-col-50 elementor-top-column"\n\n                  data-element_type="column">\n\n                  <div class="elementor-column-wrap elementor-element-populated">\n\n                    <div class="elementor-widget-wrap">\n\n                      <div data-id="a61feb7" class="elementor-element elementor-element-a61feb7 elementor-widget elementor-widget-text-editor"\n\n                        data-element_type="text-editor.default">\n\n                        <div class="elementor-widget-container">\n\n                          <div class="elementor-text-editor elementor-clearfix">\n\n                            <p>Your dashboards</p>\n\n                          </div>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n                <div data-id="f9378f5" class="elementor-element elementor-element-f9378f5 elementor-column elementor-col-50 elementor-top-column"\n\n                  data-element_type="column">\n\n                  <div class="elementor-column-wrap elementor-element-populated">\n\n                    <div class="elementor-widget-wrap">\n\n                      <div data-id="18536c7" class="elementor-element elementor-element-18536c7 elementor-align-right elementor-widget elementor-widget-icon-list"\n\n                        data-element_type="icon-list.default">\n\n                        <div class="elementor-widget-container">\n\n                          <ul class="elementor-icon-list-items elementor-inline-items">\n\n                            <li class="elementor-icon-list-item">\n\n                              <span class="elementor-icon-list-icon">\n\n                                <i class="fa fa-folder-open" aria-hidden="true"></i>\n\n                              </span>\n\n                              <span class="elementor-icon-list-text"></span>\n\n                            </li>\n\n                            <li class="elementor-icon-list-item">\n\n                              <span class="elementor-icon-list-icon">\n\n                                <i class="fa fa-check" aria-hidden="true"></i>\n\n                              </span>\n\n                              <span class="elementor-icon-list-text"></span>\n\n                            </li>\n\n                            <li class="elementor-icon-list-item">\n\n                              <span class="elementor-icon-list-icon">\n\n                                <i class="fa fa-trash" aria-hidden="true"></i>\n\n                              </span>\n\n                              <span class="elementor-icon-list-text"></span>\n\n                            </li>\n\n                          </ul>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </section>\n\n        </ng-template>\n\n        <ng-template [ngIf]="showLoading">\n\n          <mat-spinner mode="Indeterminate"></mat-spinner>\n\n        </ng-template>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>'/*ion-inline-end:"G:\ionic\Project\quark\src\components\my-dashboards\my-dashboards.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_authentication_service_authentication_service__["a" /* AuthenticationServiceProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */]])
+    ], MyDashboardsComponent);
+    return MyDashboardsComponent;
+}());
+
+//# sourceMappingURL=my-dashboards.js.map
+
+/***/ }),
+
+/***/ 266:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewFileDialogComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var NewFileDialogComponent = /** @class */ (function () {
+    function NewFileDialogComponent(events, zone) {
+        this.events = events;
+        this.zone = zone;
+        this.autocompleteDeps = ['serialport', 'johnny-five', 'cylonjs', 'firmatajs'];
+        this.autocompleteDevDeps = ['serialport', 'johnny-five', 'cylonjs', 'firmatajs'];
+        this.dependencies = [];
+        this.devDependencies = [];
+        this.editDependencies = [];
+        this.editDevDependencies = [];
+        this.npmInstall = false;
+    }
+    NewFileDialogComponent.prototype.editTab = function () {
+        var _this = this;
+        this.zone.run(function () {
+            _this.editDependencies = _this.findAndEdit(_this.dependencies, _this.editDependencies);
+            _this.editDevDependencies = _this.findAndEdit(_this.devDependencies, _this.editDevDependencies);
+        });
+    };
+    NewFileDialogComponent.prototype.findAndEdit = function (copyFrom, copyTo) {
+        var temp = copyTo;
+        copyTo = [];
+        copyFrom.map(function (val) {
+            var find = temp.find(function (dep) {
+                return dep.name == val;
+            });
+            if (find) {
+                copyTo.push(find);
+            }
+            else {
+                copyTo.push({ name: val, version: null });
+            }
+        });
+        return copyTo;
+    };
+    NewFileDialogComponent.prototype.closeDialog = function () {
+        this.events.publish('component-new-file-dialog && component-my-dashboards : electron-service : close-snackbar');
+    };
+    NewFileDialogComponent.prototype.saveJSON = function () {
+        var data = [];
+        data[0] = this.editDependencies;
+        data[1] = this.editDevDependencies;
+        this.events.publish('component-new-file-dialog : electron-service : create-new-file', data);
+        this.events.publish('component-new-file-dialog && component-my-dashboards : electron-service : close-snackbar');
+    };
+    NewFileDialogComponent.prototype.transform = function (value) {
+        var item = { display: "@" + value, value: "@" + value };
+        return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["of"])(item);
+    };
+    NewFileDialogComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'new-file-dialog',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\new-file-dialog\new-file-dialog.html"*/'<div class="form-container">\n\n  <mat-tab-group mat-stretch-tabs>\n\n    <mat-tab label="Dependencies">\n\n      <div class="dependencies-container">\n\n        <div class="dependencies">\n\n          <p>Dependencies</p>\n\n          <!-- <tag-input [(ngModel)]="dependencies" [dragZone]="\'zone1\'" [modelAsStrings]="true" [theme]="\'dark\'" [addOnBlur]="true"\n\n                [separatorKeyCodes]="[32, 188]" (onAdd)="editTab()" (onRemove)="editTab()">\n\n                <tag-input-dropdown [focusFirstElement]="true" [autocompleteItems]="autocompleteDeps">\n\n                </tag-input-dropdown>\n\n              </tag-input> -->\n\n          <tag-input [(ngModel)]="dependencies" [secondaryPlaceholder]="\'Add your dependencies here\'" [placeholder]="\'Add dep\'" (onAdd)="editTab()" (onRemove)="editTab()">\n\n            <tag-input-dropdown class="tag-input-dropdown" [focusFirstElement]="true" [autocompleteItems]="autocompleteDeps">\n\n            </tag-input-dropdown>\n\n          </tag-input>\n\n        </div>\n\n        <div class="dev-dependencies">\n\n          <p>Dev Dependencies</p>\n\n          <tag-input [(ngModel)]="devDependencies" [secondaryPlaceholder]="\'Add your dev dependencies here\'" [placeholder]="\'Add dev\'" (onAdd)="editTab()" (onRemove)="editTab()">\n\n            <tag-input-dropdown class="tag-input-dropdown" [focusFirstElement]="true" [autocompleteItems]="autocompleteDevDeps">\n\n            </tag-input-dropdown>\n\n          </tag-input>\n\n        </div>\n\n      </div>\n\n    </mat-tab>\n\n    <mat-tab label="Edit">\n\n      <div class="edit-container">\n\n        <div class="dependencies">\n\n          <p>Dependencies</p>\n\n          <div class="item" *ngFor="let item of editDependencies;let i=index">\n\n            <span class="item-name">{{item.name}}</span>\n\n            <tag-input [(ngModel)]="editDependencies[i].version" [onAdding]="transform" [secondaryPlaceholder]="\'Add Version\'" [maxItems]="\'1\'"\n\n              (onAdd)="editTab()" (onRemove)="editTab()"></tag-input>\n\n          </div>\n\n        </div>\n\n        <div class="dev-dependencies">\n\n          <p>Dev Dependencies</p>\n\n          <div class="item" *ngFor="let item of editDevDependencies;let i=index">\n\n            <span class="item-name">{{item.name}}</span>\n\n            <tag-input [(ngModel)]="editDevDependencies[i].version" [onAdding]="transform" [secondaryPlaceholder]="\'Add Version\'" [maxItems]="\'1\'"\n\n              (onAdd)="editTab()" (onRemove)="editTab()"></tag-input>\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </mat-tab>\n\n  </mat-tab-group>\n\n  <div class="button-container">\n\n    <mat-checkbox [(ngModel)]="npmInstall">Install Now (npm install)</mat-checkbox>\n\n    <button ion-button outline color="secondary" (click)="closeDialog()" class="button-cancel">Cancel</button>\n\n    <button ion-button color="secondary" (click)="saveJSON()" class="button-done">Done</button>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\new-file-dialog\new-file-dialog.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
+    ], NewFileDialogComponent);
+    return NewFileDialogComponent;
+}());
+
+//# sourceMappingURL=new-file-dialog.js.map
+
+/***/ }),
+
+/***/ 267:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MtrButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_codemirror__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_js_beautify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utilities_code_samples__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utilities_code_samples__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -439,9 +984,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MtrButtonComponent = /** @class */ (function () {
-    function MtrButtonComponent(events, gsp) {
+    function MtrButtonComponent(events, gsp, zone) {
         this.events = events;
         this.gsp = gsp;
+        this.zone = zone;
         this.id = Date.now();
         this.component = this;
         this.data = {
@@ -458,22 +1004,33 @@ var MtrButtonComponent = /** @class */ (function () {
             },
             localData: {}
         };
-        this.data.localData = {
-            content: this.data.config.variable,
-            color: '#000000'
-        };
     }
+    MtrButtonComponent.prototype.change = function () {
+        var data = {
+            functionName: this.data.config.function,
+            args: this.data.localData
+        };
+        this.events.publish('misc-components : electron-service : child-process', data);
+    };
+    MtrButtonComponent.prototype.ngAfterContentInit = function () {
+        var data = {
+            content: this.data.config.variable,
+            color: '#000000',
+        };
+        this.data.localData = data;
+    };
     MtrButtonComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.gsp.addCSS(this.data);
         this.events.publish('misc-components : global-service : add-component', this);
-        this.events.subscribe('socket-service : misc-components : update-renderer', function (closure) {
-            _this.data.localData = closure["" + _this.data.config.variable];
-            // console.log(closure[`${this.data.config.variable}`]);
+        this.events.subscribe('electron-service-dump : misc-components : update-renderer', function (data) {
+            _this.zone.run(function () {
+                _this.data.localData = data[_this.data.config.variable];
+            });
         });
     };
-    MtrButtonComponent.prototype.change = function () {
-        this.events.publish('misc-components : socket-service : firmata', this.data.config.function, this.data.localData);
+    MtrButtonComponent.prototype.ngOnDestroy = function () {
+        this.events.unsubscribe('electron-service : misc-components : update-renderer');
     };
     MtrButtonComponent.prototype.openTab = function (tab) {
         this.events.publish('misc-components : global-service : add-tab', tab);
@@ -482,7 +1039,7 @@ var MtrButtonComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'mtr-button',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\mtr-button\mtr-button.html"*/'<div [id]="id" [class]="data.config.css_class">\n\n  <div class="hover button-container">\n\n    <hover [component]="component" (clickEvent)="openTab($event)"></hover>\n\n    <button ion-button (click)="change($event)" [innerText]="data.localData.content" [color]="data.localData.color" [disabled]="data.localData.disabled"\n\n      [block]="data.localData.block" [clear]="data.localData.clear" [default]="data.localData.default" [full]="data.localData.full"></button>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\mtr-button\mtr-button.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__["a" /* GlobalServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], MtrButtonComponent);
     return MtrButtonComponent;
 }());
@@ -491,19 +1048,19 @@ var MtrButtonComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 265:
+/***/ 268:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MtrRangeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_codemirror__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_js_beautify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utilities_code_samples__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utilities_code_samples__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -555,7 +1112,7 @@ var MtrRangeComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'mtr-range',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\mtr-range\mtr-range.html"*/'<div [id]="id" [class]="data.config.css_class">\n\n  <div class="hover button-container">\n\n    <hover [component]="component" (clickEvent)="openTab($event)"></hover>\n\n    <ion-range (ionChange)="change($event)">\n\n      <!-- <ion-icon range-left small name="sunny"></ion-icon>\n\n      <ion-icon range-right name="sunny"></ion-icon> -->\n\n    </ion-range>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\mtr-range\mtr-range.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__["a" /* GlobalServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__["a" /* GlobalServiceProvider */]])
     ], MtrRangeComponent);
     return MtrRangeComponent;
 }());
@@ -564,64 +1121,61 @@ var MtrRangeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 266:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CodeEditorComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_codemirror__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_js_beautify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jsonlint_mod__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jsonlint_mod__ = __webpack_require__(481);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jsonlint_mod___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jsonlint_mod__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_codemirror_mode_javascript_javascript_js__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_codemirror_mode_javascript_javascript_js__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_codemirror_mode_javascript_javascript_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__node_modules_codemirror_mode_javascript_javascript_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_codemirror_mode_clike_clike_js__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_codemirror_mode_clike_clike_js__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_codemirror_mode_clike_clike_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__node_modules_codemirror_mode_clike_clike_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_codemirror_mode_css_css_js__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_codemirror_mode_css_css_js__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_codemirror_mode_css_css_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__node_modules_codemirror_mode_css_css_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_codemirror_addon_comment_comment_js__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_codemirror_addon_comment_comment_js__ = __webpack_require__(484);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_codemirror_addon_comment_comment_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__node_modules_codemirror_addon_comment_comment_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__node_modules_codemirror_addon_comment_continuecomment_js__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__node_modules_codemirror_addon_comment_continuecomment_js__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__node_modules_codemirror_addon_comment_continuecomment_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__node_modules_codemirror_addon_comment_continuecomment_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__node_modules_codemirror_addon_dialog_dialog_js__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__node_modules_codemirror_addon_dialog_dialog_js__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__node_modules_codemirror_addon_dialog_dialog_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__node_modules_codemirror_addon_dialog_dialog_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__node_modules_codemirror_addon_edit_closebrackets_js__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__node_modules_codemirror_addon_edit_closebrackets_js__ = __webpack_require__(486);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__node_modules_codemirror_addon_edit_closebrackets_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__node_modules_codemirror_addon_edit_closebrackets_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__node_modules_codemirror_addon_edit_matchbrackets_js__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__node_modules_codemirror_addon_edit_matchbrackets_js__ = __webpack_require__(487);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__node_modules_codemirror_addon_edit_matchbrackets_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__node_modules_codemirror_addon_edit_matchbrackets_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__node_modules_codemirror_addon_fold_foldcode_js__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__node_modules_codemirror_addon_fold_foldcode_js__ = __webpack_require__(272);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__node_modules_codemirror_addon_fold_foldcode_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__node_modules_codemirror_addon_fold_foldcode_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__node_modules_codemirror_addon_fold_brace_fold_js__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__node_modules_codemirror_addon_fold_brace_fold_js__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__node_modules_codemirror_addon_fold_brace_fold_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__node_modules_codemirror_addon_fold_brace_fold_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__node_modules_codemirror_addon_fold_comment_fold_js__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__node_modules_codemirror_addon_fold_comment_fold_js__ = __webpack_require__(489);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__node_modules_codemirror_addon_fold_comment_fold_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__node_modules_codemirror_addon_fold_comment_fold_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__node_modules_codemirror_addon_fold_indent_fold_js__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__node_modules_codemirror_addon_fold_indent_fold_js__ = __webpack_require__(490);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__node_modules_codemirror_addon_fold_indent_fold_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__node_modules_codemirror_addon_fold_indent_fold_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__node_modules_codemirror_addon_fold_foldgutter_js__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__node_modules_codemirror_addon_fold_foldgutter_js__ = __webpack_require__(491);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__node_modules_codemirror_addon_fold_foldgutter_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__node_modules_codemirror_addon_fold_foldgutter_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__node_modules_codemirror_addon_hint_show_hint_js__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__node_modules_codemirror_addon_hint_show_hint_js__ = __webpack_require__(492);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__node_modules_codemirror_addon_hint_show_hint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__node_modules_codemirror_addon_hint_show_hint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__node_modules_codemirror_addon_hint_anyword_hint_js__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__node_modules_codemirror_addon_hint_anyword_hint_js__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__node_modules_codemirror_addon_hint_anyword_hint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__node_modules_codemirror_addon_hint_anyword_hint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__node_modules_codemirror_addon_hint_javascript_hint_js__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__node_modules_codemirror_addon_hint_javascript_hint_js__ = __webpack_require__(494);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__node_modules_codemirror_addon_hint_javascript_hint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__node_modules_codemirror_addon_hint_javascript_hint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__node_modules_codemirror_addon_hint_css_hint_js__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__node_modules_codemirror_addon_hint_css_hint_js__ = __webpack_require__(495);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__node_modules_codemirror_addon_hint_css_hint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__node_modules_codemirror_addon_hint_css_hint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__node_modules_codemirror_addon_lint_lint_js__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__node_modules_codemirror_addon_lint_lint_js__ = __webpack_require__(496);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__node_modules_codemirror_addon_lint_lint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__node_modules_codemirror_addon_lint_lint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__node_modules_codemirror_addon_lint_json_lint_js__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__node_modules_codemirror_addon_lint_json_lint_js__ = __webpack_require__(497);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__node_modules_codemirror_addon_lint_json_lint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__node_modules_codemirror_addon_lint_json_lint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__node_modules_codemirror_addon_lint_css_lint_js__ = __webpack_require__(377);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__node_modules_codemirror_addon_lint_css_lint_js__ = __webpack_require__(498);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__node_modules_codemirror_addon_lint_css_lint_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__node_modules_codemirror_addon_lint_css_lint_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__node_modules_codemirror_addon_tern_tern_js__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__node_modules_codemirror_addon_tern_tern_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__node_modules_codemirror_addon_tern_tern_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__node_modules_rxjs_Subject__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__node_modules_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__node_modules_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__utilities_ecmascript__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_material__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__node_modules_rxjs_Subject__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__node_modules_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__node_modules_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__angular_material__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -661,16 +1215,15 @@ window["jsonlint"] = __WEBPACK_IMPORTED_MODULE_3_jsonlint_mod___default.a;
 
 
 
-
-
+// import './../../../node_modules/codemirror/addon/tern/tern.js';
 
 
 var CodeEditorComponent = /** @class */ (function () {
-    function CodeEditorComponent(data) {
+    function CodeEditorComponent(data, change) {
         this.data = data;
-        this.inputDocument = new __WEBPACK_IMPORTED_MODULE_25__node_modules_rxjs_Subject__["Subject"]();
+        this.change = change;
+        this.inputDocument = new __WEBPACK_IMPORTED_MODULE_24__node_modules_rxjs_Subject__["Subject"]();
         this.showInterface = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        console.log('Hello CodeEditorComponent Component');
         var self = this;
         window.onresize = function () {
             self.editor.refresh();
@@ -697,10 +1250,10 @@ var CodeEditorComponent = /** @class */ (function () {
         this.inputDocument.subscribe(function (val) {
             _this.document = val;
             _this.editorValue(_this.document);
+            _this.change.markForCheck();
         });
         document.getElementsByClassName('CodeMirror')[0].addEventListener('wheel', function (event) {
             event.preventDefault();
-            // console.log(event, this.editor.getScrollInfo());
             _this.editor.scrollTo(null, _this.editor.getScrollInfo().top + event.deltaY / 5);
         });
     };
@@ -728,27 +1281,27 @@ var CodeEditorComponent = /** @class */ (function () {
         this.editor.setOption('autoCloseBrackets', true);
         this.editor.setOption('matchBrackets', true);
         this.editor.setOption('continueComments', true);
-        var server = new __WEBPACK_IMPORTED_MODULE_1_codemirror___default.a["TernServer"]({ defs: [__WEBPACK_IMPORTED_MODULE_26__utilities_ecmascript__["a" /* code */]] });
-        this.editor.setOption("extraKeys", {
-            "Ctrl-Space": function (cm) { server.complete(cm); },
-            "Ctrl-I": function (cm) { server.showType(cm); },
-            "Ctrl-O": function (cm) { server.showDocs(cm); },
-            "Alt-.": function (cm) { server.jumpToDef(cm); },
-            "Alt-,": function (cm) { server.jumpBack(cm); },
-            "Ctrl-Q": function (cm) { server.rename(cm); },
-            "Ctrl-.": function (cm) { server.selectName(cm); }
-        });
-        this.editor.on("cursorActivity", function (cm) {
-            server.updateArgHints(cm);
-        });
-        this.editor.on("change", function (cm, obj) {
-            if (obj.text[0] == '.') {
-                server.complete(cm);
-            }
-        });
-        this.editor.on('blur', function (cm) {
-            server.updateArgHints(cm);
-        });
+        // let server = new CodeMirror["TernServer"]({ defs: [code] });
+        // this.editor.setOption("extraKeys", {
+        //   "Ctrl-Space": function (cm) { server.complete(cm); },
+        //   "Ctrl-I": function (cm) { server.showType(cm); },
+        //   "Ctrl-O": function (cm) { server.showDocs(cm); },
+        //   "Alt-.": function (cm) { server.jumpToDef(cm); },
+        //   "Alt-,": function (cm) { server.jumpBack(cm); },
+        //   "Ctrl-Q": function (cm) { server.rename(cm); },
+        //   "Ctrl-.": function (cm) { server.selectName(cm); }
+        // });
+        // this.editor.on("cursorActivity", (cm) => {
+        //   server.updateArgHints(cm);
+        // });
+        // this.editor.on("change", (cm, obj) => {
+        //   if (obj.text[0] == '.') {
+        //     server.complete(cm);
+        //   }
+        // });
+        // this.editor.on('blur', (cm) => {
+        //   server.updateArgHints(cm);
+        // });
     };
     CodeEditorComponent.prototype.createCSSEditor = function () {
         this.editor = __WEBPACK_IMPORTED_MODULE_1_codemirror___default.a.fromTextArea(this.codemirror.nativeElement, {
@@ -799,11 +1352,10 @@ var CodeEditorComponent = /** @class */ (function () {
     };
     CodeEditorComponent.prototype.showContextMenu = function (event) {
         event.preventDefault();
-        // this.esp.editorContextMenu();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_25__node_modules_rxjs_Subject__["Subject"])
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_24__node_modules_rxjs_Subject__["Subject"])
     ], CodeEditorComponent.prototype, "inputDocument", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -821,8 +1373,8 @@ var CodeEditorComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'code-editor',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\code-editor\code-editor.html"*/'<ng-template [ngIf]="mode !=\'Interface\'">\n\n  <codebar (code)="edit($event)" [mode]="mode"></codebar>\n\n</ng-template>\n\n\n\n<div class="editor-container" (contextmenu)="showContextMenu($event)" (scroll)="scrolled($event)">\n\n  <textarea #codemirror id="codemirror"></textarea>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\code-editor\code-editor.html"*/
         }),
-        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_27__angular_material__["a" /* MAT_SNACK_BAR_DATA */])),
-        __metadata("design:paramtypes", [Object])
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_25__angular_material__["a" /* MAT_SNACK_BAR_DATA */])),
+        __metadata("design:paramtypes", [Object, __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
     ], CodeEditorComponent);
     return CodeEditorComponent;
 }());
@@ -831,41 +1383,196 @@ var CodeEditorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 268:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(281);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPopOverComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_authentication_service_authentication_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_electron_service_electron_service__ = __webpack_require__(66);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
-Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
+
+
+
+var UserPopOverComponent = /** @class */ (function () {
+    function UserPopOverComponent(asp, platform, esp) {
+        var _this = this;
+        this.asp = asp;
+        this.platform = platform;
+        this.esp = esp;
+        this.hide = true;
+        this.showProgressBar = false;
+        this.email = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["l" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["l" /* Validators */].email]);
+        this.password = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["l" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["l" /* Validators */].minLength(8)]);
+        this.userData = this.asp.user.getValue();
+        this.asp.user.subscribe(function (user) {
+            _this.userData = user;
+        });
+    }
+    UserPopOverComponent.prototype.logForm = function () {
+        var _this = this;
+        this.showProgressBar = true;
+        this.asp.loginWithEmailAndPassword(this.email.value, this.password.value)
+            .then(function () {
+            _this.showProgressBar = false;
+        })
+            .catch(function () {
+            _this.showProgressBar = false;
+        });
+    };
+    UserPopOverComponent.prototype.registerUser = function () {
+        if (this.platform.is('electron')) {
+            this.esp.openExternalLink('https://link.diymechatronics.com');
+        }
+        else {
+            window.open('https://link.diymechatronics.com');
+        }
+    };
+    UserPopOverComponent.prototype.getErrorMessage = function () {
+        return this.email.hasError('required') ? 'You must enter a value' :
+            this.email.hasError('email') ? 'Not a valid email' :
+                '';
+    };
+    UserPopOverComponent.prototype.getErrorMessagePassword = function () {
+        return this.email.hasError('required') ? 'You must enter a value' :
+            this.email.hasError('minlength') ? 'Minimum length must be 8 characters' :
+                '';
+    };
+    UserPopOverComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'user-pop-over',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\user-pop-over\user-pop-over.html"*/'<div class="content">\n\n  <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar"></mat-progress-bar>\n\n  <ion-grid *ngIf="userData!=null">\n\n    <ion-row>\n\n      <ion-col col-3 class="user-image-column">\n\n        <img [src]="userData?.photoURL" class="user-image">\n\n      </ion-col>\n\n      <ion-col col-9 class="user-metadata">\n\n        <div class="display-name">\n\n          {{userData?.displayName}}\n\n        </div>\n\n        <div class="email">\n\n          {{userData?.email}}\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <button ion-button (click)="this.asp.logoutUser()" block>Logout</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <ng-template [ngIf]="userData == null">\n\n    <form (ngSubmit)="logForm()">\n\n      <mat-form-field appearance="outline">\n\n        <input matInput type="email" placeholder="Enter your email" [formControl]="email" autocomplete="email">\n\n        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>\n\n      </mat-form-field>\n\n      <mat-form-field appearance="outline">\n\n        <input matInput [type]="hide ? \'password\' : \'text\'" placeholder="Enter your password" [formControl]="password" autocomplete="current-password">\n\n        <ion-icon matSuffix [name]="hide ? \'eye\' : \'eye-off\'" tappable (click)="hide = !hide"></ion-icon>\n\n        <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>\n\n      </mat-form-field>\n\n      <button ion-button type="submit" [disabled]="email.invalid || password.invalid">Submit</button>\n\n    </form>\n\n    <button ion-button (click)="registerUser()">Register</button>\n\n  </ng-template>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\user-pop-over\user-pop-over.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_authentication_service_authentication_service__["a" /* AuthenticationServiceProvider */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */]])
+    ], UserPopOverComponent);
+    return UserPopOverComponent;
+}());
+
+//# sourceMappingURL=user-pop-over.js.map
 
 /***/ }),
 
-/***/ 281:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(412);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_socket_service_socket_service__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_components_module__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_forms__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_global_service_global_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_electron_service_electron_service__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__ = __webpack_require__(413);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_authentication_service_authentication_service__ = __webpack_require__(415);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_firebase_app__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_firebase_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__environments_environment__ = __webpack_require__(421);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocketServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_service_global_service__ = __webpack_require__(25);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SocketServiceProvider = /** @class */ (function () {
+    function SocketServiceProvider(events, gsp) {
+        this.events = events;
+        this.gsp = gsp;
+        this.appEvents();
+    }
+    SocketServiceProvider.prototype.connectToSocketServer = function (url) {
+        console.log('Connecting');
+        // this.socket = socketIo(`${url}:4300`);
+        // this.socket.connect();
+        // this.eventListeners();
+    };
+    SocketServiceProvider.prototype.eventListeners = function () {
+        var _this = this;
+        this.socket.on('connected', function () {
+            console.log("Connected at " + _this.socket.id);
+            _this.events.publish('socket-service : connect-mobile : connected');
+        });
+        this.socket.on('com-port-list', function (list) {
+            _this.gsp.comPortList = list;
+            console.log(list);
+        });
+        this.socket.on('com-port-error', function (err) {
+            console.log(err);
+        });
+        this.socket.on('update-renderer', function (closure) {
+            console.log(closure);
+            _this.events.publish('socket-service : misc-components : update-renderer', closure);
+        });
+    };
+    SocketServiceProvider.prototype.appEvents = function () {
+        var _this = this;
+        this.events.subscribe('page-designer : socket-service : initialize', function () {
+            var code = _this.gsp.designerComponents.map(function (val) {
+                var data = val.data;
+                return { functionName: data.config.function, code: data.code.js.getValue() };
+            });
+            console.log(code);
+            _this.socket.emit('initialize', _this.gsp.global_config.json.getValue(), code);
+        });
+        this.events.subscribe('page-designer : socket-service : connect-to-board', function () {
+            _this.socket.emit('connect-to-board');
+        });
+        this.events.subscribe('misc-components : socket-service : firmata', function (functionName, args) {
+            _this.gsp.currentTab.mode == 'CSS' ? null :
+                _this.socket.emit('firmata', functionName, args);
+        });
+    };
+    SocketServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_2__global_service_global_service__["a" /* GlobalServiceProvider */]])
+    ], SocketServiceProvider);
+    return SocketServiceProvider;
+}());
+
+//# sourceMappingURL=socket-service.js.map
+
+/***/ }),
+
+/***/ 399:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__hover_hover__ = __webpack_require__(427);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__codebar_codebar__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__status_bar_status_bar__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tabs_bar_tabs_bar__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__activity_bar_activity_bar__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__widgets_widgets__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__css_inspector_css_inspector__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__console_console__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__menu_bar_menu_bar__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_material__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__user_pop_over_user_pop_over__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__my_dashboards_my_dashboards__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__new_file_dialog_new_file_dialog__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__terminal_terminal__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_ngx_chips__ = __webpack_require__(507);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_code_mirror_code_mirror__ = __webpack_require__(516);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__settings_settings__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__monaco_editor_monaco_editor__ = __webpack_require__(776);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ngx_monaco_editor__ = __webpack_require__(353);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -887,7 +1594,238 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_20_ngx_chips__["a" /* TagInputModule */].withDefaults({
+    tagInput: {
+        placeholder: 'Add a new tag',
+        dragZone: 'zone1',
+        theme: 'dark',
+        addOnBlur: true,
+        separatorKeyCodes: [32, 188],
+        modelAsStrings: true
+    }
+});
+var ComponentsModule = /** @class */ (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */],
+                __WEBPACK_IMPORTED_MODULE_3__hover_hover__["a" /* HoverComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__codebar_codebar__["a" /* CodebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__status_bar_status_bar__["a" /* StatusBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__tabs_bar_tabs_bar__["a" /* TabsBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__activity_bar_activity_bar__["a" /* ActivityBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__widgets_widgets__["a" /* WidgetsComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__["a" /* MtrButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__["a" /* MtrRangeComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__["a" /* CodeEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__css_inspector_css_inspector__["a" /* CssInspectorComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__console_console__["a" /* ConsoleComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__menu_bar_menu_bar__["a" /* MenuBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__user_pop_over_user_pop_over__["a" /* UserPopOverComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__my_dashboards_my_dashboards__["a" /* MyDashboardsComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__new_file_dialog_new_file_dialog__["a" /* NewFileDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__terminal_terminal__["a" /* TerminalComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_code_mirror_code_mirror__["a" /* CodeMirrorPage */],
+                __WEBPACK_IMPORTED_MODULE_22__settings_settings__["a" /* SettingsComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__monaco_editor_monaco_editor__["a" /* MonacoEditorComponent */]
+            ],
+            imports: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["o" /* MatTooltipModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["h" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["n" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["l" /* MatSnackBarModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["f" /* MatFormFieldModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["g" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["i" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["e" /* MatDividerModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["j" /* MatProgressSpinnerModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["m" /* MatStepperModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["d" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["c" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_20_ngx_chips__["a" /* TagInputModule */],
+                __WEBPACK_IMPORTED_MODULE_24_ngx_monaco_editor__["a" /* MonacoEditorModule */].forRoot()
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */],
+                __WEBPACK_IMPORTED_MODULE_3__hover_hover__["a" /* HoverComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__codebar_codebar__["a" /* CodebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__status_bar_status_bar__["a" /* StatusBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__tabs_bar_tabs_bar__["a" /* TabsBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__activity_bar_activity_bar__["a" /* ActivityBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__widgets_widgets__["a" /* WidgetsComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__["a" /* MtrButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__["a" /* MtrRangeComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__["a" /* CodeEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__css_inspector_css_inspector__["a" /* CssInspectorComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__console_console__["a" /* ConsoleComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__menu_bar_menu_bar__["a" /* MenuBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__user_pop_over_user_pop_over__["a" /* UserPopOverComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__my_dashboards_my_dashboards__["a" /* MyDashboardsComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__new_file_dialog_new_file_dialog__["a" /* NewFileDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__terminal_terminal__["a" /* TerminalComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_code_mirror_code_mirror__["a" /* CodeMirrorPage */],
+                __WEBPACK_IMPORTED_MODULE_22__settings_settings__["a" /* SettingsComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__monaco_editor_monaco_editor__["a" /* MonacoEditorComponent */]
+            ],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_1__mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */], __WEBPACK_IMPORTED_MODULE_9__mtr_button_mtr_button__["a" /* MtrButtonComponent */], __WEBPACK_IMPORTED_MODULE_10__mtr_range_mtr_range__["a" /* MtrRangeComponent */], __WEBPACK_IMPORTED_MODULE_11__code_editor_code_editor__["a" /* CodeEditorComponent */], __WEBPACK_IMPORTED_MODULE_16__user_pop_over_user_pop_over__["a" /* UserPopOverComponent */], __WEBPACK_IMPORTED_MODULE_17__my_dashboards_my_dashboards__["a" /* MyDashboardsComponent */], __WEBPACK_IMPORTED_MODULE_18__new_file_dialog_new_file_dialog__["a" /* NewFileDialogComponent */], __WEBPACK_IMPORTED_MODULE_19__terminal_terminal__["a" /* TerminalComponent */]]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
+
+/***/ }),
+
+/***/ 400:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = addComponentFromDump;
+/* harmony export (immutable) */ __webpack_exports__["c"] = recreateComponenFromDump;
+/* harmony export (immutable) */ __webpack_exports__["b"] = addGlobalCSSFromDump;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mtr_toggle_mtr_toggle__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_mtr_button_mtr_button__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_mtr_range_mtr_range__ = __webpack_require__(268);
+
+
+
+function addComponentFromDump(_component, _container, _resolver) {
+    var component;
+    switch (_component.component) {
+        case 'MtrToggleComponent':
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_0__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
+            _container.createComponent(component);
+            break;
+        case 'MtrButtonComponent':
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_1__components_mtr_button_mtr_button__["a" /* MtrButtonComponent */]);
+            _container.createComponent(component);
+            break;
+        case 'MtrRangeComponent':
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_2__components_mtr_range_mtr_range__["a" /* MtrRangeComponent */]);
+            _container.createComponent(component);
+            break;
+        default:
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_0__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
+            _container.createComponent(component);
+            break;
+    }
+}
+function recreateComponenFromDump(_component, _container, _resolver) {
+    var component;
+    var data = _component.data;
+    switch (data.config.component) {
+        case 'MtrToggleComponent':
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_0__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
+            _container.createComponent(component).instance.data = _component.data;
+            break;
+        case 'MtrButtonComponent':
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_1__components_mtr_button_mtr_button__["a" /* MtrButtonComponent */]);
+            _container.createComponent(component).instance.data = _component.data;
+            break;
+        case 'MtrRangeComponent':
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_2__components_mtr_range_mtr_range__["a" /* MtrRangeComponent */]);
+            _container.createComponent(component).instance.data = _component.data;
+            break;
+        default:
+            component = _resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_0__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
+            _container.createComponent(component);
+            break;
+    }
+}
+function addGlobalCSSFromDump(css) {
+    try {
+        var prevStyle = document.getElementById('style-page-designer');
+        prevStyle.parentNode.removeChild(prevStyle);
+    }
+    catch (err) {
+        null;
+    }
+    var edit = String().concat("}", css);
+    edit = edit.replace(/}/g, "}.style-page-designer ");
+    edit = edit.slice(1, edit.length - 21);
+    var style = document.createElement('style');
+    style.setAttribute('id', 'style-page-designer');
+    style.innerHTML = edit;
+    document.body.appendChild(style);
+}
+//# sourceMappingURL=render-components-dump.js.map
+
+/***/ }),
+
+/***/ 401:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(406);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 406:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(800);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_socket_service_socket_service__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_components_module__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_electron_service_electron_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__ = __webpack_require__(802);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_authentication_service_authentication_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_firebase_app__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__environments_environment__ = __webpack_require__(804);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ngx_monaco_editor__ = __webpack_require__(353);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { TagInputModule } from "ngx-chips";
 __WEBPACK_IMPORTED_MODULE_13_firebase_app___default.a.initializeApp(__WEBPACK_IMPORTED_MODULE_14__environments_environment__["a" /* fireconfig */]);
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -898,7 +1836,7 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {
                     tabspageTransition: 'ios-transition',
                     menuType: 'push',
                     alertEnter: "alert-pop-in",
@@ -907,29 +1845,29 @@ var AppModule = /** @class */ (function () {
                     toastEnter: "toast-slide-in",
                 }, {
                     links: [
-                        { loadChildren: '../pages/code-mirror/code-mirror.module#CodeMirrorPageModule', name: 'CodeMirrorPage', segment: 'code-mirror', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/connect-mobile/connect-mobile.module#ConnectMobilePageModule', name: 'ConnectMobilePage', segment: 'connect-mobile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/designer/designer.module#DesignerPageModule', name: 'DesignerPage', segment: 'designer', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/designer/designer.module#DesignerPageModule', name: 'DesignerPage', segment: 'designer', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7__components_components_module__["a" /* ComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_8__angular_forms__["c" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */]
-                // NoopAnimationsModule
+                __WEBPACK_IMPORTED_MODULE_8__angular_forms__["f" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_15_ngx_monaco_editor__["a" /* MonacoEditorModule */].forRoot()
+                // TagInputModule
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_10__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_9__providers_global_service_global_service__["a" /* GlobalServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_6__providers_socket_service_socket_service__["a" /* SocketServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_10__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_12__providers_authentication_service_authentication_service__["a" /* AuthenticationServiceProvider */]
             ]
         })
@@ -941,2623 +1879,13 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 303:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = addCSSFromDump;
-/* harmony export (immutable) */ __webpack_exports__["b"] = addClassFromDump;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_js_beautify__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_js_beautify__);
-
-
-function addCSSFromDump(data) {
-    try {
-        var prevStyle = document.getElementById("style-" + data.config.id);
-        prevStyle.parentNode.removeChild(prevStyle);
-    }
-    catch (err) {
-        null;
-    }
-    var edit = String().concat("}", data.code.css.getValue());
-    edit = edit.replace(/}/g, "}." + data.config.css_class + " ");
-    edit = edit.slice(1, edit.length - data.config.css_class.length - 2);
-    var style = document.createElement('style');
-    style.setAttribute('id', "style-" + data.config.id);
-    style.innerHTML = edit;
-    document.body.appendChild(style);
-}
-function addClassFromDump(component, globalConfigJS) {
-    var json = JSON.parse(globalConfigJS.getValue());
-    // let json: globalConfigInterface["js"] = JSON.parse(this.global_config.js.getValue());
-    switch (component.class) {
-        case 'Accelerometer':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["a" /* five_Accelerometer */]);
-            break;
-        case 'Altimeter':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["b" /* five_Altimeter */]);
-            break;
-        case 'Animation':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["c" /* five_Animation */]);
-            break;
-        case 'Barometer':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["d" /* five_Barometer */]);
-            break;
-        case 'Board':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["e" /* five_Board */]);
-            break;
-        case 'Boards':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["f" /* five_Boards */]);
-            break;
-        case 'Button':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["g" /* five_Button */]);
-            break;
-        case 'Compass':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["h" /* five_Compass */]);
-            break;
-        case 'ESC':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["i" /* five_ESC */]);
-            break;
-        case 'ESCs':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["j" /* five_ESCs */]);
-            break;
-        case 'Expander':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["k" /* five_Expander */]);
-            break;
-        case 'Fn':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["l" /* five_Fn */]);
-            break;
-        case 'GPS':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["m" /* five_GPS */]);
-            break;
-        case 'Gyro':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["n" /* five_Gyro */]);
-            break;
-        case 'Hygrometer':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["o" /* five_Hygrometer */]);
-            break;
-        case 'IMU':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["p" /* five_IMU */]);
-            break;
-        case 'IR.Reflect.Array':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["q" /* five_IR_Reflect_Array */]);
-            break;
-        case 'Joystick':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["r" /* five_Joystick */]);
-            break;
-        case 'Keypad':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["s" /* five_Keypad */]);
-            break;
-        case 'LCD':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["t" /* five_LCD */]);
-            break;
-        case 'Led':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["u" /* five_Led */]);
-            break;
-        case 'Led.Digits':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["v" /* five_LedDotDigits */]);
-            break;
-        case 'Led.Matrix':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["w" /* five_LedDotMatrix */]);
-            break;
-        case 'Led.RGB':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["x" /* five_LedDotRGB */]);
-            break;
-        case 'Leds':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["y" /* five_Leds */]);
-            break;
-        case 'Light':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["z" /* five_Light */]);
-            break;
-        case 'Motion':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["A" /* five_Motion */]);
-            break;
-        case 'Motor':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["B" /* five_Motor */]);
-            break;
-        case 'Motors':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["C" /* five_Motors */]);
-            break;
-        case 'Multi':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["D" /* five_Multi */]);
-            break;
-        case 'Piezo':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["E" /* five_Piezo */]);
-            break;
-        case 'Pin':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["F" /* five_Pin */]);
-            break;
-        case 'Proximity':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["G" /* five_Proximity */]);
-            break;
-        case 'Relay':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["H" /* five_Relay */]);
-            break;
-        case 'Relays':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["I" /* five_Relays */]);
-            break;
-        case 'Sensor':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["J" /* five_Sensor */]);
-            break;
-        case 'Servo':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["K" /* five_Servo */]);
-            break;
-        case 'Servos':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["L" /* five_Servos */]);
-            break;
-        case 'ShiftRegister':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["M" /* five_ShiftRegister */]);
-            break;
-        case 'Stepper':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["N" /* five_Stepper */]);
-            break;
-        case 'Switch':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["O" /* five_Switch */]);
-            break;
-        case 'Thermometer':
-            json.components.push(__WEBPACK_IMPORTED_MODULE_0__utilities_johnny_five_sample_code__["P" /* five_Thermometer */]);
-            break;
-        default:
-            break;
-    }
-    globalConfigJS.setValue(Object(__WEBPACK_IMPORTED_MODULE_1_js_beautify__["js_beautify"])(JSON.stringify(json), { indent_size: 2 }));
-}
-//# sourceMappingURL=global-service-dump.js.map
-
-/***/ }),
-
-/***/ 304:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return five_Accelerometer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return five_Altimeter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return five_Animation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return five_Barometer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return five_Board; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return five_Boards; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return five_Button; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return five_Compass; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return five_ESC; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return five_ESCs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return five_Expander; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return five_Fn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return five_GPS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return five_Gyro; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return five_Hygrometer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return five_IMU; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return five_IR_Reflect_Array; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return five_Joystick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return five_Keypad; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return five_LCD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return five_Led; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return five_LedDotDigits; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return five_LedDotMatrix; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return five_LedDotRGB; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return five_Leds; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return five_Light; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return five_Motion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return five_Motor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return five_Motors; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return five_Multi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return five_Piezo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return five_Pin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return five_Proximity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return five_Relay; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return five_Relays; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return five_Sensor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return five_Servo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return five_Servos; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return five_ShiftRegister; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return five_Stepper; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "O", function() { return five_Switch; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "P", function() { return five_Thermometer; });
-var five_Accelerometer = {
-    class: 'Accelerometer',
-    variable: '',
-    arguments: {
-        pins: ["A0", "A1"],
-        sensitivity: 96,
-        aref: 5,
-        zeroV: 478
-    }
-};
-var five_Altimeter = {
-    class: 'Altimeter',
-    variable: '',
-    arguments: {
-        controller: "MS5611"
-    }
-};
-var five_Animation = {
-    class: 'Animation',
-    variable: '',
-    arguments: "this.servo"
-};
-var five_Barometer = {
-    class: 'Barometer',
-    variable: '',
-    arguments: {
-        controller: "MPL115A2"
-    }
-};
-var five_Board = {
-    class: 'Board',
-    variable: '',
-    arguments: { port: "/dev/ttyUSB*" }
-};
-var five_Boards = {
-    class: 'Boards',
-    variable: '',
-    arguments: [
-        { id: "A", port: "/dev/cu.usbmodem621" },
-        { id: "B", port: "/dev/cu.usbmodem411" }
-    ]
-};
-var five_Button = {
-    class: 'Button',
-    variable: '',
-    arguments: "A0"
-};
-var five_Compass = {
-    class: 'Compass',
-    variable: '',
-    arguments: {
-        controller: "BNO055"
-    }
-};
-var five_ESC = {
-    class: 'ESC',
-    variable: '',
-    arguments: {
-        controller: "PCA9685",
-        pin: 1
-    }
-};
-var five_ESCs = {
-    class: 'ESCs',
-    variable: '',
-    arguments: [{
-            pin: 9
-        }, {
-            pin: 10
-        }]
-};
-var five_Expander = {
-    class: 'Expander',
-    variable: '',
-    arguments: {
-        controller: "MCP23008"
-    }
-};
-var five_Fn = {
-    class: 'Fn',
-    variable: '',
-    arguments: ''
-};
-var five_GPS = {
-    class: 'GPS',
-    variable: '',
-    arguments: {
-        pins: [11, 10],
-        breakout: "ADAFRUIT_ULTIMATE_GPS"
-    }
-};
-var five_Gyro = {
-    class: 'Gyro',
-    variable: '',
-    arguments: {
-        controller: "MPU6050"
-    }
-};
-var five_Hygrometer = {
-    class: 'Hygrometer',
-    variable: '',
-    arguments: {
-        controller: "HTU21D"
-    }
-};
-var five_IMU = {
-    class: 'IMU',
-    variable: '',
-    arguments: {
-        controller: "MPU6050",
-        address: 0x68,
-        freq: 100 // optional
-    }
-};
-var five_IR_Reflect_Array = {
-    class: 'IR.Reflect.Array',
-    variable: '',
-    arguments: ""
-};
-var five_Joystick = {
-    class: 'Joystick',
-    variable: '',
-    arguments: {
-        pins: ["A0", "A1"],
-    }
-};
-var five_Keypad = {
-    class: 'Keypad',
-    variable: '',
-    arguments: {
-        controller: "VKEY",
-        pin: "A0",
-    }
-};
-var five_LCD = {
-    class: 'LCD',
-    variable: '',
-    arguments: {
-        pins: [7, 8, 9, 10, 11, 12],
-        backlight: 13,
-        rows: 2,
-        cols: 16
-    }
-};
-var five_Led = {
-    class: 'Led',
-    variable: '',
-    arguments: {
-        option: {
-            pin: 13
-        }
-    }
-};
-var five_LedDotDigits = {
-    class: 'Led.Digits',
-    variable: '',
-    arguments: {
-        option: {
-            pins: {
-                data: 2,
-                clock: 3,
-                cs: 4
-            }
-        }
-    }
-};
-var five_LedDotMatrix = {
-    class: 'Led.Matrix',
-    variable: '',
-    arguments: {
-        option: {
-            pins: {
-                data: 2,
-                clock: 3,
-                cs: 4
-            }
-        }
-    }
-};
-var five_LedDotRGB = {
-    class: 'Led.RGB',
-    variable: '',
-    arguments: {
-        option: {
-            pins: {
-                red: 6,
-                green: 5,
-                blue: 3
-            }
-        }
-    }
-};
-var five_Leds = {
-    class: 'Leds',
-    variable: '',
-    arguments: {
-        option: [{
-                pin: 9
-            }, {
-                pin: 10
-            }]
-    }
-};
-var five_Light = {
-    class: 'Light',
-    variable: '',
-    arguments: 'A0'
-};
-var five_Motion = {
-    class: 'Motion',
-    variable: '',
-    arguments: {
-        controller: "GP2Y0D815Z0F",
-        pin: "A0"
-    }
-};
-var five_Motor = {
-    class: 'Motor',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Motors = {
-    class: 'Motors',
-    variable: '',
-    arguments: [{
-            pins: {
-                pwm: 3,
-                dir: 12
-            }
-        }, {
-            pins: {
-                pwm: 9,
-                dir: 8,
-                cdir: 11
-            }
-        }]
-};
-var five_Multi = {
-    class: 'Multi',
-    variable: '',
-    arguments: {
-        controller: "DHT22_I2C_NANO_BACKPACK"
-    }
-};
-var five_Piezo = {
-    class: 'Piezo',
-    variable: '',
-    arguments: {
-        controller: "I2C_BACKPACK",
-        pin: 3
-    }
-};
-var five_Pin = {
-    class: 'Pin',
-    variable: '',
-    arguments: {
-        pin: "A0"
-    }
-};
-var five_Proximity = {
-    class: 'Proximity',
-    variable: '',
-    arguments: {
-        controller: "GP2Y0A21YK",
-        pin: "A0"
-    }
-};
-var five_Relay = {
-    class: 'Relay',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Relays = {
-    class: 'Relays',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Sensor = {
-    class: 'Sensor',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Servo = {
-    class: 'Servo',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Servos = {
-    class: 'Servos',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_ShiftRegister = {
-    class: 'ShiftRegister',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Stepper = {
-    class: 'Stepper',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Switch = {
-    class: 'Switch',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-var five_Thermometer = {
-    class: 'Thermometer',
-    variable: '',
-    arguments: {
-        pins: {
-            pwm: 9,
-            dir: 8,
-            brake: 11
-        }
-    }
-};
-//# sourceMappingURL=johnny-five-sample-code.js.map
-
-/***/ }),
-
-/***/ 379:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return code; });
-var code = {
-    "!name": "ecmascript",
-    "!define": {
-        "Error.prototype": "Error.prototype",
-        "propertyDescriptor": {
-            "enumerable": "bool",
-            "configurable": "bool",
-            "value": "?",
-            "writable": "bool",
-            "get": "fn() -> ?",
-            "set": "fn(value: ?)"
-        },
-        "Promise.prototype": {
-            "catch": {
-                "!doc": "The catch() method returns a Promise and deals with rejected cases only. It behaves the same as calling Promise.prototype.then(undefined, onRejected).",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch",
-                "!type": "fn(onRejected: fn(reason: ?)) -> !this"
-            },
-            "then": {
-                "!doc": "The then() method returns a Promise. It takes two arguments, both are callback functions for the success and failure cases of the Promise.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then",
-                "!type": "fn(onFulfilled: fn(value: ?), onRejected: fn(reason: ?)) -> !custom:Promise_then",
-                "!effects": ["call !0 !this.:t"]
-            }
-        },
-        "Promise_reject": {
-            "!type": "fn(reason: ?) -> !this",
-            "!doc": "The Promise.reject(reason) method returns a Promise object that is rejected with the given reason.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject"
-        },
-        "iter_prototype": {
-            ":Symbol.iterator": "fn() -> !this"
-        },
-        "iter": {
-            "!proto": "iter_prototype",
-            "next": {
-                "!type": "fn() -> +iter_result[value=!this.:t]",
-                "!doc": "Return the next item in the sequence.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators"
-            },
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators"
-        },
-        "iter_result": {
-            "done": "bool",
-            "value": "?"
-        },
-        "generator_prototype": {
-            "!proto": "iter_prototype",
-            "next": "fn(value?: ?) -> iter_result",
-            "return": "fn(value?: ?) -> iter_result",
-            "throw": "fn(exception: +Error)"
-        },
-        "Proxy_handler": {
-            "!doc": "The proxy's handler object is a placeholder object which contains traps for proxies.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler",
-            "getPrototypeOf": "fn(target: ?)",
-            "setPrototypeOf": "fn(target: ?, prototype: ?)",
-            "isExtensible": "fn(target: ?)",
-            "preventExtensions": "fn(target: ?)",
-            "getOwnPropertyDescriptor": "fn(target: ?, property: string) -> propertyDescriptor",
-            "defineProperty": "fn(target: ?, property: string, descriptor: propertyDescriptor)",
-            "has": "fn(target: ?, property: string)",
-            "get": "fn(target: ?, property: string)",
-            "set": "fn(target: ?, property: string, value: ?)",
-            "deleteProperty": "fn(target: ?, property: string)",
-            "enumerate": "fn(target: ?)",
-            "ownKeys": "fn(target: ?)",
-            "apply": "fn(target: ?, self: ?, arguments: [?])",
-            "construct": "fn(target: ?, arguments: [?])"
-        },
-        "Proxy_revocable": {
-            "proxy": "+Proxy",
-            "revoke": "fn()"
-        },
-        "TypedArray": {
-            "!type": "fn(size: number)",
-            "!doc": "A TypedArray object describes an array-like view of an underlying binary data buffer. There is no global property named TypedArray, nor is there a directly visible TypedArray constructor.  Instead, there are a number of different global properties, whose values are typed array constructors for specific element types, listed below. On the following pages you will find common properties and methods that can be used with any typed array containing elements of any type.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray",
-            "from": {
-                "!type": "fn(arrayLike: ?, mapFn?: fn(elt: ?, i: number) -> number, thisArg?: ?) -> +TypedArray",
-                "!effects": ["call !1 this=!2 !0.<i> number"],
-                "!doc": "Creates a new typed array from an array-like or iterable object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/from"
-            },
-            "of": {
-                "!type": "fn(elements: number) -> +TypedArray",
-                "!doc": "Creates a new typed array from a variable number of arguments.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/of"
-            },
-            "BYTES_PER_ELEMENT": {
-                "!type": "number",
-                "!doc": "The TypedArray.BYTES_PER_ELEMENT property represents the size in bytes of each element in an typed array.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT"
-            },
-            "name": {
-                "!type": "string",
-                "!doc": "The TypedArray.name property represents a string value of the typed array constructor name.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/name"
-            },
-            "prototype": {
-                "<i>": "number",
-                "buffer": {
-                    "!type": "+ArrayBuffer",
-                    "!doc": "The buffer accessor property represents the ArrayBuffer referenced by a TypedArray at construction time.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/buffer"
-                },
-                "byteLength": {
-                    "!type": "number",
-                    "!doc": "The byteLength accessor property represents the length (in bytes) of a typed array from the start of its ArrayBuffer.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/byteLength"
-                },
-                "byteOffset": {
-                    "!type": "number",
-                    "!doc": "The byteOffset accessor property represents the offset (in bytes) of a typed array from the start of its ArrayBuffer.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/byteOffset"
-                },
-                "copyWithin": {
-                    "!type": "fn(target: number, start: number, end?: number) -> ?",
-                    "!doc": "The copyWithin() method copies the sequence of array elements within the array to the position starting at target. The copy is taken from the index positions of the second and third arguments start and end. The end argument is optional and defaults to the length of the array. This method has the same algorithm as Array.prototype.copyWithin. TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/copyWithin"
-                },
-                "entries": {
-                    "!type": "fn() -> +iter[:t=number]",
-                    "!doc": "The entries() method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/entries"
-                },
-                "every": {
-                    "!type": "fn(callback: fn(element: number, index: number, array: TypedArray) -> bool, thisArg?: ?) -> bool",
-                    "!effects": ["call !0 this=!1 number number !this"],
-                    "!doc": "The every() method tests whether all elements in the typed array pass the test implemented by the provided function. This method has the same algorithm as Array.prototype.every(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/every"
-                },
-                "fill": {
-                    "!type": "fn(value: number, start?: number, end?: number)",
-                    "!doc": "The fill() method fills all the elements of a typed array from a start index to an end index with a static value. This method has the same algorithm as Array.prototype.fill(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/fill"
-                },
-                "filter": {
-                    "!type": "fn(test: fn(element: number, i: number) -> bool, context?: ?) -> !this",
-                    "!effects": ["call !0 this=!1 number number"],
-                    "!doc": "Creates a new array with all of the elements of this array for which the provided filtering function returns true. See also Array.prototype.filter().",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/filter"
-                },
-                "find": {
-                    "!type": "fn(callback: fn(element: number, index: number, array: +TypedArray) -> bool, thisArg?: ?) -> number",
-                    "!effects": ["call !0 this=!1 number number !this"],
-                    "!doc": "The find() method returns a value in the typed array, if an element satisfies the provided testing function. Otherwise undefined is returned. TypedArray is one of the typed array types here.\nSee also the findIndex() method, which returns the index of a found element in the typed array instead of its value.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/find"
-                },
-                "findIndex": {
-                    "!type": "fn(callback: fn(element: number, index: number, array: +TypedArray) -> bool, thisArg?: ?) -> number",
-                    "!effects": ["call !0 this=!1 number number !this"],
-                    "!doc": "The findIndex() method returns an index in the typed array, if an element in the typed array satisfies the provided testing function. Otherwise -1 is returned.\nSee also the find() method, which returns the value of a found element in the typed array instead of its index.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/findIndex"
-                },
-                "forEach": {
-                    "!type": "fn(callback: fn(value: number, key: number, array: +TypedArray), thisArg?: ?)",
-                    "!effects": ["call !0 this=!1 number number !this"],
-                    "!doc": "Executes a provided function once per array element.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/forEach"
-                },
-                "indexOf": {
-                    "!type": "fn(searchElement: number, fromIndex?: number) -> number",
-                    "!doc": "The indexOf() method returns the first index at which a given element can be found in the typed array, or -1 if it is not present. This method has the same algorithm as Array.prototype.indexOf(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/indexOf"
-                },
-                "join": {
-                    "!type": "fn(separator?: string) -> string",
-                    "!doc": "The join() method joins all elements of an array into a string. This method has the same algorithm as Array.prototype.join(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/join"
-                },
-                "keys": {
-                    "!type": "fn() -> +iter[:t=number]",
-                    "!doc": "The keys() method returns a new Array Iterator object that contains the keys for each index in the array.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/keys"
-                },
-                "lastIndexOf": {
-                    "!type": "fn(searchElement: number, fromIndex?: number) -> number",
-                    "!doc": "The lastIndexOf() method returns the last index at which a given element can be found in the typed array, or -1 if it is not present. The typed array is searched backwards, starting at fromIndex. This method has the same algorithm as Array.prototype.lastIndexOf(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/lastIndexOf"
-                },
-                "length": {
-                    "!type": "number",
-                    "!doc": "Returns the number of elements hold in the typed array. Fixed at construction time and thus read only.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/length"
-                },
-                "map": {
-                    "!type": "fn(f: fn(element: number, i: number) -> number, context?: ?) -> +TypedArray",
-                    "!effects": ["call !0 this=!1 number number"],
-                    "!doc": "Creates a new array with the results of calling a provided function on every element in this array. See also Array.prototype.map().",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/map"
-                },
-                "reduce": {
-                    "!type": "fn(combine: fn(sum: ?, elt: number, i: number) -> ?, init?: ?) -> !0.!ret",
-                    "!effects": ["call !0 !1 number number"],
-                    "!doc": "Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value. See also Array.prototype.reduce().",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/reduce"
-                },
-                "reduceRight": {
-                    "!type": "fn(combine: fn(sum: ?, elt: number, i: number) -> ?, init?: ?) -> !0.!ret",
-                    "!effects": ["call !0 !1 number number"],
-                    "!doc": "Apply a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value. See also Array.prototype.reduceRight().",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/reduceRight"
-                },
-                "reverse": {
-                    "!type": "fn()",
-                    "!doc": "The reverse() method reverses a typed array in place. The first typed array element becomes the last and the last becomes the first. This method has the same algorithm as Array.prototype.reverse(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/reverse"
-                },
-                "set": {
-                    "!type": "fn(array: [number], offset?: number)",
-                    "!doc": "The set() method stores multiple values in the typed array, reading input values from a specified array.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/set"
-                },
-                "slice": {
-                    "!type": "fn(from: number, to?: number) -> +TypedArray",
-                    "!doc": "Extracts a section of an array and returns a new array. See also Array.prototype.slice().",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/slice"
-                },
-                "some": {
-                    "!type": "fn(test: fn(elt: number, i: number) -> bool, context?: ?) -> bool",
-                    "!effects": ["call !0 this=!1 number number"],
-                    "!doc": "The some() method tests whether some element in the typed array passes the test implemented by the provided function. This method has the same algorithm as Array.prototype.some(). TypedArray is one of the typed array types here.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/some"
-                },
-                "sort": {
-                    "!type": "fn(compare?: fn(a: number, b: number) -> number)",
-                    "!effects": ["call !0 number number"],
-                    "!doc": "Sorts the elements of an array in place and returns the array. See also Array.prototype.sort().",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/sort"
-                },
-                "subarray": {
-                    "!type": "fn(begin?: number, end?: number) -> +TypedArray",
-                    "!doc": "The subarray() method returns a new TypedArray on the same ArrayBuffer store and with the same element types as for this TypedArray object. The begin offset is inclusive and the end offset is exclusive. TypedArray is one of the typed array types.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/subarray"
-                },
-                "values": {
-                    "!type": "fn() -> +iter[:t=number]",
-                    "!doc": "The values() method returns a new Array Iterator object that contains the values for each index in the array.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/values"
-                },
-                ":Symbol.iterator": {
-                    "!type": "fn() -> +iter[:t=number]",
-                    "!doc": "Returns a new Array Iterator object that contains the values for each index in the array.",
-                    "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/@@iterator"
-                }
-            }
-        }
-    },
-    "Infinity": {
-        "!type": "number",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Infinity",
-        "!doc": "A numeric value representing infinity."
-    },
-    "undefined": {
-        "!type": "?",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/undefined",
-        "!doc": "The value undefined."
-    },
-    "NaN": {
-        "!type": "number",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/NaN",
-        "!doc": "A value representing Not-A-Number."
-    },
-    "Object": {
-        "!type": "fn()",
-        "getPrototypeOf": {
-            "!type": "fn(obj: ?) -> ?",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/getPrototypeOf",
-            "!doc": "Returns the prototype (i.e. the internal prototype) of the specified object."
-        },
-        "create": {
-            "!type": "fn(proto: ?) -> !custom:Object_create",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create",
-            "!doc": "Creates a new object with the specified prototype object and properties."
-        },
-        "defineProperty": {
-            "!type": "fn(obj: ?, prop: string, desc: propertyDescriptor) -> !custom:Object_defineProperty",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/defineProperty",
-            "!doc": "Defines a new property directly on an object, or modifies an existing property on an object, and returns the object. If you want to see how to use the Object.defineProperty method with a binary-flags-like syntax, see this article."
-        },
-        "defineProperties": {
-            "!type": "fn(obj: ?, props: ?) -> !custom:Object_defineProperties",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/defineProperty",
-            "!doc": "Defines a new property directly on an object, or modifies an existing property on an object, and returns the object. If you want to see how to use the Object.defineProperty method with a binary-flags-like syntax, see this article."
-        },
-        "getOwnPropertyDescriptor": {
-            "!type": "fn(obj: ?, prop: string) -> propertyDescriptor",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor",
-            "!doc": "Returns a property descriptor for an own property (that is, one directly present on an object, not present by dint of being along an object's prototype chain) of a given object."
-        },
-        "keys": {
-            "!type": "fn(obj: ?) -> [string]",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/keys",
-            "!doc": "Returns an array of a given object's own enumerable properties, in the same order as that provided by a for-in loop (the difference being that a for-in loop enumerates properties in the prototype chain as well)."
-        },
-        "getOwnPropertyNames": {
-            "!type": "fn(obj: ?) -> [string]",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames",
-            "!doc": "Returns an array of all properties (enumerable or not) found directly upon a given object."
-        },
-        "seal": {
-            "!type": "fn(obj: ?)",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/seal",
-            "!doc": "Seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Values of present properties can still be changed as long as they are writable."
-        },
-        "isSealed": {
-            "!type": "fn(obj: ?) -> bool",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/isSealed",
-            "!doc": "Determine if an object is sealed."
-        },
-        "freeze": {
-            "!type": "fn(obj: ?) -> !0",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/freeze",
-            "!doc": "Freezes an object: that is, prevents new properties from being added to it; prevents existing properties from being removed; and prevents existing properties, or their enumerability, configurability, or writability, from being changed. In essence the object is made effectively immutable. The method returns the object being frozen."
-        },
-        "isFrozen": {
-            "!type": "fn(obj: ?) -> bool",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/isFrozen",
-            "!doc": "Determine if an object is frozen."
-        },
-        "preventExtensions": {
-            "!type": "fn(obj: ?)",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions",
-            "!doc": "Prevents new properties from ever being added to an object."
-        },
-        "isExtensible": {
-            "!type": "fn(obj: ?) -> bool",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible",
-            "!doc": "The Object.isExtensible() method determines if an object is extensible (whether it can have new properties added to it)."
-        },
-        "assign": {
-            "!type": "fn(target: ?, source: ?, source?: ?) -> !0",
-            "!effects": ["copy !1 !0", "copy !2 !0", "copy !3 !0"],
-            "!doc": "The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"
-        },
-        "getOwnPropertySymbols": {
-            "!type": "fn(obj: ?) -> !custom:getOwnPropertySymbols",
-            "!doc": "The Object.getOwnPropertySymbols() method returns an array of all symbol properties found directly upon a given object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols"
-        },
-        "is": {
-            "!type": "fn(value1: ?, value2: ?) -> bool",
-            "!doc": "The Object.is() method determines whether two values are the same value.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is"
-        },
-        "setPrototypeOf": {
-            "!type": "fn(obj: ?, prototype: ?)",
-            "!doc": "The Object.setPrototype() method sets the prototype (i.e., the internal [[Prototype]] property) of a specified object to another object or null.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf"
-        },
-        "prototype": {
-            "!stdProto": "Object",
-            "toString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/toString",
-                "!doc": "Returns a string representing the object."
-            },
-            "toLocaleString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/toLocaleString",
-                "!doc": "Returns a string representing the object. This method is meant to be overriden by derived objects for locale-specific purposes."
-            },
-            "valueOf": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/valueOf",
-                "!doc": "Returns the primitive value of the specified object"
-            },
-            "hasOwnProperty": {
-                "!type": "fn(prop: string) -> bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/hasOwnProperty",
-                "!doc": "Returns a boolean indicating whether the object has the specified property."
-            },
-            "propertyIsEnumerable": {
-                "!type": "fn(prop: string) -> bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable",
-                "!doc": "Returns a Boolean indicating whether the specified property is enumerable."
-            },
-            "isPrototypeOf": {
-                "!type": "fn(obj: ?) -> bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf",
-                "!doc": "Tests for an object in another object's prototype chain."
-            }
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object",
-        "!doc": "Creates an object wrapper."
-    },
-    "Function": {
-        "!type": "fn(body: string) -> fn()",
-        "prototype": {
-            "!stdProto": "Function",
-            "apply": {
-                "!type": "fn(this: ?, args: [?])",
-                "!effects": [
-                    "call and return !this this=!0 !1.<i> !1.<i> !1.<i>"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/apply",
-                "!doc": "Calls a function with a given this value and arguments provided as an array (or an array like object)."
-            },
-            "call": {
-                "!type": "fn(this: ?, args?: ?) -> !this.!ret",
-                "!effects": [
-                    "call and return !this this=!0 !1 !2 !3 !4"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/call",
-                "!doc": "Calls a function with a given this value and arguments provided individually."
-            },
-            "bind": {
-                "!type": "fn(this: ?, args?: ?) -> !custom:Function_bind",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind",
-                "!doc": "Creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function was called."
-            },
-            "prototype": "?"
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function",
-        "!doc": "Every function in JavaScript is actually a Function object."
-    },
-    "Array": {
-        "!type": "fn(size: number) -> !custom:Array_ctor",
-        "isArray": {
-            "!type": "fn(value: ?) -> bool",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/isArray",
-            "!doc": "Returns true if an object is an array, false if it is not."
-        },
-        "from": {
-            "!type": "fn(arrayLike: ?, mapFn?: fn(elt: ?, i: number) -> ?, thisArg?: ?) -> [!0.<i>]",
-            "!effects": [
-                "call !1 this=!2 !0.<i> number"
-            ],
-            "!doc": "The Array.from() method creates a new Array instance from an array-like or iterable object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from"
-        },
-        "of": {
-            "!type": "fn(elementN: ?) -> [!0]",
-            "!doc": "The Array.of() method creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of"
-        },
-        "prototype": {
-            "!stdProto": "Array",
-            "length": {
-                "!type": "number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/length",
-                "!doc": "An unsigned, 32-bit integer that specifies the number of elements in an array."
-            },
-            "concat": {
-                "!type": "fn(other: [?]) -> !this",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/concat",
-                "!doc": "Returns a new array comprised of this array joined with other array(s) and/or value(s)."
-            },
-            "join": {
-                "!type": "fn(separator?: string) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/join",
-                "!doc": "Joins all elements of an array into a string."
-            },
-            "splice": {
-                "!type": "fn(pos: number, amount: number, newelt?: ?) -> [?]",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/splice",
-                "!doc": "Changes the content of an array, adding new elements while removing old elements."
-            },
-            "pop": {
-                "!type": "fn() -> !this.<i>",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/pop",
-                "!doc": "Removes the last element from an array and returns that element."
-            },
-            "push": {
-                "!type": "fn(newelt: ?) -> number",
-                "!effects": [
-                    "propagate !0 !this.<i>"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/push",
-                "!doc": "Mutates an array by appending the given elements and returning the new length of the array."
-            },
-            "shift": {
-                "!type": "fn() -> !this.<i>",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/shift",
-                "!doc": "Removes the first element from an array and returns that element. This method changes the length of the array."
-            },
-            "unshift": {
-                "!type": "fn(newelt: ?) -> number",
-                "!effects": [
-                    "propagate !0 !this.<i>"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/unshift",
-                "!doc": "Adds one or more elements to the beginning of an array and returns the new length of the array."
-            },
-            "slice": {
-                "!type": "fn(from?: number, to?: number) -> !this",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/slice",
-                "!doc": "Returns a shallow copy of a portion of an array."
-            },
-            "reverse": {
-                "!type": "fn()",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/reverse",
-                "!doc": "Reverses an array in place.  The first array element becomes the last and the last becomes the first."
-            },
-            "sort": {
-                "!type": "fn(compare?: fn(a: ?, b: ?) -> number)",
-                "!effects": [
-                    "call !0 !this.<i> !this.<i>"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort",
-                "!doc": "Sorts the elements of an array in place and returns the array."
-            },
-            "indexOf": {
-                "!type": "fn(elt: ?, from?: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf",
-                "!doc": "Returns the first index at which a given element can be found in the array, or -1 if it is not present."
-            },
-            "lastIndexOf": {
-                "!type": "fn(elt: ?, from?: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/lastIndexOf",
-                "!doc": "Returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex."
-            },
-            "every": {
-                "!type": "fn(test: fn(elt: ?, i: number, array: +Array) -> bool, context?: ?) -> bool",
-                "!effects": [
-                    "call !0 this=!1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/every",
-                "!doc": "Tests whether all elements in the array pass the test implemented by the provided function."
-            },
-            "some": {
-                "!type": "fn(test: fn(elt: ?, i: number, array: +Array) -> bool, context?: ?) -> bool",
-                "!effects": [
-                    "call !0 this=!1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/some",
-                "!doc": "Tests whether some element in the array passes the test implemented by the provided function."
-            },
-            "filter": {
-                "!type": "fn(test: fn(elt: ?, i: number, array: +Array) -> bool, context?: ?) -> !this",
-                "!effects": [
-                    "call !0 this=!1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/filter",
-                "!doc": "Creates a new array with all elements that pass the test implemented by the provided function."
-            },
-            "forEach": {
-                "!type": "fn(f: fn(elt: ?, i: number, array: +Array), context?: ?)",
-                "!effects": [
-                    "call !0 this=!1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/forEach",
-                "!doc": "Executes a provided function once per array element."
-            },
-            "map": {
-                "!type": "fn(f: fn(elt: ?, i: number, array: +Array) -> ?, context?: ?) -> [!0.!ret]",
-                "!effects": [
-                    "call !0 this=!1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/map",
-                "!doc": "Creates a new array with the results of calling a provided function on every element in this array."
-            },
-            "reduce": {
-                "!type": "fn(combine: fn(sum: ?, elt: ?, i: number, array: +Array) -> ?, init?: ?) -> !0.!ret",
-                "!effects": [
-                    "call !0 !1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/Reduce",
-                "!doc": "Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value."
-            },
-            "reduceRight": {
-                "!type": "fn(combine: fn(sum: ?, elt: ?, i: number, array: +Array) -> ?, init?: ?) -> !0.!ret",
-                "!effects": [
-                    "call !0 !1 !this.<i> number !this"
-                ],
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/ReduceRight",
-                "!doc": "Apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value."
-            },
-            "copyWithin": {
-                "!type": "fn(target: number, start: number, end?: number) -> !this",
-                "!doc": "The copyWithin() method copies the sequence of array elements within the array to the position starting at target. The copy is taken from the index positions of the second and third arguments start and end.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin"
-            },
-            "entries": {
-                "!type": "fn() -> +iter[:t=[number, !this.<i>]]",
-                "!doc": "The entries() method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries"
-            },
-            "fill": {
-                "!type": "fn(value: ?, start?: number, end?: number) -> !this",
-                "!doc": "The fill() method fills all the elements of an array from a start index to an end index with a static value.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill"
-            },
-            "find": {
-                "!type": "fn(callback: fn(element: ?, index: number, array: [?]) -> bool, thisArg?: ?) -> !this.<i>",
-                "!effects": ["call !0 this=!2 !this.<i> number"],
-                "!doc": "The find() method returns a value in the array, if an element in the array satisfies the provided testing function. Otherwise undefined is returned.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find"
-            },
-            "findIndex": {
-                "!type": "fn(callback: fn(element: ?, index: number, array: [?]), thisArg?: ?) -> number",
-                "!effects": ["call !0 this=!2 !this.<i> number"],
-                "!doc": "The findIndex() method returns an index in the array, if an element in the array satisfies the provided testing function. Otherwise -1 is returned.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex"
-            },
-            "keys": {
-                "!type": "fn() -> +iter[:t=number]",
-                "!doc": "The keys() method returns a new Array Iterator that contains the keys for each index in the array.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys"
-            },
-            "values": {
-                "!type": "fn() -> +iter[:t=!this.<i>]",
-                "!doc": "The values() method returns a new Array Iterator object that contains the values for each index in the array.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values"
-            },
-            ":Symbol.iterator": {
-                "!type": "fn() -> +iter[:t=!this.<i>]",
-                "!doc": "Returns a new Array Iterator object that contains the values for each index in the array.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator"
-            },
-            "includes": {
-                "!type": "fn(value: ?) -> bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes",
-                "!doc": "Determines whether an array includes a certain element, returning true or false as appropriate."
-            }
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array",
-        "!doc": "The JavaScript Array global object is a constructor for arrays, which are high-level, list-like objects."
-    },
-    "String": {
-        "!type": "fn(value: ?) -> string",
-        "fromCharCode": {
-            "!type": "fn(code: number) -> string",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/fromCharCode",
-            "!doc": "Returns a string created by using the specified sequence of Unicode values."
-        },
-        "fromCodePoint": {
-            "!type": "fn(point: number, point?: number) -> string",
-            "!doc": "The static String.fromCodePoint() method returns a string created by using the specified sequence of code points.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint"
-        },
-        "raw": {
-            "!type": "fn(template: [string], substitutions: ?, templateString: ?) -> string",
-            "!doc": "The static String.raw() method is a tag function of template strings, used to get the raw string form of template strings.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw"
-        },
-        "prototype": {
-            "!stdProto": "String",
-            "length": {
-                "!type": "number",
-                "!url": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String/length",
-                "!doc": "Represents the length of a string."
-            },
-            "<i>": "string",
-            "charAt": {
-                "!type": "fn(i: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/charAt",
-                "!doc": "Returns the specified character from a string."
-            },
-            "charCodeAt": {
-                "!type": "fn(i: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/charCodeAt",
-                "!doc": "Returns the numeric Unicode value of the character at the given index (except for unicode codepoints > 0x10000)."
-            },
-            "indexOf": {
-                "!type": "fn(char: string, from?: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/indexOf",
-                "!doc": "Returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex,\nreturns -1 if the value is not found."
-            },
-            "lastIndexOf": {
-                "!type": "fn(char: string, from?: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/lastIndexOf",
-                "!doc": "Returns the index within the calling String object of the last occurrence of the specified value, or -1 if not found. The calling string is searched backward, starting at fromIndex."
-            },
-            "substring": {
-                "!type": "fn(from: number, to?: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/substring",
-                "!doc": "Returns a subset of a string between one index and another, or through the end of the string."
-            },
-            "substr": {
-                "!type": "fn(from: number, length?: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/substr",
-                "!doc": "Returns the characters in a string beginning at the specified location through the specified number of characters."
-            },
-            "slice": {
-                "!type": "fn(from: number, to?: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/slice",
-                "!doc": "Extracts a section of a string and returns a new string."
-            },
-            "trim": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/Trim",
-                "!doc": "Removes whitespace from both ends of the string."
-            },
-            "toUpperCase": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/toUpperCase",
-                "!doc": "Returns the calling string value converted to uppercase."
-            },
-            "toLowerCase": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/toLowerCase",
-                "!doc": "Returns the calling string value converted to lowercase."
-            },
-            "toLocaleUpperCase": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase",
-                "!doc": "Returns the calling string value converted to upper case, according to any locale-specific case mappings."
-            },
-            "toLocaleLowerCase": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase",
-                "!doc": "Returns the calling string value converted to lower case, according to any locale-specific case mappings."
-            },
-            "split": {
-                "!type": "fn(pattern?: string|+RegExp, limit?: number) -> [string]",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/split",
-                "!doc": "Splits a String object into an array of strings by separating the string into substrings."
-            },
-            "concat": {
-                "!type": "fn(other: string) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/concat",
-                "!doc": "Combines the text of two or more strings and returns a new string."
-            },
-            "localeCompare": {
-                "!type": "fn(other: string) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/localeCompare",
-                "!doc": "Returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order."
-            },
-            "match": {
-                "!type": "fn(pattern: +RegExp) -> [string]",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/match",
-                "!doc": "Used to retrieve the matches when matching a string against a regular expression."
-            },
-            "replace": {
-                "!type": "fn(pattern: string|+RegExp, replacement: string) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/replace",
-                "!doc": "Returns a new string with some or all matches of a pattern replaced by a replacement.  The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match."
-            },
-            "search": {
-                "!type": "fn(pattern: +RegExp) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/search",
-                "!doc": "Executes the search for a match between a regular expression and this String object."
-            },
-            "codePointAt": {
-                "!type": "fn(pos: number) -> number",
-                "!doc": "The codePointAt() method returns a non-negative integer that is the UTF-16 encoded code point value.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt"
-            },
-            "endsWith": {
-                "!type": "fn(searchString: string, position?: number) -> bool",
-                "!doc": "The endsWith() method determines whether a string ends with the characters of another string, returning true or false as appropriate.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith"
-            },
-            "includes": {
-                "!type": "fn(searchString: string, position?: number) -> bool",
-                "!doc": "The includes() method determines whether one string may be found within another string, returning true or false as appropriate.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/contains"
-            },
-            "normalize": {
-                "!type": "fn(form: string) -> string",
-                "!doc": "The normalize() method returns the Unicode Normalization Form of a given string (if the value isn't a string, it will be converted to one first).",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize"
-            },
-            "repeat": {
-                "!type": "fn(count: number) -> string",
-                "!doc": "The repeat() method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat"
-            },
-            "startsWith": {
-                "!type": "fn(searchString: string, position?: number) -> bool",
-                "!doc": "The startsWith() method determines whether a string begins with the characters of another string, returning true or false as appropriate.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith"
-            },
-            ":Symbol.iterator": {
-                "!type": "fn() -> +iter[:t=string]",
-                "!doc": "Returns a new Iterator object that iterates over the code points of a String value, returning each code point as a String value.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator"
-            }
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String",
-        "!doc": "The String global object is a constructor for strings, or a sequence of characters."
-    },
-    "Number": {
-        "!type": "fn(value: ?) -> number",
-        "MAX_VALUE": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/MAX_VALUE",
-            "!doc": "The maximum numeric value representable in JavaScript."
-        },
-        "MIN_VALUE": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/MIN_VALUE",
-            "!doc": "The smallest positive numeric value representable in JavaScript."
-        },
-        "POSITIVE_INFINITY": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY",
-            "!doc": "A value representing the positive Infinity value."
-        },
-        "NEGATIVE_INFINITY": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY",
-            "!doc": "A value representing the negative Infinity value."
-        },
-        "prototype": {
-            "!stdProto": "Number",
-            "toString": {
-                "!type": "fn(radix?: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toString",
-                "!doc": "Returns a string representing the specified Number object"
-            },
-            "toFixed": {
-                "!type": "fn(digits: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toFixed",
-                "!doc": "Formats a number using fixed-point notation"
-            },
-            "toExponential": {
-                "!type": "fn(digits: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toExponential",
-                "!doc": "Returns a string representing the Number object in exponential notation"
-            },
-            "toPrecision": {
-                "!type": "fn(digits: number) -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toPrecision",
-                "!doc": "The toPrecision() method returns a string representing the number to the specified precision."
-            }
-        },
-        "EPSILON": {
-            "!type": "number",
-            "!doc": "The Number.EPSILON property represents the difference between one and the smallest value greater than one that can be represented as a Number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON"
-        },
-        "MAX_SAFE_INTEGER": {
-            "!type": "number",
-            "!doc": "The Number.MAX_SAFE_INTEGER constant represents the maximum safe integer in JavaScript (253 - 1).",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER"
-        },
-        "MIN_SAFE_INTEGER": {
-            "!type": "number",
-            "!doc": "The Number.MIN_SAFE_INTEGER constant represents the minimum safe integer in JavaScript (-(253 - 1)).",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER"
-        },
-        "isFinite": {
-            "!type": "fn(testValue: ?) -> bool",
-            "!doc": "The Number.isFinite() method determines whether the passed value is finite.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite"
-        },
-        "isInteger": {
-            "!type": "fn(testValue: ?) -> bool",
-            "!doc": "The Number.isInteger() method determines whether the passed value is an integer.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger"
-        },
-        "isNaN": {
-            "!type": "fn(testValue: ?) -> bool",
-            "!doc": "The Number.isNaN() method determines whether the passed value is NaN. More robust version of the original global isNaN().",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN"
-        },
-        "isSafeInteger": {
-            "!type": "fn(testValue: ?) -> bool",
-            "!doc": "The Number.isSafeInteger() method determines whether the provided value is a number that is a safe integer. A safe integer is an integer that",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger"
-        },
-        "parseFloat": {
-            "!type": "fn(string: string) -> number",
-            "!doc": "The Number.parseFloat() method parses a string argument and returns a floating point number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat"
-        },
-        "parseInt": {
-            "!type": "fn(string: string, radix?: number) -> number",
-            "!doc": "The Number.parseInt() method parses a string argument and returns an integer of the specified radix or base.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt"
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number",
-        "!doc": "The Number JavaScript object is a wrapper object allowing you to work with numerical values. A Number object is created using the Number() constructor."
-    },
-    "Boolean": {
-        "!type": "fn(value: ?) -> bool",
-        "prototype": {
-            "!stdProto": "Boolean"
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Boolean",
-        "!doc": "The Boolean object is an object wrapper for a boolean value."
-    },
-    "RegExp": {
-        "!type": "fn(source: string, flags?: string)",
-        "prototype": {
-            "!stdProto": "RegExp",
-            "exec": {
-                "!type": "fn(input: string) -> [string]",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp/exec",
-                "!doc": "Executes a search for a match in a specified string. Returns a result array, or null."
-            },
-            "test": {
-                "!type": "fn(input: string) -> bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp/test",
-                "!doc": "Executes the search for a match between a regular expression and a specified string. Returns true or false."
-            },
-            "global": {
-                "!type": "bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp",
-                "!doc": "Creates a regular expression object for matching text with a pattern."
-            },
-            "ignoreCase": {
-                "!type": "bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp",
-                "!doc": "Creates a regular expression object for matching text with a pattern."
-            },
-            "multiline": {
-                "!type": "bool",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp/multiline",
-                "!doc": "Reflects whether or not to search in strings across multiple lines.\n"
-            },
-            "source": {
-                "!type": "string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp/source",
-                "!doc": "A read-only property that contains the text of the pattern, excluding the forward slashes.\n"
-            },
-            "lastIndex": {
-                "!type": "number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp/lastIndex",
-                "!doc": "A read/write integer property that specifies the index at which to start the next match."
-            },
-            "flags": {
-                "!type": "string",
-                "!doc": "The flags property returns a string consisting of the flags of the current regular expression object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags"
-            },
-            "sticky": {
-                "!type": "bool",
-                "!doc": "The sticky property reflects whether or not the search is sticky (searches in strings only from the index indicated by the lastIndex property of this regular expression). sticky is a read-only property of an individual regular expression object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky"
-            },
-            "unicode": {
-                "!type": "bool",
-                "!doc": "The 'u' flag enables various Unicode-related features.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode"
-            }
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp",
-        "!doc": "Creates a regular expression object for matching text with a pattern."
-    },
-    "Date": {
-        "!type": "fn(ms: number)",
-        "parse": {
-            "!type": "fn(source: string) -> +Date",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/parse",
-            "!doc": "Parses a string representation of a date, and returns the number of milliseconds since January 1, 1970, 00:00:00 UTC."
-        },
-        "UTC": {
-            "!type": "fn(year: number, month: number, date: number, hour?: number, min?: number, sec?: number, ms?: number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/UTC",
-            "!doc": "Accepts the same parameters as the longest form of the constructor, and returns the number of milliseconds in a Date object since January 1, 1970, 00:00:00, universal time."
-        },
-        "now": {
-            "!type": "fn() -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/now",
-            "!doc": "Returns the number of milliseconds elapsed since 1 January 1970 00:00:00 UTC."
-        },
-        "prototype": {
-            "toUTCString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toUTCString",
-                "!doc": "Converts a date to a string, using the universal time convention."
-            },
-            "toISOString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toISOString",
-                "!doc": "JavaScript provides a direct way to convert a date object into a string in ISO format, the ISO 8601 Extended Format."
-            },
-            "toDateString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toDateString",
-                "!doc": "Returns the date portion of a Date object in human readable form in American English."
-            },
-            "toTimeString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toTimeString",
-                "!doc": "Returns the time portion of a Date object in human readable form in American English."
-            },
-            "toLocaleDateString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toLocaleDateString",
-                "!doc": "Converts a date to a string, returning the \"date\" portion using the operating system's locale's conventions.\n"
-            },
-            "toLocaleTimeString": {
-                "!type": "fn() -> string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString",
-                "!doc": "Converts a date to a string, returning the \"time\" portion using the current locale's conventions."
-            },
-            "getTime": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getTime",
-                "!doc": "Returns the numeric value corresponding to the time for the specified date according to universal time."
-            },
-            "getFullYear": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getFullYear",
-                "!doc": "Returns the year of the specified date according to local time."
-            },
-            "getYear": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getYear",
-                "!doc": "Returns the year in the specified date according to local time."
-            },
-            "getMonth": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getMonth",
-                "!doc": "Returns the month in the specified date according to local time."
-            },
-            "getUTCMonth": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getUTCMonth",
-                "!doc": "Returns the month of the specified date according to universal time.\n"
-            },
-            "getDate": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getDate",
-                "!doc": "Returns the day of the month for the specified date according to local time."
-            },
-            "getUTCDate": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getUTCDate",
-                "!doc": "Returns the day (date) of the month in the specified date according to universal time.\n"
-            },
-            "getDay": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getDay",
-                "!doc": "Returns the day of the week for the specified date according to local time."
-            },
-            "getUTCDay": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getUTCDay",
-                "!doc": "Returns the day of the week in the specified date according to universal time.\n"
-            },
-            "getHours": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getHours",
-                "!doc": "Returns the hour for the specified date according to local time."
-            },
-            "getUTCHours": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getUTCHours",
-                "!doc": "Returns the hours in the specified date according to universal time.\n"
-            },
-            "getMinutes": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getMinutes",
-                "!doc": "Returns the minutes in the specified date according to local time."
-            },
-            "getUTCMinutes": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date",
-                "!doc": "Creates JavaScript Date instances which let you work with dates and times."
-            },
-            "getSeconds": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getSeconds",
-                "!doc": "Returns the seconds in the specified date according to local time."
-            },
-            "getUTCSeconds": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getUTCSeconds",
-                "!doc": "Returns the seconds in the specified date according to universal time.\n"
-            },
-            "getMilliseconds": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getMilliseconds",
-                "!doc": "Returns the milliseconds in the specified date according to local time."
-            },
-            "getUTCMilliseconds": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds",
-                "!doc": "Returns the milliseconds in the specified date according to universal time.\n"
-            },
-            "getTimezoneOffset": {
-                "!type": "fn() -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset",
-                "!doc": "Returns the time-zone offset from UTC, in minutes, for the current locale."
-            },
-            "setTime": {
-                "!type": "fn(date: +Date) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setTime",
-                "!doc": "Sets the Date object to the time represented by a number of milliseconds since January 1, 1970, 00:00:00 UTC.\n"
-            },
-            "setFullYear": {
-                "!type": "fn(year: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setFullYear",
-                "!doc": "Sets the full year for a specified date according to local time.\n"
-            },
-            "setUTCFullYear": {
-                "!type": "fn(year: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCFullYear",
-                "!doc": "Sets the full year for a specified date according to universal time.\n"
-            },
-            "setMonth": {
-                "!type": "fn(month: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setMonth",
-                "!doc": "Set the month for a specified date according to local time."
-            },
-            "setUTCMonth": {
-                "!type": "fn(month: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCMonth",
-                "!doc": "Sets the month for a specified date according to universal time.\n"
-            },
-            "setDate": {
-                "!type": "fn(day: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setDate",
-                "!doc": "Sets the day of the month for a specified date according to local time."
-            },
-            "setUTCDate": {
-                "!type": "fn(day: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCDate",
-                "!doc": "Sets the day of the month for a specified date according to universal time.\n"
-            },
-            "setHours": {
-                "!type": "fn(hour: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setHours",
-                "!doc": "Sets the hours for a specified date according to local time, and returns the number of milliseconds since 1 January 1970 00:00:00 UTC until the time represented by the updated Date instance."
-            },
-            "setUTCHours": {
-                "!type": "fn(hour: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCHours",
-                "!doc": "Sets the hour for a specified date according to universal time.\n"
-            },
-            "setMinutes": {
-                "!type": "fn(min: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setMinutes",
-                "!doc": "Sets the minutes for a specified date according to local time."
-            },
-            "setUTCMinutes": {
-                "!type": "fn(min: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCMinutes",
-                "!doc": "Sets the minutes for a specified date according to universal time.\n"
-            },
-            "setSeconds": {
-                "!type": "fn(sec: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setSeconds",
-                "!doc": "Sets the seconds for a specified date according to local time."
-            },
-            "setUTCSeconds": {
-                "!type": "fn(sec: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCSeconds",
-                "!doc": "Sets the seconds for a specified date according to universal time.\n"
-            },
-            "setMilliseconds": {
-                "!type": "fn(ms: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setMilliseconds",
-                "!doc": "Sets the milliseconds for a specified date according to local time.\n"
-            },
-            "setUTCMilliseconds": {
-                "!type": "fn(ms: number) -> number",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/setUTCMilliseconds",
-                "!doc": "Sets the milliseconds for a specified date according to universal time.\n"
-            },
-            "toJSON": {
-                "!type": "fn() -> string",
-                "!doc": "Returns a string (using toISOString()) representing the Date object's value.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON"
-            }
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date",
-        "!doc": "Creates JavaScript Date instances which let you work with dates and times."
-    },
-    "Error": {
-        "!type": "fn(message: string)",
-        "prototype": {
-            "name": {
-                "!type": "string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Error/name",
-                "!doc": "A name for the type of error."
-            },
-            "message": {
-                "!type": "string",
-                "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Error/message",
-                "!doc": "A human-readable description of the error."
-            }
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Error",
-        "!doc": "Creates an error object."
-    },
-    "SyntaxError": {
-        "!type": "fn(message: string)",
-        "prototype": "Error.prototype",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/SyntaxError",
-        "!doc": "Represents an error when trying to interpret syntactically invalid code."
-    },
-    "ReferenceError": {
-        "!type": "fn(message: string)",
-        "prototype": "Error.prototype",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/ReferenceError",
-        "!doc": "Represents an error when a non-existent variable is referenced."
-    },
-    "URIError": {
-        "!type": "fn(message: string)",
-        "prototype": "Error.prototype",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/URIError",
-        "!doc": "Represents an error when a malformed URI is encountered."
-    },
-    "EvalError": {
-        "!type": "fn(message: string)",
-        "prototype": "Error.prototype",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/EvalError",
-        "!doc": "Represents an error regarding the eval function."
-    },
-    "RangeError": {
-        "!type": "fn(message: string)",
-        "prototype": "Error.prototype",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RangeError",
-        "!doc": "Represents an error when a number is not within the correct range allowed."
-    },
-    "TypeError": {
-        "!type": "fn(message: string)",
-        "prototype": "Error.prototype",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/TypeError",
-        "!doc": "Represents an error an error when a value is not of the expected type."
-    },
-    "parseInt": {
-        "!type": "fn(string: string, radix?: number) -> number",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/parseInt",
-        "!doc": "Parses a string argument and returns an integer of the specified radix or base."
-    },
-    "parseFloat": {
-        "!type": "fn(string: string) -> number",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/parseFloat",
-        "!doc": "Parses a string argument and returns a floating point number."
-    },
-    "isNaN": {
-        "!type": "fn(value: number) -> bool",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/isNaN",
-        "!doc": "Determines whether a value is NaN or not. Be careful, this function is broken. You may be interested in ECMAScript 6 Number.isNaN."
-    },
-    "isFinite": {
-        "!type": "fn(value: number) -> bool",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/isFinite",
-        "!doc": "Determines whether the passed value is a finite number."
-    },
-    "eval": {
-        "!type": "fn(code: string) -> ?",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/eval",
-        "!doc": "Evaluates JavaScript code represented as a string."
-    },
-    "encodeURI": {
-        "!type": "fn(uri: string) -> string",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/encodeURI",
-        "!doc": "Encodes a Uniform Resource Identifier (URI) by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character (will only be four escape sequences for characters composed of two \"surrogate\" characters)."
-    },
-    "encodeURIComponent": {
-        "!type": "fn(uri: string) -> string",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/encodeURIComponent",
-        "!doc": "Encodes a Uniform Resource Identifier (URI) component by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character (will only be four escape sequences for characters composed of two \"surrogate\" characters)."
-    },
-    "decodeURI": {
-        "!type": "fn(uri: string) -> string",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/decodeURI",
-        "!doc": "Decodes a Uniform Resource Identifier (URI) previously created by encodeURI or by a similar routine."
-    },
-    "decodeURIComponent": {
-        "!type": "fn(uri: string) -> string",
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/decodeURIComponent",
-        "!doc": "Decodes a Uniform Resource Identifier (URI) component previously created by encodeURIComponent or by a similar routine."
-    },
-    "Math": {
-        "E": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/E",
-            "!doc": "The base of natural logarithms, e, approximately 2.718."
-        },
-        "LN2": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LN2",
-            "!doc": "The natural logarithm of 2, approximately 0.693."
-        },
-        "LN10": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LN10",
-            "!doc": "The natural logarithm of 10, approximately 2.302."
-        },
-        "LOG2E": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LOG2E",
-            "!doc": "The base 2 logarithm of E (approximately 1.442)."
-        },
-        "LOG10E": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LOG10E",
-            "!doc": "The base 10 logarithm of E (approximately 0.434)."
-        },
-        "SQRT1_2": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/SQRT1_2",
-            "!doc": "The square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707."
-        },
-        "SQRT2": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/SQRT2",
-            "!doc": "The square root of 2, approximately 1.414."
-        },
-        "PI": {
-            "!type": "number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/PI",
-            "!doc": "The ratio of the circumference of a circle to its diameter, approximately 3.14159."
-        },
-        "abs": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/abs",
-            "!doc": "Returns the absolute value of a number."
-        },
-        "cos": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/cos",
-            "!doc": "Returns the cosine of a number."
-        },
-        "sin": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/sin",
-            "!doc": "Returns the sine of a number."
-        },
-        "tan": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/tan",
-            "!doc": "Returns the tangent of a number."
-        },
-        "acos": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/acos",
-            "!doc": "Returns the arccosine (in radians) of a number."
-        },
-        "asin": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/asin",
-            "!doc": "Returns the arcsine (in radians) of a number."
-        },
-        "atan": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/atan",
-            "!doc": "Returns the arctangent (in radians) of a number."
-        },
-        "atan2": {
-            "!type": "fn(y: number, x: number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/atan2",
-            "!doc": "Returns the arctangent of the quotient of its arguments."
-        },
-        "ceil": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/ceil",
-            "!doc": "Returns the smallest integer greater than or equal to a number."
-        },
-        "floor": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/floor",
-            "!doc": "Returns the largest integer less than or equal to a number."
-        },
-        "round": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/round",
-            "!doc": "Returns the value of a number rounded to the nearest integer."
-        },
-        "exp": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/exp",
-            "!doc": "Returns Ex, where x is the argument, and E is Euler's constant, the base of the natural logarithms."
-        },
-        "log": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/log",
-            "!doc": "Returns the natural logarithm (base E) of a number."
-        },
-        "sqrt": {
-            "!type": "fn(number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/sqrt",
-            "!doc": "Returns the square root of a number."
-        },
-        "pow": {
-            "!type": "fn(number, number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/pow",
-            "!doc": "Returns base to the exponent power, that is, baseexponent."
-        },
-        "max": {
-            "!type": "fn(number, number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/max",
-            "!doc": "Returns the largest of zero or more numbers."
-        },
-        "min": {
-            "!type": "fn(number, number) -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/min",
-            "!doc": "Returns the smallest of zero or more numbers."
-        },
-        "random": {
-            "!type": "fn() -> number",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random",
-            "!doc": "Returns a floating-point, pseudo-random number in the range [0, 1) that is, from 0 (inclusive) up to but not including 1 (exclusive), which you can then scale to your desired range."
-        },
-        "acosh": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.acosh() function returns the hyperbolic arc-cosine of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/acosh"
-        },
-        "asinh": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.asinh() function returns the hyperbolic arcsine of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/asinh"
-        },
-        "atanh": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.atanh() function returns the hyperbolic arctangent of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/atanh"
-        },
-        "cbrt": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.cbrt() function returns the cube root of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/cbrt"
-        },
-        "clz32": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.clz32() function returns the number of leading zero bits in the 32-bit binary representation of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/clz32"
-        },
-        "cosh": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.cosh() function returns the hyperbolic cosine of a number, that can be expressed using the constant e:",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/cosh"
-        },
-        "expm1": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.expm1() function returns ex - 1, where x is the argument, and e the base of the natural logarithms.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/expm1"
-        },
-        "fround": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.fround() function returns the nearest single precision float representation of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/fround"
-        },
-        "hypot": {
-            "!type": "fn(value: number) -> number",
-            "!doc": "The Math.hypot() function returns the square root of the sum of squares of its arguments.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/hypot"
-        },
-        "imul": {
-            "!type": "fn(a: number, b: number) -> number",
-            "!doc": "The Math.imul() function returns the result of the C-like 32-bit multiplication of the two parameters.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul"
-        },
-        "log10": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.log10() function returns the base 10 logarithm of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log10"
-        },
-        "log1p": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.log1p() function returns the natural logarithm (base e) of 1 + a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log1p"
-        },
-        "log2": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.log2() function returns the base 2 logarithm of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log2"
-        },
-        "sign": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.sign() function returns the sign of a number, indicating whether the number is positive, negative or zero.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sign"
-        },
-        "sinh": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.sinh() function returns the hyperbolic sine of a number, that can be expressed using the constant e:",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sinh"
-        },
-        "tanh": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.tanh() function returns the hyperbolic tangent of a number.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/tanh"
-        },
-        "trunc": {
-            "!type": "fn(x: number) -> number",
-            "!doc": "The Math.trunc() function returns the integral part of a number by removing any fractional digits. It does not round any numbers. The function can be expressed with the floor() and ceil() function:",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc"
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math",
-        "!doc": "A built-in object that has properties and methods for mathematical constants and functions."
-    },
-    "JSON": {
-        "parse": {
-            "!type": "fn(json: string, reviver?: fn(key: string, value: ?) -> ?) -> ?",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON/parse",
-            "!doc": "Parse a string as JSON, optionally transforming the value produced by parsing."
-        },
-        "stringify": {
-            "!type": "fn(value: ?, replacer?: fn(key: string, value: ?) -> ?, space?: string|number) -> string",
-            "!url": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify",
-            "!doc": "Convert a value to JSON, optionally replacing values if a replacer function is specified, or optionally including only the specified properties if a replacer array is specified."
-        },
-        "!url": "https://developer.mozilla.org/en-US/docs/JSON",
-        "!doc": "JSON (JavaScript Object Notation) is a data-interchange format.  It closely resembles a subset of JavaScript syntax, although it is not a strict subset. (See JSON in the JavaScript Reference for full details.)  It is useful when writing any kind of JavaScript-based application, including websites and browser extensions.  For example, you might store user information in JSON format in a cookie, or you might store extension preferences in JSON in a string-valued browser preference."
-    },
-    "ArrayBuffer": {
-        "!type": "fn(length: number)",
-        "!doc": "The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
-        "isView": {
-            "!type": "fn(arg: +ArrayBuffer) -> bool",
-            "!doc": "The ArrayBuffer.isView() method returns true if arg is one of the ArrayBuffer views, such as typed array objects or a DataView; false otherwise.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView"
-        },
-        "prototype": {
-            "byteLength": {
-                "!type": "number",
-                "!doc": "The byteLength accessor property represents the length of an ArrayBuffer in bytes.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/byteLength"
-            },
-            "slice": {
-                "!type": "fn(begin: number, end?: number) -> +ArrayBuffer",
-                "!doc": "The slice() method returns a new ArrayBuffer whose contents are a copy of this ArrayBuffer's bytes from begin, inclusive, up to end, exclusive.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/slice"
-            }
-        }
-    },
-    "DataView": {
-        "!type": "fn(buffer: +ArrayBuffer, byteOffset?: number, byteLength?: number)",
-        "!doc": "The DataView view provides a low-level interface for reading data from and writing it to an ArrayBuffer.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
-        "prototype": {
-            "buffer": {
-                "!type": "+ArrayBuffer",
-                "!doc": "The buffer accessor property represents the ArrayBuffer referenced by the DataView at construction time.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/buffer"
-            },
-            "byteLength": {
-                "!type": "number",
-                "!doc": "The byteLength accessor property represents the length (in bytes) of this view from the start of its ArrayBuffer.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/byteLength"
-            },
-            "byteOffset": {
-                "!type": "number",
-                "!doc": "The byteOffset accessor property represents the offset (in bytes) of this view from the start of its ArrayBuffer.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/byteOffset"
-            },
-            "getFloat32": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getFloat32() method gets a signed 32-bit integer (float) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getFloat32"
-            },
-            "getFloat64": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getFloat64() method gets a signed 64-bit float (double) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getFloat64"
-            },
-            "getInt16": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getInt16() method gets a signed 16-bit integer (short) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getInt16"
-            },
-            "getInt32": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getInt32() method gets a signed 32-bit integer (long) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getInt32"
-            },
-            "getInt8": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getInt8() method gets a signed 8-bit integer (byte) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getInt8"
-            },
-            "getUint16": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getUint16() method gets an unsigned 16-bit integer (unsigned short) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getUint16"
-            },
-            "getUint32": {
-                "!type": "fn(byteOffset: number, littleEndian?: bool) -> number",
-                "!doc": "The getUint32() method gets an unsigned 32-bit integer (unsigned long) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getUint32"
-            },
-            "getUint8": {
-                "!type": "fn(byteOffset: number) -> number",
-                "!doc": "The getUint8() method gets an unsigned 8-bit integer (unsigned byte) at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/getUint8"
-            },
-            "setFloat32": {
-                "!type": "fn(byteOffset: number, value: number, littleEndian?: bool)",
-                "!doc": "The setFloat32() method stores a signed 32-bit integer (float) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setFloat32"
-            },
-            "setFloat64": {
-                "!type": "fn(byteOffset: number, value: number, littleEndian?: bool)",
-                "!doc": "The setFloat64() method stores a signed 64-bit integer (double) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setFloat64"
-            },
-            "setInt16": {
-                "!type": "fn(byteOffset: number, value: number, littleEndian?: bool)",
-                "!doc": "The setInt16() method stores a signed 16-bit integer (short) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setInt16"
-            },
-            "setInt32": {
-                "!type": "fn(byteOffset: number, value: number, littleEndian?: bool)",
-                "!doc": "The setInt32() method stores a signed 32-bit integer (long) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setInt32"
-            },
-            "setInt8": {
-                "!type": "fn(byteOffset: number, value: number)",
-                "!doc": "The setInt8() method stores a signed 8-bit integer (byte) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setInt8"
-            },
-            "setUint16": {
-                "!type": "fn(byteOffset: number, value: number, littleEndian?: bool)",
-                "!doc": "The setUint16() method stores an unsigned 16-bit integer (unsigned short) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setUint16"
-            },
-            "setUint32": {
-                "!type": "fn(byteOffset: number, value: number, littleEndian?: bool)",
-                "!doc": "The setUint32() method stores an unsigned 32-bit integer (unsigned long) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setUint32"
-            },
-            "setUint8": {
-                "!type": "fn(byteOffset: number, value: number)",
-                "!doc": "The setUint8() method stores an unsigned 8-bit integer (byte) value at the specified byte offset from the start of the DataView.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView/setUint8"
-            }
-        }
-    },
-    "Float32Array": "TypedArray",
-    "Float64Array": "TypedArray",
-    "Int16Array": "TypedArray",
-    "Int32Array": "TypedArray",
-    "Int8Array": "TypedArray",
-    "Map": {
-        "!type": "fn(iterable?: [?])",
-        "!doc": "The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key or a value.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
-        "prototype": {
-            "clear": {
-                "!type": "fn()",
-                "!doc": "The clear() method removes all elements from a Map object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear"
-            },
-            "delete": {
-                "!type": "fn(key: ?)",
-                "!doc": "The delete() method removes the specified element from a Map object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete"
-            },
-            "entries": {
-                "!type": "fn() -> +iter[:t=[!this.:key, !this.:value]]",
-                "!doc": "The entries() method returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries"
-            },
-            "forEach": {
-                "!type": "fn(callback: fn(value: ?, key: ?, map: +Map), thisArg?: ?)",
-                "!effects": ["call !0 this=!1 !this.:value !this.:key !this"],
-                "!doc": "The forEach() method executes a provided function once per each key/value pair in the Map object, in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach"
-            },
-            "get": {
-                "!type": "fn(key: ?) -> !this.:value",
-                "!doc": "The get() method returns a specified element from a Map object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get"
-            },
-            "has": {
-                "!type": "fn(key: ?) -> bool",
-                "!doc": "The has() method returns a boolean indicating whether an element with the specified key exists or not.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has"
-            },
-            "keys": {
-                "!type": "fn() -> +iter[:t=!this.:key]",
-                "!doc": "The keys() method returns a new Iterator object that contains the keys for each element in the Map object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys"
-            },
-            "set": {
-                "!type": "fn(key: ?, value: ?) -> !this",
-                "!effects": ["propagate !0 !this.:key", "propagate !1 !this.:value"],
-                "!doc": "The set() method adds a new element with a specified key and value to a Map object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set"
-            },
-            "size": {
-                "!type": "number",
-                "!doc": "The size accessor property returns the number of elements in a Map object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size"
-            },
-            "values": {
-                "!type": "fn() -> +iter[:t=!this.:value]",
-                "!doc": "The values() method returns a new Iterator object that contains the values for each element in the Map object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values"
-            },
-            ":Symbol.iterator": {
-                "!type": "fn() -> +iter[:t=[!this.:key, !this.:value]]",
-                "!doc": "Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/@@iterator"
-            }
-        }
-    },
-    "Promise": {
-        "!type": "fn(executor: fn(resolve: fn(value: ?), reject: fn(reason: ?))) -> !custom:Promise_ctor",
-        "!doc": "The Promise object is used for deferred and asynchronous computations. A Promise is in one of the three states:",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
-        "all": {
-            "!type": "fn(iterable: [+Promise]) -> +Promise[:t=[!0.<i>.:t]]",
-            "!doc": "The Promise.all(iterable) method returns a promise that resolves when all of the promises in the iterable argument have resolved.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
-        },
-        "race": {
-            "!type": "fn(iterable: [+Promise]) -> !0.<i>",
-            "!doc": "The Promise.race(iterable) method returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects, with the value or reason from that promise.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race"
-        },
-        "reject": "Promise_reject",
-        "resolve": {
-            "!type": "fn(value: ?) -> !custom:Promise_resolve",
-            "!doc": "The Promise.resolve(value) method returns a Promise object that is resolved with the given value. If the value is a thenable (i.e. has a then method), the returned promise will 'follow' that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve"
-        },
-        "prototype": "Promise.prototype"
-    },
-    "Proxy": {
-        "!type": "fn(target: ?, handler: Proxy_handler)",
-        "!doc": "The Proxy object is used to define the custom behavior in JavaScript fundamental operation (e.g. property lookup, assignment, enumeration, function invocation, etc).",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
-        "revocable": {
-            "!type": "fn(target: ?, handler: Proxy_handler) -> Proxy_revocable",
-            "!doc": "The Proxy.revocable() method is used to create a revocable Proxy object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/revocable"
-        }
-    },
-    "Reflect": {
-        "!doc": "Reflect is a built-in object that provides methods for interceptable JavaScript operations.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
-        "apply": {
-            "!type": "fn(target: fn(), thisArg?: ?, argumentList?: [?]) -> !0.!ret",
-            "!doc": "Calls a target function with arguments as specified.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply"
-        },
-        "construct": {
-            "!type": "fn(target: fn(), argumentList?: [?]) -> ?",
-            "!doc": "Acts like the new operator as a function. It is equivalent to calling new target(...args).",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/construct"
-        },
-        "defineProperty": {
-            "!type": "fn(target: ?, property: string, descriptor: propertyDescriptor) -> bool",
-            "!doc": "The static Reflect.defineProperty() method is like Object.defineProperty() but returns a Boolean.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty"
-        },
-        "deleteProperty": {
-            "!type": "fn(target: ?, property: string) -> bool",
-            "!doc": "Works like the delete operator as a function.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/deleteProperty"
-        },
-        "enumerate": {
-            "!type": "fn(target: ?) -> +iter[:t=string]",
-            "!doc": "Returns an iterator with the enumerable own and inherited properties of the target object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/enumerate"
-        },
-        "get": {
-            "!type": "fn(target: ?, property: string) -> ?",
-            "!doc": "Gets a property from an object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/get"
-        },
-        "getOwnPropertyDescriptor": {
-            "!type": "fn(target: ?, property: string) -> ?",
-            "!doc": "Returns a property descriptor of the given property if it exists on the object, undefined otherwise.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getOwnPropertyDescriptor"
-        },
-        "getPrototypeOf": {
-            "!type": "fn(target: ?) -> ?",
-            "!doc": "Returns the prototype of the specified object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf"
-        },
-        "has": {
-            "!type": "fn(target: ?, property: string) -> bool",
-            "!doc": "The static Reflect.has() method works like the in operator as a function.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has"
-        },
-        "isExtensible": {
-            "!type": "fn(target: ?) -> bool",
-            "!doc": "Determines if an object is extensible (whether it can have new properties added to it).",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/isExtensible"
-        },
-        "ownKeys": {
-            "!type": "fn(target: ?) -> [string]",
-            "!doc": "Returns an array of the target object's own property keys.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys"
-        },
-        "preventExtensions": {
-            "!type": "fn(target: ?) -> bool",
-            "!doc": "Prevents new properties from ever being added to an object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions"
-        },
-        "set": {
-            "!type": "fn(target: ?, property: string, value: ?) -> bool",
-            "!doc": "Set a property on an object.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set"
-        },
-        "setPrototypeOf": {
-            "!type": "fn(target: ?, prototype: ?) -> bool",
-            "!doc": "Sets the prototype of a specified object to another object or to null.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf"
-        }
-    },
-    "Set": {
-        "!type": "fn(iterable?: [?])",
-        "!doc": "The Set object lets you store unique values of any type, whether primitive values or object references.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
-        "prototype": {
-            "add": {
-                "!type": "fn(value: ?) -> !this",
-                "!effects": ["propagate !0 !this.:t"],
-                "!doc": "The add() method appends a new element with a specified value to the end of a Set object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add"
-            },
-            "clear": {
-                "!type": "fn()",
-                "!doc": "The clear() method removes all elements from a Set object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear"
-            },
-            "delete": {
-                "!type": "fn(value: ?) -> bool",
-                "!doc": "The delete() method removes the specified element from a Set object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete"
-            },
-            "entries": {
-                "!type": "fn() -> +iter[:t=[!this.:t]]",
-                "!doc": "The entries() method returns a new Iterator object that contains an array of [value, value] for each element in the Set object, in insertion order. For Set objects there is no key like in Map objects. However, to keep the API similar to the Map object, each entry has the same value for its key and value here, so that an array [value, value] is returned.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/entries"
-            },
-            "forEach": {
-                "!type": "fn(callback: fn(value: ?, value2: ?, set: +Set), thisArg?: ?)",
-                "!effects": ["call !0 this=!1 !this.:t number !this"],
-                "!doc": "The forEach() method executes a provided function once per each value in the Set object, in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach"
-            },
-            "has": {
-                "!type": "fn(value: ?) -> bool",
-                "!doc": "The has() method returns a boolean indicating whether an element with the specified value exists in a Set object or not.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has"
-            },
-            "keys": {
-                "!type": "fn() -> +iter[:t=!this.:t]",
-                "!doc": "The values() method returns a new Iterator object that contains the values for each element in the Set object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys"
-            },
-            "size": {
-                "!type": "number",
-                "!doc": "The size accessor property returns the number of elements in a Set object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size"
-            },
-            "values": {
-                "!type": "fn() -> +iter[:t=!this.:t]",
-                "!doc": "The values() method returns a new Iterator object that contains the values for each element in the Set object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/values"
-            },
-            ":Symbol.iterator": {
-                "!type": "fn() -> +iter[:t=!this.:t]",
-                "!doc": "Returns a new Iterator object that contains the values for each element in the Set object in insertion order.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/@@iterator"
-            }
-        }
-    },
-    "Symbol": {
-        "!type": "fn(description?: string) -> !custom:getSymbol",
-        "!doc": "A symbol is a unique and immutable data type and may be used as an identifier for object properties. The symbol object is an implicit object wrapper for the symbol primitive data type.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
-        "for": {
-            "!type": "fn(key: string) -> !custom:getSymbol",
-            "!doc": "The Symbol.for(key) method searches for existing symbols in a runtime-wide symbol registry with the given key and returns it if found. Otherwise a new symbol gets created in the global symbol registry with this key.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for"
-        },
-        "keyFor": {
-            "!type": "fn(sym: +Symbol) -> string",
-            "!doc": "The Symbol.keyFor(sym) method retrieves a shared symbol key from the global symbol registry for the given symbol.",
-            "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/keyFor"
-        },
-        "hasInstance": ":Symbol.hasInstance",
-        "isConcatSpreadable": ":Symbol.isConcatSpreadable",
-        "iterator": ":Symbol.iterator",
-        "match": ":Symbol.match",
-        "replace": ":Symbol.replace",
-        "search": ":Symbol.search",
-        "species": ":Symbol.species",
-        "split": ":Symbol.split",
-        "toStringTag": ":Symbol.toStringTag",
-        "unscopables": ":Symbol.unscopables",
-        "prototype": {
-            "!stdProto": "Symbol"
-        }
-    },
-    "Uint16Array": "TypedArray",
-    "Uint32Array": "TypedArray",
-    "Uint8Array": "TypedArray",
-    "Uint8ClampedArray": "TypedArray",
-    "WeakMap": {
-        "!type": "fn(iterable?: [?])",
-        "!doc": "The WeakMap object is a collection of key/value pairs in which the keys are objects and the values can be arbitrary values.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
-        "prototype": {
-            "delete": {
-                "!type": "fn(key: ?) -> bool",
-                "!doc": "The delete() method removes the specified element from a WeakMap object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/delete"
-            },
-            "get": {
-                "!type": "fn(key: ?) -> !this.:value",
-                "!doc": "The get() method returns a specified element from a WeakMap object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/get"
-            },
-            "has": {
-                "!type": "fn(key: ?) -> bool",
-                "!doc": "The has() method returns a boolean indicating whether an element with the specified key exists in the WeakMap object or not.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/has"
-            },
-            "set": {
-                "!type": "fn(key: ?, value: ?)",
-                "!effects": ["propagate !0 !this.:key", "propagate !1 !this.:value"],
-                "!doc": "The set() method adds a new element with a specified key and value to a WeakMap object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/set"
-            }
-        }
-    },
-    "WeakSet": {
-        "!type": "fn(iterable?: [?])",
-        "!doc": "The WeakSet object lets you store weakly held objects in a collection.",
-        "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
-        "prototype": {
-            "add": {
-                "!type": "fn(value: ?)",
-                "!doc": "The add() method appends a new object to the end of a WeakSet object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/add"
-            },
-            "delete": {
-                "!type": "fn(value: ?) -> bool",
-                "!doc": "The delete() method removes the specified element from a WeakSet object.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/delete"
-            },
-            "has": {
-                "!type": "fn(value: ?) -> bool",
-                "!doc": "The has() method returns a boolean indicating whether an object exists in a WeakSet or not.",
-                "!url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/has"
-            }
-        }
-    }
-};
-//# sourceMappingURL=ecmascript.js.map
-
-/***/ }),
-
-/***/ 380:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export menuTemplateDev */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return contextMenu; });
-/* unused harmony export template */
-var menuTemplateDev = [{
-        label: 'Options',
-        submenu: [{
-                label: 'Open Dev Tools',
-                click: function () {
-                    console.log('Tatti');
-                },
-            },],
-    }, {
-        label: 'View',
-        submenu: [{
-                label: 'View IP Address',
-                click: function () {
-                    var dialog = __webpack_require__(120).remote.dialog;
-                    dialog.showMessageBox({
-                        title: 'IP Address',
-                        message: 'Hello'
-                    });
-                }
-            }]
-    }];
-var contextMenu = [
-    { role: 'copy' },
-    { role: 'paste' },
-    { type: 'separator' },
-    { role: 'undo' },
-    { role: 'redo' },
-];
-var template = [
-    {
-        label: 'Edit',
-        submenu: [
-            { role: 'undo' },
-            { role: 'redo' },
-            { type: 'separator' },
-            { role: 'cut' },
-            { role: 'copy' },
-            { role: 'paste' },
-            { role: 'pasteandmatchstyle' },
-            { role: 'delete' },
-            { role: 'selectall' }
-        ]
-    },
-    {
-        label: 'View',
-        submenu: [
-            { role: 'reload' },
-            { role: 'forcereload' },
-            { role: 'toggledevtools' },
-            { type: 'separator' },
-            { role: 'resetzoom' },
-            { role: 'zoomin' },
-            { role: 'zoomout' },
-            { type: 'separator' },
-            { role: 'togglefullscreen' }
-        ]
-    },
-    {
-        role: 'window',
-        submenu: [
-            { role: 'minimize' },
-            { role: 'close' }
-        ]
-    },
-    {
-        role: 'help',
-        submenu: [
-            {
-                label: 'Learn More',
-                click: function () { __webpack_require__(120).shell.openExternal('https://electronjs.org'); }
-            }
-        ]
-    }
-];
-//# sourceMappingURL=electron-resources.js.map
-
-/***/ }),
-
-/***/ 381:
+/***/ 427:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HoverComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3634,7 +1962,7 @@ var HoverComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'hover',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\hover\hover.html"*/'<section class="page-template page-template-elementor_canvas page page-id-56 elementor-default elementor-template-canvas elementor-page elementor-page-56"\n\n  data-elementor-device-mode="mobile">\n\n  <div class="elementor elementor-56">\n\n    <div class="elementor-inner">\n\n      <div class="elementor-section-wrap">\n\n        <article data-id="88a4079" class="elementor-element elementor-element-88a4079 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-top elementor-section elementor-top-section"\n\n          data-element_type="section" style="width: 532px; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="4966539" class="elementor-element elementor-element-4966539 elementor-column elementor-col-100 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="8b09b63" class="elementor-element elementor-element-8b09b63 elementor-align-left elementor-widget elementor-widget-icon-list"\n\n                      data-element_type="icon-list.default">\n\n                      <div class="elementor-widget-container">\n\n                        <ul class="elementor-icon-list-items elementor-inline-items">\n\n                          <li tappable class="elementor-icon-list-item" (click)="code()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <i class="fa fa-code" aria-hidden="true"></i>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text">Code</span>\n\n                          </li>\n\n                          <li tappable class="elementor-icon-list-item" (click)="edit()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <i class="fa fa-edit" aria-hidden="true"></i>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text">Edit</span>\n\n                          </li>\n\n                          <li tappable class="elementor-icon-list-item" (click)="style()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <i class="fa fa-arrows" aria-hidden="true"></i>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text">Style</span>\n\n                          </li>\n\n                        </ul>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </article>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</section>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\hover\hover.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
     ], HoverComponent);
     return HoverComponent;
 }());
@@ -3643,14 +1971,14 @@ var HoverComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 382:
+/***/ 428:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CodebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_material__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_material__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3718,9 +2046,9 @@ var CodebarComponent = /** @class */ (function () {
     ], CodebarComponent.prototype, "mode", void 0);
     CodebarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'codebar',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\codebar\codebar.html"*/'<div class="page-template page-template-elementor_canvas page page-id-77 elementor-default elementor-template-canvas elementor-page elementor-page-77"\n\n  data-elementor-device-mode="mobile">\n\n  <div class="elementor elementor-77">\n\n    <div class="elementor-inner">\n\n      <div class="elementor-section-wrap">\n\n        <section data-id="85d6837" class="elementor-element elementor-element-85d6837 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-top mtr-js elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width:100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="0485474" class="elementor-element elementor-element-0485474 elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="3c6c848" class="elementor-element elementor-element-3c6c848 elementor-align-left elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left">\n\n                                <!-- <i class="fa fa-code" aria-hidden="true"></i> -->\n\n                                <!-- <i [ngClass]="{\'fa\' :true, \'fa-code\' : mode==\'Javascript\' || mode ==\'JSON\', \'fa-css3\' : mode==\'CSS\'}" aria-hidden="true"></i> -->\n\n                                <ion-icon [name]=" mode==\'Javascript\' || mode==\'JSON\'?\'logo-javascript\' : \'logo-css3\'"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text">{{mode}}</span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div data-id="3d1c5df" class="elementor-element elementor-element-3d1c5df elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="335c52a" class="elementor-element elementor-element-335c52a elementor-button-danger elementor-align-right elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a *ngIf="mode == \'Javascript\' || mode == \'JSON\'" tappable (click)="showInterface()" class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-right">\n\n                                <i class="fa fa-indent" aria-hidden="true"></i>\n\n                              </span>\n\n                              <span class="elementor-button-text">Interface</span>\n\n                            </span>\n\n                          </a>\n\n                          <a tappable (click)="indent()" class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-right">\n\n                                <i class="fa fa-indent" aria-hidden="true"></i>\n\n                              </span>\n\n                              <span class="elementor-button-text">Indent</span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\codebar\codebar.html"*/
+            selector: 'codebar',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\codebar\codebar.html"*/'<div class="mode">\n\n  <ion-icon [name]=" mode==\'Javascript\' || mode==\'JSON\'?\'logo-javascript\' : \'logo-css3\'"></ion-icon>\n\n  <span>{{mode}}</span>\n\n</div>\n\n<div class="utilities">\n\n  <div class="interface button" *ngIf="mode == \'Javascript\' || mode == \'JSON\'" tappable (click)="showInterface()">\n\n    <ion-icon name="md-reorder"></ion-icon>\n\n    <span>Interface</span>\n\n  </div>\n\n  <div class="indent button">\n\n    <ion-icon name="md-reorder"></ion-icon>\n\n    <span>Indent</span>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\codebar\codebar.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_material__["c" /* MatSnackBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_material__["k" /* MatSnackBar */]])
     ], CodebarComponent);
     return CodebarComponent;
 }());
@@ -3729,7 +2057,7 @@ var CodebarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 383:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3775,13 +2103,13 @@ var StatusBarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 384:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsBarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3835,13 +2163,18 @@ var TabsBarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 385:
+/***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export myCustomTooltipDefaults */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityBarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_electron_service_electron_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_authentication_service_authentication_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_electron_service_electron_service_dump__ = __webpack_require__(263);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3852,46 +2185,99 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var myCustomTooltipDefaults = {
     showDelay: 0,
     hideDelay: 5000,
     touchendHideDelay: 1000,
 };
 var ActivityBarComponent = /** @class */ (function () {
-    function ActivityBarComponent() {
-        this.newActivity = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    function ActivityBarComponent(events, navCtrl, esp, gsp, asp) {
+        this.events = events;
+        this.navCtrl = navCtrl;
+        this.esp = esp;
+        this.gsp = gsp;
+        this.asp = asp;
     }
-    ActivityBarComponent.prototype.changeMode = function () {
-        this.newActivity.emit('changeMode');
+    ActivityBarComponent.prototype.menuFile = function (event) {
+        switch (event) {
+            case 'new':
+                this.esp.showNewFileDialog();
+                break;
+            case 'save':
+                this.gsp.electronConfig.parsedPath == null ?
+                    this.esp.showSaveDialog() : this.esp.saveFile();
+                break;
+            case 'save-as':
+                this.esp.showSaveDialog();
+                break;
+            case 'open':
+                this.esp.showOpenDialog();
+                break;
+            case 'open-in-new-window':
+                this.esp.openInNewWindow();
+                break;
+            default:
+                break;
+        }
     };
-    ActivityBarComponent.prototype.connectToBoard = function () {
-        this.newActivity.emit('connect');
+    ActivityBarComponent.prototype.openRecentDocument = function (filePath) {
+        Object(__WEBPACK_IMPORTED_MODULE_5__providers_electron_service_electron_service_dump__["b" /* createNewWindowFromDump */])(this.esp, filePath);
     };
-    ActivityBarComponent.prototype.initialize = function () {
-        this.newActivity.emit('initialize');
+    ActivityBarComponent.prototype.menuCloud = function (event) {
+        switch (event) {
+            case 'upload':
+                this.asp.uploadDashboard();
+                break;
+            case 'your-dashboards':
+                Object(__WEBPACK_IMPORTED_MODULE_5__providers_electron_service_electron_service_dump__["e" /* showSnackBarFromDump */])(this.esp, 'my-dashboards');
+                break;
+            case 'usage':
+                break;
+            default:
+                break;
+        }
     };
-    ActivityBarComponent.prototype.globalConfig = function () {
-        this.newActivity.emit('globalConfigJSON');
+    ActivityBarComponent.prototype.activity = function (activity) {
+        switch (activity) {
+            case 'connect':
+                this.events.publish('page-designer : socket-service : connect-to-board');
+                break;
+            case 'initialize':
+                this.events.publish('page-designer : socket-service : initialize');
+                break;
+            case 'globalConfigJSON':
+                this.events.publish('activity-bar : global-service : add-tab', { other: "globalConfigJSON", mode: "JSON" });
+                break;
+            case 'globalConfigCSS':
+                this.events.publish('activity-bar : global-service : add-tab', { other: "globalConfigCSS", mode: "CSS" });
+                break;
+            case 'globalConfigSetup':
+                this.events.publish('activity-bar : global-service : add-tab', { other: "globalConfigSetup", mode: "Javascript" });
+                break;
+            case 'globalConfigDefaultSettings':
+                this.events.publish('activity-bar : global-service : add-tab', { other: "globalConfigDefaultSettings", mode: "JSON" });
+                break;
+            case 'goToDesignerPage':
+                this.events.publish('component-activity-bar : page-designer : show-designer');
+                break;
+            default:
+                break;
+        }
     };
-    ActivityBarComponent.prototype.globalStyle = function () {
-        this.newActivity.emit('globalConfigCSS');
-    };
-    ActivityBarComponent.prototype.goToDesignerPage = function () {
-        this.newActivity.emit('goToDesignerPage');
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-        __metadata("design:type", Object)
-    ], ActivityBarComponent.prototype, "newActivity", void 0);
     ActivityBarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'activity-bar',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\activity-bar\activity-bar.html"*/'<div class="icon-container">\n\n  <div class="upper-container">\n\n    <ion-icon tappable id="eye" name="eye"></ion-icon>\n\n    <ion-icon tappable id="brush" name="brush" matTooltip="Designer" matTooltipPosition="after" (click)="goToDesignerPage()"></ion-icon>\n\n  </div>\n\n  <div class="lower-container">\n\n    <ion-icon tappable id="logo-nodejs" name="logo-nodejs" matTooltip="Global Config" matTooltipPosition="after" (click)="globalConfig()"></ion-icon>\n\n    <ion-icon tappable id="logo-css3" name="logo-css3" matTooltip="Global Style" matTooltipPosition="after" (click)="globalStyle()"></ion-icon>\n\n    <ion-icon tappable id="cog" name="cog" matTooltip="Settings" matTooltipPosition="after"></ion-icon>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\activity-bar\activity-bar.html"*/,
+            selector: 'activity-bar',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\activity-bar\activity-bar.html"*/'<div class="icon-container">\n\n  <div class="upper-container">\n\n    <ion-icon tappable id="menu" name="menu" [matMenuTriggerFor]="menu"></ion-icon>\n\n    <ion-icon tappable id="eye" name="eye"></ion-icon>\n\n    <ion-icon tappable id="brush" name="brush" matTooltip="Designer" matTooltipPosition="after" (click)="activity(\'goToDesignerPage\')"></ion-icon>\n\n  </div>\n\n  <div class="lower-container">\n\n    <ion-icon tappable id="code" name="code" matTooltip="Code" matTooltipPosition="after" (click)="activity(\'globalConfigSetup\')"></ion-icon>\n\n    <ion-icon tappable id="logo-nodejs" name="logo-nodejs" matTooltip="Global Config" matTooltipPosition="after" (click)="activity(\'globalConfigJSON\')"></ion-icon>\n\n    <ion-icon tappable id="logo-css3" name="logo-css3" matTooltip="Global Style" matTooltipPosition="after" (click)="activity(\'globalConfigCSS\')"></ion-icon>\n\n    <ion-icon tappable id="ios-construct" name="ios-construct" matTooltip="Settings" matTooltipPosition="after" (click)="activity(\'globalConfigDefaultSettings\')"></ion-icon>\n\n  </div>\n\n</div>\n\n\n\n<mat-menu #menu="matMenu" class="menu-buttons">\n\n  <button mat-menu-item [matMenuTriggerFor]="file">\n\n    <span>File</span>\n\n    <ion-icon name="folder"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item [matMenuTriggerFor]="cloud" [disabled]="!this.asp.user.getValue()">\n\n    <span>Cloud</span>\n\n    <ion-icon name="cloud"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item [matMenuTriggerFor]="share">\n\n    <span>Share</span>\n\n    <ion-icon name="share-alt"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item [matMenuTriggerFor]="help">\n\n    <span>Help</span>\n\n    <ion-icon name="help"></ion-icon>\n\n  </button>\n\n</mat-menu>\n\n\n\n<mat-menu #file="matMenu" class="menu-buttons sub-menu-buttons">\n\n  <button mat-menu-item (click)="menuFile(\'new\')">\n\n    <ion-icon name="ios-create"></ion-icon>\n\n    <span>New</span>\n\n  </button>\n\n  <mat-divider></mat-divider>\n\n  <button mat-menu-item (click)="menuFile(\'save\')">\n\n    <ion-icon name="ios-download"></ion-icon>\n\n    <span>Save</span>\n\n  </button>\n\n  <button mat-menu-item (click)="menuFile(\'save-as\')" class="no-icon-button">\n\n    <span>Save As...</span>\n\n  </button>\n\n  <mat-divider></mat-divider>\n\n  <button mat-menu-item (click)="menuFile(\'open\')">\n\n    <ion-icon name="ios-open"></ion-icon>\n\n    <span>Open</span>\n\n  </button>\n\n  <button mat-menu-item class="no-icon-button" (click)="menuFile(\'open-in-new-window\')">\n\n    <span>Open in new window</span>\n\n  </button>\n\n  <mat-divider></mat-divider>\n\n  <button mat-menu-item [matMenuTriggerFor]="openRecent" [disabled]="this.esp.openRecentDocumentsArray.length == 0">\n\n    <ion-icon name="ios-clock"></ion-icon>\n\n    <span>Recent</span>\n\n  </button>\n\n</mat-menu>\n\n\n\n<mat-menu #openRecent="matMenu" class="menu-buttons sub-menu-buttons recent-docs">\n\n  <button mat-menu-item (click)="openRecentDocument(doc.path)" *ngFor="let doc of this.esp.openRecentDocumentsArray">\n\n    <span>{{doc.name}}</span>\n\n    <span class="document-path">{{doc.path}}</span>\n\n  </button>\n\n</mat-menu>\n\n\n\n\n\n<mat-menu #cloud="matMenu" class="menu-buttons sub-menu-buttons">\n\n  <button mat-menu-item (click)="menuCloud(\'upload\')">\n\n    <ion-icon name="ios-cloud-upload"></ion-icon>\n\n    <span>Upload</span>\n\n  </button>\n\n  <button mat-menu-item (click)="menuCloud(\'your-dashboards\')">\n\n    <ion-icon name="ios-paper"></ion-icon>\n\n    <span>Your Dashboards</span>\n\n  </button>\n\n  <button mat-menu-item (click)="menuCloud(\'usage\')">\n\n    <ion-icon name="analytics"></ion-icon>\n\n    <span>Usage</span>\n\n  </button>\n\n</mat-menu>\n\n\n\n<mat-menu #share="matMenu" class="menu-buttons sub-menu-buttons">\n\n  <button mat-menu-item>\n\n    <span>Facebook</span>\n\n    <ion-icon name="logo-facebook"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item>\n\n    <span>Instagram</span>\n\n    <ion-icon name="logo-instagram"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item>\n\n    <span>Google +</span>\n\n    <ion-icon name="logo-googleplus"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item>\n\n    <span>Twitter</span>\n\n    <ion-icon name="logo-twitter"></ion-icon>\n\n  </button>\n\n</mat-menu>\n\n\n\n\n\n\n\n\n\n<mat-menu #help="matMenu" class="menu-buttons sub-menu-buttons">\n\n  <button mat-menu-item>Documentation</button>\n\n  <button mat-menu-item>Tutorials</button>\n\n  <button mat-menu-item>Release Notes</button>\n\n  <button mat-menu-item [matMenuTriggerFor]="social">\n\n    <span>Social</span>\n\n    <ion-icon name="people"></ion-icon>\n\n  </button>\n\n  <button mat-menu-item>Provide Feedback</button>\n\n  <button mat-menu-item>Report Issue</button>\n\n  <button mat-menu-item>View License</button>\n\n  <button mat-menu-item>Privacy Statement</button>\n\n  <button mat-menu-item>Check For Updates...</button>\n\n  <button mat-menu-item>About Quark</button>\n\n</mat-menu>\n\n\n\n<mat-menu #social="matMenu">\n\n  <button mat-menu-item>Facebook</button>\n\n  <button mat-menu-item>Google</button>\n\n  <button mat-menu-item>Twitter</button>\n\n</mat-menu>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\activity-bar\activity-bar.html"*/,
             // providers: [
             //   { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults }
             // ],
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_authentication_service_authentication_service__["a" /* AuthenticationServiceProvider */]])
     ], ActivityBarComponent);
     return ActivityBarComponent;
 }());
@@ -3900,7 +2286,99 @@ var ActivityBarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 386:
+/***/ 477:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = runChildProcessFromDump;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__electron_service_assets_save_open__ = __webpack_require__(162);
+
+function runChildProcessFromDump(_this) {
+    if (!_this.gsp.electronConfig.fileName) {
+        _this.showAlert('info', 'File not saved', 'You must save the file first', ['Save', 'Cancel'])
+            .then(function (response) {
+            console.log(response);
+            if (response == 0) {
+                Object(__WEBPACK_IMPORTED_MODULE_0__electron_service_assets_save_open__["d" /* showSaveDialogFromDump */])(_this);
+            }
+        })
+            .catch(function (err) {
+            console.log('Error runnung child process');
+        });
+        return;
+    }
+    var self = _this;
+    var file = '';
+    var imports = JSON.parse(self.gsp.global_config.js.getValue()).imports;
+    var code = self.gsp.global_config.code.getValue();
+    var designerComponents = _this.gsp.designerComponents;
+    for (var i = 0; i < imports.length; i++) {
+        file = String().concat(file, "let " + imports[i].name + " = require('" + imports[i].module + "');");
+    }
+    file = String().concat(file, 'let functionsObjectForInternalUse={};');
+    file = String().concat(file, 'let closureObjectForInternalUse={};');
+    file = String().concat(file, 'let aliasForProcess=process;');
+    file = String().concat(file, "let frameRateForInternalUse=" + JSON.parse(self.gsp.global_config.js.getValue()).frameRate + ";");
+    designerComponents.map(function (val) {
+        var data = val.data;
+        file = String().concat(file, "let " + data.config.variable + " = JSON.parse('" + JSON.stringify(data.localData) + "');");
+        file = String().concat(file, "functionsObjectForInternalUse['" + data.config.function + "'] = function(args){" + data.code.js.getValue() + "}");
+        file = String().concat(file, "closureObjectForInternalUse['" + data.config.variable + "'] = " + data.config.variable + ";");
+    });
+    file = String().concat(file, "(function(){" + code + ";");
+    file = String().concat(file, "\n      aliasForProcess.send('process-started');\n      setInterval(()=>{\n        aliasForProcess.send(closureObjectForInternalUse);\n      },(1000/frameRateForInternalUse));\n      \n      aliasForProcess.on('message', (data)=> {\n        try{\n            functionsObjectForInternalUse[data.functionName](data.args);\n            //process.send(data);\n        }catch(err){\n          aliasForProcess.send({errMsg : err});\n        }\n    });");
+    file = String().concat(file, '})();');
+    _this.fs.writeFile(_this.gsp.electronConfig.folderPath + "/try.js", js_beautify(file), function (err) {
+        console.log(err);
+        if (err == null) {
+            startChildProcess();
+        }
+    });
+    function startChildProcess() {
+        self.childProcess = self.fork(self.gsp.electronConfig.folderPath + "/try.js");
+        self.childProcess.on('error', function (err) {
+            console.log(err);
+        });
+        self.childProcess.on('close', function (close) {
+            console.log("Close", close);
+            self.childProcessIsRunning = false;
+        });
+        self.childProcess.on('message', function (msg) {
+            if (msg == "process-started") {
+                self.childProcessIsRunning = true;
+            }
+            else if (msg.errMsg != undefined) {
+                console.log('Error in process', msg);
+            }
+            else {
+                self.events.publish('electron-service-dump : misc-components : update-renderer', msg);
+            }
+        });
+        self.childProcess.on('exit', function (code, signal) {
+            console.log("child process exited with code " + code + " and signal " + signal);
+            self.childProcessIsRunning = false;
+        });
+    }
+}
+//# sourceMappingURL=electron-service-assets-child-process.js.map
+
+/***/ }),
+
+/***/ 478:
+/***/ (function(module, exports) {
+
+module.exports = require('electron');
+
+/***/ }),
+
+/***/ 479:
+/***/ (function(module, exports) {
+
+module.exports = require('child_process');
+
+/***/ }),
+
+/***/ 480:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3944,7 +2422,7 @@ var WidgetsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 387:
+/***/ 499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4086,10 +2564,12 @@ var CssInspectorComponent = /** @class */ (function () {
                 pos3 = e.clientX;
                 pos4 = e.clientY;
                 // set the element's new position:
-                if ((elmnt.offsetTop - pos2) > 67 && (elmnt.offsetTop - pos2) < window.innerHeight - 100) {
+                // if ((elmnt.offsetTop - pos2) > 67 && (elmnt.offsetTop - pos2) < window.innerHeight - 100) {
+                if ((elmnt.offsetTop - pos2) > 67 && (elmnt.offsetTop - pos2) < window.innerHeight - 180) {
                     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 }
-                if ((elmnt.offsetLeft - pos1) > 57 && (elmnt.offsetLeft - pos1) < (window.innerWidth - 50)) {
+                // if ((elmnt.offsetLeft - pos1) > 57 && (elmnt.offsetLeft - pos1) < (window.innerWidth-50)) {
+                if ((elmnt.offsetLeft - pos1) > 50 && (elmnt.offsetLeft - pos1) < (window.innerWidth - 400)) {
                     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
                 }
                 // console.log(elmnt.style.top, elmnt.style.left, window.innerHeight, window.innerWidth);
@@ -4130,14 +2610,16 @@ var CssInspectorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 388:
+/***/ 500:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsoleComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4150,39 +2632,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ConsoleComponent = /** @class */ (function () {
-    function ConsoleComponent(gsp, domCtrl) {
+    function ConsoleComponent(gsp, events, zone) {
+        var _this = this;
         this.gsp = gsp;
-        this.domCtrl = domCtrl;
+        this.events = events;
+        this.zone = zone;
         this.data = [];
         this.maps = {
             log: {
                 color: '#000000',
                 icon: 'return-right'
-                // icon: 'fa-angle-double-right'
             },
             warn: {
                 color: '#ffff9a',
                 icon: 'warning'
-                // icon: 'fa-warning'
             },
             error: {
                 color: '#f53d3d',
                 icon: 'close'
-                // icon: 'fa-close'
             },
             right: {
                 color: '#25d55f',
                 icon: 'checkmark'
-                // icon: 'fa-check'
             },
             indent: {
                 color: '#000000',
                 icon: 'arrow-dropright'
-                // icon: 'fa-angle-right'
             }
         };
+        this.flag = 'console';
+        this.resizeEvent = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
         this.data = this.gsp.consoleData.data;
+        this.events.subscribe('electron-service-dump : menu-bar && console : run-zone', function () {
+            _this.zone.run(function () {
+                console.log('Updating zone');
+            });
+        });
+        this.events.subscribe('electron-service : component-console && component-terminal : run-npm-install', function () {
+            _this.zone.run(function () {
+                _this.flag = 'terminal';
+                _this.maximiseConsole(480);
+            });
+        });
     }
     ConsoleComponent.prototype.ngAfterViewInit = function () {
         this.myDiv = this.myDivRef.nativeElement;
@@ -4192,18 +2685,40 @@ var ConsoleComponent = /** @class */ (function () {
         this.myDiv.style.top = this.gsp.consoleData.top + 'px';
         this.myDiv.style.height = -this.gsp.consoleData.top + 'px';
         this.myContent.scrollTop = this.myContent.scrollHeight;
+        // this.resizeTerminal();
+        this.minimizeConsole();
+    };
+    ConsoleComponent.prototype.showFlag = function (flag) {
+        this.flag = flag;
+        this.resizeTerminal();
+    };
+    ConsoleComponent.prototype.resizeTerminal = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.resizeEvent.next('');
+        }, 100);
     };
     ConsoleComponent.prototype.minimizeConsole = function () {
-        this.myDiv.style.height = '33.5px';
-        this.myDiv.style.top = '-33.5px';
-        this.gsp.consoleData.top = -33.5;
+        this.myDiv.style.height = '30px';
+        this.myDiv.style.top = '-30px';
+        this.gsp.consoleData.top = -30;
+        this.events.publish('component-console : page-designer : update-container-height');
     };
-    ConsoleComponent.prototype.maximiseConsole = function () {
-        this.myDiv.style.height = '200px';
-        this.myDiv.style.top = '-200px';
-        this.gsp.consoleData.top = -200;
+    ConsoleComponent.prototype.maximiseConsole = function (height) {
+        if (height) {
+            this.myDiv.style.height = height + "px";
+            this.myDiv.style.top = "-" + height + "px";
+            this.gsp.consoleData.top = -height;
+        }
+        else {
+            this.myDiv.style.height = '200px';
+            this.myDiv.style.top = '-200px';
+            this.gsp.consoleData.top = -200;
+        }
         this.myDiv.scrollTop = this.myDiv.scrollHeight;
         this.myContent.scrollTop = this.myContent.scrollHeight;
+        this.resizeTerminal();
+        this.events.publish('component-console : page-designer : update-container-height');
     };
     ConsoleComponent.prototype.clearConsole = function () {
         this.gsp.consoleData.data = [];
@@ -4228,6 +2743,7 @@ var ConsoleComponent = /** @class */ (function () {
                 document.onmousemove = elementDrag;
             }
             function elementDrag(e) {
+                self.events.publish('component-console : page-designer : update-container-height');
                 e = e || window.event;
                 e.preventDefault();
                 // calculate the new cursor position:
@@ -4237,8 +2753,9 @@ var ConsoleComponent = /** @class */ (function () {
                 if (pos2 > -36) {
                     elmnt.style.height = -(elmnt.offsetTop - pos2) + "px";
                 }
-                if ((elmnt.offsetTop - pos2) < -33.5 && (elmnt.offsetTop - pos2) > -500) {
+                if ((elmnt.offsetTop - pos2) < -30 && (elmnt.offsetTop - pos2) > -500) {
                     var pos = (elmnt.offsetTop - pos2);
+                    self.resizeEvent.next('');
                     if (pos > -100) {
                         self.minimizeConsole();
                     }
@@ -4252,6 +2769,7 @@ var ConsoleComponent = /** @class */ (function () {
                 /* stop moving when mouse button is released:*/
                 document.onmouseup = null;
                 document.onmousemove = null;
+                self.events.publish('component-console : page-designer : update-container-height');
             }
         }
     };
@@ -4269,9 +2787,9 @@ var ConsoleComponent = /** @class */ (function () {
     ], ConsoleComponent.prototype, "myContentRef", void 0);
     ConsoleComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'console',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\console\console.html"*/'<div id="myDiv" #myDiv (contextmenu)="contextMenu($event)" class="page-template page-template-elementor_canvas page page-id-232 woocommerce-js elementor-default elementor-template-canvas elementor-page elementor-page-232"\n\n  data-elementor-device-mode="mobile">\n\n  <div class="elementor elementor-232">\n\n    <div class="elementor-inner">\n\n      <div class="elementor-section-wrap">\n\n        <section id="myDivHeader" #myDivHeader data-id="bdc1c16" class="elementor-element elementor-element-bdc1c16 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-top elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="b53f1a7" class="elementor-element elementor-element-b53f1a7 elementor-column elementor-col-100 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="598c3a9" class="elementor-element elementor-element-598c3a9 elementor-widget elementor-widget-divider" data-element_type="divider.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-divider">\n\n                          <span class="elementor-divider-separator"></span>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n        <section data-id="f0ba44c" class="elementor-element elementor-element-f0ba44c elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-middle elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="14b6a0e" class="elementor-element elementor-element-14b6a0e elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="4fd05bf" class="elementor-element elementor-element-4fd05bf elementor-align-left elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-text">Console</span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div data-id="97c6b26" class="elementor-element elementor-element-97c6b26 elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="a5d524f" class="elementor-element elementor-element-a5d524f elementor-align-right elementor-mobile-align-right elementor-widget elementor-widget-icon-list"\n\n                      data-element_type="icon-list.default">\n\n                      <div class="elementor-widget-container">\n\n                        <ul class="elementor-icon-list-items elementor-inline-items">\n\n                          <li class="elementor-icon-list-item" tappable (click)="clearConsole()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <!-- <i class="fa fa-trash" aria-hidden="true"></i> -->\n\n                              <ion-icon name="trash"></ion-icon>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text"></span>\n\n                          </li>\n\n                          <li class="elementor-icon-list-item" tappable (click)="maximiseConsole()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <!-- <i class="fa fa-chevron-up" aria-hidden="true"></i> -->\n\n                              <ion-icon name="arrow-up"></ion-icon>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text"></span>\n\n                          </li>\n\n                          <li class="elementor-icon-list-item" tappable (click)="minimizeConsole()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <!-- <i class="fa fa-times" aria-hidden="true"></i> -->\n\n                              <ion-icon name="close"></ion-icon>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text"></span>\n\n                          </li>\n\n                        </ul>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n        <section #myContent data-id="c346110" class="section3 elementor-element elementor-element-c346110 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-top elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no" *ngFor="let datapoint of data; index as i" [ngStyle]="{\'margin-left\' : datapoint.indent != undefined? datapoint.indent+\'px\' : \'0px\'}">\n\n            <div class="elementor-row">\n\n              <div data-id="4d695f3" class="elementor-element elementor-element-4d695f3 elementor-column elementor-col-33 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="3c7074d" class="elementor-element elementor-element-3c7074d elementor-align-center elementor-mobile-align-left elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left" [ngStyle]="{\'color\' : datapoint.type!=\'indent\'?maps[datapoint.type].color : maps[data[i-1].type].color}">\n\n                                <!-- <i class="fa" [ngClass]="maps[datapoint.type].icon" aria-hidden="true"></i> -->\n\n                                <ion-icon [name]="maps[datapoint.type].icon"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text"></span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div data-id="4f728fa" class="elementor-element elementor-element-4f728fa elementor-column elementor-col-33 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="2ba8b2c" class="elementor-element elementor-element-2ba8b2c elementor-widget elementor-widget-text-editor"\n\n                      data-element_type="text-editor.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-text-editor elementor-clearfix">\n\n                          <!-- <p>{{datapoint.message}}</p> -->\n\n                          <p [innerHTML]="datapoint.message" [ngStyle]="{\'color\' : datapoint.fullColor? maps[datapoint.type].color : \'#f8f8f8\'}"></p>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div data-id="2684700" class="elementor-element elementor-element-2684700 elementor-column elementor-col-33 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="19231e8" class="elementor-element elementor-element-19231e8 elementor-widget elementor-widget-text-editor"\n\n                      data-element_type="text-editor.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-text-editor elementor-clearfix">\n\n                          <p *ngIf="datapoint.indent==undefined" [ngStyle]="{\'color\' : datapoint.fullColor? maps[datapoint.type].color : \'#f8f8f8\'}">\n\n                            [ {{datapoint.timestamp | date:\'hh : mm : ss\'}} ]\n\n                          </p>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\console\console.html"*/
+            selector: 'console',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\console\console.html"*/'<div id="myDiv" #myDiv (contextmenu)="contextMenu($event)" class="page-template page-template-elementor_canvas page page-id-232 woocommerce-js elementor-default elementor-template-canvas elementor-page elementor-page-232"\n\n  data-elementor-device-mode="mobile">\n\n  <div class="elementor elementor-232">\n\n    <div class="elementor-inner">\n\n      <div class="elementor-section-wrap">\n\n        <section id="myDivHeader" #myDivHeader data-id="bdc1c16" class="elementor-element elementor-element-bdc1c16 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-top elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="b53f1a7" class="elementor-element elementor-element-b53f1a7 elementor-column elementor-col-100 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="598c3a9" class="elementor-element elementor-element-598c3a9 elementor-widget elementor-widget-divider" data-element_type="divider.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-divider">\n\n                          <span class="elementor-divider-separator"></span>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n        <section data-id="f0ba44c" class="elementor-element elementor-element-f0ba44c elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-middle elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="14b6a0e" class="elementor-element elementor-element-14b6a0e elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="4fd05bf" class="elementor-element elementor-element-4fd05bf elementor-align-left elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a tappable (click)="showFlag(\'console\')" class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-text">Console</span>\n\n                            </span>\n\n                          </a>\n\n                          <a tappable (click)="showFlag(\'terminal\')" class="elementor-button elementor-size-xs" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-text">Terminal</span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div data-id="97c6b26" class="elementor-element elementor-element-97c6b26 elementor-column elementor-col-50 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="a5d524f" class="elementor-element elementor-element-a5d524f elementor-align-right elementor-mobile-align-right elementor-widget elementor-widget-icon-list"\n\n                      data-element_type="icon-list.default">\n\n                      <div class="elementor-widget-container">\n\n                        <ul class="elementor-icon-list-items elementor-inline-items">\n\n                          <li class="elementor-icon-list-item" tappable (click)="clearConsole()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <ion-icon name="trash"></ion-icon>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text"></span>\n\n                          </li>\n\n                          <li class="elementor-icon-list-item" tappable (click)="maximiseConsole()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <ion-icon name="arrow-up"></ion-icon>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text"></span>\n\n                          </li>\n\n                          <li class="elementor-icon-list-item" tappable (click)="minimizeConsole()">\n\n                            <span class="elementor-icon-list-icon">\n\n                              <ion-icon name="close"></ion-icon>\n\n                            </span>\n\n                            <span class="elementor-icon-list-text"></span>\n\n                          </li>\n\n                        </ul>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n        <div #myContent class="my-content">\n\n          <!-- *ngIf="flag == \'console\'" -->\n\n          <section *ngIf="flag == \'console\'" data-id="c346110" class="section3 elementor-element elementor-element-c346110 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-top elementor-section elementor-top-section"\n\n            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n            <div class="elementor-container elementor-column-gap-no" *ngFor="let datapoint of data; index as i" [ngStyle]="{\'margin-left\' : datapoint.indent != undefined? datapoint.indent+\'px\' : \'0px\'}">\n\n              <div class="elementor-row">\n\n                <div data-id="4d695f3" class="elementor-element elementor-element-4d695f3 elementor-column elementor-col-33 elementor-top-column"\n\n                  data-element_type="column">\n\n                  <div class="elementor-column-wrap elementor-element-populated">\n\n                    <div class="elementor-widget-wrap">\n\n                      <div data-id="3c7074d" class="elementor-element elementor-element-3c7074d elementor-align-center elementor-mobile-align-left elementor-widget elementor-widget-button"\n\n                        data-element_type="button.default">\n\n                        <div class="elementor-widget-container">\n\n                          <div class="elementor-button-wrapper">\n\n                            <a class="elementor-button elementor-size-xs" role="button">\n\n                              <span class="elementor-button-content-wrapper">\n\n                                <span class="elementor-button-icon elementor-align-icon-left" [ngStyle]="{\'color\' : datapoint.type!=\'indent\'?maps[datapoint.type].color : maps[data[i-1].type].color}">\n\n                                  <!-- <i class="fa" [ngClass]="maps[datapoint.type].icon" aria-hidden="true"></i> -->\n\n                                  <ion-icon [name]="maps[datapoint.type].icon"></ion-icon>\n\n                                </span>\n\n                                <span class="elementor-button-text"></span>\n\n                              </span>\n\n                            </a>\n\n                          </div>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n                <div data-id="4f728fa" class="elementor-element elementor-element-4f728fa elementor-column elementor-col-33 elementor-top-column"\n\n                  data-element_type="column">\n\n                  <div class="elementor-column-wrap elementor-element-populated">\n\n                    <div class="elementor-widget-wrap">\n\n                      <div data-id="2ba8b2c" class="elementor-element elementor-element-2ba8b2c elementor-widget elementor-widget-text-editor"\n\n                        data-element_type="text-editor.default">\n\n                        <div class="elementor-widget-container">\n\n                          <div class="elementor-text-editor elementor-clearfix">\n\n                            <!-- <p>{{datapoint.message}}</p> -->\n\n                            <p [innerHTML]="datapoint.message" [ngStyle]="{\'color\' : datapoint.fullColor? maps[datapoint.type].color : \'#f8f8f8\'}"></p>\n\n                          </div>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n                <div data-id="2684700" class="elementor-element elementor-element-2684700 elementor-column elementor-col-33 elementor-top-column"\n\n                  data-element_type="column">\n\n                  <div class="elementor-column-wrap elementor-element-populated">\n\n                    <div class="elementor-widget-wrap">\n\n                      <div data-id="19231e8" class="elementor-element elementor-element-19231e8 elementor-widget elementor-widget-text-editor"\n\n                        data-element_type="text-editor.default">\n\n                        <div class="elementor-widget-container">\n\n                          <div class="elementor-text-editor elementor-clearfix">\n\n                            <p *ngIf="datapoint.indent==undefined" [ngStyle]="{\'color\' : datapoint.fullColor? maps[datapoint.type].color : \'#f8f8f8\'}">\n\n                              [ {{datapoint.timestamp | date:\'hh : mm : ss\'}} ]\n\n                            </p>\n\n                          </div>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </section>\n\n          <!-- <ng-template [ngIf]="flag == \'terminal\'">\n\n            <terminal [resize]="resizeEvent"></terminal>\n\n          </ng-template> -->\n\n          <terminal [ngStyle]="{\'height\' :flag != \'terminal\'? \'0px\' : \'100%\'}" [resize]="resizeEvent"></terminal>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\console\console.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* DomController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], ConsoleComponent);
     return ConsoleComponent;
 }());
@@ -4280,12 +2798,17 @@ var ConsoleComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 389:
+/***/ 501:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuBarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_pop_over_user_pop_over__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_service_authentication_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_electron_service_electron_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4296,22 +2819,87 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var MenuBarComponent = /** @class */ (function () {
-    function MenuBarComponent() {
-        this.event = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    function MenuBarComponent(popoverCtrl, asp, esp, gsp, events, zone) {
+        var _this = this;
+        this.popoverCtrl = popoverCtrl;
+        this.asp = asp;
+        this.esp = esp;
+        this.gsp = gsp;
+        this.events = events;
+        this.zone = zone;
+        this.isOpen = false;
+        this.popOver = this.popoverCtrl.create(__WEBPACK_IMPORTED_MODULE_1__user_pop_over_user_pop_over__["a" /* UserPopOverComponent */], {}, {
+            cssClass: 'mtr-user-popover'
+        });
+        this.userName = '';
+        this.runningIsAllowed = true;
+        this.popOver.onDidDismiss(function () {
+            _this.isOpen = false;
+        });
+        this.asp.user.subscribe(function (val) {
+            _this.zone.run(function () {
+                if (val != null) {
+                    _this.userName = val.displayName;
+                }
+                else
+                    _this.userName = '';
+            });
+        });
+        this.events.subscribe('electron-service-dump : menu-bar && console : run-zone', function () {
+            _this.zone.run(function () {
+                console.log('Updating zone');
+            });
+        });
     }
-    MenuBarComponent.prototype.clicked = function (icon) {
-        this.event.emit(icon);
+    MenuBarComponent.prototype.clicked = function (event) {
+        var _this = this;
+        switch (event) {
+            case 'minus':
+                this.esp.minimize();
+                break;
+            case 'maximize':
+                this.esp.maximise();
+                break;
+            case 'close':
+                this.esp.closeWindow();
+                break;
+            case 'run-setup':
+                if (this.runningIsAllowed) {
+                    this.runningIsAllowed = false;
+                    this.events.publish('component-menu-bar : electron-service : run-setup');
+                    setTimeout(function () {
+                        _this.runningIsAllowed = true;
+                    }, 1000);
+                }
+                break;
+            case 'stop':
+                this.events.publish('component-menu-bar : electron-service : stop');
+                break;
+        }
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
-    ], MenuBarComponent.prototype, "event", void 0);
+    MenuBarComponent.prototype.toggleUserPopOver = function (event) {
+        if (this.isOpen) {
+            this.popOver.dismiss();
+            this.isOpen = false;
+        }
+        else {
+            this.popOver.present({
+                ev: event,
+            });
+            this.isOpen = true;
+        }
+    };
     MenuBarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'menu-bar',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\menu-bar\menu-bar.html"*/'<div class="page-template page-template-elementor_canvas page page-id-269 woocommerce-js elementor-default elementor-template-canvas elementor-page elementor-page-269"\n  data-elementor-device-mode="mobile">\n  <div class="elementor elementor-269">\n    <div class="elementor-inner">\n      <div class="elementor-section-wrap">\n        <section data-id="4b7c88c" class="elementor-element elementor-element-4b7c88c elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-middle elementor-section elementor-top-section"\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n          <div class="elementor-container elementor-column-gap-no">\n            <div class="elementor-row">\n              <div data-id="a9d672e" class="elementor-element elementor-element-a9d672e mtr-title elementor-column elementor-col-20 elementor-top-column"\n                data-element_type="column">\n                <div class="elementor-column-wrap elementor-element-populated">\n                  <div class="elementor-widget-wrap">\n                    <div data-id="beb4cce" class="elementor-element elementor-element-beb4cce elementor-widget elementor-widget-heading" data-element_type="heading.default">\n                      <div class="elementor-widget-container">\n                        <h2 class="elementor-heading-title elementor-size-medium">Quark</h2>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>  \n              <div (click)="clicked(\'minus\')" data-id="4debfca" class="elementor-element elementor-element-4debfca mtr-menu-bar elementor-column elementor-col-20 elementor-top-column"\n                data-element_type="column">\n                <div class="elementor-column-wrap elementor-element-populated">\n                  <div class="elementor-widget-wrap">\n                    <div data-id="0164114" class="elementor-element elementor-element-0164114 elementor-align-center elementor-widget elementor-widget-button"\n                      data-element_type="button.default">\n                      <div class="elementor-widget-container">\n                        <div class="elementor-button-wrapper">\n                          <a class="elementor-button elementor-size-sm" role="button">\n                            <span class="elementor-button-content-wrapper">\n                              <span class="elementor-button-icon elementor-align-icon-left">\n                                <!-- <i class="fa fa-minus" aria-hidden="true"></i> -->\n                                <ion-icon name="remove"></ion-icon>\n                              </span>\n                              <span class="elementor-button-text"></span>\n                            </span>\n                          </a>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div (click)="clicked(\'maximize\')" data-id="96fc0c0" class="elementor-element elementor-element-96fc0c0 mtr-menu-bar elementor-column elementor-col-20 elementor-top-column"\n                data-element_type="column">\n                <div class="elementor-column-wrap elementor-element-populated">\n                  <div class="elementor-widget-wrap">\n                    <div data-id="dd7cf60" class="elementor-element elementor-element-dd7cf60 elementor-align-center elementor-widget elementor-widget-button"\n                      data-element_type="button.default">\n                      <div class="elementor-widget-container">\n                        <div class="elementor-button-wrapper">\n                          <a class="elementor-button elementor-size-sm" role="button">\n                            <span class="elementor-button-content-wrapper">\n                              <span class="elementor-button-icon elementor-align-icon-left">\n                                <!-- <i class="fa fa-window-maximize" aria-hidden="true"></i> -->\n                                <ion-icon name="expand"></ion-icon>\n                              </span>\n                              <span class="elementor-button-text"></span>\n                            </span>\n                          </a>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div (click)="clicked(\'close\')" data-id="b4145b7" class="elementor-element elementor-element-b4145b7 mtr-menu-bar elementor-column elementor-col-20 elementor-top-column"\n                data-element_type="column">\n                <div class="elementor-column-wrap elementor-element-populated">\n                  <div class="elementor-widget-wrap">\n                    <div data-id="b9e53da" class="elementor-element elementor-element-b9e53da elementor-align-center elementor-widget elementor-widget-button"\n                      data-element_type="button.default">\n                      <div class="elementor-widget-container">\n                        <div class="elementor-button-wrapper">\n                          <a class="elementor-button elementor-size-sm" role="button">\n                            <span class="elementor-button-content-wrapper">\n                              <span class="elementor-button-icon elementor-align-icon-left">\n                                <!-- <i class="fa fa-close" aria-hidden="true"></i> -->\n                                <ion-icon name="close"></ion-icon>\n                              </span>\n                              <span class="elementor-button-text"></span>\n                            </span>\n                          </a>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </section>\n      </div>\n    </div>\n  </div>\n</div>\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\menu-bar\menu-bar.html"*/
+            selector: 'menu-bar',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\menu-bar\menu-bar.html"*/'<!-- <div class="page-template page-template-elementor_canvas page page-id-269 woocommerce-js elementor-default elementor-template-canvas elementor-page elementor-page-269"\n\n  data-elementor-device-mode="mobile">\n\n  <div class="elementor elementor-269">\n\n    <div class="elementor-inner">\n\n      <div class="elementor-section-wrap">\n\n        <section data-id="4b7c88c" class="elementor-element elementor-element-4b7c88c elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section-content-middle elementor-section elementor-top-section"\n\n          data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 100%; left: 0px;">\n\n          <div class="elementor-container elementor-column-gap-no">\n\n            <div class="elementor-row">\n\n              <div data-id="a9d672e" class="elementor-element elementor-element-a9d672e mtr-title elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="beb4cce" class="elementor-element elementor-element-beb4cce elementor-widget elementor-widget-heading" data-element_type="heading.default">\n\n                      <div class="elementor-widget-container">\n\n                        <h2 class="elementor-heading-title elementor-size-medium">{{this.gsp.electronConfig.parsedPath?this.gsp.electronConfig.parsedPath.name : \'Quark\' }}</h2>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div (click)="clicked(\'run-setup\')" tappable data-id="4debfca" class="elementor-element elementor-element-4debfca mtr-menu-bar elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="d57c3a2" class="elementor-element elementor-element-d57c3a2 elementor-align-center elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-lg" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left">\n\n                                <ion-icon name="play"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text"></span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div (click)="clicked(\'stop\')" tappable data-id="ed36998" class="elementor-element elementor-element-ed36998 mtr-menu-bar elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="5fa193b" class="elementor-element elementor-element-5fa193b elementor-align-center elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-lg" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left">\n\n                                <ion-icon name="square"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text"></span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div (click)="toggleUserPopOver($event)" data-id="b8b4b37" class="mtr-user-name elementor-element elementor-element-b8b4b37 mtr-menu-user-name elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="dfd8db3" class="elementor-element elementor-element-dfd8db3 elementor-widget elementor-widget-text-editor"\n\n                      data-element_type="text-editor.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-text-editor elementor-clearfix">\n\n                          <p>{{userName.length ==0? \'User\' : userName}}dsfdsfdsfdsfdsfdsfdsfdsfdfdsffdsfdsfdsfds</p>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div (click)="clicked(\'minus\')" data-id="ef9577e" class="elementor-element elementor-element-ef9577e mtr-menu-bar elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="273e741" class="elementor-element elementor-element-273e741 elementor-align-center elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-lg" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left">\n\n                                <ion-icon name="remove"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text"></span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div (click)="clicked(\'maximize\')" data-id="96fc0c0" class="elementor-element elementor-element-96fc0c0 mtr-menu-bar elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="dd7cf60" class="elementor-element elementor-element-dd7cf60 elementor-align-center elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-lg" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left">\n\n                                <ion-icon name="expand"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text"></span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <div (click)="clicked(\'close\')" data-id="b4145b7" class="elementor-element elementor-element-b4145b7 mtr-menu-bar elementor-column elementor-col-14 elementor-top-column"\n\n                data-element_type="column">\n\n                <div class="elementor-column-wrap elementor-element-populated">\n\n                  <div class="elementor-widget-wrap">\n\n                    <div data-id="b9e53da" class="elementor-element elementor-element-b9e53da elementor-align-center elementor-widget elementor-widget-button"\n\n                      data-element_type="button.default">\n\n                      <div class="elementor-widget-container">\n\n                        <div class="elementor-button-wrapper">\n\n                          <a class="elementor-button elementor-size-lg" role="button">\n\n                            <span class="elementor-button-content-wrapper">\n\n                              <span class="elementor-button-icon elementor-align-icon-left">\n\n                                <ion-icon name="close"></ion-icon>\n\n                              </span>\n\n                              <span class="elementor-button-text"></span>\n\n                            </span>\n\n                          </a>\n\n                        </div>\n\n                      </div>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </section>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n<mat-progress-bar mode="indeterminate" *ngIf="this.gsp.showLoading" [ngStyle]="{\'max-height\' : \'1px\'}"></mat-progress-bar> -->\n\n<div class="menu-bar">\n\n  <div class="heading-container">\n\n    <span>{{this.gsp.electronConfig.parsedPath?this.gsp.electronConfig.parsedPath.name : \'Quark\' }}</span>\n\n  </div>\n\n  <div class="right-container">\n\n    <div class="action-container">\n\n      <ion-icon (click)="clicked(\'run-setup\')" tappable name="play"></ion-icon>\n\n      <ion-icon (click)="clicked(\'stop\')" tappable name="square"></ion-icon>\n\n    </div>\n\n    <div class="utility-container">\n\n      <span (click)="toggleUserPopOver($event)" tappable>{{userName.length ==0? \'User\' : userName}}</span>\n\n      <ion-icon (click)="clicked(\'minus\')" name="remove"></ion-icon>\n\n      <ion-icon (click)="clicked(\'maximize\')" name="expand"></ion-icon>\n\n      <ion-icon class="close-button" (click)="clicked(\'close\')" name="close"></ion-icon>\n\n    </div>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\menu-bar\menu-bar.html"*/
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_service_authentication_service__["a" /* AuthenticationServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], MenuBarComponent);
     return MenuBarComponent;
 }());
@@ -4320,17 +2908,181 @@ var MenuBarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 412:
+/***/ 502:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TerminalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_socket_service_socket_service__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_electron_service_electron_service__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_electron_service_electron_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__ = __webpack_require__(25);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var TerminalComponent = /** @class */ (function () {
+    function TerminalComponent(platform, injector, gsp, events) {
+        var _this = this;
+        this.platform = platform;
+        this.injector = injector;
+        this.gsp = gsp;
+        this.events = events;
+        this.resize = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
+        this.fontSize = 12;
+        this.isFirstWrite = true;
+        this.npmString = '';
+        this.esp = this.injector.get(__WEBPACK_IMPORTED_MODULE_3__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */]);
+        this.events.subscribe('electron-service : component-console && component-terminal : run-npm-install', function (npmString) {
+            _this.npmString = npmString;
+            _this.changeDirectory();
+        });
+    }
+    TerminalComponent.prototype.testResize = function (e) {
+        console.log(e);
+    };
+    TerminalComponent.prototype.changeDirectory = function () {
+        this.xterm.dispose();
+        this.ptyProcess.kill();
+        this.injectTerminal();
+    };
+    TerminalComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.injectTerminal();
+        this.resize.subscribe(function () {
+            _this.resizeEvent();
+        });
+        this.resizeEvent();
+    };
+    TerminalComponent.prototype.ngOnDestroy = function () {
+        this.xterm.dispose();
+        this.ptyProcess.kill();
+    };
+    TerminalComponent.prototype.resizeEvent = function () {
+        if (this.platform.is('electron')) {
+            var num = Math.floor(this.xtermContainerElement.nativeElement.clientHeight / (this.fontSize + 2)) * (this.fontSize + 2);
+            this.xtermElement.nativeElement.style.height = num + "px";
+            this.fit(this.xterm);
+        }
+    };
+    TerminalComponent.prototype.injectTerminal = function () {
+        var self = this;
+        if (this.platform.is('electron')) {
+            this.isFirstWrite = true;
+            var os = __webpack_require__(503);
+            var pty = __webpack_require__(504);
+            var shell = process.env[os.platform() === 'win32' ? 'cmd.exe' : 'SHELL'];
+            this.ptyProcess = pty.spawn(shell, [], {
+                name: 'xterm-color',
+                cols: 120,
+                rows: 24,
+                cwd: this.gsp.electronConfig.parsedPath ? this.gsp.electronConfig.parsedPath.dir : this.esp.mainProcess.cwd(),
+                env: this.esp.mainProcess.env
+            });
+            var Terminal_1 = __webpack_require__(505).Terminal;
+            this.fit = __webpack_require__(506).fit;
+            this.xterm = new Terminal_1();
+            this.xterm.open(this.xtermElement.nativeElement);
+            this.xtermOptions();
+            this.fit(this.xterm);
+            this.xterm.on('data', function (data) {
+                self.ptyProcess.write(data);
+            });
+            this.ptyProcess.on('data', function (data) {
+                self.xterm.write(data);
+                if (self.isFirstWrite) {
+                    self.isFirstWrite = false;
+                    self.ptyProcess.write(self.npmString);
+                }
+            });
+        }
+    };
+    TerminalComponent.prototype.xtermOptions = function () {
+        this.xterm.setOption('fontSize', this.fontSize);
+        this.theme = {
+            background: '#488aff',
+            foreground: '#9381ff',
+            cursor: '#9381ff'
+        };
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('xterm'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], TerminalComponent.prototype, "xtermElement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('xtermContainer'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], TerminalComponent.prototype, "xtermContainerElement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('resize'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"])
+    ], TerminalComponent.prototype, "resize", void 0);
+    TerminalComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'terminal',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\terminal\terminal.html"*/'<div #xtermContainer class="xterm-container">\n\n  <div #xterm class="xterm-element"></div>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\terminal\terminal.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"], __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+    ], TerminalComponent);
+    return TerminalComponent;
+}());
+
+//# sourceMappingURL=terminal.js.map
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(90)))
+
+/***/ }),
+
+/***/ 503:
+/***/ (function(module, exports) {
+
+module.exports = require('os');
+
+/***/ }),
+
+/***/ 504:
+/***/ (function(module, exports) {
+
+module.exports = require('node-pty');
+
+/***/ }),
+
+/***/ 505:
+/***/ (function(module, exports) {
+
+module.exports = require('xterm');
+
+/***/ }),
+
+/***/ 516:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CodeMirrorPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utilities_code_samples__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_codemirror__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_codemirror__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_js_beautify__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_js_beautify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_code_editor_code_editor__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__render_components_dump__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_global_service_global_service_dump__ = __webpack_require__(152);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4346,19 +3098,800 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, ssp, esp) {
+
+
+
+
+
+var CodeMirrorPage = /** @class */ (function () {
+    function CodeMirrorPage(navCtrl, snackBar, gsp, events, resolver) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.snackBar = snackBar;
+        this.gsp = gsp;
+        this.events = events;
+        this.resolver = resolver;
+        this.document = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.tab = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.mouseMoveEvent = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.mouseLeaveEvent = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.stayFixed = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.currentComponentClassName = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
+        this.interface = '';
+        this.isSnackbarOpen = false;
+        this.events.subscribe('page-menu : page-designer && page-code-mirror : add-component', function (component) {
+            Object(__WEBPACK_IMPORTED_MODULE_9__render_components_dump__["a" /* addComponentFromDump */])(component, _this.fakeContainer, _this.resolver);
+            __WEBPACK_IMPORTED_MODULE_10__providers_global_service_global_service_dump__["d" /* logger */].log(component.component ? "Adding component " + component.component : "Adding class " + component.class);
+        });
+        this.events.subscribe('page-designer : page-code-mirror : open-tab', function () {
+            _this.updateDocuments(_this.gsp.currentTab);
+        });
+    }
+    CodeMirrorPage.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.updateDocuments(this.gsp.currentTab);
+        this.tab.subscribe(function (tab) {
+            _this.closeTab(tab);
+        });
+        setTimeout(function () {
+            _this.updateDocuments(_this.gsp.currentTab);
+        }, 100);
+    };
+    CodeMirrorPage.prototype.ngOnDestroy = function () {
+        clearInterval(this.styleInterval);
+        this.snackBar.dismiss();
+        this.events.unsubscribe('page-menu : page-code-mirror : add-component');
+    };
+    CodeMirrorPage.prototype.showSnackBar = function () {
+        var _this = this;
+        if (this.isSnackbarOpen) {
+            this.snackBar.dismiss();
+            this.isSnackbarOpen = false;
+        }
+        else {
+            var config = {
+                data: { inputDoc: new __WEBPACK_IMPORTED_MODULE_6_codemirror___default.a.Doc(this.interface, "text/x-java"), mode: 'Interface' },
+                horizontalPosition: 'right',
+                panelClass: 'mtr-code-editor-component-snack-bar',
+                announcementMessage: "Hello"
+            };
+            var ref = this.snackBar.openFromComponent(__WEBPACK_IMPORTED_MODULE_8__components_code_editor_code_editor__["a" /* CodeEditorComponent */], config);
+            var obs = ref.afterOpened();
+            obs.subscribe(function (val) {
+                _this.isSnackbarOpen = true;
+            });
+        }
+    };
+    CodeMirrorPage.prototype.lockContent = function (event) {
+        event.preventDefault();
+        this.stayFixed.next(true);
+        var config = {
+            duration: 1000,
+            horizontalPosition: 'right'
+        };
+        this.snackBar.open('Content Locked', '', config);
+    };
+    CodeMirrorPage.prototype.preventRightClick = function (event) {
+        event.preventDefault();
+    };
+    CodeMirrorPage.prototype.closeTab = function (tab) {
+        var _this = this;
+        this.gsp.tabsArray.forEach(function (val, index, array) {
+            if (val == tab) {
+                _this.gsp.tabsArray.splice(index, 1);
+                if (array.length > 0) {
+                    if (array.length == index) {
+                        _this.gsp.currentTab = array[index - 1];
+                    }
+                    else {
+                        _this.gsp.currentTab = array[index];
+                    }
+                }
+                _this.updateDocuments(_this.gsp.currentTab);
+                //Bug
+                setTimeout(function () {
+                    _this.updateDocuments(_this.gsp.currentTab);
+                }, 50);
+            }
+        });
+    };
+    CodeMirrorPage.prototype.mouseMove = function (event) {
+        this.mouseMoveEvent.next(event);
+    };
+    CodeMirrorPage.prototype.mouseLeave = function () {
+        this.mouseLeaveEvent.next('');
+    };
+    CodeMirrorPage.prototype.updateDocuments = function (currentTab) {
+        var _this = this;
+        clearInterval(this.styleInterval);
+        if (currentTab.other == undefined) {
+            this.gsp.designerComponents.map(function (val) {
+                if (val.data.config.id == currentTab.component.data.config.id) {
+                    if (currentTab.mode != "CSS") {
+                        _this.document.next(_this.gsp.currentTab.component.data.code.js);
+                        _this.addInterface(_this.gsp.currentTab.component.data.config.component);
+                    }
+                    else {
+                        _this.document.next(_this.gsp.currentTab.component.data.code.css);
+                        _this.currentComponentClassName.next(_this.gsp.currentTab.component.data.config.css_class);
+                        _this.container.clear();
+                        Object(__WEBPACK_IMPORTED_MODULE_9__render_components_dump__["c" /* recreateComponenFromDump */])(_this.gsp.currentTab.component, _this.container, _this.resolver);
+                        _this.styleInterval = setInterval(function () {
+                            _this.gsp.addCSS(_this.gsp.currentTab.component.data);
+                        }, 1000);
+                        Object(__WEBPACK_IMPORTED_MODULE_9__render_components_dump__["b" /* addGlobalCSSFromDump */])(_this.gsp.global_config.css.getValue());
+                    }
+                }
+            });
+        }
+        else if (currentTab.other == "globalConfigJSON") {
+            this.document.next(this.gsp.global_config.json);
+            this.interface = Object(__WEBPACK_IMPORTED_MODULE_7_js_beautify__["js_beautify"])(__WEBPACK_IMPORTED_MODULE_5__utilities_code_samples__["a" /* GlobalConfigInterfaceSample */]);
+        }
+        else if (currentTab.other == "globalConfigCSS") {
+            this.document.next(this.gsp.global_config.css);
+        }
+        else if (currentTab.other == "globalConfigSetup") {
+            this.document.next(this.gsp.global_config.code);
+        }
+        else if (currentTab.other == "globalConfigDefaultSettings") {
+            this.document.next(this.gsp.global_config.defaultSettings);
+        }
+    };
+    CodeMirrorPage.prototype.addInterface = function (component) {
+        console.log(component);
+        switch (component) {
+            case 'MtrButtonComponent':
+                this.interface = Object(__WEBPACK_IMPORTED_MODULE_7_js_beautify__["js_beautify"])(__WEBPACK_IMPORTED_MODULE_5__utilities_code_samples__["b" /* MTRButtonComponentInterfaceSample */]);
+                break;
+            default:
+                this.interface = Object(__WEBPACK_IMPORTED_MODULE_7_js_beautify__["js_beautify"])(__WEBPACK_IMPORTED_MODULE_5__utilities_code_samples__["b" /* MTRButtonComponentInterfaceSample */]);
+                break;
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('tab'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"])
+    ], CodeMirrorPage.prototype, "tab", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('container', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"])
+    ], CodeMirrorPage.prototype, "container", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('fakeContainer', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"])
+    ], CodeMirrorPage.prototype, "fakeContainer", void 0);
+    CodeMirrorPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-code-mirror',template:/*ion-inline-start:"G:\ionic\Project\quark\src\pages\code-mirror\code-mirror.html"*/'<div [ngClass]="{\'mtr-editor-container\' : true, \'mtr-split-screen\' : this.gsp.currentTab.mode == \'CSS\' && this.gsp.currentTab.component != undefined, \'mtr-split-screen\' : this.gsp.currentTab.other == \'globalConfigDefaultSettings\'}">\n\n  <!-- <code-editor [inputDocument]="document" [mode]="this.gsp.currentTab.mode" (showInterface)="showSnackBar()"></code-editor> -->\n\n  <!-- <code-editor [mode]="this.gsp.currentTab.mode" (showInterface)="showSnackBar()"></code-editor> -->\n\n  <monaco-editor [document]="document" (showInterface)="showSnackBar()"></monaco-editor>\n\n</div>\n\n<div [ngClass]="{\'rendered-component\' : true, \'display-rendered-component\' :this.gsp.currentTab.mode == \'CSS\' && this.gsp.currentTab.component != undefined}">\n\n  <div (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave()" (contextmenu)="lockContent($event)" (click)="lockContent($event)"\n\n    class="mtr-component-container mtr-inner-container">\n\n    <div #container></div>\n\n  </div>\n\n  <css-inspector [mouseMoveEvent]="mouseMoveEvent" [mouseLeaveEvent]="mouseLeaveEvent" [stayFixed]="stayFixed" [currentComponentClass]="currentComponentClassName"></css-inspector>\n\n</div>\n\n<settings *ngIf="this.gsp.currentTab.other == \'globalConfigDefaultSettings\'"></settings>\n\n<div style="display: none">\n\n  <ng-template #fakeContainer></ng-template>\n\n</div>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\pages\code-mirror\code-mirror.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["k" /* MatSnackBar */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]])
+    ], CodeMirrorPage);
+    return CodeMirrorPage;
+}());
+
+//# sourceMappingURL=code-mirror.js.map
+
+/***/ }),
+
+/***/ 517:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_codemirror__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(7);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+var SettingsComponent = /** @class */ (function () {
+    function SettingsComponent(gsp, document) {
+        this.gsp = gsp;
+        this.document = document;
+        this.doc = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["BehaviorSubject"](this.gsp.global_config.userSettings);
+    }
+    SettingsComponent.prototype.prepareJSON = function (object, key) {
+        var str = '';
+        for (var obj in object) {
+            if (typeof object[obj] == 'string') {
+                str = String().concat(str, "\n          '" + (key != undefined ? key + '.' : '') + obj + "':'" + object[obj] + "',");
+            }
+            else {
+                str = String().concat(str, this.prepareJSON(object[obj], "" + (key != undefined ? key + '.' : '') + obj));
+            }
+        }
+        return str;
+    };
+    SettingsComponent.prototype.changeSettings = function (settings) {
+        if (settings == 'project') {
+            // this.doc.next(this.gsp.global_config.projectSettings);
+            console.log(JSON.parse(this.gsp.global_config.defaultSettings.getValue()));
+            var json = this.prepareJSON(JSON.parse(this.gsp.global_config.defaultSettings.getValue()));
+            this.doc.next(new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(json));
+        }
+        else {
+            this.doc.next(this.gsp.global_config.userSettings);
+        }
+    };
+    SettingsComponent.prototype.updateTheme = function () {
+        try {
+            var settings = JSON.parse(this.doc.getValue().getValue());
+            for (var _i = 0, _a = Object.keys(settings); _i < _a.length; _i++) {
+                var value = _a[_i];
+                var object = value.split('.', 7);
+                if (object[0] == 'styles') {
+                    if (object[1] == 'theme') {
+                        this.document.documentElement.style.setProperty("--" + object[2] + "-color-" + object[3], "" + settings[value]);
+                        console.log("--" + object[2] + "-color-" + object[3], "" + settings[value]);
+                    }
+                }
+            }
+        }
+        catch (err) {
+            null;
+        }
+    };
+    SettingsComponent.prototype.ngAfterViewInit = function () {
+        // this.doc.next(this.gsp.global_config.userSettings);
+        // this.interval = setInterval(() => {
+        //   this.updateTheme();
+        // }, 1000);
+    };
+    SettingsComponent.prototype.ngOnDestroy = function () {
+        clearInterval(this.interval);
+    };
+    SettingsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'settings',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\settings\settings.html"*/'<div class="buttons-container">\n  <button ion-button (click)="changeSettings(\'project\')"> Project Settings</button>\n  <button ion-button (click)="changeSettings(\'user\')"> User Settings</button>\n</div>\n<!-- <code-editor [inputDocument]="doc" [mode]="this.gsp.currentTab.mode"></code-editor> -->\n<monaco-editor [document]="doc"></monaco-editor>\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\settings\settings.html"*/
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_4__angular_common__["c" /* DOCUMENT */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_global_service_global_service__["a" /* GlobalServiceProvider */], Document])
+    ], SettingsComponent);
+    return SettingsComponent;
+}());
+
+//# sourceMappingURL=settings.js.map
+
+/***/ }),
+
+/***/ 66:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ElectronServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__electron_service_dump__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__electron_service_assets_child_process__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__electron_service_assets_save_open__ = __webpack_require__(162);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ElectronServiceProvider = /** @class */ (function () {
+    function ElectronServiceProvider(platform, gsp, snackBar, events, zone) {
+        var _this = this;
         this.platform = platform;
-        this.ssp = ssp;
+        this.gsp = gsp;
+        this.snackBar = snackBar;
+        this.events = events;
+        this.zone = zone;
+        this.openRecentDocumentsArray = [];
+        this.childProcessIsRunning = false;
+        this.isDevMode = true;
+        this.dependencies = [];
+        this.platform.is('electron') ? this.injectElectron() : console.log('Cannot Inject Electron');
+        this.events.subscribe('component-menu-bar : electron-service : run-setup', function () {
+            _this.killChildProcess();
+            Object(__WEBPACK_IMPORTED_MODULE_5__electron_service_assets_child_process__["a" /* runChildProcessFromDump */])(_this);
+        });
+        this.events.subscribe('component-menu-bar : electron-service : stop', function () {
+            _this.killChildProcess();
+        });
+        this.events.subscribe('misc-components : electron-service : child-process', function (data) {
+            if (_this.childProcessIsRunning) {
+                _this.childProcess.send(data);
+            }
+        });
+        this.events.subscribe('component-new-file-dialog && component-my-dashboards : electron-service : close-snackbar', function () {
+            _this.snackBarRef.dismiss();
+        });
+        this.events.subscribe('component-new-file-dialog : electron-service : create-new-file', function (data) {
+            Object(__WEBPACK_IMPORTED_MODULE_4__electron_service_dump__["a" /* createNewFileFromDump */])(_this);
+            _this.dependencies = data;
+        });
+    }
+    ElectronServiceProvider.prototype.injectElectron = function () {
+        var _a = __webpack_require__(478).remote, Menu = _a.Menu, MenuItem = _a.MenuItem, app = _a.app, dialog = _a.dialog, BrowserWindow = _a.BrowserWindow, getCurrentWebContents = _a.getCurrentWebContents, shell = _a.shell, getGlobal = _a.getGlobal;
+        var _b = __webpack_require__(479), fork = _b.fork, exec = _b.exec;
+        this.MenuItem = MenuItem;
+        this.Menu = Menu;
+        this.app = app;
+        this.dialog = dialog;
+        this.BrowserWindow = BrowserWindow;
+        this.currentWebContents = getCurrentWebContents();
+        this.shell = shell;
+        this.fs = getGlobal('fileSystem');
+        this.Path = getGlobal('path');
+        this.mainProcess = getGlobal('process');
+        this.fork = fork;
+        this.exec = exec;
+        console.log(process.argv, this.mainProcess.argv);
+        if ("" + this.mainProcess.env.PATH_TO_OPEN_IN_NEW_WINDOW.length == '0') {
+            if (this.mainProcess.argv[1] && !this.isDevMode) {
+                this.mainProcess.env.PATH_TO_OPEN_IN_NEW_WINDOW = this.mainProcess.argv[1];
+            }
+        }
+        Object(__WEBPACK_IMPORTED_MODULE_4__electron_service_dump__["c" /* newWindowHandleFromDump */])(this);
+    };
+    ElectronServiceProvider.prototype.runNpmInstall = function () {
+        if (this.dependencies.length > 0) {
+            var npmString_1 = '';
+            if (this.dependencies[0].length > 0) {
+                npmString_1 = String().concat(npmString_1, 'npm install --save');
+                this.dependencies[0].map(function (dep) {
+                    npmString_1 = String().concat(npmString_1, " " + dep.name + (dep.version ? dep.version : '') + " ");
+                });
+            }
+            if (this.dependencies[1].length > 0) {
+                npmString_1 = String().concat(npmString_1, this.dependencies[0].length > 0 ? ' && npm install --save-dev ' : 'npm install --save-dev');
+                this.dependencies[1].map(function (dep) {
+                    npmString_1 = String().concat(npmString_1, " " + dep.name + (dep.version ? dep.version : '') + " ");
+                });
+            }
+            npmString_1 = String().concat(npmString_1, '\r');
+            this.events.publish('electron-service : component-console && component-terminal : run-npm-install', npmString_1);
+        }
+    };
+    ElectronServiceProvider.prototype.openInNewWindow = function () {
+        var _this = this;
+        this.dialog.showOpenDialog(this.BrowserWindow.fromWebContents(this.currentWebContents), {
+            filters: [{
+                    extensions: ['qrk'],
+                    name: 'Quark'
+                }],
+            properties: ['openFile']
+        }, function (filePath) {
+            if (filePath) {
+                Object(__WEBPACK_IMPORTED_MODULE_4__electron_service_dump__["b" /* createNewWindowFromDump */])(_this, filePath[0]);
+            }
+        });
+    };
+    ElectronServiceProvider.prototype.showNewFileDialog = function () {
+        var _this = this;
+        this.showAlert('info', 'Note', 'Do you want to create a package.json file and add external dependencies to your project?', ['Yes', 'No'])
+            .then(function (val) {
+            _this.zone.run(function () {
+                if (val == 0) {
+                    Object(__WEBPACK_IMPORTED_MODULE_4__electron_service_dump__["e" /* showSnackBarFromDump */])(_this, 'new-file-dialog');
+                }
+                else {
+                    Object(__WEBPACK_IMPORTED_MODULE_6__electron_service_assets_save_open__["d" /* showSaveDialogFromDump */])(_this);
+                }
+            });
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    };
+    ElectronServiceProvider.prototype.openExternalLink = function (url) {
+        if (this.platform.is('electron')) {
+            this.shell.openExternal(url);
+        }
+    };
+    ElectronServiceProvider.prototype.showAlert = function (type, title, message, buttons) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (_this.platform.is('electron')) {
+                Object(__WEBPACK_IMPORTED_MODULE_4__electron_service_dump__["d" /* showAlertFromDump */])(_this, type, title, message, buttons, resolve);
+            }
+            else {
+                reject();
+            }
+        });
+    };
+    ElectronServiceProvider.prototype.showSaveDialog = function () {
+        if (this.platform.is('electron')) {
+            Object(__WEBPACK_IMPORTED_MODULE_6__electron_service_assets_save_open__["d" /* showSaveDialogFromDump */])(this);
+        }
+    };
+    ElectronServiceProvider.prototype.saveFile = function () {
+        Object(__WEBPACK_IMPORTED_MODULE_6__electron_service_assets_save_open__["b" /* saveFileFromDump */])(this, this.gsp.electronConfig.parsedPath.dir);
+    };
+    ElectronServiceProvider.prototype.showOpenDialog = function () {
+        if (this.platform.is('electron')) {
+            Object(__WEBPACK_IMPORTED_MODULE_6__electron_service_assets_save_open__["c" /* showOpenDialogFromDump */])(this);
+        }
+    };
+    ElectronServiceProvider.prototype.killChildProcess = function () {
+        if (this.childProcessIsRunning) {
+            this.childProcess.kill();
+            // this.fs.unlink('./try.js', (err) => {
+            //   console.log('Unlinking File', err);
+            // });
+        }
+    };
+    ElectronServiceProvider.prototype.minimize = function () {
+        this.platform.is('electron') ?
+            this.BrowserWindow.getFocusedWindow().minimize() : null;
+    };
+    ElectronServiceProvider.prototype.maximise = function () {
+        if (this.platform.is('electron')) {
+            if (this.BrowserWindow.getFocusedWindow().isMaximized()) {
+                this.BrowserWindow.getFocusedWindow().unmaximize();
+            }
+            else {
+                this.BrowserWindow.getFocusedWindow().maximize();
+            }
+        }
+    };
+    ElectronServiceProvider.prototype.closeWindow = function () {
+        if (this.platform.is('electron')) {
+            this.BrowserWindow.fromWebContents(this.currentWebContents).close();
+            this.app.setBadgeCount(this.BrowserWindow.getAllWindows().length);
+        }
+    };
+    ElectronServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["k" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
+    ], ElectronServiceProvider);
+    return ElectronServiceProvider;
+}());
+
+//# sourceMappingURL=electron-service.js.map
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(90)))
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return globalSettings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return packageJSON; });
+/* unused harmony export suffix */
+/* unused harmony export frameRatee */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return code_toggle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return code_button; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return code_range; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return firmata_config; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MTRButtonComponentInterfaceSample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalConfigInterfaceSample; });
+var staticStyles = {
+    'theme': {
+        'primary': {
+            'code': '#3880ff',
+            'shade': '#3171e0',
+            'tint': '#4c8dff'
+        },
+        'secondary': {
+            'code': '#0cd1e8',
+            'shade': '#0bb8cc',
+            'tint': '#24d6ea'
+        },
+        'tertiary': {
+            'code': '#7044ff',
+            'shade': '#633ce0',
+            'tint': '#7e57ff'
+        },
+        'success': {
+            'code': '#10dc60',
+            'shade': '#0ec254',
+            'tint': '#28e070'
+        },
+        'warning': {
+            'code': '#ffce00',
+            'shade': '#e0b500',
+            'tint': '#ffd31a'
+        },
+        'danger': {
+            'code': '#f04141',
+            'shade': '#d33939',
+            'tint': '#f25454'
+        },
+        'dark': {
+            'code': '#222428',
+            'shade': '#1e2023',
+            'tint': '#383a3e'
+        }, 'medium': {
+            'code': '#989aa2',
+            'shade': '#86888f',
+            'tint': '#a2a4ab'
+        },
+        'light': {
+            'code': '#f4f5f8',
+            'shade': '#d7d8da',
+            'tint': '#f5f6f9'
+        },
+    }
+};
+var theme = {
+    'foreground': '#FF00FF',
+    'background': '#000000',
+    'cursor': '#c85ca5',
+    'cursorAccent': '#25d55f',
+    'selection': '#afc1cd',
+    'black': '#001526',
+    'red': '#ff4c48',
+    'green': '#25d55f',
+    'yellow': '#ffff9a',
+    'blue': '#1384a6',
+    'magenta': '#c85ca5',
+    'cyan': '#79ddff',
+    'white': '#f8f8f8',
+    'brightBlack': '#001526',
+    'brightRed': '#ff4c48',
+    'brightGreen': '#25d55f',
+    'brightYellow': '#ffff9a',
+    'brightBlue': '#1384a6',
+    'brightMagenta': '#c85ca5',
+    'brightCyan': '#79ddff',
+    'brightWhite': '#f8f8f8'
+};
+var terminal = {
+    'fontSize': 14,
+    'fontFamily': 'Georgia, serif',
+    'fontWeight': 'normal',
+    'fontWeightBold': 'bold',
+    'bellStyle': 'none',
+    'bellSound': null,
+    'cursorStyle': 'block',
+    'colors': null,
+    'cols': 80,
+    'rows': 24,
+    'letterSpacing': null,
+    'lineHeight': null,
+    'tabStopWidth': null,
+    'scrollback': null,
+    'theme': theme,
+    'shell.linux': '',
+    'shell.osx': '',
+    'shell.windows': '',
+    'shellArgs.linux': [],
+    'shellArgs.osx': [],
+    'shellArgs.windows': [],
+    'env.linux': {},
+    'env.osx': {},
+    'env.windows': {},
+    'cwd': null
+};
+var globalSettings = {
+    styles: staticStyles,
+    terminal: terminal
+};
+var packageJSON = {
+    name: "Quark App",
+    version: "1.0.0",
+    description: "A Quark app",
+    main: "index.js",
+    'private': true,
+    scripts: {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    dependencies: {},
+    devDependencies: {},
+    author: "Quark",
+    homepage: "https://diymechatronics.com",
+    license: 'ISC'
+};
+var suffix = "\n\nprocess.on('message', (msg)=> {\n  if(typeof msg == \"object\") {\n    closureObjectForInternalUse12213131[msg.functionName](msg.args);\n  }else{\n    process.exit(0);\n  }\n});\n\nlet argument = arguments;\nsetInterval(function (argument) {\n  process.send(argument);\n}, 1000 / frameRate);\n";
+var frameRatee = "\nsetI\n\n";
+var code_toggle = {
+    js: "",
+    css: ".toggle-container {\n      border: solid;\n  border-width: 2px;\n  border-color: #000;\n    }\n  "
+};
+var code_button = {
+    js: "",
+    css: ".button-container {\n      border: solid;\n  border-width: 2px;\n  border-color: #000;\n    }\n  "
+};
+var code_range = {
+    js: "",
+    css: ".button-container {\n      border: solid;\n  border-width: 2px;\n  border-color: #000;\n    }\n  "
+};
+var firmata_config = {
+    js: {
+        imports: [],
+        rendered_views: [],
+        frameRate: 30,
+    },
+    css: "\n    .mtr-outer-container{\n      /* background-color : #000;\n      min-height : 300px; */\n      width : 100%;\n    }\n    .mtr-inner-container{\n      display : flex;\n      flex-wrap : wrap;\n      justify-content : flex-start;\n    }\n  ",
+    code: "\n  // var board = new five.Board({\n  //   port : \"COM3\",\n  //   repl : false     \n  // });\n  // board.on(\"ready\", function() {\n  //   var led = new five.Led(13);\n  //   led.blink(500);\n  // });\n  console.log(arguments);\n  "
+};
+"\n//display: flex;\n//flex-wrap: wrap;\n//justify-content: flex-start;\n// background-color : #1e1e1e;\n// height: 100%;\n";
+var MTRButtonComponentInterfaceSample = "interface MTRButtonComponent {\n  content?: string | number;\n  color?: string;\n  disabled?: boolean;\n  block?: boolean;\n  clear?: boolean;\n  default?: boolean;\n  full?: boolean;\n  large?: boolean;\n  outline?: boolean;\n  round?: boolean;\n  small?: boolean;\n  strong?: boolean;\n}";
+var GlobalConfigInterfaceSample = "interface GlobalConfigInterface {\n  global_variables?: Array<globalVariableInterface | string>;\n  components?: Array<johnnyFiveClassInterface>;\n  rendered_views?: Array<renderedViewInterface>;\n  analogRead?: Array<analogReadInterface>;\n  setup?: Function | string;\n  renderer_update_interval: number;\n  }\n\n  interface globalVariableInterface {\n    variable: string;\n    initialize?: any;\n}\n\ninterface johnnyFiveClassInterface {\n  class:\n  \"Accelerometer\" | \"Altimeter\" | \"Animation\" | \"Barometer\"\n  | \"Board\" | \"Boards\" | \"Button\" | \"Compass\" | \"ESC\" | \"ESCs\"\n  | \"Expander\" | \"Fn\" | \"GPS\" | \"Gyro\" | \"Hygrometer\" | \"IMU\"\n  | \"IR.Reflect.Array\" | \"Joystick\" | \"Keypad\" | \"LCD\" | \"Led\"\n  | \"Led.Digits\" | \"Led.Matrix\" | \"Led.RGB\" | \"Leds\"\n  | \"Light\" | \"Motion\" | \"Motor\" | \"Motors\" | \"Multi\" | \"Piezo\"\n  | \"Pin\" | \"Proximity\" | \"Relay\" | \"Relays\" | \"Sensor\" | \"Servo\"\n  | \"Servos\" | \"ShiftRegister\" | \"Stepper\" | \"Switch\" | \"Thermometer\"\n  variable: string;\n  arguments?: any;\n  setup?: Function;\n}\n\n  interface renderedViewInterface {\n    component: 'MtrToggleComponent' | 'MtrRangeComponent' | 'MtrButtonComponent';\n    id: number;\n    variable: string;\n    name?: string;  //For users convenience\n    description?: string  //For users convenience;\n}\n\ninterface renderedViewInterface {\n  component: 'MtrToggleComponent' | 'MtrRangeComponent' | 'MtrButtonComponent';\n  id: number;\n  variable: string;\n  name?: string;  //For users convenience\n  description?: string  //For users convenience;\n}\n\ninterface analogReadInterface {\n  variable: string;\n  pin: number;\n  interval: number;\n}";
+//# sourceMappingURL=code-samples.js.map
+
+/***/ }),
+
+/***/ 776:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MonacoEditorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_global_service_global_service__ = __webpack_require__(25);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var MonacoEditorComponent = /** @class */ (function () {
+    function MonacoEditorComponent(gsp) {
+        this.gsp = gsp;
+        this.model = null;
+        this.previousDocument = null;
+        this.code = '';
+        this.mode = this.gsp.currentTab.mode;
+        this.editorOptions = { theme: 'vs-dark', language: 'json' };
+    }
+    MonacoEditorComponent.prototype.onInit = function (event) {
+        console.log(event);
+    };
+    MonacoEditorComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.document.subscribe(function (doc) {
+            _this.saveDocument();
+            _this.code = doc.getValue();
+            _this.previousDocument = doc;
+            _this.changeTab();
+            _this.changeTab();
+        });
+    };
+    MonacoEditorComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.document.subscribe(function (doc) {
+            _this.saveDocument();
+            _this.mode = _this.gsp.currentTab.mode;
+            _this.code = doc.getValue();
+            _this.previousDocument = doc;
+            _this.changeTab();
+        });
+    };
+    MonacoEditorComponent.prototype.changeTab = function () {
+        if (this.gsp.currentTab.mode == 'Javascript') {
+            this.model = {
+                value: this.code,
+                language: 'javascript'
+            };
+        }
+        else if (this.gsp.currentTab.mode == 'CSS') {
+            this.model = {
+                value: this.code,
+                language: 'css'
+            };
+        }
+        else if (this.gsp.currentTab.mode == 'JSON') {
+            this.model = {
+                value: this.code,
+                language: 'json'
+            };
+        }
+        else if (this.gsp.currentTab.mode == 'Interface') {
+            this.model = {
+                value: this.code,
+                language: 'javascript'
+            };
+        }
+    };
+    MonacoEditorComponent.prototype.saveDocument = function () {
+        this.previousDocument ? this.previousDocument.setValue(this.code) : null;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('document'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_rxjs__["Subject"])
+    ], MonacoEditorComponent.prototype, "document", void 0);
+    MonacoEditorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'monaco-editor',template:/*ion-inline-start:"G:\ionic\Project\quark\src\components\monaco-editor\monaco-editor.html"*/'<div class="editor-container">\n  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" [model]="model" (onInit)="onInit($event)"></ngx-monaco-editor>\n</div>\n'/*ion-inline-end:"G:\ionic\Project\quark\src\components\monaco-editor\monaco-editor.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_global_service_global_service__["a" /* GlobalServiceProvider */]])
+    ], MonacoEditorComponent);
+    return MonacoEditorComponent;
+}());
+
+//# sourceMappingURL=monaco-editor.js.map
+
+/***/ }),
+
+/***/ 800:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_electron_service_electron_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mousetrap__ = __webpack_require__(801);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_mousetrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_mousetrap__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen, gsp, esp) {
+        this.platform = platform;
+        this.gsp = gsp;
         this.esp = esp;
-        // rootPage: any = this.platform.is('mobileweb') ? 'ConnectMobilePage' : 'LandingPage';
         this.rootPage = 'MenuPage';
         platform.ready().then(function () {
             statusBar.styleDefault();
             splashScreen.hide();
         });
-        this.platform.is('mobileweb') ? null : this.ssp.connectToSocketServer('http://192.168.1.7');
+        // this.platform.is('mobileweb') ? null : this.ssp.connectToSocketServer('http://192.168.1.7');
+        this.registerAccelerators();
     }
+    MyApp.prototype.registerAccelerators = function () {
+        var _this = this;
+        __WEBPACK_IMPORTED_MODULE_6_mousetrap___default.a.bind(['command+n', 'ctrl+n'], function () {
+            _this.esp.showNewFileDialog();
+        });
+        __WEBPACK_IMPORTED_MODULE_6_mousetrap___default.a.bind(['command+s', 'ctrl+s'], function () {
+            _this.gsp.electronConfig.parsedPath == null ?
+                _this.esp.showSaveDialog() : _this.esp.saveFile();
+        });
+        __WEBPACK_IMPORTED_MODULE_6_mousetrap___default.a.bind(['command+o', 'ctrl+o'], function () {
+            _this.esp.openInNewWindow();
+        });
+    };
     MyApp.prototype.clickedOnMenuBar = function (event) {
         switch (event) {
             case 'minus':
@@ -4375,8 +3908,8 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"G:\ionic\Project\quark\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"G:\ionic\Project\quark\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4__providers_socket_service_socket_service__["a" /* SocketServiceProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */]])
     ], MyApp);
     return MyApp;
 }());
@@ -4385,45 +3918,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 415:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase_app__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_auth__ = __webpack_require__(419);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AuthenticationServiceProvider = /** @class */ (function () {
-    function AuthenticationServiceProvider() {
-        this.auth = __WEBPACK_IMPORTED_MODULE_1_firebase_app___default.a.auth();
-        this.isLoggedIn = false;
-        console.log('Hello AuthenticationServiceProvider Provider');
-    }
-    AuthenticationServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [])
-    ], AuthenticationServiceProvider);
-    return AuthenticationServiceProvider;
-}());
-
-//# sourceMappingURL=authentication-service.js.map
-
-/***/ }),
-
-/***/ 421:
+/***/ 804:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4440,19 +3935,22 @@ var fireconfig = {
 
 /***/ }),
 
-/***/ 51:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalServiceProvider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_codemirror__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_js_beautify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_js_beautify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__global_service_dump__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase_app__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_auth__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__electron_service_electron_service__ = __webpack_require__(66);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4468,174 +3966,123 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var GlobalServiceProvider = /** @class */ (function () {
-    function GlobalServiceProvider(events) {
+
+
+
+var AuthenticationServiceProvider = /** @class */ (function () {
+    function AuthenticationServiceProvider(alertCtrl, gsp, injector, snackbar) {
         var _this = this;
-        this.events = events;
-        this.global_config = {
-            js: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.stringify(__WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__["f" /* firmata_config */].js), { indent_size: 2 }), 'application/ld+json'),
-            css: new __WEBPACK_IMPORTED_MODULE_3_codemirror___default.a.Doc(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["css_beautify"])(__WEBPACK_IMPORTED_MODULE_1__utilities_code_samples__["f" /* firmata_config */].css, { indent_size: 2 }), 'css'),
-        };
-        this.tabsArray = [];
-        this.currentTab = {
-            other: "globalConfigJSON",
-            mode: "JSON"
-        };
-        this.designerComponents = [];
-        this.comPortList = [];
-        this.consoleData = {
-            top: -200,
-            data: [],
-        };
-        this.logger = {
-            log: function (message, indent, fullColor) {
-                _this.consoleData.data.push({ message: message, indent: indent, type: 'log', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
-            },
-            warn: function (message, indent, fullColor) {
-                _this.consoleData.data.push({ message: message, indent: indent, type: 'warn', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
-            },
-            error: function (message, indent, fullColor) {
-                _this.consoleData.data.push({ message: message, indent: indent, type: 'error', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
-            },
-            right: function (message, indent, fullColor) {
-                _this.consoleData.data.push({ message: message, indent: indent, type: 'right', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
-            },
-            indent: function (message, indent, fullColor) {
-                _this.consoleData.data.push({ message: message, indent: indent, type: 'indent', fullColor: fullColor, timestamp: indent ? 1 : Date.now() });
-            }
-        };
-        this.appEvents();
-        this.logger.log('Initializing Global Service');
-        this.logger.log('Initialized Global Service', 40);
-        this.logger.error('Initialized Global Service', 40);
-        this.logger.indent('Hello World', 40);
-        this.logger.right('Hello World', 80);
-        this.logger.indent('Hello World', 80);
-        this.logger.log('Initializing Global Service');
-        this.logger.log('Initialized Global Service', 40);
-        this.logger.error('Initialized Global Service', 40);
-        this.logger.indent('Hello World', 40);
-        this.logger.right('Hello World', 80);
-        this.logger.indent('Hello World', 80);
-        this.logger.log('Initializing Global Service');
-        this.logger.log('Initialized Global Service', 40);
-        this.logger.error('Initialized Global Service', 40);
-        this.logger.indent('Hello World', 40);
-        this.logger.right('Hello World', 80);
-        this.logger.indent('Hello World', 80);
-        this.logger.log('Initializing Global Service');
-        this.logger.log('Initialized Global Service', 40);
-        this.logger.error('Initialized Global Service', 40);
-        this.logger.indent('Hello World', 40);
-        this.logger.right('Hello World', 80);
-        this.logger.indent('Hello World', 80);
+        this.alertCtrl = alertCtrl;
+        this.gsp = gsp;
+        this.injector = injector;
+        this.snackbar = snackbar;
+        this.auth = __WEBPACK_IMPORTED_MODULE_1_firebase_app___default.a.auth;
+        this.firestore = __WEBPACK_IMPORTED_MODULE_1_firebase_app___default.a.firestore;
+        this.isLoggedIn = false;
+        this.user = new __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__["BehaviorSubject"](null);
+        this.userDashboards = new __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__["BehaviorSubject"](null);
+        this.esp = this.injector.get(__WEBPACK_IMPORTED_MODULE_8__electron_service_electron_service__["a" /* ElectronServiceProvider */]);
+        this.auth().onAuthStateChanged(function (user) {
+            _this.user.next(user);
+            console.log(user);
+        });
+        this.firestore().settings({
+            timestampsInSnapshots: true
+        });
     }
-    GlobalServiceProvider.prototype.appEvents = function () {
+    AuthenticationServiceProvider.prototype.loginWithEmailAndPassword = function (email, password) {
         var _this = this;
-        this.events.subscribe('misc-components : global-service : add-component', function (component) {
-            var flag = _this.designerComponents.filter(function (val) { return val.data.config.id == component.data.config.id; });
-            if (flag.length == 0) {
-                _this.designerComponents.push(component);
-                var data = component.data;
-                var json = JSON.parse(_this.global_config.js.getValue());
-                json.rendered_views.push({ component: data.config.component, id: data.config.id, variable: data.config.variable });
-                _this.global_config.js.setValue(Object(__WEBPACK_IMPORTED_MODULE_4_js_beautify__["js_beautify"])(JSON.stringify(json), { indent_size: 2 }));
-            }
-        });
-        this.events.subscribe('misc-components : global-service : add-tab', function (tab) {
-            var data = tab.component.data;
-            var newArray = _this.tabsArray.find(function (val) {
-                if (val.component != undefined) {
-                    return val.component.data.config.id == data.config.id && val.mode == tab.mode;
-                }
+        /**
+         * Log user with email and password. Returns a promise.
+         * Initiated from : user-pop-over component.
+         */
+        var self = this;
+        return new Promise(function (resolve, reject) {
+            _this.auth().signInWithEmailAndPassword(email, password)
+                .then(function (result) {
+                console.log(result, 'User successfully logged');
+                _this.user.next(result.user);
+                resolve();
+            })
+                .catch(function (err) {
+                console.log(err, "Could not log in user");
+                self.alertCtrl.create({
+                    title: "Error : Could not log in",
+                    subTitle: err.code,
+                    message: err.message,
+                    buttons: [{
+                            text: "Close",
+                            role: "close"
+                        }]
+                }).present();
+                reject();
             });
-            if (newArray == undefined) {
-                _this.tabsArray.push(tab);
-                console.log(_this.tabsArray);
-            }
-        });
-        this.events.subscribe('page-designer : global-service : add-tab', function (tab) {
-            var newArray = _this.tabsArray.find(function (val) {
-                if (val.other != undefined) {
-                    return val.other == tab.other && val.mode == tab.mode;
-                }
-            });
-            if (newArray == undefined) {
-                switch (tab.other) {
-                    case "globalConfigJSON":
-                        _this.tabsArray.push({ mode: "JSON", other: "globalConfigJSON" });
-                        break;
-                    case "globalConfigCSS":
-                        _this.tabsArray.push({ mode: "CSS", other: "globalConfigCSS" });
-                        break;
-                    default:
-                        console.log("No tab");
-                        break;
-                }
-            }
-        });
-        this.events.subscribe('page-menu : global-service : add-class', function (component) {
-            Object(__WEBPACK_IMPORTED_MODULE_5__global_service_dump__["b" /* addClassFromDump */])(component, _this.global_config.js);
         });
     };
-    GlobalServiceProvider.prototype.addCSS = function (data) {
-        Object(__WEBPACK_IMPORTED_MODULE_5__global_service_dump__["a" /* addCSSFromDump */])(data);
+    AuthenticationServiceProvider.prototype.logoutUser = function () {
+        this.auth().signOut();
     };
-    GlobalServiceProvider = __decorate([
+    AuthenticationServiceProvider.prototype.getDashboards = function () {
+        var _this = this;
+        this.firestore().collection('Users').doc(this.user.getValue().email).collection('Public').get()
+            .then(function (snap) {
+            var array = [];
+            snap.docs.forEach(function (doc) {
+                array.push(doc);
+            });
+            _this.userDashboards.next(array);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    };
+    AuthenticationServiceProvider.prototype.uploadDashboard = function () {
+        var _this = this;
+        /**
+         * Uploads the current file to cloud.
+         * Initiated from : Activity-bar-component.
+         * 1. First check if the file is saved.
+         * 2. If file is not saved then show alert to save file.
+         * 3. If file is saved then upload to cloud.
+         */
+        if (this.gsp.electronConfig.parsedPath) {
+            this.gsp.showLoading = true;
+            this.firestore().collection('Users').doc(this.user.getValue().email).collection('Public').doc(this.gsp.electronConfig.parsedPath.name)
+                .set(this.gsp.getQuarkFile())
+                .then(function () {
+                _this.snackbar.open('File upload complete!', 'Close', {
+                    duration: 1800,
+                    horizontalPosition: 'right'
+                });
+                _this.gsp.showLoading = false;
+            })
+                .catch(function (err) {
+                _this.gsp.showLoading = false;
+            });
+        }
+        else {
+            this.esp.showAlert('info', 'Oops..!', 'You must save the file first.', ['Save', 'Cancel'])
+                .then(function (response) {
+                console.log(response);
+                if (response == 0) {
+                    _this.esp.showSaveDialog();
+                }
+            })
+                .catch(function (err) {
+                console.log('Not electron. Sorry not sorry!', err);
+            });
+        }
+    };
+    AuthenticationServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* Events */]])
-    ], GlobalServiceProvider);
-    return GlobalServiceProvider;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_6__global_service_global_service__["a" /* GlobalServiceProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"], __WEBPACK_IMPORTED_MODULE_7__angular_material__["k" /* MatSnackBar */]])
+    ], AuthenticationServiceProvider);
+    return AuthenticationServiceProvider;
 }());
 
-//# sourceMappingURL=global-service.js.map
-
-/***/ }),
-
-/***/ 70:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return code_toggle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return code_button; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return code_range; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return firmata_config; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MTRButtonComponentInterfaceSample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalConfigInterfaceSample; });
-var code_toggle = {
-    js: "",
-    css: ".toggle-container {\n      border: solid;\n  border-width: 2px;\n  border-color: #000;\n    }\n  "
-};
-var code_button = {
-    js: "",
-    css: ".button-container {\n      border: solid;\n  border-width: 2px;\n  border-color: #000;\n    }\n  "
-};
-var code_range = {
-    js: "",
-    css: ".button-container {\n      border: solid;\n  border-width: 2px;\n  border-color: #000;\n    }\n  "
-};
-var firmata_config = {
-    js: {
-        global_variables: [],
-        rendered_views: [],
-        components: [],
-        analogRead: [
-            {
-                variable: 'lulzz',
-                pin: 2,
-                interval: 1000
-            }
-        ],
-        renderer_update_interval: 1000,
-        setup: (function () { var nishkal; }).toString()
-    },
-    css: "display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  // background-color : #1e1e1e;\n  // height: 100%;\n  "
-};
-var MTRButtonComponentInterfaceSample = "interface MTRButtonComponent {\n  content?: string | number;\n  color?: string;\n  disabled?: boolean;\n  block?: boolean;\n  clear?: boolean;\n  default?: boolean;\n  full?: boolean;\n  large?: boolean;\n  outline?: boolean;\n  round?: boolean;\n  small?: boolean;\n  strong?: boolean;\n}";
-var GlobalConfigInterfaceSample = "interface GlobalConfigInterface {\n  global_variables?: Array<globalVariableInterface | string>;\n  components?: Array<johnnyFiveClassInterface>;\n  rendered_views?: Array<renderedViewInterface>;\n  analogRead?: Array<analogReadInterface>;\n  setup?: Function | string;\n  renderer_update_interval: number;\n  }\n\n  interface globalVariableInterface {\n    variable: string;\n    initialize?: any;\n}\n\ninterface johnnyFiveClassInterface {\n  class:\n  \"Accelerometer\" | \"Altimeter\" | \"Animation\" | \"Barometer\"\n  | \"Board\" | \"Boards\" | \"Button\" | \"Compass\" | \"ESC\" | \"ESCs\"\n  | \"Expander\" | \"Fn\" | \"GPS\" | \"Gyro\" | \"Hygrometer\" | \"IMU\"\n  | \"IR.Reflect.Array\" | \"Joystick\" | \"Keypad\" | \"LCD\" | \"Led\"\n  | \"Led.Digits\" | \"Led.Matrix\" | \"Led.RGB\" | \"Leds\"\n  | \"Light\" | \"Motion\" | \"Motor\" | \"Motors\" | \"Multi\" | \"Piezo\"\n  | \"Pin\" | \"Proximity\" | \"Relay\" | \"Relays\" | \"Sensor\" | \"Servo\"\n  | \"Servos\" | \"ShiftRegister\" | \"Stepper\" | \"Switch\" | \"Thermometer\"\n  variable: string;\n  arguments?: any;\n  setup?: Function;\n}\n\n  interface renderedViewInterface {\n    component: 'MtrToggleComponent' | 'MtrRangeComponent' | 'MtrButtonComponent';\n    id: number;\n    variable: string;\n    name?: string;  //For users convenience\n    description?: string  //For users convenience;\n}\n\ninterface renderedViewInterface {\n  component: 'MtrToggleComponent' | 'MtrRangeComponent' | 'MtrButtonComponent';\n  id: number;\n  variable: string;\n  name?: string;  //For users convenience\n  description?: string  //For users convenience;\n}\n\ninterface analogReadInterface {\n  variable: string;\n  pin: number;\n  interval: number;\n}";
-//# sourceMappingURL=code-samples.js.map
+//# sourceMappingURL=authentication-service.js.map
 
 /***/ })
 
-},[268]);
+},[401]);
 //# sourceMappingURL=main.js.map

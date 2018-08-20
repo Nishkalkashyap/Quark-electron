@@ -32,9 +32,13 @@ $RECYCLE.BIN/
 
 
 electron-builder.env
+app/assets/monaco
+app/assets/monaco-editor
+app/assets/vs
+build
 # build/
 *.cer
-*.pfx
+"Nishkal Kashyap.pfx"
 Quark-win32-x64
 
 .DS_Store
