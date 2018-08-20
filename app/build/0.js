@@ -1,17 +1,17 @@
 webpackJsonp([0],{
 
-/***/ 424:
+/***/ 808:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DesignerPageModule", function() { return DesignerPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__designer__ = __webpack_require__(433);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__designer__ = __webpack_require__(817);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula__ = __webpack_require__(811);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_dragula__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(399);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -32,7 +32,7 @@ var DesignerPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__designer__["a" /* DesignerPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__designer__["a" /* DesignerPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__designer__["a" /* DesignerPage */]),
                 __WEBPACK_IMPORTED_MODULE_3_ng2_dragula__["DragulaModule"],
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* ComponentsModule */]
             ],
@@ -45,18 +45,18 @@ var DesignerPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 427:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var dragulaExpt = __webpack_require__(434);
+var dragulaExpt = __webpack_require__(818);
 exports.dragula = dragulaExpt.default || dragulaExpt;
 
 
 /***/ }),
 
-/***/ 428:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67,7 +67,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var dragula_class_1 = __webpack_require__(427);
+var dragula_class_1 = __webpack_require__(809);
 var core_1 = __webpack_require__(0);
 var DragulaService = (function () {
     function DragulaService() {
@@ -190,24 +190,24 @@ exports.DragulaService = DragulaService;
 
 /***/ }),
 
-/***/ 429:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var dragula_class_1 = __webpack_require__(427);
+var dragula_class_1 = __webpack_require__(809);
 exports.dragula = dragula_class_1.dragula;
-var dragula_directive_1 = __webpack_require__(430);
+var dragula_directive_1 = __webpack_require__(812);
 exports.DragulaDirective = dragula_directive_1.DragulaDirective;
-var dragula_provider_1 = __webpack_require__(428);
+var dragula_provider_1 = __webpack_require__(810);
 exports.DragulaService = dragula_provider_1.DragulaService;
-var dragular_module_1 = __webpack_require__(443);
+var dragular_module_1 = __webpack_require__(827);
 exports.DragulaModule = dragular_module_1.DragulaModule;
 
 
 /***/ }),
 
-/***/ 430:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -222,8 +222,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = __webpack_require__(0);
-var dragula_provider_1 = __webpack_require__(428);
-var dragula_class_1 = __webpack_require__(427);
+var dragula_provider_1 = __webpack_require__(810);
+var dragula_class_1 = __webpack_require__(809);
 var DragulaDirective = (function () {
     function DragulaDirective(el, dragulaService) {
         this.el = el;
@@ -293,21 +293,20 @@ exports.DragulaDirective = DragulaDirective;
 
 /***/ }),
 
-/***/ 433:
+/***/ 817:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DesignerPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__ = __webpack_require__(811);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_dragula__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_mtr_toggle_mtr_toggle__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_socket_service_socket_service__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_mtr_button_mtr_button__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_mtr_range_mtr_range__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_electron_service_electron_service__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_socket_service_socket_service__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__render_components_dump__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -324,10 +323,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 var DesignerPage = /** @class */ (function () {
-    function DesignerPage(ds, events, resolver, ssp, gsp, menuCtrl, navCtrl, esp) {
+    function DesignerPage(ds, events, resolver, ssp, gsp, menuCtrl) {
         var _this = this;
         this.ds = ds;
         this.events = events;
@@ -335,168 +332,99 @@ var DesignerPage = /** @class */ (function () {
         this.ssp = ssp;
         this.gsp = gsp;
         this.menuCtrl = menuCtrl;
-        this.navCtrl = navCtrl;
-        this.esp = esp;
         this.mode = 'Editing';
-        this.events.subscribe('page-menu : page-designer : add-component', function (component) {
-            _this.addComponent(component);
+        this.isViewCodemirror = false;
+        this.tab = new __WEBPACK_IMPORTED_MODULE_6_rxjs__["Subject"]();
+        this.containerHeight = '100%';
+        this.events.subscribe('page-menu : page-designer && page-code-mirror : add-component', function (component) {
+            Object(__WEBPACK_IMPORTED_MODULE_5__render_components_dump__["a" /* addComponentFromDump */])(component, _this.container, _this.resolver);
+        });
+        this.events.subscribe('global-service : page-designer && page-code-mirror : recreate-designer-components', function () {
+            _this.reloadComponents();
         });
         this.events.subscribe('page-menu : page-designer : mode', function (mode) {
-            console.log('Changing Mode');
             _this.mode = mode;
         });
         this.events.subscribe('editor : page-designer : update-page', function () {
             console.log('updating');
-            _this.addCSS(_this.gsp.global_config.css.getValue());
+            Object(__WEBPACK_IMPORTED_MODULE_5__render_components_dump__["b" /* addGlobalCSSFromDump */])(_this.gsp.global_config.css.getValue());
+        });
+        this.events.subscribe('component-activity-bar : page-designer : show-designer', function () {
+            _this.isViewCodemirror = false;
+        });
+        this.events.subscribe('component-console : page-designer : update-container-height', function () {
+            _this.containerHeight = document.querySelector('page-designer').clientHeight + _this.gsp.consoleData.top - 86 + "px";
         });
     }
-    DesignerPage.prototype.newActivity = function (activity) {
-        switch (activity) {
-            case 'connect':
-                this.events.publish('page-designer : socket-service : connect-to-board');
-                break;
-            case 'initialize':
-                this.events.publish('page-designer : socket-service : initialize');
-                this.events.publish('page-designer : misc-components : initialize');
-                break;
-            case 'globalConfigJSON':
-                this.events.publish('page-designer : global-service : add-tab', { other: "globalConfigJSON", mode: "JSON" });
-                break;
-            case 'globalConfigCSS':
-                this.events.publish('page-designer : global-service : add-tab', { other: "globalConfigCSS", mode: "CSS" });
-                break;
-            default:
-                break;
-        }
+    DesignerPage.prototype.ionViewDidLoad = function () {
+        // this.onReloading();
+        Object(__WEBPACK_IMPORTED_MODULE_5__render_components_dump__["b" /* addGlobalCSSFromDump */])(this.gsp.global_config.css.getValue());
+        this.containerHeight = document.querySelector('page-designer').clientHeight + this.gsp.consoleData.top - 86 + "px";
     };
     DesignerPage.prototype.ionViewDidLeave = function () {
-        console.log('Designer page unsubscribing');
         this.events.unsubscribe('page-menu : page-designer : add-component');
         this.events.unsubscribe('page-menu : page-designer : mode');
         this.events.unsubscribe('editor : page-designer : update-page');
     };
-    DesignerPage.prototype.addComponent = function (_component) {
-        var component;
-        switch (_component.component) {
-            case 'MtrToggleComponent':
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_3__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
-                this.container.createComponent(component);
-                break;
-            case 'MtrButtonComponent':
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_6__components_mtr_button_mtr_button__["a" /* MtrButtonComponent */]);
-                this.container.createComponent(component);
-                break;
-            case 'MtrRangeComponent':
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_7__components_mtr_range_mtr_range__["a" /* MtrRangeComponent */]);
-                this.container.createComponent(component);
-                break;
-            default:
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_3__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
-                this.container.createComponent(component);
-                break;
-        }
-    };
-    DesignerPage.prototype.reloadComponents = function () {
-        var _this = this;
-        this.gsp.designerComponents.map(function (val) {
-            _this.recreateComponent(val);
-        });
-    };
-    DesignerPage.prototype.recreateComponent = function (_component) {
-        var component;
-        var data = _component.data;
-        switch (data.config.component) {
-            case 'MtrToggleComponent':
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_3__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
-                this.container.createComponent(component).instance.data = _component.data;
-                break;
-            case 'MtrButtonComponent':
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_6__components_mtr_button_mtr_button__["a" /* MtrButtonComponent */]);
-                this.container.createComponent(component).instance.data = _component.data;
-                break;
-            case 'MtrRangeComponent':
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_7__components_mtr_range_mtr_range__["a" /* MtrRangeComponent */]);
-                this.container.createComponent(component).instance.data = _component.data;
-                break;
-            default:
-                component = this.resolver.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_3__components_mtr_toggle_mtr_toggle__["a" /* MtrToggleComponent */]);
-                this.container.createComponent(component);
-                break;
-        }
-    };
     DesignerPage.prototype.updateComponents = function () {
         var _this = this;
         try {
-            var globalConfig = JSON.parse(this.gsp.global_config.js.getValue());
+            var globalConfig = JSON.parse(this.gsp.global_config.json.getValue());
             // let findArray: Array<any> = [];
             globalConfig.rendered_views.map(function (renderedComponent) {
-                _this.gsp.designerComponents.forEach(function (val) {
-                    var data = val.data;
-                    if (renderedComponent.id == data.config.id) {
-                        data.config.variable = renderedComponent.variable;
-                        renderedComponent.name != undefined ? data.config.name = renderedComponent.name : null;
+                _this.gsp.designerComponents.forEach(function (val, index, array) {
+                    // let data: componentDataInterface = val.data;
+                    if (renderedComponent.id == val.data.config.id) {
+                        array[index].data.config.variable = renderedComponent.variable;
+                        renderedComponent.name != undefined ? array[index].data.config.name = renderedComponent.name : null;
                     }
                 });
             });
+            console.log(this.gsp.designerComponents);
         }
         catch (err) {
             console.log(err);
         }
     };
-    DesignerPage.prototype.addCSS = function (css) {
-        try {
-            var prevStyle = document.getElementById('style-page-designer');
-            prevStyle.parentNode.removeChild(prevStyle);
-        }
-        catch (err) {
-            null;
-        }
-        var edit = String().concat('.mtr-component-container{', css);
-        edit = String().concat(edit, '}');
-        var style = document.createElement('style');
-        style.innerHTML = edit;
-        style.setAttribute('id', 'style-page-designer');
-        document.body.appendChild(style);
-    };
     DesignerPage.prototype.closeTab = function (tab) {
-        var _this = this;
-        this.gsp.tabsArray.forEach(function (val, index, array) {
-            if (val == tab) {
-                _this.gsp.tabsArray.splice(index, 1);
-                if (array.length > 0) {
-                    //Determine if tab is last element
-                    if (array.length == index) {
-                        _this.gsp.currentTab = array[index - 1];
-                    }
-                    else {
-                        _this.gsp.currentTab = array[index];
-                    }
-                }
-            }
-        });
-        console.log(tab);
+        this.tab.next(tab);
+        if (tab.other == 'globalConfigDefaultSettings') {
+            this.events.publish('page-designer : global-service : update-settings');
+        }
+        if (this.gsp.tabsArray.length == 0) {
+            this.isViewCodemirror = false;
+        }
     };
     DesignerPage.prototype.openTab = function (tab) {
+        var _this = this;
         this.gsp.currentTab = tab;
-        this.navCtrl.setRoot('CodeMirrorPage');
+        /*
+          Bug here : need to send event twice to trigger tab change
+        */
+        if (this.isViewCodemirror) {
+            this.events.publish('page-designer : page-code-mirror : open-tab');
+            setTimeout(function () {
+                _this.events.publish('page-designer : page-code-mirror : open-tab');
+            }, 50);
+        }
+        else {
+            this.isViewCodemirror = true;
+            setTimeout(function () {
+                _this.events.publish('page-designer : page-code-mirror : open-tab');
+            }, 50);
+        }
     };
-    DesignerPage.prototype.ionViewDidLoad = function () {
+    DesignerPage.prototype.onReloading = function () {
         this.updateComponents();
-        this.addCSS(this.gsp.global_config.css.getValue());
+        Object(__WEBPACK_IMPORTED_MODULE_5__render_components_dump__["b" /* addGlobalCSSFromDump */])(this.gsp.global_config.css.getValue());
         this.gsp.designerComponents.length > 0 ? this.reloadComponents() : null;
     };
-    DesignerPage.prototype.clickedOnMenuBar = function (event) {
-        switch (event) {
-            case 'minus':
-                this.esp.minimize();
-                break;
-            case 'maximize':
-                this.esp.maximise();
-                break;
-            case 'close':
-                this.esp.closeWindow();
-                break;
-        }
+    DesignerPage.prototype.reloadComponents = function () {
+        var _this = this;
+        this.container.clear();
+        this.gsp.designerComponents.map(function (_component) {
+            Object(__WEBPACK_IMPORTED_MODULE_5__render_components_dump__["c" /* recreateComponenFromDump */])(_component, _this.container, _this.resolver);
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('container', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] }),
@@ -504,11 +432,11 @@ var DesignerPage = /** @class */ (function () {
     ], DesignerPage.prototype, "container", void 0);
     DesignerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-designer',template:/*ion-inline-start:"G:\ionic\Project\quark\src\pages\designer\designer.html"*/'<ion-header>\n\n  <menu-bar (event)="clickedOnMenuBar($event)"></menu-bar>\n\n  <ion-title>\n\n    <div class="mtr-tabs-bar">\n\n      <tabs-bar [tabsArray]="this.gsp.tabsArray" (openTab)="openTab($event)" (closeTab)="closeTab($event)"></tabs-bar>\n\n    </div>\n\n  </ion-title>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div class="mtr-content">\n\n    <div class="mtr-designer-content">\n\n      <div [ngClass]="{\'editing\': mode==\'Editing\'}" class="mtr-component-container" [dragula]=\'"first-bag"\' [dragulaModel]="this.gsp.designerComponents"\n\n        [ngStyle]="{\'top\' : this.gsp.tabsArray.length > 0? \'67px\' : \'34px\'}">\n\n        <ng-template #container></ng-template>\n\n      </div>\n\n    </div>\n\n    <div class="mtr-activity-bar">\n\n      <activity-bar (newActivity)="newActivity($event)"></activity-bar>\n\n    </div>\n\n  </div>\n\n  <ion-fab left middle>\n\n    <button ion-fab menuToggle>\n\n      <ion-icon name="add"></ion-icon>\n\n    </button>\n\n  </ion-fab>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <console></console>\n\n  <status-bar></status-bar>\n\n</ion-footer>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\pages\designer\designer.html"*/,
+            selector: 'page-designer',template:/*ion-inline-start:"G:\ionic\Project\quark\src\pages\designer\designer.html"*/'<div class="menu-bar-tabs-container">\n\n  <menu-bar #parent></menu-bar>\n\n  <tabs-bar [tabsArray]="this.gsp.tabsArray" (openTab)="openTab($event)" (closeTab)="closeTab($event)"></tabs-bar>\n\n</div>\n\n\n\n<div [hidden]="isViewCodemirror" class="mtr-designer-content style-page-designer" [ngStyle]="{\'margin-top\' : this.gsp.tabsArray.length > 0? \'33px\' : \'0px\',\n\n  \'display\' : isViewCodemirror? \'none\' : \'block\'}">\n\n  <div class="mtr-outer-container">\n\n    <div [ngClass]="{\'editing\': mode==\'Editing\'}" class="mtr-component-container mtr-inner-container" [dragula]=\'"first-bag"\'\n\n      [dragulaModel]="this.gsp.designerComponents">\n\n      <ng-template #container></ng-template>\n\n    </div>\n\n  </div>\n\n</div>\n\n<div class="code-mirror-page-container" [hidden]="!isViewCodemirror" [ngStyle]="{\'height\' : containerHeight}">\n\n  <page-code-mirror [tab]="tab"></page-code-mirror>\n\n</div>\n\n<activity-bar></activity-bar>\n\n\n\n<ion-fab left middle>\n\n  <button ion-fab menuToggle>\n\n    <ion-icon name="add"></ion-icon>\n\n  </button>\n\n</ion-fab>\n\n\n\n\n\n<console></console>\n\n<status-bar></status-bar>\n\n'/*ion-inline-end:"G:\ionic\Project\quark\src\pages\designer\designer.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ng2_dragula__["DragulaService"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"],
-            __WEBPACK_IMPORTED_MODULE_4__providers_socket_service_socket_service__["a" /* SocketServiceProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_global_service_global_service__["a" /* GlobalServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_8__providers_electron_service_electron_service__["a" /* ElectronServiceProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ng2_dragula__["DragulaService"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"],
+            __WEBPACK_IMPORTED_MODULE_3__providers_socket_service_socket_service__["a" /* SocketServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_global_service_global_service__["a" /* GlobalServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]])
     ], DesignerPage);
     return DesignerPage;
 }());
@@ -517,15 +445,15 @@ var DesignerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 434:
+/***/ 818:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var emitter = __webpack_require__(435);
-var crossvent = __webpack_require__(439);
-var classes = __webpack_require__(442);
+var emitter = __webpack_require__(819);
+var crossvent = __webpack_require__(823);
+var classes = __webpack_require__(826);
 var doc = document;
 var documentElement = doc.documentElement;
 
@@ -1130,18 +1058,18 @@ function getCoord (coord, e) {
 
 module.exports = dragula;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(61)))
 
 /***/ }),
 
-/***/ 435:
+/***/ 819:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var atoa = __webpack_require__(436);
-var debounce = __webpack_require__(437);
+var atoa = __webpack_require__(820);
+var debounce = __webpack_require__(821);
 
 module.exports = function emitter (thing, options) {
   var opts = options || {};
@@ -1196,7 +1124,7 @@ module.exports = function emitter (thing, options) {
 
 /***/ }),
 
-/***/ 436:
+/***/ 820:
 /***/ (function(module, exports) {
 
 module.exports = function atoa (a, n) { return Array.prototype.slice.call(a, n); }
@@ -1204,13 +1132,13 @@ module.exports = function atoa (a, n) { return Array.prototype.slice.call(a, n);
 
 /***/ }),
 
-/***/ 437:
+/***/ 821:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ticky = __webpack_require__(438);
+var ticky = __webpack_require__(822);
 
 module.exports = function debounce (fn, args, ctx) {
   if (!fn) { return; }
@@ -1222,7 +1150,7 @@ module.exports = function debounce (fn, args, ctx) {
 
 /***/ }),
 
-/***/ 438:
+/***/ 822:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate) {var si = typeof setImmediate === 'function', tick;
@@ -1233,18 +1161,18 @@ if (si) {
 }
 
 module.exports = tick;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(267).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(119).setImmediate))
 
 /***/ }),
 
-/***/ 439:
+/***/ 823:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var customEvent = __webpack_require__(440);
-var eventmap = __webpack_require__(441);
+var customEvent = __webpack_require__(824);
+var eventmap = __webpack_require__(825);
 var doc = global.document;
 var addEvent = addEventEasy;
 var removeEvent = removeEventEasy;
@@ -1343,11 +1271,11 @@ function find (el, type, fn) {
   }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(61)))
 
 /***/ }),
 
-/***/ 440:
+/***/ 824:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -1399,11 +1327,11 @@ function CustomEvent (type, params) {
   return e;
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(61)))
 
 /***/ }),
 
-/***/ 441:
+/***/ 825:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1421,11 +1349,11 @@ for (eventname in global) {
 
 module.exports = eventmap;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(61)))
 
 /***/ }),
 
-/***/ 442:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1466,7 +1394,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 443:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1478,8 +1406,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = __webpack_require__(0);
-var dragula_directive_1 = __webpack_require__(430);
-var dragula_provider_1 = __webpack_require__(428);
+var dragula_directive_1 = __webpack_require__(812);
+var dragula_provider_1 = __webpack_require__(810);
 var DragulaModule = (function () {
     function DragulaModule() {
     }

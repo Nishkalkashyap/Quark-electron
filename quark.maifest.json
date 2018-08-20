@@ -1,0 +1,15 @@
+{
+    "require" : [{
+        "name" : "serialport",
+        "module" : "serialport",
+        "importMethod" : "require"
+    },{
+        "name" : "five",
+        "module" : "johnny-five",
+        "importMethod" : "*"
+    },{
+        "name" : "tatti",
+        "module" : "tatti",
+        "importMethod" : "require"
+    }]
+}

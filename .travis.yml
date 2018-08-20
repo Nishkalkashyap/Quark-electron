@@ -1,3 +1,4 @@
+#First Release
 #OS Configuration
 matrix:
   include:
@@ -15,6 +16,7 @@ matrix:
 branches:
   only:
     - master
+    - release
 language: node_js
 node_js:
   - "8"
@@ -32,7 +34,8 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev libnotify-dev libgnome-keyring-dev libgconf2-dev libasound2-dev libcap-dev libcups2-dev libxtst-dev libxss1 libnss3-dev gcc-multilib g++-multilib curl gperf bison ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install libudev-dev; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install xvfb; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install xvfb; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ruby; fi
   - node --version
   - npm --version
 
@@ -47,8 +50,11 @@ before_install:
 #Script Configuration
 script:
   - npm install
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux
-    else npm run build-mac; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run build-mac; fi
+  - tar -cvf build_$TRAVIS_OS_NAME.tar build
+  - ls -lah
+  - chmod 777 -R build_$TRAVIS_OS_NAME.tar
 
 #Deploy Configuration
 deploy:
@@ -59,6 +65,7 @@ deploy:
   bucket: "autoupdate.diymechatronics.com"
   skip_cleanup: true
   acl: public-read
-  local-dir: dist
+  file:
+    - build_$TRAVIS_OS_NAME.tar
   on:
     branch: release
