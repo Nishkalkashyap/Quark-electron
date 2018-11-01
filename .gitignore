@@ -32,10 +32,11 @@ $RECYCLE.BIN/
 
 
 electron-builder.env
-app/assets/monaco
-app/assets/monaco-editor
-app/assets/vs
 build
+
+app/
+release-builds/
+
 # build/
 *.cer
 "Nishkal Kashyap.pfx"

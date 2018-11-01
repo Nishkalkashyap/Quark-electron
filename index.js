@@ -9,10 +9,7 @@ const isDevMode = require('electron-is-dev');
 // } = require('@capacitor/electron');
 
 const updater = require('./node/auto-updater');
-global.fileSystem = require('fs');
-global.path = require('path');
 // let pathToOpenInNewWindow = '';
-process.env.PATH_TO_OPEN_IN_NEW_WINDOW = "";
 // global.five = require('johnny-five');
 // global.serialport = require('serialport');
 // console.log(process.defaultApp);
@@ -34,13 +31,19 @@ let useSplashScreen = true;
 // async function createWindow() {
 function createWindow() {
   // Define our main window size
-  mainWindow = new BrowserWindow({
+  let window = new BrowserWindow({
     height: 600,
     width: 800,
-    show: false,
+    // show: false,
+    show: true,
     frame: false,
-    webPreferences : {
-      webSecurity : false
+    minHeight: 600,
+    minWidth: 400,
+    webPreferences: {
+      webSecurity: false,
+      nodeIntegration: true,
+      nodeIntegrationInWorker: false,
+      allowRunningInsecureContent: true
     }
   });
 
@@ -54,7 +57,7 @@ function createWindow() {
   // Set our above template to the Menu Object if we are in development mode, dont want users having the devtools.
   // Menu.setApplicationMenu(Menu.buildFromTemplate(menu.menuTemplateDev));
   // If we are developers we might as well open the devtools by default.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   // }
 
   // if (useSplashScreen) {
@@ -62,7 +65,14 @@ function createWindow() {
   //   splashScreen.init();
   // }
   // fileServer.on('listening', () => {
-  mainWindow.loadURL(`http://localhost:8100`);
+  window.loadURL(`http://localhost:8100`);
+
+  window.data = {
+    argv: process.argv
+  }
+
+  return window;
+
   // mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 
   // });
@@ -74,28 +84,25 @@ function createWindow() {
   // mainWindow.webContents.on('dom-ready', () => {
   //   mainWindow.show();
   // });
-  global.mainWindow = mainWindow;
+  // global.mainWindow = mainWindow;
 }
 // }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some Electron APIs can only be used after this event occurs.
-
+let win = null;
 const isSecondInstance = app.makeSingleInstance((argv, workingDirectory) => {
-  console.log(argv);
-  process.env.PATH_TO_OPEN_IN_NEW_WINDOW = argv[1];
-  let newWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
-    show: false,
-    frame: false
-  });
-  newWindow.loadURL(`http://localhost:8100`);
+  win = createWindow();
+  win.data = {
+    argv: argv
+  }
 });
 
 if (isSecondInstance) {
   app.quit()
+} else {
+  mainWindow = win;
 }
 
 
