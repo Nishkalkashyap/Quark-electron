@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./",
+    // "compile": "tsc --module es6 --target es5 --lib es6,dom --moduleResolution node --allowSyntheticDefaultImports index",
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "baseUrl": "./",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "strict": false
+  },
+  "include": ["./index.ts"],
+  "exclude": ["www/**", "node/**", "build/**"],
+}
