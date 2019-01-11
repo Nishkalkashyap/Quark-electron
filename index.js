@@ -14,8 +14,8 @@ function createWindow(_workingDirectory) {
             let win;
             let showLandingPage;
             if (val) {
-                // win = getDesignerPageWindow();
-                win = getLandingPageWindow();
+                win = getDesignerPageWindow();
+                // win = getLandingPageWindow();
                 showLandingPage = false;
             }
             else {

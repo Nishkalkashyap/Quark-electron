@@ -5,7 +5,7 @@
     // "compile": "tsc --module es6 --target es5 --lib es6,dom --moduleResolution node --allowSyntheticDefaultImports index",
     "target": "es6",
     "module": "commonjs",
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,

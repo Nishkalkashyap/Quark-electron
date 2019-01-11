@@ -21,8 +21,8 @@ function createWindow(_workingDirectory?: string): Promise<CustomBrowserWindow> 
                 let win: CustomBrowserWindow;
                 let showLandingPage: boolean;
                 if (val) {
-                    // win = getDesignerPageWindow();
-                    win = getLandingPageWindow();
+                    win = getDesignerPageWindow();
+                    // win = getLandingPageWindow();
                     showLandingPage = false;
                 } else {
                     win = getLandingPageWindow();

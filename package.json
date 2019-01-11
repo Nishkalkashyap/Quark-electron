@@ -7,7 +7,6 @@
   "bin": "index.js",
   "scripts": {
     "start": "ts-node copyicons.ts && tsc && electron .",
-    "postinstall": "npm link @squirtle/common",
     "native": "electron-builder install-app-deps",
     "compile": "tsc",
     "test": "mocha",
@@ -20,20 +19,16 @@
   },
   "dependencies": {
     "@capacitor/electron": "^1.0.0-beta.0",
-    "@squirtle/common": "",
     "chokidar": "^2.0.4",
     "electron-is-dev": "^0.3.0",
+    "electron-store": "^2.0.0",
     "find": "^0.2.9",
     "find-process": "^1.2.1",
     "fs-extra": "^7.0.1",
-    "memfs": "^2.14.2",
-    "memory-fs": "^0.4.1",
     "node-pty": "^0.7.8",
     "npmi": "^4.0.0",
     "performance-now": "^2.1.0",
-    "serialport": "^7.1.0",
-    "serverless-webpack": "^5.2.0",
-    "systemjs": "^2.1.1"
+    "serialport": "^7.1.1"
   },
   "devDependencies": {
     "@types/firmata": "^0.19.0",
@@ -42,8 +37,8 @@
     "@types/ncp": "^2.0.1",
     "@types/node": "^10.12.10",
     "@types/systemjs": "^0.20.6",
-    "electron": "^3.0.12",
-    "electron-builder": "^20.36.2",
+    "electron": "^4.0.0",
+    "electron-builder": "^20.38.4",
     "johnny-five": "^0.15.0",
     "mocha": "^5.2.0",
     "ncp": "^2.0.0",
