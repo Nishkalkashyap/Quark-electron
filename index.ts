@@ -1,24 +1,33 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-type CustomBrowserWindow = Electron.BrowserWindow & {
-    data: {
-        project: string;
-        showLandingPage: boolean;
-    }
-};
+import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
+import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.exports';
 
-let windows: CustomBrowserWindow[] = [];
+const devModeWindows: IBrowserWindow[] = [];
+const runModeWindows: IBrowserWindow[] = [];
 
-function createWindow(_workingDirectory?: string): Promise<CustomBrowserWindow> {
+function registerListeners() {
+    ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, arg) => {
+        createOrFocusWindow(runModeWindows, arg);
+    });
+}
+
+function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
+    BrowserWindow.getAllWindows().map((win) => {
+        win.webContents.send(event, ...args);
+    });
+}
+
+function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string): Promise<IBrowserWindow> {
     typeof _workingDirectory == 'string' ? null : _workingDirectory = null;
     const workingDir = _workingDirectory || path.resolve(process.argv[1] || process.argv[0] || '.');
-    const promise: Promise<CustomBrowserWindow> = new Promise((resolve, reject) => {
+    const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         // fs.pathExists(path.join(workingDir, 'quark.manifest.json'))
         fs.pathExists(path.join(workingDir, 'package.json'))
             .then((val) => {
-                let win: CustomBrowserWindow;
+                let win: IBrowserWindow;
                 let showLandingPage: boolean;
                 if (val) {
                     win = getDesignerPageWindow();
@@ -32,16 +41,22 @@ function createWindow(_workingDirectory?: string): Promise<CustomBrowserWindow> 
                 win.data.project = workingDir;
                 win.data.showLandingPage = showLandingPage;
 
-
+                win.data = {
+                    project: workingDir,
+                    showLandingPage: showLandingPage,
+                    isDevMode: windowTypes == devModeWindows
+                }
 
                 win.loadURL(`http://localhost:4200`);
-                // window.loadURL(`file:\\\\D:\\ionic\\Project\\Quark-electron\\www\\index.html`);
-                windows.push(win);
+                win.webContents.on('dom-ready', () => {
+                    win.show();
+                    publishGlobalEvent(IpcEvents.HIDE_BUILD_LOADING, win.data.project);
+                });
+                windowTypes.push(win);
                 win.addListener('closed', () => {
-                    windows = windows.filter((win) => {
-                        return win.data.project !== win.data.project;
-                    });
-                    win = <any>null;
+                    const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
+                    windowTypes.splice(index, 1);
+                    win = null;
                 });
                 resolve(win);
             })
@@ -57,22 +72,28 @@ if (!_isSecondInstance) {
     app.quit();
 } else {
     app.on('second-instance', (event, commandLine, workingDirectory) => {
-
-        const val = windows.find((_val: CustomBrowserWindow) => {
-            return _val.data.project === workingDirectory;
-        });
-
-        if (val) {
-            if (val.isMinimized()) { val.restore() };
-            val.focus();
-        } else {
-            createWindow(workingDirectory);
-        }
+        createOrFocusWindow(devModeWindows, workingDirectory);
     })
 }
 
+function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: string) {
+    const val = windowTypes.find((_val: IBrowserWindow) => {
+        return _val.data.project === workingDirectory;
+    });
 
-app.on('ready', createWindow);
+    if (val) {
+        if (val.isMinimized()) { val.restore() };
+        val.focus();
+    } else {
+        createWindow(windowTypes, workingDirectory);
+    }
+}
+
+
+app.on('ready', () => {
+    createWindow(devModeWindows);
+    registerListeners();
+});
 
 
 app.on('window-all-closed', function () {
@@ -81,31 +102,13 @@ app.on('window-all-closed', function () {
     }
 });
 
-// app.on('activate', function () {
-// if (mainWindow === null) {
-// createWindow();
-// }
-// });
-
-// app.on('browser-window-created', function (e, window) {
-// window.setMenu(null);
-// });
-
-
-
-
-
-
-
-
-
-function getLandingPageWindow(): CustomBrowserWindow {
+function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         height: 600,
         width: 500,
         // resizable: false,
         resizable: true,
-        show: true,
+        show: false,
         frame: true,
         webPreferences: {
             webSecurity: false,
@@ -114,14 +117,14 @@ function getLandingPageWindow(): CustomBrowserWindow {
             allowRunningInsecureContent: true
         }
     });
-    return <CustomBrowserWindow>win;
+    return <IBrowserWindow>win;
 }
 
-function getDesignerPageWindow(): CustomBrowserWindow {
+function getDesignerPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         height: 600,
         width: 800,
-        show: true,
+        show: false,
         frame: false,
         minHeight: 600,
         minWidth: 400,
@@ -132,5 +135,5 @@ function getDesignerPageWindow(): CustomBrowserWindow {
             allowRunningInsecureContent: true
         }
     });
-    return <CustomBrowserWindow>win;
+    return <IBrowserWindow>win;
 }

@@ -7,6 +7,7 @@
   "bin": "index.js",
   "scripts": {
     "start": "ts-node copyicons.ts && tsc && electron .",
+    "link" : "npm link @squirtle/api",
     "native": "electron-builder install-app-deps",
     "compile": "tsc",
     "test": "mocha",
@@ -28,7 +29,8 @@
     "node-pty": "^0.7.8",
     "npmi": "^4.0.0",
     "performance-now": "^2.1.0",
-    "serialport": "^7.1.1"
+    "serialport": "^7.1.1",
+    "vscode-languageserver-types": "^3.14.0"
   },
   "devDependencies": {
     "@types/firmata": "^0.19.0",

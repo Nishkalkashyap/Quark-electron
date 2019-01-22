@@ -1,29 +1,32 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./",
-    // "compile": "tsc --module es6 --target es5 --lib es6,dom --moduleResolution node --allowSyntheticDefaultImports index",
-    "target": "es6",
-    "module": "commonjs",
-    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "inlineSourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "resolveJsonModule": true,
+    "target": "es5",
     "lib": [
-      "es6",
+      "es2017",
       "dom"
     ],
     "baseUrl": "./",
-    "types": [
-      "node"
-    ],
+    "module": "umd",
     "typeRoots": [
       "node_modules/@types"
     ],
-    "strict": false
+    "strict": false,
+    "outDir": "./"
   },
-  "include": ["./index.ts"],
-  "exclude": ["www/**", "node/**", "build/**"],
+  "exclude": [
+    "./dist",
+    "**/node_modules/*",
+    "@squirtle/**",
+    "./node",
+    "./www/**",
+    "./build/**"
+  ]
 }
