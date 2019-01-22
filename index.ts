@@ -22,7 +22,7 @@ function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
 
 function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string): Promise<IBrowserWindow> {
     typeof _workingDirectory == 'string' ? null : _workingDirectory = null;
-    const workingDir = _workingDirectory || path.resolve(process.argv[1] || process.argv[0] || '.');
+    const workingDir = _workingDirectory || path.resolve(process.argv[1] || path.join(process.argv[0], './no_file.json'));
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         // fs.pathExists(path.join(workingDir, 'quark.manifest.json'))
         fs.pathExists(path.join(workingDir, 'package.json'))
@@ -30,12 +30,13 @@ function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string)
                 let win: IBrowserWindow;
                 let showLandingPage: boolean;
                 if (val) {
-                    win = getDesignerPageWindow();
-                    // win = getLandingPageWindow();
+                    // win = getDesignerPageWindow();
+                    win = getLandingPageWindow();
                     showLandingPage = false;
                 } else {
                     win = getLandingPageWindow();
-                    showLandingPage = true;
+                    // showLandingPage = true;
+                    showLandingPage = false;
                 }
                 win.data = <any>{};
                 win.data.project = workingDir;
@@ -49,6 +50,7 @@ function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string)
 
                 win.loadURL(`http://localhost:4200`);
                 win.webContents.on('dom-ready', () => {
+                    win.webContents.toggleDevTools();
                     win.show();
                     publishGlobalEvent(IpcEvents.HIDE_BUILD_LOADING, win.data.project);
                 });
@@ -110,6 +112,7 @@ function getLandingPageWindow(): IBrowserWindow {
         resizable: true,
         show: false,
         frame: true,
+        autoHideMenuBar : false,
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,

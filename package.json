@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "description": "A new way to control electronics",
   "main": "index.js",
-  "preferGlobal": true,
   "bin": "index.js",
   "scripts": {
     "start": "ts-node copyicons.ts && tsc && electron .",
-    "link" : "npm link @squirtle/api",
+    "link": "npm install ./../@squirtle/api",
     "native": "electron-builder install-app-deps",
     "compile": "tsc",
     "test": "mocha",
@@ -16,10 +15,11 @@
     "build-linux": "electron-builder --x64 --linux",
     "build-mac": "electron-builder --x64 --mac",
     "build-win": "npm run pack-win && npm run dist-win",
-    "build": "electron-builder ."
+    "build": "npm install && ts-node copyicons.ts && tsc && electron-builder ."
   },
   "dependencies": {
     "@capacitor/electron": "^1.0.0-beta.0",
+    "@squirtle/api": "file:../@squirtle/api",
     "chokidar": "^2.0.4",
     "electron-is-dev": "^0.3.0",
     "electron-store": "^2.0.0",
@@ -29,8 +29,10 @@
     "node-pty": "^0.7.8",
     "npmi": "^4.0.0",
     "performance-now": "^2.1.0",
-    "serialport": "^7.1.1",
-    "vscode-languageserver-types": "^3.14.0"
+    "rollup": "^1.1.2",
+    "rollup-plugin-hypothetical": "^2.1.0",
+    "rollup-plugin-vue": "^4.6.1",
+    "serialport": "^7.1.1"
   },
   "devDependencies": {
     "@types/firmata": "^0.19.0",

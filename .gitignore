@@ -38,6 +38,7 @@ app/
 release-builds/
 
 # build/
+dist/
 *.cer
 "Nishkal Kashyap.pfx"
 Quark-win32-x64
