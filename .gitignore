@@ -38,6 +38,10 @@ app/
 release-builds/
 
 # build/
+definitions/
+scripts/*.js
+build/*.js
+dist/*.js
 dist/
 *.cer
 "Nishkal Kashyap.pfx"

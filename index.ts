@@ -30,13 +30,13 @@ function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string)
                 let win: IBrowserWindow;
                 let showLandingPage: boolean;
                 if (val) {
-                    // win = getDesignerPageWindow();
-                    win = getLandingPageWindow();
+                    win = getDesignerPageWindow();
+                    // win = getLandingPageWindow();
                     showLandingPage = false;
                 } else {
                     win = getLandingPageWindow();
-                    // showLandingPage = true;
-                    showLandingPage = false;
+                    showLandingPage = true;
+                    // showLandingPage = false;
                 }
                 win.data = <any>{};
                 win.data.project = workingDir;
@@ -50,7 +50,7 @@ function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string)
 
                 win.loadURL(`http://localhost:4200`);
                 win.webContents.on('dom-ready', () => {
-                    win.webContents.toggleDevTools();
+                    win.webContents.openDevTools();
                     win.show();
                     publishGlobalEvent(IpcEvents.HIDE_BUILD_LOADING, win.data.project);
                 });
@@ -108,6 +108,7 @@ function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         height: 600,
         width: 500,
+        backgroundColor : '#000000',
         // resizable: false,
         resizable: true,
         show: false,
@@ -127,6 +128,7 @@ function getDesignerPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         height: 600,
         width: 800,
+        backgroundColor : '#000000',
         show: false,
         frame: false,
         minHeight: 600,

@@ -27,6 +27,7 @@
     "@squirtle/**",
     "./node",
     "./www/**",
-    "./build/**"
+    "./build/**",
+    "./definitions"
   ]
 }
