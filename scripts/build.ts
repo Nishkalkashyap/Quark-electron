@@ -61,8 +61,9 @@ builder.build({
             category: 'public.app-category.utilities'
         },
         publish: {
-            provider: 'generic',
-            url: 'https://autoupdate.diymechatronics.com'
+            provider: 'github',
+            owner: "Nishkalkashyap",
+            repo : 'https://github.com/Nishkalkashyap/quark-release'
         },
         compression: 'store',
         extraResources: [

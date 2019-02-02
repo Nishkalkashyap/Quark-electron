@@ -1,9 +1,10 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, Tray } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
 import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
-import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.exports';
+import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
+import { autoUpdater } from 'electron-updater';
 
 const devModeWindows: IBrowserWindow[] = [];
 const runModeWindows: IBrowserWindow[] = [];
@@ -20,12 +21,13 @@ function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
     });
 }
 
-function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string): Promise<IBrowserWindow> {
-    typeof _workingDirectory == 'string' ? null : _workingDirectory = null;
-    const workingDir = _workingDirectory || path.resolve(process.argv[1] || path.join(process.argv[0], './no_file.json'));
+function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promise<IBrowserWindow> {
+    typeof _fileName == 'string' ? null : _fileName = null;
+    let fileName = _fileName || path.resolve(process.argv[2] || process.argv[1] || path.join(process.argv[0], './no_file.qrk'));
+    fileName = (fs.pathExists(fileName) && fs.statSync(fileName).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         // fs.pathExists(path.join(workingDir, 'quark.manifest.json'))
-        fs.pathExists(path.join(workingDir, 'package.json'))
+        fs.pathExists(path.join(path.dirname(fileName), 'package.json'))
             .then((val) => {
                 let win: IBrowserWindow;
                 let showLandingPage: boolean;
@@ -38,22 +40,44 @@ function createWindow(windowTypes: IBrowserWindow[], _workingDirectory?: string)
                     showLandingPage = true;
                     // showLandingPage = false;
                 }
-                win.data = <any>{};
-                win.data.project = workingDir;
-                win.data.showLandingPage = showLandingPage;
+
+                console.log(process.argv);
 
                 win.data = {
-                    project: workingDir,
+                    project: fileName,
                     showLandingPage: showLandingPage,
-                    isDevMode: windowTypes == devModeWindows
+                    isDevMode: windowTypes == devModeWindows,
+                    appPath: app.getAppPath()
                 }
 
                 win.loadURL(`http://localhost:4200`);
+                // win.loadURL(`file://${__dirname}/www/index.html`);
                 win.webContents.on('dom-ready', () => {
-                    win.webContents.openDevTools();
+                    // win.webContents.openDevTools();
                     win.show();
+                    win.webContents.executeJavaScript(`document.querySelector('app-views-container')`)
+                        .then((val) => {
+                            //val = null if not found
+                            if (val == null) {
+                                win.webContents.openDevTools();
+                            }
+                        })
+                        .catch((err) => { console.log(err, 'never executed'); })
                     publishGlobalEvent(IpcEvents.HIDE_BUILD_LOADING, win.data.project);
                 });
+
+                win.webContents.on('unresponsive', () => {
+                    console.log('Unresponsive');
+                });
+
+                win.webContents.on('crashed', (e, k) => {
+                    console.error('Window Crashed', k);
+                    // if (!k) {
+                    win.close();
+                    // }
+                });
+
+
                 windowTypes.push(win);
                 win.addListener('closed', () => {
                     const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
@@ -95,6 +119,7 @@ function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: st
 app.on('ready', () => {
     createWindow(devModeWindows);
     registerListeners();
+    autoUpdater.checkForUpdatesAndNotify();
 });
 
 
@@ -106,18 +131,16 @@ app.on('window-all-closed', function () {
 
 function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
-        height: 600,
-        width: 500,
-        backgroundColor : '#000000',
+        backgroundColor: '#000000',
         // resizable: false,
         resizable: true,
         show: false,
         frame: true,
-        autoHideMenuBar : false,
+        autoHideMenuBar: false,
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,
-            nodeIntegrationInWorker: false,
+            nodeIntegrationInWorker: true,
             allowRunningInsecureContent: true
         }
     });
@@ -126,9 +149,7 @@ function getLandingPageWindow(): IBrowserWindow {
 
 function getDesignerPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
-        height: 600,
-        width: 800,
-        backgroundColor : '#000000',
+        backgroundColor: '#000000',
         show: false,
         frame: false,
         minHeight: 600,
@@ -136,7 +157,7 @@ function getDesignerPageWindow(): IBrowserWindow {
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,
-            nodeIntegrationInWorker: false,
+            nodeIntegrationInWorker: true,
             allowRunningInsecureContent: true
         }
     });
