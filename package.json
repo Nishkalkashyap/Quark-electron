@@ -6,6 +6,7 @@
   "bin": "index.js",
   "scripts": {
     "start": "ts-node copyicons.ts && tsc && electron . ./quark.qrk",
+    "land": "ts-node copyicons.ts && tsc && electron .",
     "link": "npm install ./../@squirtle/api",
     "native": "electron-builder install-app-deps",
     "compile": "tsc",

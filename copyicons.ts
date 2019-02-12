@@ -46,7 +46,8 @@ function copyDefinitions() {
                     return (
                         ((fs.statSync(file).isDirectory() || file.includes('.d.ts') || file.endsWith('package.json'))
                             && (!file.replace('node_modules', '').includes('node_modules')))
-                        && (file.search(/api[\\/]umd/) == -1)
+                        // && (file.search(/api[\\/]umd/) == -1)
+                        && (file.search('.git') == -1)
                     );
                 },
                 dereference: true

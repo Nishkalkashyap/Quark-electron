@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, Tray } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
@@ -10,14 +10,21 @@ const devModeWindows: IBrowserWindow[] = [];
 const runModeWindows: IBrowserWindow[] = [];
 
 function registerListeners() {
-    ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, arg) => {
+    ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, arg) => {
         createOrFocusWindow(runModeWindows, arg);
+        publishGlobalEvent(null, `Main Process : ${arg}`);
+    });
+
+    ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, arg) => {
+        createOrFocusWindow(devModeWindows, arg);
+        publishGlobalEvent(null, `Main Process : ${arg}`);
     });
 }
 
 function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
     BrowserWindow.getAllWindows().map((win) => {
-        win.webContents.send(event, ...args);
+        // win.webContents.send(event, ...args);
+        win.webContents.executeJavaScript(`console.log('${(args[0] as string).replace(/\\/g, '\\\\')}')`)
     });
 }
 
@@ -27,68 +34,65 @@ function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promis
     fileName = (fs.pathExists(fileName) && fs.statSync(fileName).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         // fs.pathExists(path.join(workingDir, 'quark.manifest.json'))
-        fs.pathExists(path.join(path.dirname(fileName), 'package.json'))
-            .then((val) => {
-                let win: IBrowserWindow;
-                let showLandingPage: boolean;
-                if (val) {
-                    win = getDesignerPageWindow();
-                    // win = getLandingPageWindow();
-                    showLandingPage = false;
-                } else {
-                    win = getLandingPageWindow();
-                    showLandingPage = true;
-                    // showLandingPage = false;
-                }
+        // fs.pathExists(path.join(path.dirname(fileName), 'package.json'))
+        //     .then((val) => {
+        let win: IBrowserWindow;
+        let showLandingPage: boolean;
+        if (!fileName.includes('no_file.qrk')) {
+            win = getDesignerPageWindow();
+            // win = getLandingPageWindow();
+            showLandingPage = false;
+        } else {
+            win = getLandingPageWindow();
+            showLandingPage = true;
+            // showLandingPage = false;
+        }
 
-                console.log(process.argv);
+        win.data = {
+            project: fileName,
+            showLandingPage,
+            isDevMode: windowTypes == devModeWindows,
+            appPath: app.getAppPath()
+        }
 
-                win.data = {
-                    project: fileName,
-                    showLandingPage: showLandingPage,
-                    isDevMode: windowTypes == devModeWindows,
-                    appPath: app.getAppPath()
-                }
+        win.loadURL(`http://localhost:4200`);
+        // win.loadURL(`file://${__dirname}/www/index.html`);
+        win.webContents.on('dom-ready', () => {
+            win.show();
+            win.webContents.executeJavaScript(`document.querySelector('app-views-container')`)
+                .then((val) => {
+                    //val = null if not found
+                    if (val == null) {
+                        win.webContents.openDevTools();
+                    }
+                })
+                .catch((err) => { console.log(err, 'never executed'); })
+            publishGlobalEvent(IpcEvents.HIDE_BUILD_LOADING, win.data.project);
+        });
 
-                win.loadURL(`http://localhost:4200`);
-                // win.loadURL(`file://${__dirname}/www/index.html`);
-                win.webContents.on('dom-ready', () => {
-                    // win.webContents.openDevTools();
-                    win.show();
-                    win.webContents.executeJavaScript(`document.querySelector('app-views-container')`)
-                        .then((val) => {
-                            //val = null if not found
-                            if (val == null) {
-                                win.webContents.openDevTools();
-                            }
-                        })
-                        .catch((err) => { console.log(err, 'never executed'); })
-                    publishGlobalEvent(IpcEvents.HIDE_BUILD_LOADING, win.data.project);
-                });
+        win.webContents.on('unresponsive', () => {
+            console.log('Unresponsive');
+        });
 
-                win.webContents.on('unresponsive', () => {
-                    console.log('Unresponsive');
-                });
-
-                win.webContents.on('crashed', (e, k) => {
-                    console.error('Window Crashed', k);
-                    // if (!k) {
-                    win.close();
-                    // }
-                });
+        win.webContents.on('crashed', (e, k) => {
+            console.error('Window Crashed', k);
+            // if (!k) {
+            win.close();
+            // }
+        });
 
 
-                windowTypes.push(win);
-                win.addListener('closed', () => {
-                    const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
-                    windowTypes.splice(index, 1);
-                    win = null;
-                });
-                resolve(win);
-            })
-            .catch(() => {
-                reject(null);
-            });
+        windowTypes.push(win);
+        win.addListener('closed', () => {
+            const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
+            windowTypes.splice(index, 1);
+            win = null;
+        });
+        resolve(win);
+        // })
+        // .catch(() => {
+        //     reject(null);
+        // });
     });
     return promise;
 }
@@ -99,7 +103,7 @@ if (!_isSecondInstance) {
 } else {
     app.on('second-instance', (event, commandLine, workingDirectory) => {
         createOrFocusWindow(devModeWindows, workingDirectory);
-    })
+    });
 }
 
 function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: string) {
