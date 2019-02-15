@@ -1,9 +1,11 @@
 import * as ncp from 'ncp';
 import * as fs from 'fs-extra';
 import * as recc from 'recursive-readdir';
+import * as sharp from 'sharp';
 
 copyDefinitions();
 copyAssets();
+makeIcons();
 
 function copyDefinitions() {
 
@@ -46,7 +48,7 @@ function copyDefinitions() {
                     return (
                         ((fs.statSync(file).isDirectory() || file.includes('.d.ts') || file.endsWith('package.json'))
                             && (!file.replace('node_modules', '').includes('node_modules')))
-                        // && (file.search(/api[\\/]umd/) == -1)
+                        && (file.search(/api[\\/]umd/) == -1)
                         && (file.search('.git') == -1)
                     );
                 },
@@ -64,6 +66,26 @@ function copyAssets() {
     ncp.ncp('./../QuarkUMD/src/assets/', './www/assets/', (e) => {
         console.log(e);
     });
+}
+
+function makeIcons() {
+
+    const sizes = [16, 24, 32, 48, 64, 96, 128, 256];
+
+    sizes.map((size) => {
+        writeIcons(size);
+    });
+
+    function writeIcons(size: number) {
+        sharp('buildAssets/icon.png')
+            .resize(size, size)
+            .toBuffer()
+            .then((buffer) => {
+                fs.writeFileSync(`./buildResources/icons/${size}x${size}.png`, buffer);
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
 }
 
 

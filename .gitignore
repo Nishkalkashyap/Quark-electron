@@ -46,6 +46,7 @@ dist/
 *.cer
 "Nishkal Kashyap.pfx"
 Quark-win32-x64
+buildResources/icons
 
 .DS_Store
 Thumbs.db

@@ -30,12 +30,15 @@ builder.build({
         productName: 'Quark',
         artifactName: '${productName}-${os}-${arch}-${version}.${ext}',
         asar: true,
+
+        // asar: false,
         asarUnpack: [
             "definitions-unpacked"
         ],
         files: defaultFiles,
         directories: {
             output: 'build',
+            buildResources: 'buildResources'
         },
         win: {
             target: 'nsis'
@@ -47,7 +50,7 @@ builder.build({
             license: 'LICENSE',
             runAfterFinish: true,
             createDesktopShortcut: true,
-            createStartMenuShortcut: true
+            createStartMenuShortcut: true,
         },
         linux: {
             target: 'AppImage'
@@ -63,7 +66,7 @@ builder.build({
         publish: {
             provider: 'github',
             owner: "Nishkalkashyap",
-            repo : 'https://github.com/Nishkalkashyap/quark-release'
+            repo: 'https://github.com/Nishkalkashyap/quark-release'
         },
         compression: 'store',
         extraResources: [

@@ -12,30 +12,25 @@ const runModeWindows: IBrowserWindow[] = [];
 function registerListeners() {
     ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, arg) => {
         createOrFocusWindow(runModeWindows, arg);
-        publishGlobalEvent(null, `Main Process : ${arg}`);
     });
 
     ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, arg) => {
         createOrFocusWindow(devModeWindows, arg);
-        publishGlobalEvent(null, `Main Process : ${arg}`);
     });
 }
 
 function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
     BrowserWindow.getAllWindows().map((win) => {
-        // win.webContents.send(event, ...args);
-        win.webContents.executeJavaScript(`console.log('${(args[0] as string).replace(/\\/g, '\\\\')}')`)
+        win.webContents.send(event, ...args);
+        // win.webContents.executeJavaScript(`console.log('${(args[0] as string).replace(/\\/g, '\\\\')}')`)
     });
 }
 
-function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promise<IBrowserWindow> {
+async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promise<IBrowserWindow> {
     typeof _fileName == 'string' ? null : _fileName = null;
     let fileName = _fileName || path.resolve(process.argv[2] || process.argv[1] || path.join(process.argv[0], './no_file.qrk'));
-    fileName = (fs.pathExists(fileName) && fs.statSync(fileName).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
+    fileName = (await fs.pathExists(fileName) && (await fs.stat(fileName)).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
-        // fs.pathExists(path.join(workingDir, 'quark.manifest.json'))
-        // fs.pathExists(path.join(path.dirname(fileName), 'package.json'))
-        //     .then((val) => {
         let win: IBrowserWindow;
         let showLandingPage: boolean;
         if (!fileName.includes('no_file.qrk')) {
@@ -45,7 +40,6 @@ function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promis
         } else {
             win = getLandingPageWindow();
             showLandingPage = true;
-            // showLandingPage = false;
         }
 
         win.data = {
