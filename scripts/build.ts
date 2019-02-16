@@ -1,5 +1,9 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
+// import * as dotenv from 'dotenv';
+// dotenv.config({
+//     path: './scripts/test.env'
+// });
 
 const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "**/*",
@@ -24,6 +28,8 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
 
 
 builder.build({
+    publish: 'onTag',
+    // platform : ''
     config: {
         appId: 'in.nishkal',
         copyright: 'Copyright © 2019 Nishkal Kashyap',
@@ -41,7 +47,10 @@ builder.build({
             buildResources: 'buildResources'
         },
         win: {
-            target: 'nsis'
+            target: 'nsis',
+            publisherName: 'Nishkal Kashyap',
+            // forceCodeSigning: true,
+            // rfc3161TimeStampServer : 'http://sha256timestamp.ws.symantec.com/sha256/timestamp'
         },
         nsis: {
             oneClick: false,
@@ -64,9 +73,12 @@ builder.build({
             category: 'public.app-category.utilities'
         },
         publish: {
-            provider: 'github',
-            owner: "Nishkalkashyap",
-            repo: 'https://github.com/Nishkalkashyap/quark-release'
+            // provider: 'github',
+            // owner: "Nishkalkashyap",
+            // repo: 'https://github.com/Nishkalkashyap/quark-release',
+            // releaseType: 'prerelease'
+            provider: 'generic',
+            url: 'https://storage.googleapis.com/quark-auto-update'
         },
         compression: 'store',
         extraResources: [

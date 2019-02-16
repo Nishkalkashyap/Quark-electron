@@ -49,11 +49,15 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
             appPath: app.getAppPath()
         }
 
-        win.loadURL(`http://localhost:4200`);
-        // win.loadURL(`file://${__dirname}/www/index.html`);
+        if (app.isPackaged) {
+            win.loadURL(`file://${__dirname}/www/index.html`);
+        } else {
+            win.loadURL(`http://localhost:4200`);
+        }
+
         win.webContents.on('dom-ready', () => {
             win.show();
-            win.webContents.executeJavaScript(`document.querySelector('app-views-container')`)
+            win.webContents.executeJavaScript(`document.querySelector('app-views-container') || document.querySelector('app-new-landing')`)
                 .then((val) => {
                     //val = null if not found
                     if (val == null) {

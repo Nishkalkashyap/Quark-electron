@@ -14,7 +14,7 @@ function copyDefinitions() {
     const dev = Package.devDependencies;
     const all = Object.keys(Object.assign({}, deps, dev));
 
-    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', 'electron']
+    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', 'electron', '@types/plotly.js']
 
     all.map((val) => {
 
@@ -63,9 +63,12 @@ function copyDefinitions() {
 }
 
 function copyAssets() {
-    ncp.ncp('./../QuarkUMD/src/assets/', './www/assets/', (e) => {
+    ncp.ncp('./../QuarkUMD/dist/', './www/', (e) => {
         console.log(e);
     });
+    // ncp.ncp('./../QuarkUMD/src/assets/', './www/assets/', (e) => {
+    //     console.log(e);
+    // });
 }
 
 function makeIcons() {
