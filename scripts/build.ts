@@ -26,7 +26,6 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!definitions"
 ]
 
-
 builder.build({
     publish: 'onTag',
     // platform : ''
@@ -49,8 +48,6 @@ builder.build({
         win: {
             target: 'nsis',
             publisherName: 'Nishkal Kashyap',
-            // forceCodeSigning: true,
-            // rfc3161TimeStampServer : 'http://sha256timestamp.ws.symantec.com/sha256/timestamp'
         },
         nsis: {
             oneClick: false,
@@ -59,10 +56,10 @@ builder.build({
             license: 'LICENSE',
             runAfterFinish: true,
             createDesktopShortcut: true,
-            createStartMenuShortcut: true,
+            createStartMenuShortcut: true
         },
         linux: {
-            target: 'AppImage'
+            target: 'AppImage',
         },
         appImage: {
             systemIntegration: 'ask',
@@ -70,7 +67,7 @@ builder.build({
         },
         mac: {
             target: 'default',
-            category: 'public.app-category.utilities'
+            category: 'public.app-category.utilities',
         },
         publish: {
             // provider: 'github',
@@ -80,7 +77,7 @@ builder.build({
             provider: 'generic',
             url: 'https://storage.googleapis.com/quark-auto-update'
         },
-        compression: 'store',
+        // compression: 'store',
         extraResources: [
             {
                 from: 'definitions',

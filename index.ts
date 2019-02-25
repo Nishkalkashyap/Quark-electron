@@ -6,6 +6,11 @@ import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal'
 import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
+import log from 'electron-log';
+autoUpdater.logger = log;
+autoUpdater.logger['transports'].file.level = 'info';
+log.info('App starting...');
+
 const devModeWindows: IBrowserWindow[] = [];
 const runModeWindows: IBrowserWindow[] = [];
 
