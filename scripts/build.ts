@@ -1,9 +1,9 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
-// import * as dotenv from 'dotenv';
-// dotenv.config({
-//     path: './scripts/test.env'
-// });
+import * as dotenv from 'dotenv';
+dotenv.config({
+    path: './scripts/test.env'
+});
 
 const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "**/*",
@@ -35,8 +35,7 @@ builder.build({
         productName: 'Quark',
         artifactName: '${productName}-${os}-${arch}-${version}.${ext}',
         asar: true,
-
-        // asar: false,
+        forceCodeSigning: true,
         asarUnpack: [
             "definitions-unpacked"
         ],
@@ -47,7 +46,8 @@ builder.build({
         },
         win: {
             target: 'nsis',
-            publisherName: 'Nishkal Kashyap',
+            // publisherName: 'Nishkal Kashyap',
+            
         },
         nsis: {
             oneClick: false,
