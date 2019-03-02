@@ -2,7 +2,7 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
+import { IpcEvents, electron } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
@@ -28,10 +28,12 @@ function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
     BrowserWindow.getAllWindows().map((win) => {
         win.webContents.send(event, ...args);
         // win.webContents.executeJavaScript(`console.log('${(args[0] as string).replace(/\\/g, '\\\\')}')`)
+        // win.webContents.executeJavaScript(`console.log('${(args)}')`)
     });
 }
 
 async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promise<IBrowserWindow> {
+    // publishGlobalEvent(_fileName, _fileName);
     typeof _fileName == 'string' ? null : _fileName = null;
     let fileName = _fileName || path.resolve(process.argv[2] || process.argv[1] || path.join(process.argv[0], './no_file.qrk'));
     fileName = (await fs.pathExists(fileName) && (await fs.stat(fileName)).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
@@ -139,8 +141,7 @@ app.on('window-all-closed', function () {
 function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         backgroundColor: '#000000',
-        // resizable: false,
-        resizable: true,
+        resizable: !app.isPackaged,
         show: false,
         frame: true,
         autoHideMenuBar: false,

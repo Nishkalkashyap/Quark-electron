@@ -33,6 +33,8 @@ $RECYCLE.BIN/
 
 electron-builder.env
 build
+my-node-modules
+my-cache
 
 app/
 release-builds/
