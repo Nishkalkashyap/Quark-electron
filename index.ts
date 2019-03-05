@@ -1,8 +1,8 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, shell } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-import { IpcEvents, electron } from '@squirtle/api/umd/src/api/electron/electron.internal';
+import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
@@ -53,7 +53,8 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
             project: fileName,
             showLandingPage,
             isDevMode: windowTypes == devModeWindows,
-            appPath: app.getAppPath()
+            appPath: app.getAppPath(),
+            home: path.join(app.getPath('home'), '.quark')
         }
 
         if (app.isPackaged) {
@@ -88,6 +89,18 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
 
 
         windowTypes.push(win);
+        // win.webContents.addListener('will-navigate', (e, _url) => {
+        //     e.preventDefault();
+        //     const protocol = url.parse(_url).protocol;
+        //     if ((protocol === 'http:' || protocol === 'https:') && !_url.includes('localhost')) {
+        //         shell.openExternal(_url);
+        //     }
+
+        //     if (_url.includes('localhost') || protocol == 'file:') {
+        //         console.log(_url);
+        //         win.loadURL(_url);
+        //     }
+        // });
         win.addListener('closed', () => {
             const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
             windowTypes.splice(index, 1);

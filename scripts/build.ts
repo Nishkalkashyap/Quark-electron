@@ -27,15 +27,14 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
 ]
 
 builder.build({
-    publish: 'onTag',
-    // platform : ''
+    // linux: ["appimage"],
+    win: ["nsis"],
     config: {
         appId: 'in.nishkal',
         copyright: 'Copyright © 2019 Nishkal Kashyap',
         productName: 'Quark',
         artifactName: '${productName}-${os}-${arch}-${version}.${ext}',
         asar: true,
-        forceCodeSigning: true,
         asarUnpack: [
             "definitions-unpacked"
         ],
@@ -46,8 +45,6 @@ builder.build({
         },
         win: {
             target: 'nsis',
-            // publisherName: 'Nishkal Kashyap',
-            
         },
         nsis: {
             oneClick: false,
