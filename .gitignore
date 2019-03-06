@@ -49,6 +49,9 @@ dist/
 "Nishkal Kashyap.pfx"
 Quark-win32-x64
 buildResources/icons
+ThirdPartyNotice.txt
+index.js
+*.build.qrk
 
 .DS_Store
 Thumbs.db

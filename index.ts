@@ -1,6 +1,8 @@
-import { app, BrowserWindow, ipcMain, shell } from "electron";
+import { app, BrowserWindow, ipcMain, crashReporter, shell } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import * as url from 'url';
+
 
 import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
@@ -10,6 +12,13 @@ import log from 'electron-log';
 autoUpdater.logger = log;
 autoUpdater.logger['transports'].file.level = 'info';
 log.info('App starting...');
+
+crashReporter.start({
+    productName: 'Quarkjs',
+    companyName: 'Quark',
+    submitURL: 'http://localhost:3000/api/app-crashes',
+    uploadToServer: false
+});
 
 const devModeWindows: IBrowserWindow[] = [];
 const runModeWindows: IBrowserWindow[] = [];
@@ -89,18 +98,18 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
 
 
         windowTypes.push(win);
-        // win.webContents.addListener('will-navigate', (e, _url) => {
-        //     e.preventDefault();
-        //     const protocol = url.parse(_url).protocol;
-        //     if ((protocol === 'http:' || protocol === 'https:') && !_url.includes('localhost')) {
-        //         shell.openExternal(_url);
-        //     }
+        win.webContents.addListener('will-navigate', (e, _url) => {
+            e.preventDefault();
+            const protocol = url.parse(_url).protocol;
+            if ((protocol === 'http:' || protocol === 'https:') && !_url.includes('localhost')) {
+                shell.openExternal(_url);
+            }
 
-        //     if (_url.includes('localhost') || protocol == 'file:') {
-        //         console.log(_url);
-        //         win.loadURL(_url);
-        //     }
-        // });
+            if (_url.includes('localhost') || protocol == 'file:') {
+                console.log(_url);
+                win.loadURL(_url);
+            }
+        });
         win.addListener('closed', () => {
             const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
             windowTypes.splice(index, 1);
@@ -120,6 +129,14 @@ if (!_isSecondInstance) {
     app.quit();
 } else {
     app.on('second-instance', (event, commandLine, workingDirectory) => {
+        const quark = commandLine.find((val) => {
+            return val.endsWith('.qrk');
+        });
+        
+        if (quark) {
+            quark.endsWith('.build.qrk') ? createOrFocusWindow(runModeWindows, quark) : createOrFocusWindow(devModeWindows, quark);
+            return;
+        }
         createOrFocusWindow(devModeWindows, workingDirectory);
     });
 }
