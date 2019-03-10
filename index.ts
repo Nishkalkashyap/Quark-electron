@@ -110,6 +110,9 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
                 win.loadURL(_url);
             }
         });
+        win.webContents.on('new-window', (e)=>{
+            e.preventDefault();
+        });
         win.addListener('closed', () => {
             const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
             windowTypes.splice(index, 1);
