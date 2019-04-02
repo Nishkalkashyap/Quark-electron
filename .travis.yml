@@ -1,71 +1,53 @@
-#First Release
-#OS Configuration
 matrix:
   include:
-    - os: osx
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-    - os: linux
-      dist: trusty
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    # - os: osx
+    #   osx_image: xcode9.4
+    #   language: node_js
+    #   node_js: "10"
+    #   env:
+    #     - ELECTRON_CACHE=$HOME/.cache/electron
+    #     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
-#Common Configuration
-branches:
-  only:
-    - master
-    - release
-language: node_js
-node_js:
-  - "8"
+    - os: linux
+      services: docker
+      language: generic
+
 cache:
   directories:
     - node_modules
     - $HOME/.cache/electron
     - $HOME/.cache/electron-builder
-sudo : required
-env:
-  - DEBUG=electron-builder
 
-#Before Install Configuraation  
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev libnotify-dev libgnome-keyring-dev libgconf2-dev libasound2-dev libcap-dev libcups2-dev libxtst-dev libxss1 libnss3-dev gcc-multilib g++-multilib curl gperf bison ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install libudev-dev; fi
-#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install xvfb; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ruby; fi
-  - node --version
-  - npm --version
-
-#Install Configutation
-# For testing
-# install:
-#   - export DISPLAY=':99.0'
-#   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-#   - export PATH=./node_modules/.bin/:$PATH
-
-
-#Script Configuration
 script:
-  - npm install
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run build-linux; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run build-mac; fi
-  - tar -cvf build_$TRAVIS_OS_NAME.tar build
-  - ls -lah
-  - chmod 777 -R build_$TRAVIS_OS_NAME.tar
+  - |
+    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+      docker run --rm \
+        --env-file <(env | grep -iE 'DEBUG|NODE_|ELECTRON_|YARN_|NPM_|CI|CIRCLE|TRAVIS|APPVEYOR_|CSC_|_TOKEN|_KEY|AWS_|STRIP|BUILD_') \
+        -v ${PWD}:/project \
+        -v ~/.cache/electron:/root/.cache/electron \
+        -v ~/.cache/electron-builder:/root/.cache/electron-builder \
+        electronuserland/builder:wine \
+        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn release --linux"
+    else
+      yarn release
+    fi
+before_cache:
+  - rm -rf $HOME/.cache/electron-builder/wine
+
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
 
 #Deploy Configuration
-deploy:
-  provider: gcs
-  access_key_id: "GOOGW5SCWZHA42FT7THEI7TF"
-  secret_access_key: 
-    secure : "DZqKp2VkSfAFBiNCHOcuaGeuEp0I+n38rumvUP5IB0JNc1+nCvBo00k1y8f8PIrhHtJlGvOF3kAS2qZAFxVwpKjZE0wUdL0GTWppWBkqearuPdSX8Kn/N0tm0jXjYqgwSdF1gwDkU3S9CrSjL9rxuswNmLcbHUlNAr/fE49pQQq1f92NEPK/qoAaBBkaVeQsg2DbNca7TxBrIm6U0Up6xNAQmCio71JmC7Ezh0YESFxPT8I5Ng2TB7eaud3dwl1yqe/mODVk8AQ9OdfoSTA0PSRchTrH5Zi6a5Zl5U4Pps+5wdG/r1xA2u5UIF6OZ3TDCMD3++M0hHW/ij6PP773xi9Bwykycs1Qpr/dFxPD5WSL/Rlu76hvfzXTvIFePvu63GlMeXB3+ayTIi/KvRehVQpA51TdR7BteeMH16yPzrnVznwmQjBxV2ybl+Ui53ypLyyoupF/h/u1ggbtYA6mjpmdx+yXHcGPNAUsDu6QiEa0XcRWsYD/MgDwrSvUEtnnHhKq7X9Vm4KC0CW95Vv2C6QYBLEYlpjTfpnfcRyLGD0tDUY69VSp7TtZPqQdNh3i9wCzg+AYpJT3dQPBsVIgKnGavj1fK7xcAPPIzxWX1ZGXCofTUEXgDEohPVTE0mRs9pNv6LUQcvtUuyMucap0HhktAc6Ye9yUsbDM+zEmiHo="
-  bucket: "autoupdate.diymechatronics.com"
-  skip_cleanup: true
-  acl: public-read
-  file:
-    - build_$TRAVIS_OS_NAME.tar
-  on:
-    branch: release
+# deploy:
+#   provider: gcs
+#   access_key_id: "GOOGW5SCWZHA42FT7THEI7TF"
+#   secret_access_key: 
+#     secure : "DZqKp2VkSfAFBiNCHOcuaGeuEp0I+n38rumvUP5IB0JNc1+nCvBo00k1y8f8PIrhHtJlGvOF3kAS2qZAFxVwpKjZE0wUdL0GTWppWBkqearuPdSX8Kn/N0tm0jXjYqgwSdF1gwDkU3S9CrSjL9rxuswNmLcbHUlNAr/fE49pQQq1f92NEPK/qoAaBBkaVeQsg2DbNca7TxBrIm6U0Up6xNAQmCio71JmC7Ezh0YESFxPT8I5Ng2TB7eaud3dwl1yqe/mODVk8AQ9OdfoSTA0PSRchTrH5Zi6a5Zl5U4Pps+5wdG/r1xA2u5UIF6OZ3TDCMD3++M0hHW/ij6PP773xi9Bwykycs1Qpr/dFxPD5WSL/Rlu76hvfzXTvIFePvu63GlMeXB3+ayTIi/KvRehVQpA51TdR7BteeMH16yPzrnVznwmQjBxV2ybl+Ui53ypLyyoupF/h/u1ggbtYA6mjpmdx+yXHcGPNAUsDu6QiEa0XcRWsYD/MgDwrSvUEtnnHhKq7X9Vm4KC0CW95Vv2C6QYBLEYlpjTfpnfcRyLGD0tDUY69VSp7TtZPqQdNh3i9wCzg+AYpJT3dQPBsVIgKnGavj1fK7xcAPPIzxWX1ZGXCofTUEXgDEohPVTE0mRs9pNv6LUQcvtUuyMucap0HhktAc6Ye9yUsbDM+zEmiHo="
+#   bucket: "autoupdate.diymechatronics.com"
+#   skip_cleanup: true
+#   acl: public-read
+#   file:
+#     - build_$TRAVIS_OS_NAME.tar
+#   on:
+#     branch: release

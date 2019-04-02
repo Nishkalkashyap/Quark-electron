@@ -12,14 +12,10 @@
     "compile": "tsc",
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
-    "test": "mocha",
-    "pack-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds",
-    "dist-win": "electron-builder --x64 --win --prepackaged release-builds/Quark-win32-x64",
-    "build-linux": "electron-builder --x64 --linux",
-    "build-mac": "electron-builder --x64 --mac",
     "build-win": "npm run pack-win && npm run dist-win",
     "buil": "npm install && ts-node ./scripts/copyicons.ts && tsc && electron-builder .",
     "build": "npm install && ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build",
+    "release": "npm install && ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build",
     "qb": "ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build"
   },
   "dependencies": {
