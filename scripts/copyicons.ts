@@ -4,8 +4,8 @@ import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
 
 copyDefinitions();
-copyAssets();
 makeIcons();
+copyAssets();
 
 function copyDefinitions() {
 
@@ -63,13 +63,17 @@ function copyDefinitions() {
 }
 
 function copyAssets() {
-    ncp.ncp('./../QuarkUMD/dist/', './www/', {
-        filter: (file) => {
-            return file.search('js.map') == -1
-        }
-    }, (e) => {
-        console.log(e);
-    });
+    try {
+        ncp.ncp('./../QuarkUMD/dist/', './www/', {
+            filter: (file) => {
+                return file.search('js.map') == -1
+            }
+        }, (e) => {
+            console.log(e);
+        });
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 function makeIcons() {
