@@ -2,7 +2,7 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 dotenv.config({
-    path: './scripts/test.env'
+    path: './scripts/prod.env'
 });
 
 const defaultFiles: PlatformSpecificBuildOptions['files'] = [
@@ -45,6 +45,7 @@ builder.build({
         },
         win: {
             target: 'nsis',
+            forceCodeSigning: !!process.env.CSC_LINK
         },
         nsis: {
             oneClick: false,
@@ -72,7 +73,8 @@ builder.build({
             // repo: 'https://github.com/Nishkalkashyap/quark-release',
             // releaseType: 'prerelease'
             provider: 'generic',
-            url: 'https://storage.googleapis.com/quark-auto-update'
+            // url: 'https://storage.googleapis.com/quark-auto-update',
+            url: 'https://storage.googleapis.com/quarkjs-auto-update',
         },
         // compression: 'store',
         extraResources: [

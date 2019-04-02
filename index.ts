@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, crashReporter, shell } from "electron";
+import { app, BrowserWindow, ipcMain, crashReporter, shell, dialog } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as url from 'url';
@@ -110,7 +110,7 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
                 win.loadURL(_url);
             }
         });
-        win.webContents.on('new-window', (e)=>{
+        win.webContents.on('new-window', (e) => {
             e.preventDefault();
         });
         win.addListener('closed', () => {
@@ -135,7 +135,7 @@ if (!_isSecondInstance) {
         const quark = commandLine.find((val) => {
             return val.endsWith('.qrk');
         });
-        
+
         if (quark) {
             quark.endsWith('.build.qrk') ? createOrFocusWindow(runModeWindows, quark) : createOrFocusWindow(devModeWindows, quark);
             return;
@@ -159,7 +159,13 @@ function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: st
 
 
 app.on('ready', () => {
-    createWindow(devModeWindows);
+
+    let windowType: typeof devModeWindows = devModeWindows;
+    if ((process.argv[2] || process.argv[1] || process.argv[0]).endsWith('.build.qrk')) {
+        windowType = runModeWindows;
+    }
+
+    createWindow(windowType);
     registerListeners();
     autoUpdater.checkForUpdatesAndNotify();
 });

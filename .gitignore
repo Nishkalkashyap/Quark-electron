@@ -53,6 +53,9 @@ ThirdPartyNotice.txt
 index.js
 *.build.qrk
 
+*.p12
+*.env
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

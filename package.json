@@ -6,6 +6,7 @@
   "bin": "index.js",
   "scripts": {
     "start": "ts-node ./scripts/copyicons.ts && tsc && electron . ./quark.qrk",
+    "qs": "electron . ./quark.qrk",
     "land": "ts-node ./scripts/copyicons.ts && tsc && electron .",
     "link": "npm install ./../@squirtle/api",
     "compile": "tsc",
@@ -19,7 +20,7 @@
     "build-win": "npm run pack-win && npm run dist-win",
     "buil": "npm install && ts-node ./scripts/copyicons.ts && tsc && electron-builder .",
     "build": "npm install && ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build",
-    "quick": "ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build"
+    "qb": "ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -37,7 +38,6 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "firmata": "^2.0.0",
     "fs-extra": "^7.0.1",
-    "handlebars-loader": "^1.7.1",
     "ionic": "^4.10.2",
     "johnny-five": "^0.15.0",
     "markdown-it": "^8.4.2",
