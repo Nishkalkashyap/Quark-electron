@@ -1,9 +1,14 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
+import * as os from 'os';
 dotenv.config({
     path: './scripts/prod.env'
 });
+
+if (os.platform() == 'linux') {
+    process.env.DEBUG = 'electron-builder';
+}
 
 const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "**/*",
@@ -23,12 +28,11 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!dist",
     "!build",
     "!.vscode",
-    "!definitions"
+    "!definitions",
+    "!release"
 ]
 
 builder.build({
-    // linux: ["appimage"],
-    win: ["nsis"],
     config: {
         appId: 'in.nishkal',
         copyright: 'Copyright © 2019 Nishkal Kashyap',
@@ -45,7 +49,8 @@ builder.build({
         },
         win: {
             target: 'nsis',
-            forceCodeSigning: !!process.env.CSC_LINK
+            // forceCodeSigning: !!process.env.CSC_LINK,
+            publisherName: 'Nishkal'
         },
         nsis: {
             oneClick: false,
@@ -57,7 +62,26 @@ builder.build({
             createStartMenuShortcut: true
         },
         linux: {
-            target: 'AppImage',
+            "category": "IDE",
+            "target": [
+                {
+                    "target": "deb"
+                },
+                {
+                    "target": "AppImage"
+                },
+                {
+                    "target": "tar.gz"
+                },
+                // {
+                //     "target": "rpm",
+                //     "arch": ["x64"]
+                // },
+                // {
+                //     "target": "snap",
+                //     "arch": ["x64"]
+                // }
+            ]
         },
         appImage: {
             systemIntegration: 'ask',
@@ -68,15 +92,9 @@ builder.build({
             category: 'public.app-category.utilities',
         },
         publish: {
-            // provider: 'github',
-            // owner: "Nishkalkashyap",
-            // repo: 'https://github.com/Nishkalkashyap/quark-release',
-            // releaseType: 'prerelease'
             provider: 'generic',
-            // url: 'https://storage.googleapis.com/quark-auto-update',
             url: 'https://storage.googleapis.com/quarkjs-auto-update',
         },
-        // compression: 'store',
         extraResources: [
             {
                 from: 'definitions',
@@ -85,3 +103,22 @@ builder.build({
         ]
     }
 });
+
+
+// http://sha256timestamp.ws.symantec.com/sha256/timestamp
+// http://timestamp.globalsign.com/scripts/timstamp.dll
+// https://timestamp.geotrust.com/tsa
+// http://timestamp.verisign.com/scripts/timstamp.dll 
+// http://timestamp.comodoca.com/rfc3161
+// http://timestamp.wosign.com
+// http://tsa.startssl.com/rfc3161
+// http://time.certum.pl
+// http://timestamp.digicert.com
+// https://freetsa.org
+// http://dse200.ncipher.com/TSS/HttpTspServer
+// http://tsa.safecreative.org
+// http://zeitstempel.dfn.de
+// https://ca.signfiles.com/tsa/get.aspx
+// http://services.globaltrustfinder.com/adss/tsa
+// https://tsp.iaik.tugraz.at/tsp/TspRequest
+// http://timestamp.apple.com/ts01

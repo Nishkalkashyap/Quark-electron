@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, crashReporter, shell, dialog } from "electron";
+import { app, BrowserWindow, ipcMain, crashReporter, shell } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as url from 'url';

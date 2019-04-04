@@ -52,6 +52,7 @@ buildResources/icons
 ThirdPartyNotice.txt
 index.js
 *.build.qrk
+release
 
 *.p12
 *.env

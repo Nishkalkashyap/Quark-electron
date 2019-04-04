@@ -1,22 +1,26 @@
 {
   "name": "quark",
-  "version": "0.1.5",
-  "description": "A new way to control electronics",
+  "author": "Nishkal Kashyap <hello@nishkal.in>",
+  "email": "hello@nishkal.in",
+  "homepage": "https://quarkjs.io",
+  "version": "0.1.8",
+  "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "start": "ts-node ./scripts/copyicons.ts && tsc && electron . ./quark.qrk",
+    "land": "ts-node ./scripts/prepare-assets.ts && tsc && electron .",
+    "start": "ts-node ./scripts/prepare-assets.ts && tsc && electron . ./quark.qrk",
     "qs": "electron . ./quark.qrk",
-    "land": "ts-node ./scripts/copyicons.ts && tsc && electron .",
     "link": "npm install ./../@squirtle/api",
-    "compile": "tsc",
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
-    "build-win": "npm run pack-win && npm run dist-win",
-    "buil": "npm install && ts-node ./scripts/copyicons.ts && tsc && electron-builder .",
-    "build": "npm install && ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build",
-    "release": "npm install && ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build",
-    "qb": "ts-node ./scripts/copyicons.ts && tsc && npm run lic && ts-node scripts/build.ts && start .\\build"
+    "build-quick": "ts-node ./scripts/prepare-assets.ts && tsc && npm run lic && ts-node scripts/build.ts",
+    "build-common": "npm install && npm run build-quick",
+    "build-win": "npm run build-common && start .\\build",
+    "build-linux": "ts-node ./scripts/build-linux.ts && cd ./../Quark-electron-linux && npm run build-common",
+    "bw": "npm run build-win",
+    "bl": "npm run build-linux",
+    "release": "ts-node ./scripts/release.ts"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -72,8 +76,8 @@
     "@types/sharp": "^0.21.2",
     "devtron": "^1.4.0",
     "dotenv": "^6.2.0",
-    "electron": "^4.0.7",
-    "electron-builder": "^20.38.5",
+    "electron": "^4.1.3",
+    "electron-builder": "^20.39.0",
     "glob": "^7.1.3",
     "license-checker": "^25.0.1",
     "mkdirp": "^0.5.1",
@@ -81,7 +85,9 @@
     "monaco-editor": "^0.15.6",
     "ncp": "^2.0.0",
     "recursive-readdir": "^2.2.2",
-    "sharp": "^0.21.3",
+    "rimraf": "^2.6.3",
+    "sharp": "^0.22.0",
+    "simple-git": "^1.110.0",
     "spectron": "^3.8.0",
     "ts-node": "^7.0.1"
   },
@@ -89,12 +95,7 @@
     "Quark",
     "Electron"
   ],
-  "author": "Nishkal Kashyap",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonschlinkert/ansi-bgyellow.git"
-  },
   "tilt": {
     "appId": "io.quarkjs",
     "copyright": "Copyright © 2019 Nishkal Kashyap",

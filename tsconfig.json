@@ -28,6 +28,7 @@
     "./node",
     "./www/**",
     "./build/**",
-    "./definitions"
+    "./definitions",
+    "./scripts"
   ]
 }

@@ -2,10 +2,13 @@ import * as ncp from 'ncp';
 import * as fs from 'fs-extra';
 import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
+import * as path from 'path';
 
 copyDefinitions();
 makeIcons();
 copyAssets();
+
+// fs.emptyDirSync('./build');
 
 function copyDefinitions() {
 
@@ -28,6 +31,7 @@ function copyDefinitions() {
         ], (e, _files) => {
             if (e) {
                 console.log(e);
+                return;
             }
             if (_files.length == 0)
                 return;
@@ -86,6 +90,8 @@ function makeIcons() {
 
     function writeIcons(size: number) {
         sharp('buildAssets/icon.png')
+            // const buffer = fs.readFileSync(path.join('./', 'buildAssets/icon.png'));
+            // sharp(Buffer.from(buffer.toString(), 'base64'))
             .resize(size, size)
             .toBuffer()
             .then((buffer) => {
