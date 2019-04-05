@@ -48,8 +48,28 @@ builder.build({
             buildResources: 'buildResources'
         },
         win: {
-            target: 'nsis',
-            // forceCodeSigning: !!process.env.CSC_LINK,
+            target: [
+                {
+                    target: 'nsis'
+                },
+                {
+                    target: 'zip',
+                    // arch: ['x64', 'ia32']
+                },
+                // {
+                //     target: 'msi'
+                // },
+                // {
+                //     target: 'squirrel'
+                // },
+                // {
+                //     target: 'nsis-web'
+                // },
+                // {
+                //     target: 'portable'
+                // }
+            ],
+            forceCodeSigning: !!process.env.CSC_LINK,
             publisherName: 'Nishkal'
         },
         nsis: {
@@ -72,11 +92,14 @@ builder.build({
                 },
                 {
                     "target": "tar.gz"
-                },
+                }
                 // {
                 //     "target": "rpm",
                 //     "arch": ["x64"]
                 // },
+                // {
+                //     "target": "apk"
+                // }
                 // {
                 //     "target": "snap",
                 //     "arch": ["x64"]
