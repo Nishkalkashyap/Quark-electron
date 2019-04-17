@@ -53,6 +53,7 @@ ThirdPartyNotice.txt
 index.js
 *.build.qrk
 release
+cloud-storage-key.json
 
 *.p12
 *.env
@@ -60,3 +61,4 @@ release
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+*.build.qrk

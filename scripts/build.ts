@@ -42,6 +42,10 @@ builder.build({
         asarUnpack: [
             "definitions-unpacked"
         ],
+        fileAssociations: {
+            ext: 'qrk',
+            role: 'Editor'
+        },
         files: defaultFiles,
         directories: {
             output: 'build',
@@ -50,12 +54,13 @@ builder.build({
         win: {
             target: [
                 {
-                    target: 'nsis'
+                    target: 'nsis',
+                    // arch: ['ia32', 'x64']
                 },
-                {
-                    target: 'zip',
-                    // arch: ['x64', 'ia32']
-                },
+                // {
+                //     target: 'zip',
+                //     // arch: ['x64', 'ia32']
+                // },
                 // {
                 //     target: 'msi'
                 // },
@@ -84,15 +89,15 @@ builder.build({
         linux: {
             "category": "IDE",
             "target": [
-                {
-                    "target": "deb"
-                },
+                // {
+                //     "target": "deb"
+                // },
                 {
                     "target": "AppImage"
                 },
-                {
-                    "target": "tar.gz"
-                }
+                // {
+                //     "target": "tar.gz"
+                // }
                 // {
                 //     "target": "rpm",
                 //     "arch": ["x64"]
