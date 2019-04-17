@@ -117,7 +117,7 @@ builder.build({
         },
         mac: {
             target: 'default',
-            category: 'public.app-category.utilities',
+            category: 'public.app-category.utilities'
         },
         publish: {
             provider: 'generic',

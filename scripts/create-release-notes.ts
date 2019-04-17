@@ -31,7 +31,7 @@ __Release Notes for v${json.version}__`
         return;
     }
     fs.writeFileSync(releaseNotesPath, finalReleaseNotes);
-    console.log(chalk.greenBright('Release notes added successfully! ✅ ✅'));
+    console.log(chalk.greenBright('|  ✅  | Release notes added successfully!'));
 }
 
 function publishStatus() {
@@ -48,7 +48,9 @@ function publishStatus() {
     //2 is the account id of the bot
     M.get('accounts/2/statuses', null, (err, data: IStatus[] = []) => {
 
+
         if (err) {
+            console.error(err);
             return;
         }
 
@@ -66,11 +68,6 @@ function publishStatus() {
             return;
         }
 
-        const params = {
-            status: finalNotes,
-            visibility: 'public'
-        }
-
         if (lastStatus.includes(`Quark-v${json.version}`)) {
             M.delete(`statuses/${statuses[0].id}`, null, (err, data) => {
                 postStatus();
@@ -78,23 +75,29 @@ function publishStatus() {
             return;
         }
 
+        postStatus();
+
         function getRandomEmoji() {
             const emojis = ['💯', '🍻', '💃', '👊', '🐶', '💃'];
             return emojis[randomIntFromInterval(0, 5)];
+
+            function randomIntFromInterval(min: number, max: number) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
         }
 
-        function randomIntFromInterval(min: number, max: number) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
 
         function postStatus() {
+            const params = {
+                status: finalNotes,
+                visibility: 'public'
+            }
             M.post('statuses', params, (err, data: IStatus) => {
-                // console.log(err, data);
                 if (err) {
                     console.error('An error occured while trying to post status.');
                     console.log(err);
                 }
-                console.log(chalk.greenBright('Status was updated successfully ✅ ✅'));
+                console.log(chalk.greenBright('|  ✅  | Status was updated successfully!'));
             });
         }
     });

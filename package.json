@@ -3,7 +3,7 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
@@ -21,7 +21,8 @@
     "bw": "npm run build-win",
     "bl": "bash -c 'npm run build-linux'",
     "release": "ts-node ./scripts/release.ts",
-    "upload": "ts-node ./scripts/upload.ts"
+    "upload": "ts-node ./scripts/upload.ts",
+    "notes" : "ts-node ./scripts/create-release-notes.ts"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -95,6 +96,7 @@
     "mocha": "^5.2.0",
     "monaco-editor": "^0.15.6",
     "ncp": "^2.0.0",
+    "progress-stream": "^2.0.0",
     "recursive-readdir": "^2.2.2",
     "rimraf": "^2.6.3",
     "sharp": "^0.22.0",
