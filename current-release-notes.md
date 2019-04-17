@@ -1,2 +1,2 @@
 ### New Features:
-* added support for p5.j
+* added support for p5.js

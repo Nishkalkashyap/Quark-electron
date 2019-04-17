@@ -5,6 +5,7 @@ import * as p from 'progress-stream';
 import { stdout } from 'single-line-log';
 import chalk from 'chalk';
 import { table } from 'table';
+import { exec } from 'child_process';
 
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './cloud-storage-key.json';
@@ -24,6 +25,8 @@ interface Table {
     remaining: string;
     speed: string;
     transffered: string;
+
+    status: boolean;
 }
 const alreadyExists = [];
 
@@ -36,7 +39,7 @@ storage.bucket(bucketName).getFiles().then((folders) => {
             }
         });
         console.log(alreadyExists);
-        // startUploading();
+        startUploading();
     })
 }).catch((err) => {
     console.log(err);
@@ -65,7 +68,8 @@ function startUploading() {
                 remaining: chalk.magentaBright(Number(percent.remaining).toFixed(2).toString()),
                 speed: chalk.redBright(Number(percent.speed).toFixed(2)).toString(),
                 eta: chalk.whiteBright(percent.eta.toString()),
-                transffered: chalk.yellowBright(percent.transferred.toString())
+                transffered: chalk.yellowBright(percent.transferred.toString()),
+                status: false
             }
         });
         fs.createReadStream(filePath)
@@ -76,12 +80,13 @@ function startUploading() {
                 console.error(`An Error Occured while uploading ${_path}`);
             })
             .on('finish', function () {
-                console.log(`File ${_path} uploaded Successfully.!\n\n\n`);
+                obj[chalk.bgBlue.whiteBright.bold(_path)].status = true;
             });
     });
 
+    let uploadComplete = false;
     setInterval(() => {
-        const data = [['Path', 'Delta', 'ETA', 'Length', 'Percent', 'Remaining', 'Speed', 'Transferred']];
+        const data = [['Path', 'Delta', 'ETA', 'Length', 'Percent', 'Remaining', 'Speed', 'Transferred', 'Status']];
         Object.keys(obj).map((key) => {
             data.push([
                 key,
@@ -92,8 +97,29 @@ function startUploading() {
                 obj[key].remaining,
                 obj[key].speed,
                 obj[key].transffered,
+                obj[key].status ? chalk.greenBright('Complete') : chalk.magentaBright('In Progress')
             ]);
         });
-        stdout('\n' + table(data));
-    }, 300);
+
+        if (!uploadComplete) {
+            stdout('\n' + table(data));
+        }
+
+        const flag = Object.keys(obj).every((key) => {
+            return obj[key].status;
+        });
+
+        if (flag && !uploadComplete) {
+            uploadComplete = true;
+            console.log(chalk.greenBright('\n\nAll files were uploaded successfully! ✅ ✅\n\n'))
+
+            const pro = exec('ts-node ./scripts/create-release-notes.ts');
+            pro.stdout.pipe(process.stdout);
+            pro.stderr.pipe(process.stderr);
+
+            pro.addListener('exit', (code) => {
+                process.exit(code);
+            });
+        }
+    }, 500);
 }

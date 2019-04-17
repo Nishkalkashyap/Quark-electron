@@ -1,5 +1,11 @@
 import * as fs from 'fs-extra';
-import * as Mastodon from 'mastodon-api'
+import * as Mastodon from 'mastodon-api';
+import chalk from 'chalk';
+
+import * as dotenv from 'dotenv';
+dotenv.config({
+    path: './scripts/mastodon.env'
+});
 
 const json = fs.readJsonSync('./package.json');
 const tempReleaseNotesPath = `./current-release-notes.md`;
@@ -9,14 +15,11 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
 
-if (fs.readFileSync(releaseNotesPath).toString().includes(fs.readFileSync(tempReleaseNotesPath).toString())) {
-    throw Error('Please Update Release Notes');
-}
-
 createReleaseNotes();
 publishStatus();
 
 function createReleaseNotes() {
+
     const tempNotes = fs.readFileSync(tempReleaseNotesPath).toString();
     const baseReleaseNotes = fs.readFileSync(releaseNotesPath).toString();
     const date = new Date();
@@ -28,13 +31,14 @@ __Release Notes for v${json.version}__`
         return;
     }
     fs.writeFileSync(releaseNotesPath, finalReleaseNotes);
+    console.log(chalk.greenBright('Release notes added successfully! ✅ ✅'));
 }
 
 function publishStatus() {
     const M = new Mastodon({
-        client_key: 'fbebde85f946a9fa38a2712f846b271efbcf5fbeca1a19569204bc12da2bb5de',
-        client_secret: '887ed999db6948be15d3a4e5351c04b7d4860f0a88cb4fb9f49d0205cbf4f088',
-        access_token: 'e947816069f9f0445076b56e09af96de7263f33d5d184550609d3b8e670ff198',
+        client_key: process.env.CLIENT_KEY,
+        client_secret: process.env.CLIENT_SECRET,
+        access_token: process.env.CLIENT_TOKEN,
         timeout_ms: 60 * 1000,  // optional HTTP request timeout to apply to all requests.
         api_url: 'https://social.quarkjs.io/api/v1/', // optional, defaults to https://mastodon.social/api/v1/
     });
@@ -56,7 +60,8 @@ function publishStatus() {
         const preText = `Quark-v${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
         const tempNotes = fs.readFileSync(tempReleaseNotesPath).toString().replace(/###\s?/gi, '');
         const dashes = `------------------------`;
-        const finalNotes = String().concat(preText, `\nRelease Notes:\n${dashes}\n\n`, tempNotes, `\n\n${dashes}\n#newRelease`);
+        const emoji = getRandomEmoji();
+        const finalNotes = String().concat(preText, `\nRelease Notes:\n${dashes}\n\n`, tempNotes, `\n\n${dashes}\n#newRelease ${emoji} ${emoji} ${getRandomEmoji()}`);
         if (lastStatus.includes(tempNotes)) {
             return;
         }
@@ -73,7 +78,14 @@ function publishStatus() {
             return;
         }
 
-        postStatus();
+        function getRandomEmoji() {
+            const emojis = ['💯', '🍻', '💃', '👊', '🐶', '💃'];
+            return emojis[randomIntFromInterval(0, 5)];
+        }
+
+        function randomIntFromInterval(min: number, max: number) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
 
         function postStatus() {
             M.post('statuses', params, (err, data: IStatus) => {
@@ -82,7 +94,7 @@ function publishStatus() {
                     console.error('An error occured while trying to post status.');
                     console.log(err);
                 }
-                console.log();
+                console.log(chalk.greenBright('Status was updated successfully ✅ ✅'));
             });
         }
     });
