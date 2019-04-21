@@ -55,12 +55,12 @@ builder.build({
             target: [
                 {
                     target: 'nsis',
-                    // arch: ['ia32', 'x64']
+                    arch: ['x64']
                 },
-                // {
-                //     target: 'zip',
-                //     // arch: ['x64', 'ia32']
-                // },
+                {
+                    target: 'zip',
+                    arch: ['x64']
+                },
                 // {
                 //     target: 'msi'
                 // },
@@ -89,15 +89,18 @@ builder.build({
         linux: {
             "category": "IDE",
             "target": [
-                // {
-                //     "target": "deb"
-                // },
                 {
-                    "target": "AppImage"
+                    "target": "deb",
+                    arch: ['x64']
                 },
-                // {
-                //     "target": "tar.gz"
-                // }
+                {
+                    "target": "AppImage",
+                    arch: ['x64']
+                },
+                {
+                    "target": "tar.gz",
+                    arch: ['x64']
+                }
                 // {
                 //     "target": "rpm",
                 //     "arch": ["x64"]

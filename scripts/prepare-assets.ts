@@ -30,8 +30,7 @@ function copyDefinitions() {
             }
         ], (e, _files) => {
             if (e) {
-                console.log(e);
-                return;
+                throw new Error('Failed to copy');
             }
             if (_files.length == 0)
                 return;

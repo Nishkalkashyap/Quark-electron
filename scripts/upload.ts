@@ -6,6 +6,8 @@ import { stdout } from 'single-line-log';
 import chalk from 'chalk';
 import { table } from 'table';
 import { exec } from 'child_process';
+import { PackageJson } from '@google-cloud/common/build/src/util';
+const json: PackageJson = require('./../package.json');
 
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './cloud-storage-key.json';
@@ -28,17 +30,18 @@ interface Table {
 
     status: boolean;
 }
-const alreadyExists = [];
+const alreadyExists: string[] = [];
 
 storage.bucket(bucketName).getFiles().then((folders) => {
+
     folders.map((folder) => {
         folder.map((file) => {
-            console.log(file.metadata);
-            if (!(file.name.includes('latest') || file.name.includes('blockmap'))) {
-                alreadyExists.push(file.name);
+            //getting folder
+            if (!file.name.includes(`Quark-${json.version}/`)) {
+                return;
             }
+            alreadyExists.push(file.name.replace(`Quark-${json.version}/`, ''));
         });
-        console.log(alreadyExists);
         startUploading();
     })
 }).catch((err) => {
@@ -47,14 +50,15 @@ storage.bucket(bucketName).getFiles().then((folders) => {
 
 function startUploading() {
     const obj: { [path: string]: Table } = {};
-    fs.readdirSync('./release').map((_path) => {
+    fs.readdirSync(`./release/${json.version}`).map((_path) => {
 
         if (alreadyExists.includes(_path)) {
             return;
         }
 
-        const file = storage.bucket(bucketName).file(_path);
-        const filePath = path.join('./release', _path);
+        // const file = storage.bucket(bucketName).file(_path);
+        const file = storage.bucket(bucketName).file(`Quark-${json.version}/${_path}`)
+        const filePath = path.join('./release', json.version, _path);
         const stat = fs.statSync(filePath);
         const prog = p({
             length: stat.size,

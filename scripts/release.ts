@@ -5,7 +5,10 @@ import chalk from 'chalk';
 const packageJSON = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = packageJSON.version;
 
-fs.emptyDirSync('./release');
+const writeFolder = `./release/${version}`;
+
+fs.ensureDirSync(writeFolder);
+fs.emptyDirSync(writeFolder);
 
 const paths = [
     `./build/Quark-win-${version}.exe`,
@@ -22,7 +25,8 @@ const paths = [
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
         console.log(chalk.greenBright(`️️️️️️|  ✔️  |  Found file: ${_path}`));
-        fs.copySync(_path, `./release/${path.basename(_path)}`);
+        // fs.copySync(_path, `./release/${path.basename(_path)}`);
+        fs.copySync(_path, path.join(writeFolder, path.basename(_path)));
         return;
     }
 
