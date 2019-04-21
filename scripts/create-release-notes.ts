@@ -1,13 +1,18 @@
 import * as fs from 'fs-extra';
 import * as Mastodon from 'mastodon-api';
 import chalk from 'chalk';
+import * as YAML from 'yamljs';
+import * as hasha from 'hasha';
+import * as js from 'js-beautify';
 
 import * as dotenv from 'dotenv';
+import { PackageJson } from 'type-fest';
 dotenv.config({
     path: './scripts/mastodon.env'
 });
 
-const json = fs.readJsonSync('./package.json');
+const json: PackageJson = fs.readJsonSync('./package.json');
+const latest = YAML.parse(fs.readFileSync(`./release/${json.version}/latest.yml`).toString());
 const tempReleaseNotesPath = `./current-release-notes.md`;
 const releaseNotesPath = `./releaseNotes.md`;
 
@@ -15,26 +20,59 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
 
-createReleaseNotes();
-publishStatus();
+async function createShaHash(): Promise<any> {
+    const files = fs.readdirSync((`./release/${json.version}`));
+    const binaries = files.filter((file) => {
+        return !(file.includes('latest') || file.includes('blockmap'));
+    });
 
-function createReleaseNotes() {
+    const obj = {} as any;
+    const promises = binaries.map((bin) => {
+        return new Promise(async (resolve) => {
+            const hash = await hasha.fromFile(`./release/${json.version}/${bin}`, { algorithm: 'sha512', encoding: 'base64' });
+            obj[bin] = hash;
+            resolve(hash);
+        });
+    });
 
+    await Promise.all(promises);
+    const date = new Date(latest.releaseDate);
     const tempNotes = fs.readFileSync(tempReleaseNotesPath).toString();
-    const baseReleaseNotes = fs.readFileSync(releaseNotesPath).toString();
-    const date = new Date();
-    const str =
-        `## Quark ${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}
-__Release Notes for v${json.version}__`
-    const finalReleaseNotes = String().concat(str, '\n\n', tempNotes, '\n\n\n', '----------------------------------------------\n\n\n', baseReleaseNotes);
-    if (baseReleaseNotes.includes(`# Quark ${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`)) {
-        return;
+    let baseReleaseNotes = fs.readFileSync(releaseNotesPath).toString();
+
+    const preText = `<!-- Quark-${json.version}-start -->`;
+    const postText = `<!-- Quark-${json.version}-end -->\n\n\n`;
+
+    if (baseReleaseNotes.includes(json.version)) {
+        const start = baseReleaseNotes.indexOf(preText);
+        const end = baseReleaseNotes.indexOf(postText) + postText.length;
+
+        const substr = baseReleaseNotes.substring(start, end);
+        baseReleaseNotes = baseReleaseNotes.replace(substr, '');
     }
-    fs.writeFileSync(releaseNotesPath, finalReleaseNotes);
+
+    let str = '';
+    str = str.concat(preText, '\n');
+    str = str.concat(`## Quark ${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`, '\n\n');
+    str = str.concat(tempNotes, '\n\n');
+    str = str.concat(`!!! info See SHA-512 Hashes`, '\n');
+    str = str.concat(`<DropDown>`, '\n');
+    str = str.concat(`<ReleaseNotes :sha='${js.js_beautify(JSON.stringify(obj))}' />`, '\n');
+    str = str.concat(`</DropDown>`, '\n');
+    str = str.concat('!!!', '\n\n');
+    str = str.concat('<!-- ---------------------------------------------- -->', '\n');
+    str = str.concat(postText);
+    str = str.concat(baseReleaseNotes);
+    fs.writeFileSync(releaseNotesPath, str);
     console.log(chalk.greenBright('|  ✅  | Release notes added successfully!'));
+    return str;
 }
 
-function publishStatus() {
+createShaHash().catch(console.error);
+publishStatus().catch(console.error);
+// createReleaseNotes();
+
+async function publishStatus() {
     const M = new Mastodon({
         client_key: process.env.CLIENT_KEY,
         client_secret: process.env.CLIENT_SECRET,

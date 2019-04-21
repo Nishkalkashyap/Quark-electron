@@ -1,4 +1,4 @@
-### Minor Changes:
-* added language support for readonly editor.
-* added release notes, about and license links in help menu.
-* on every auto-update Quark will show release notes. 
+#### Minor Changes:
+* Fixed windows nsis installer issue.
+* Added builds for *.tar.gz, *.deb and *.zip
+* Added shasum check table
