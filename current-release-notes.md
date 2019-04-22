@@ -1,4 +1,3 @@
 #### Minor Changes:
-* Fixed windows nsis installer issue.
-* Added builds for *.tar.gz, *.deb and *.zip
-* Added shasum check table
+* Updated angular version in template.
+* Major dependency updates in build.

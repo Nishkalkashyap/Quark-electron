@@ -1,18 +1,20 @@
 import * as fs from 'fs-extra';
 import * as Mastodon from 'mastodon-api';
-import chalk from 'chalk';
 import * as YAML from 'yamljs';
 import * as hasha from 'hasha';
 import * as js from 'js-beautify';
 
 import * as dotenv from 'dotenv';
 import { PackageJson } from 'type-fest';
+import { spawn } from 'child_process';
+import { printConsoleStatus } from './util';
 dotenv.config({
     path: './scripts/mastodon.env'
 });
 
 const json: PackageJson = fs.readJsonSync('./package.json');
-const latest = YAML.parse(fs.readFileSync(`./release/${json.version}/latest.yml`).toString());
+const latest: IYAML = YAML.parse(fs.readFileSync(`./release/${json.version}/latest.yml`).toString());
+const latestLinux: IYAML = YAML.parse(fs.readFileSync(`./release/${json.version}/latest-linux.yml`).toString());
 const tempReleaseNotesPath = `./current-release-notes.md`;
 const releaseNotesPath = `./releaseNotes.md`;
 
@@ -36,6 +38,17 @@ async function createShaHash(): Promise<any> {
     });
 
     await Promise.all(promises);
+
+    const releasedBinaries = latest.files.concat(latestLinux.files);
+    releasedBinaries.map((bin) => {
+        if (obj[bin.url] == bin.sha512) {
+            printConsoleStatus(`Sha512 matched for ${bin.url}`, 'success');
+            return;
+        }
+        printConsoleStatus(`Sha512 mis matched for ${bin.url}`, 'danger');
+    });
+
+
     const date = new Date(latest.releaseDate);
     const tempNotes = fs.readFileSync(tempReleaseNotesPath).toString();
     let baseReleaseNotes = fs.readFileSync(releaseNotesPath).toString();
@@ -55,6 +68,7 @@ async function createShaHash(): Promise<any> {
     str = str.concat(preText, '\n');
     str = str.concat(`## Quark ${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`, '\n\n');
     str = str.concat(tempNotes, '\n\n');
+    str = str.concat(await gitDiff(), '\n\n');
     str = str.concat(`!!! info See SHA-512 Hashes`, '\n');
     str = str.concat(`<DropDown>`, '\n');
     str = str.concat(`<ReleaseNotes :sha='${js.js_beautify(JSON.stringify(obj))}' />`, '\n');
@@ -64,28 +78,90 @@ async function createShaHash(): Promise<any> {
     str = str.concat(postText);
     str = str.concat(baseReleaseNotes);
     fs.writeFileSync(releaseNotesPath, str);
-    console.log(chalk.greenBright('|  ✅  | Release notes added successfully!'));
+    printConsoleStatus(`Release notes added successfully!`, 'success');
     return str;
 }
 
 createShaHash().catch(console.error);
 publishStatus().catch(console.error);
-// createReleaseNotes();
+
+async function gitDiff(): Promise<string> {
+    let str = ''
+
+    return new Promise((resolve) => {
+        const cp = spawn('git', ['diff', './package.json']);
+        cp.stdout.on('data', (d: Buffer) => {
+            str = str.concat(d.toString());
+        });
+        cp.on('exit', () => {
+            resolve(match());
+        });
+    });
+
+    function match(): string {
+        const dependencies = str.match(/"dependencies":\s?{(\n|.|\s)+?}/);
+        const devDependencies = str.match(/"devDependencies":\s?{(\n|.|\s)+?}/);
+
+        const allDeps = dependencies[0].replace('"dependencies":', '').split('\n');
+        const importantDevDependencies = devDependencies[0].replace('"devDependencies":', '').split('\n').filter((val) => val.includes('electron'));
+
+        const deps = allDeps.concat(importantDevDependencies);
+
+        const added = deps
+            .filter((val) => { return val.startsWith('+'); })
+            .map((val) => { return val.replace('+', '').replace(/[\s,"^]/g, '') })
+            .sort(((a, b) => { return a > b ? -1 : 1 }));
+
+        const removed = deps
+            .filter((val) => { return val.startsWith('-'); })
+            .map((val) => { return val.replace('-', '').replace(/[\s,"^]/g, '') })
+            .sort(((a, b) => { return a > b ? -1 : 1 }));
+
+        const addedObj = {};
+        added.map((val) => {
+            const split = val.split(':');
+            addedObj[split[0]] = split[1];
+        });
+
+        const removedObj = {};
+        removed.map((val) => {
+            const split = val.split(':');
+            removedObj[split[0]] = split[1];
+        });
+
+        let text = '';
+        text = text.concat('#### Dependencies:', '\n');
+        Object.keys(addedObj).map((key) => {
+            if (removedObj[key]) {
+                text = text.concat(`* Updated: \`${key}@${addedObj[key]}\` (Previous: v${removedObj[key]})`, '\n');
+            } else {
+                text = text.concat(`* Added: \`${key}@${addedObj[key]}\``, '\n');
+            }
+        });
+
+        Object.keys(removedObj).map((key) => {
+            if (!addedObj[key]) {
+                text = text.concat(`* Removed: \`${key}@${removedObj[key]}\``, '\n');
+            }
+        });
+
+        return text;
+    }
+}
 
 async function publishStatus() {
     const M = new Mastodon({
         client_key: process.env.CLIENT_KEY,
         client_secret: process.env.CLIENT_SECRET,
         access_token: process.env.CLIENT_TOKEN,
-        timeout_ms: 60 * 1000,  // optional HTTP request timeout to apply to all requests.
-        api_url: 'https://social.quarkjs.io/api/v1/', // optional, defaults to https://mastodon.social/api/v1/
+        timeout_ms: 60 * 1000,
+        api_url: 'https://social.quarkjs.io/api/v1/'
     });
 
     const date = new Date();
 
     //2 is the account id of the bot
-    M.get('accounts/2/statuses', null, (err, data: IStatus[] = []) => {
-
+    M.get('accounts/2/statuses', null, async (err, data: IStatus[] = []) => {
 
         if (err) {
             console.error(err);
@@ -97,12 +173,34 @@ async function publishStatus() {
         });
 
         const lastStatus = (statuses[0] || {} as any).content || '';
-        const preText = `Quark-v${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-        const tempNotes = fs.readFileSync(tempReleaseNotesPath).toString().replace(/###\s?/gi, '');
+
         const dashes = `------------------------`;
+        let currentReleaseNotes = '';
+        const diff = (await gitDiff()).replace(/[#`]\s?/gi, '');
+        const tempReleaseNoets = fs.readFileSync(tempReleaseNotesPath).toString().replace(/[#`]\s?/gi, '');
+
+        currentReleaseNotes = currentReleaseNotes.concat(tempReleaseNoets, '\n\n');
+        currentReleaseNotes = currentReleaseNotes.concat(diff, '\n\n');
+
+        currentReleaseNotes.length > 360 ? currentReleaseNotes = currentReleaseNotes.replace(/\(Previous.+\)/g, '') : null;
+        currentReleaseNotes.length > 360 ? currentReleaseNotes = currentReleaseNotes.replace(/\b@.+/g, '') : null;
+        if (currentReleaseNotes.length > 360) {
+            currentReleaseNotes = currentReleaseNotes.replace(/Dependencies/g, 'Dependencies Updated');
+            currentReleaseNotes = currentReleaseNotes.replace(/\*(.*?):\s?/g, '* ');
+        }
+        currentReleaseNotes.length > 360 ? currentReleaseNotes = tempReleaseNoets : null;
+
         const emoji = getRandomEmoji();
-        const finalNotes = String().concat(preText, `\nRelease Notes:\n${dashes}\n\n`, tempNotes, `\n\n${dashes}\n#newRelease ${emoji} ${emoji} ${getRandomEmoji()}`);
-        if (lastStatus.includes(tempNotes)) {
+
+        let notes = '';
+        notes = notes.concat(`Quark-v${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`, '\n');
+        notes = notes.concat('Release Notes: https://quarkjs.io/FAQ/release-notes.html', '\n');
+        notes = notes.concat(dashes, '\n\n');
+        notes = notes.concat(currentReleaseNotes, '\n\n');
+        notes = notes.concat(dashes, '\n');
+        notes = notes.concat(`#newRelease ${emoji} ${emoji} ${getRandomEmoji()}`);
+
+        if (lastStatus.includes(currentReleaseNotes)) {
             return;
         }
 
@@ -127,7 +225,7 @@ async function publishStatus() {
 
         function postStatus() {
             const params = {
-                status: finalNotes,
+                status: notes,
                 visibility: 'public'
             }
             M.post('statuses', params, (err, data: IStatus) => {
@@ -135,7 +233,7 @@ async function publishStatus() {
                     console.error('An error occured while trying to post status.');
                     console.log(err);
                 }
-                console.log(chalk.greenBright('|  ✅  | Status was updated successfully!'));
+                printConsoleStatus(`Status was updated successfully!`, 'success');
             });
         }
     });
@@ -146,4 +244,12 @@ interface IStatus {
     content: string;
     created_at: string;
     tags: { name: string, url: string }[]
+}
+
+interface IYAML {
+    version: number;
+    path: string;
+    sha512: string;
+    releaseDate: string;
+    files: { url: string; sha512: string; size: number; }[]
 }

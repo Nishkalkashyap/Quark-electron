@@ -1,6 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import chalk from 'chalk';
+import { printConsoleStatus } from './util';
 
 const packageJSON = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = packageJSON.version;
@@ -24,11 +25,10 @@ const paths = [
 
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
-        console.log(chalk.greenBright(`️️️️️️|  ✔️  |  Found file: ${_path}`));
-        // fs.copySync(_path, `./release/${path.basename(_path)}`);
+        printConsoleStatus(`Found file: ${_path}`, 'success');
         fs.copySync(_path, path.join(writeFolder, path.basename(_path)));
         return;
     }
 
-    console.log(chalk.redBright(`️|  ❗️  |  File not found: ${_path}`));
+    printConsoleStatus(`File not found: ${_path}`, 'success');
 });
