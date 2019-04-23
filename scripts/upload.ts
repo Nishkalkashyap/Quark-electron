@@ -10,7 +10,7 @@ import { PackageJson } from '@google-cloud/common/build/src/util';
 import { printConsoleStatus } from './util';
 const json: PackageJson = require('./../package.json');
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = './cloud-storage-key.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 const bucketName = 'quarkjs-auto-update';
 
 const storage = new Storage({

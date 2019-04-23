@@ -8,8 +8,6 @@ copyDefinitions();
 makeIcons();
 copyAssets();
 
-// fs.emptyDirSync('./build');
-
 function copyDefinitions() {
 
     const Package = fs.readJsonSync('./package.json');
@@ -17,7 +15,7 @@ function copyDefinitions() {
     const dev = Package.devDependencies;
     const all = Object.keys(Object.assign({}, deps, dev));
 
-    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', 'electron', '@types/chart.js', 'vue']
+    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', '@types/react', '@types/react-dom', 'electron', '@types/chart.js', 'vue']
 
     all.map((val) => {
 
@@ -30,7 +28,8 @@ function copyDefinitions() {
             }
         ], (e, _files) => {
             if (e) {
-                throw new Error('Failed to copy');
+                console.error(e);
+                return;
             }
             if (_files.length == 0)
                 return;
