@@ -6,7 +6,7 @@ import * as js from 'js-beautify';
 
 import * as dotenv from 'dotenv';
 import { PackageJson } from 'type-fest';
-import { spawn } from 'child_process';
+import { spawn, exec } from 'child_process';
 import { printConsoleStatus } from './util';
 dotenv.config({
     path: './scripts/mastodon.env'
@@ -15,8 +15,8 @@ dotenv.config({
 const json: PackageJson = fs.readJsonSync('./package.json');
 const latest: IYAML = YAML.parse(fs.readFileSync(`./release/${json.version}/latest.yml`).toString());
 const latestLinux: IYAML = YAML.parse(fs.readFileSync(`./release/${json.version}/latest-linux.yml`).toString());
-const tempReleaseNotesPath = `./current-release-notes.md`;
-const releaseNotesPath = `./releaseNotes.md`;
+const tempReleaseNotesPath = `./dev-assets/current-release-notes.md`;
+const releaseNotesPath = `./dev-assets/releaseNotes.md`;
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -89,7 +89,10 @@ async function gitDiff(): Promise<string> {
     let str = ''
 
     return new Promise((resolve) => {
-        const cp = spawn('git', ['diff', './package.json']);
+        const cp = exec('git --no-pager diff -U2000 ./package.json', {
+            cwd: process.cwd(),
+            timeout: 1000
+        });
         cp.stdout.on('data', (d: Buffer) => {
             str = str.concat(d.toString());
         });
@@ -158,7 +161,7 @@ async function publishStatus() {
         api_url: 'https://social.quarkjs.io/api/v1/'
     });
 
-    const date = new Date();
+    const date = new Date(latest.releaseDate);
 
     //2 is the account id of the bot
     M.get('accounts/2/statuses', null, async (err, data: IStatus[] = []) => {
@@ -189,6 +192,7 @@ async function publishStatus() {
             currentReleaseNotes = currentReleaseNotes.replace(/\*(.*?):\s?/g, '* ');
         }
         currentReleaseNotes.length > 360 ? currentReleaseNotes = tempReleaseNoets : null;
+        currentReleaseNotes.length > 360 ? currentReleaseNotes = currentReleaseNotes.substring(0, 355).concat('\n', '....') : null;
 
         const emoji = getRandomEmoji();
 
@@ -230,8 +234,9 @@ async function publishStatus() {
             }
             M.post('statuses', params, (err, data: IStatus) => {
                 if (err) {
-                    console.error('An error occured while trying to post status.');
-                    console.log(err);
+                    console.log(err, notes, notes.length);
+                    printConsoleStatus('An error occured while trying to post status.', 'danger');
+                    return;
                 }
                 printConsoleStatus(`Status was updated successfully!`, 'success');
             });

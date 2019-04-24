@@ -1,3 +1,46 @@
+<!-- Quark-0.2.1-start -->
+## Quark 0.2.1 - April 23, 2019
+
+#### Minor Changes:
+* Adding element in view.createView* methods now optional.
+* Updated landing page.
+* Updated npm install component script.
+
+#### Features:
+* Added support for jsx.
+* Added bable-loader presets for react.
+* Added markdown support with markdown-loader.
+* Added support for types definition in project directory.
+
+#### Bug fixes:
+*  Fixed missing bable-presets path error.
+*  Downgraded electron version to 4.1.3.
+
+#### Dependencies:
+* Added: `react@16.8.6`
+* Added: `react-dom@16.8.6`
+* Added: `markdown-loader@5.0.0`
+* Added: `html-loader@0.5.5`
+* Updated: `electron@4.1.3` (Previous: v4.1.4)
+* Added: `@babel/preset-env@7.4.3`
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.1.deb": "G89YxF80AHLOvYYPlFiIQDx60P+vW+3WQETBoF6rYpQL9i/cdURcBESl5ABgsSuNHcZJf2CCf2MeFGjeDoeQLw==",
+    "Quark-win-0.2.1.exe": "hlBIew8g6afXs5FamgxYwXEZ63Wege1pXfNc6xH8At3QnTeTPYpg1+VCzXhP+UUFhSWht7Vx51FJFm9pMzn/jg==",
+    "Quark-win-x64-0.2.1.zip": "FeRu46igba71A9y3hwjlsxbnqwNywWD3KFZOefsafLp+sgAxi6YzyP0HwegXyS93cWN3d3eLcs1oNnlMKJER8g==",
+    "Quark-linux-x64-0.2.1.tar.gz": "b9TO/D88ESVu3brZ5UUypi/IqsiC29G8OLFoopXpKZI69iJHB2fYrhc8HaeyMMTqOk19Efkp6JzGAI0PZ5tV1g==",
+    "Quark-linux-x86_64-0.2.1.AppImage": "iNNvXxftWiW8OnxM+A/FoMcBJirRH4FQZJcxLHV5YMEsgv2oWZMVI0SzSPqw7vzW9KyVQ61vtvhNDdskY5w8Ig=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.1-end -->
+
+
 <!-- Quark-0.2.0-start -->
 ## Quark 0.2.0 - April 22, 2019
 

@@ -29,7 +29,10 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!build",
     "!.vscode",
     "!definitions",
-    "!release"
+    "!release",
+    "!dev-assets",
+    "!scripts",
+    "!splash_assets"
 ]
 
 builder.build({
