@@ -30,5 +30,5 @@ paths.map((_path) => {
         return;
     }
 
-    printConsoleStatus(`File not found: ${_path}`, 'success');
+    printConsoleStatus(`File not found: ${_path}`, 'danger');
 });
