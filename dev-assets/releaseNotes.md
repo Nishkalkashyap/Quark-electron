@@ -10,14 +10,18 @@
 * Fixed snackbar.dispose (not working) bug.
 
 
+#### Dependencies:
+* Added: `recursive-readdir@2.2.2`
+
+
 !!! info See SHA-512 Hashes
 <DropDown>
 <ReleaseNotes :sha='{
-    "Quark-linux-amd64-0.2.2.deb": "4hV83a4Wt2C18nxdO1uvQeZnkTslFfeUK4cE5e4C9zowqtKiPj8uoZDc6NVgbMIi1gkMhliV5KWcD7RjgMsaVw==",
-    "Quark-win-0.2.2.exe": "hxmexF3aFXh6KZgzYPBAk3uIquOA3s7+M/VR+umVMtriR0Cuzs98gfDvSSJSS5+OtoR7RFZBc5iigQXV6k9cOg==",
-    "Quark-win-x64-0.2.2.zip": "wkzggiNB0svcziJoGimXraHcYEDe4OnPN/Ap+0loW4a1imQwEN3FW0J+I99QsHfapyfwqdbgUXh5ptrvIMq+TQ==",
-    "Quark-linux-x64-0.2.2.tar.gz": "Rw4hoddiWC/95I27QkW2LwNltIG/H4PrOrsFgneZieuo2JxiMGuzFXuih7tyk3J7HPokXMnnywoTSOLZM5DCrg==",
-    "Quark-linux-x86_64-0.2.2.AppImage": "PdqFmY6CRYHLiM1BWtPlmcEVqoZmP005yL0yNHm95W97M+uujr/pWb4Ge3G9mg1ej4oPR/AQERodKF8T+HuzYQ=="
+    "Quark-linux-amd64-0.2.2.deb": "pi3hC2PxXrrYLdsZthqUgqhW52bA0oTa9AwNuRAU9XQr3WCWjMyAmbYUCtUz01lOAjqUmqjbRbKfiEtMPWvLjQ==",
+    "Quark-win-0.2.2.exe": "BarPWj/554yX3B2wwZ7U/AjwRVdAAKhkrxyKZ0+0O63svJcsPycVAUltlBHYAHS6BT0GhHT9df2/ejr4sOtihw==",
+    "Quark-win-x64-0.2.2.zip": "W0354E/y8vA/cCqiNMgahdTPxa60HFRs22Wq+MskArpl7dZdD7lCxvTKB+mudzy8tMmYk17DiwAZN8glplt3qQ==",
+    "Quark-linux-x64-0.2.2.tar.gz": "Zdx1LbWe0fxUEo6P8a8016pIxvYtfAEGHaxIul/nhZN02fJmCCHZ9rkIJVH+ggqVLdvnCeX8ySelGGUhkVcAKw==",
+    "Quark-linux-x86_64-0.2.2.AppImage": "ff41SXtCluF1AoI6NLoM5vs51qIcMqN39Gt5YBY1v1eEKhV2KZdSo/kzSbDpR/b/L6HpCh1hE5oWBGeLQVR+vQ=="
 }' />
 </DropDown>
 !!!

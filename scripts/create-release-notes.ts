@@ -141,7 +141,8 @@ async function gitDiff(): Promise<string> {
         text = text.concat('#### Dependencies:', '\n');
         Object.keys(addedObj).map((key) => {
             if (removedObj[key]) {
-                text = text.concat(`* Updated: \`${key}@${addedObj[key]}\` (Previous: v${removedObj[key]})`, '\n');
+                if (addedObj[key] != removedObj[key])
+                    text = text.concat(`* Updated: \`${key}@${addedObj[key]}\` (Previous: v${removedObj[key]})`, '\n');
             } else {
                 text = text.concat(`* Added: \`${key}@${addedObj[key]}\``, '\n');
             }

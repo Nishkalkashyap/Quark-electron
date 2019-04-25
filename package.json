@@ -70,7 +70,8 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.30.0",
     "webpack-merge": "^4.2.1",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "recursive-readdir": "^2.2.2"
   },
   "devDependencies": {
     "@google-cloud/storage": "^2.5.0",
@@ -114,7 +115,6 @@
     "ncp": "^2.0.0",
     "npm-upgrade": "^1.4.1",
     "progress-stream": "^2.0.0",
-    "recursive-readdir": "^2.2.2",
     "rimraf": "^2.6.3",
     "sharp": "^0.22.0",
     "simple-git": "^1.110.0",
