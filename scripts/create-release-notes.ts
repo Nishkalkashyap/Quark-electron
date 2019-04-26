@@ -105,6 +105,11 @@ async function gitDiff(): Promise<string> {
         const dependencies = str.match(/"dependencies":\s?{(\n|.|\s)+?}/);
         const devDependencies = str.match(/"devDependencies":\s?{(\n|.|\s)+?}/);
 
+        if (!dependencies) {
+            printConsoleStatus('No change in dependency detected.', 'warning');
+            return '';
+        }
+
         const allDeps = dependencies[0].replace('"dependencies":', '').split('\n');
         const importantDevDependencies = devDependencies[0].replace('"devDependencies":', '').split('\n').filter((val) => val.includes('electron'));
 
