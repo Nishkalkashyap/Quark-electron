@@ -9,6 +9,7 @@ import { exec } from 'child_process';
 import { PackageJson } from '@google-cloud/common/build/src/util';
 import { printConsoleStatus } from './util';
 const json: PackageJson = require('./../package.json');
+import * as hasha from 'hasha';
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 const bucketName = 'quarkjs-auto-update';
@@ -37,13 +38,32 @@ const obj: { [path: string]: Table } = {};
 let uploadComplete = false;
 
 storage.bucket(bucketName).getFiles().then((folders) => {
-    folders.map((folder) => {
-        folder.map((file) => {
+    folders.map(async (folder) => {
+        const promises = folder.map(async (file) => {
+            const replacedFileName = file.name.replace(`Quark-${json.version}/`, '');
+
             if (!file.name.includes(`Quark-${json.version}/`)) {
                 return;
             }
-            alreadyExists.push(file.name.replace(`Quark-${json.version}/`, ''));
+
+            if (await file.exists()) {
+                const meta: StorageObjectMetadata = (await file.getMetadata())[0];
+                const hash = await hasha.fromFile(`./release/${json.version}/${replacedFileName}`, { algorithm: 'md5', encoding: 'base64' });
+
+                if (meta.md5Hash != hash.toString()) {
+                    printConsoleStatus(`Deleting file: ${replacedFileName}; **Shasum Mismatch**`, 'danger');
+                    await file.delete();
+                    printConsoleStatus(`File deleted: ${replacedFileName}`, 'warning');
+                    return;
+                }
+
+                printConsoleStatus(`Shasum matched in uploaded file: ${replacedFileName}`, 'success');
+            }
+
+            alreadyExists.push(file.name.replace(replacedFileName, ''));
+            return true;
         });
+        await Promise.all(promises);
         startUploading();
         statusChecker();
     });
@@ -208,4 +228,19 @@ function startUploading() {
                 obj[objKey].uploaded = true;
             }) as any;
     });
+}
+
+interface StorageObjectMetadata {
+    name: string,
+    bucket: string,
+    generation: string,
+    metageneration: string,
+    timeCreated: string,
+    updated: string,
+    storageClass: string,
+    timeStorageClassUpdated: string,
+    size: string,
+    md5Hash: string,
+    crc32c: string,
+    etag: string
 }
