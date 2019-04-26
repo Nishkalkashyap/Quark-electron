@@ -18,21 +18,6 @@ const storage = new Storage({
     projectId: 'diy-mechatronics'
 });
 
-interface Table {
-    delta: string;
-    eta: string;
-    length: string;
-
-    percent: string;
-    remaining: string;
-    speed: string;
-    transffered: string;
-
-    uploaded: boolean;
-
-    errored: boolean;
-    stream: NodeJS.ReadStream;
-}
 const alreadyExists: string[] = [];
 const obj: { [path: string]: Table } = {};
 let uploadComplete = false;
@@ -47,20 +32,18 @@ storage.bucket(bucketName).getFiles().then((folders) => {
             }
 
             if (await file.exists()) {
-                const meta: StorageObjectMetadata = (await file.getMetadata())[0];
-                const hash = await hasha.fromFile(`./release/${json.version}/${replacedFileName}`, { algorithm: 'md5', encoding: 'base64' });
-
-                if (meta.md5Hash != hash.toString()) {
-                    printConsoleStatus(`Deleting file: ${replacedFileName}; **Shasum Mismatch**`, 'danger');
-                    await file.delete();
-                    printConsoleStatus(`File deleted: ${replacedFileName}`, 'warning');
-                    return;
+                if (!(await checkIntrgrity(replacedFileName))) {
+                    // printConsoleStatus(`Deleting file: ${replacedFileName}; **Shasum Mismatch**`, 'danger');
+                    // await file.delete();
+                    // printConsoleStatus(`File deleted: ${replacedFileName}`, 'warning');
+                    // return;
+                    printConsoleStatus(`Intrgrity check failed at: ${replacedFileName}`, 'warning');
                 }
 
-                printConsoleStatus(`Shasum matched in uploaded file: ${replacedFileName}`, 'success');
+                printConsoleStatus(`Shasum matched in uploaded file: ${replacedFileName}`, 'info');
             }
 
-            alreadyExists.push(file.name.replace(replacedFileName, ''));
+            alreadyExists.push(replacedFileName);
             return true;
         });
         await Promise.all(promises);
@@ -87,7 +70,7 @@ function statusChecker() {
             data.push([
                 key,
                 obj[key].delta,
-                obj[key].eta + ' min',
+                obj[key].eta + ' sec',
                 obj[key].length,
                 obj[key].percent + ' %',
                 obj[key].remaining,
@@ -115,23 +98,46 @@ function statusChecker() {
 
         if (statusFlag && !uploadComplete) {
             uploadComplete = true;
-            printConsoleStatus('All files were uploaded successfully!', 'success');
+            printConsoleStatus('All files were uploaded successfully\n\n', 'success');
+            printConsoleStatus('Checking integrity of uploaded files.', 'info');
+
+            const promises = fs.readdirSync(`./release/${json.version}`).map((key) => {
+                return checkIntrgrity(key);
+            });
+
+            const intrgrityCheck = (await Promise.all(promises)).every((val) => val == true);
+            if (!intrgrityCheck) {
+                printConsoleStatus(`Integrity check failed. Try uploading again.`, 'danger');
+                process.exit();
+                return;
+            }
+
+            printConsoleStatus('All files checked. Status OK!\n\n', 'success');
+            printConsoleStatus('Copying new release to root', 'info');
 
             const result = await copyToRoot();
-
             if (result) {
+                printConsoleStatus('Files successfully copied to root\n\n', 'success');
+                printConsoleStatus('Spawning new process to release notes.', 'info');
                 const pro = exec('ts-node ./scripts/create-release-notes.ts');
                 pro.stdout.pipe(process.stdout);
                 pro.stderr.pipe(process.stderr);
-
                 pro.addListener('exit', (code) => {
                     process.exit(code);
                 });
             } else {
+                printConsoleStatus('Could not copy files to root.', 'danger');
                 throw Error('Failed to copy files.');
             }
         }
     }, 500);
+}
+
+async function checkIntrgrity(filename: string) {
+    const file = storage.bucket(bucketName).file(`Quark-${json.version}/${filename}`);
+    const meta: StorageObjectMetadata = (await file.getMetadata())[0];
+    const hash = await hasha.fromFile(`./release/${json.version}/${filename}`, { algorithm: 'md5', encoding: 'base64' });
+    return meta.md5Hash == hash.toString();
 }
 
 async function copyToRoot() {
@@ -204,11 +210,11 @@ function startUploading() {
         prog.on('progress', (percent) => {
             obj[objKey] = {
                 delta: chalk.blueBright(Number(percent.delta).toFixed(2).toString()),
+                eta: chalk.whiteBright(percent.eta.toString()),
                 length: chalk.cyanBright(Number(percent.length).toFixed(2).toString()),
                 percent: chalk.greenBright(Number(percent.percentage).toFixed(2).toString()),
                 remaining: chalk.magentaBright(Number(percent.remaining).toFixed(2).toString()),
                 speed: chalk.redBright(Number(percent.speed).toFixed(2)).toString(),
-                eta: chalk.whiteBright(percent.eta.toString()),
                 transffered: chalk.yellowBright(percent.transferred.toString()),
                 uploaded: obj[objKey].uploaded,
                 errored: false,
@@ -219,7 +225,9 @@ function startUploading() {
             .pipe(prog)
             .pipe(file.createWriteStream({ resumable: true }))
             .on('error', function (err) {
-                obj[objKey].errored = true;
+                if (err) {
+                    obj[objKey].errored = true;
+                }
                 if (obj[objKey].stream) {
                     obj[objKey].stream.end();
                 }
@@ -243,4 +251,20 @@ interface StorageObjectMetadata {
     md5Hash: string,
     crc32c: string,
     etag: string
+}
+
+interface Table {
+    delta: string;
+    eta: string;
+    length: string;
+
+    percent: string;
+    remaining: string;
+    speed: string;
+    transffered: string;
+
+    uploaded: boolean;
+
+    errored: boolean;
+    stream: NodeJS.ReadStream;
 }

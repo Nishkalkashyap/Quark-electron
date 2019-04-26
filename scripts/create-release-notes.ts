@@ -42,7 +42,7 @@ async function createShaHash(): Promise<any> {
     const releasedBinaries = latest.files.concat(latestLinux.files);
     releasedBinaries.map((bin) => {
         if (obj[bin.url] == bin.sha512) {
-            printConsoleStatus(`Sha512 matched for ${bin.url}`, 'success');
+            printConsoleStatus(`Sha512 matched for ${bin.url}`, 'info');
             return;
         }
         printConsoleStatus(`Sha512 mis matched for ${bin.url}`, 'danger');
@@ -83,7 +83,10 @@ async function createShaHash(): Promise<any> {
 }
 
 createShaHash().catch(console.error);
-publishStatus().catch(console.error);
+publishStatus().catch((err) => {
+    printConsoleStatus(`Failed to publish status.`, 'danger');
+    printConsoleStatus(`${err}`, 'danger');
+});
 
 async function gitDiff(): Promise<string> {
     let str = ''
