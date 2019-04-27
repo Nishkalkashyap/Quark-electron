@@ -3,7 +3,7 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@squirtle/api": "file:./../@squirtle/api",
@@ -58,6 +59,7 @@
     "raw-loader": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "recursive-readdir": "^2.2.2",
     "sass-loader": "^7.1.0",
     "serialport": "^7.1.4",
     "ts-loader": "^5.3.3",
@@ -70,8 +72,7 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.30.0",
     "webpack-merge": "^4.2.1",
-    "webpack-node-externals": "^1.7.2",
-    "recursive-readdir": "^2.2.2"
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@google-cloud/storage": "^2.5.0",

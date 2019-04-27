@@ -1,9 +1,10 @@
 #### Features:
-* Added textmate for better syntax highlighting.
-* Added monokai and one dark theme.
+* Added emmet through emmet-monaco-es dependency.
+* Added type definition support for in-memory files.
 
 #### Bug fixes:
-* Fixed settings scope bug.Workspace settings now take precedence over global settings.
-* Fixed persistant store onDidChange() method. Now using fs.watcher to detect file changes.
-* Fixed window crash while adding extra libs to an opened editor.
-* Fixed window state restore handle.
+* Fixed react's `regeneratorRuntime not defined` error.
+
+#### Minor Changes:
+* Fixed output channel theme issue.
+* Terminal theme now borrows colors from global css variables.
