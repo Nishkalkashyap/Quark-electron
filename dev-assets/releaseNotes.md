@@ -1,3 +1,32 @@
+<!-- Quark-0.2.3-start -->
+## Quark 0.2.3 - April 27, 2019
+
+#### Features:
+* Added textmate for better syntax highlighting.
+* Added monokai and one dark theme.
+
+#### Bug fixes:
+* Fixed settings scope bug.Workspace settings now take precedence over global settings.
+* Fixed persistant store onDidChange() method. Now using fs.watcher to detect file changes.
+* Fixed window crash while adding extra libs to an opened editor.
+* Fixed window state restore handle.
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.3.deb": "YhJOXf6dpf6UK1Kj5KlNbpUFMIHWbZpzk66EhMd00dgal5PRzl7+N1vJYpP9tMY1+Qsjk9isgwf7lgWuhdmsLw==",
+    "Quark-win-0.2.3.exe": "yegBc3OrBQ52K8/zYoP9zQtyC9Q7leWx+ZwPKFeTXQBXQ7l1TaipUiVcsBRXypGfPonGFcBJCWXWJ25XwpYEjQ==",
+    "Quark-win-x64-0.2.3.zip": "TF7OveAisI2m2anFtrxFqWV06PoGvhSRxBiBCq461t5a+b/o4FalFASZaXU7T7Pp3Hmn6rRewhG+6ck1fkZmHw==",
+    "Quark-linux-x64-0.2.3.tar.gz": "m55LLmxwehwhoQ+07wOZcTRdUQW8BS4XKSvqMwRWPYytpl8Np4EsKdNPZqIxxDNflxryYF+mkjXD+iFjZo/2jw==",
+    "Quark-linux-x86_64-0.2.3.AppImage": "X/b9rVqYWyuNXJK2nDoCx3w3EOPFiRQFyD4UZrjAbtVKjX5qtJJgZWxCJU8uwg7PzzL6ta5nZUho/GFoU+BXAQ=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.3-end -->
+
+
 <!-- Quark-0.2.2-start -->
 ## Quark 0.2.2 - April 25, 2019
 
