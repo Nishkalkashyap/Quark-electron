@@ -18,3 +18,5 @@ npm run notes //to social.quarkjs.io
 #### Other changes
 #### Dependencies
 #### Minor Changes:
+
+add .quarkignore like vscode ignore

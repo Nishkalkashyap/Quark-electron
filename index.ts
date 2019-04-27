@@ -72,7 +72,8 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
             win.loadURL(`http://localhost:4200`);
         }
 
-        win.webContents.on('dom-ready', () => {
+        // win.webContents.on('dom-ready', () => {
+        win.webContents.on('did-finish-load', () => {
             win.show();
             win.webContents.executeJavaScript(`document.querySelector('app-views-container') || document.querySelector('app-new-landing')`)
                 .then((val) => {
@@ -201,6 +202,8 @@ function getDesignerPageWindow(): IBrowserWindow {
         frame: false,
         minHeight: 600,
         minWidth: 400,
+        width: 900,
+        height: 700,
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,

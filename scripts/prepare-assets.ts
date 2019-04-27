@@ -65,6 +65,9 @@ function copyDefinitions() {
 }
 
 function copyAssets() {
+
+    fs.removeSync('./www/');
+
     try {
         ncp.ncp('./../QuarkUMD/dist/', './www/', {
             filter: (file) => {
