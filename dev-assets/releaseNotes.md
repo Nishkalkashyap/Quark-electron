@@ -1,3 +1,38 @@
+<!-- Quark-0.2.4-start -->
+## Quark 0.2.4 - April 28, 2019
+
+#### Features:
+* Added emmet through emmet-monaco-es dependency.
+* Added type definition support for in-memory files.
+
+#### Bug fixes:
+* Fixed react's `regeneratorRuntime not defined` error.
+
+#### Minor Changes:
+* Fixed output channel theme issue.
+* Terminal theme now borrows colors from global css variables.
+
+
+#### Dependencies:
+* Added: `@babel/plugin-proposal-class-properties@7.4.4`
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.4.deb": "+32veePlfwsn6MeA5GBm/eUYAL5qKLeEVTyTQM8bvQmeCBRBXIWBclne2R+t1qL3Fq78AFgnK+e/cr3LNUnpEQ==",
+    "Quark-win-0.2.4.exe": "SMzQIpXMlq3Mn343GKeQFp/rIDCb9kkRhIVt1M/xUgZfqT6ZpFXHebEicN5wVoEPSprprEzPGkCfSlhl5JiQAQ==",
+    "Quark-win-x64-0.2.4.zip": "LgLQpbfS9N/F+d9triNz9bxrtof9sA0ttmDLEMOY1fjHTpZTn/UbMcRtrrrQX2u3Mtdx/TUGDGKlwtAtlJStww==",
+    "Quark-linux-x64-0.2.4.tar.gz": "dqoNSDYqLCcCn5FLPKutrDIeSehEFvbzYaVu00X+daC4SpTfAVFawAVG9PDh3RosKZzd9tlhOkSfy6PWZVptlw==",
+    "Quark-linux-x86_64-0.2.4.AppImage": "6dLe9p8K010KkCJRDZ10yUVb5xaIAKLCVkZOXDBW6Uesd4p5M8JMdGwC305vkHi0OTUOktokSaLHPhHfpTjxaA=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.4-end -->
+
+
 <!-- Quark-0.2.3-start -->
 ## Quark 0.2.3 - April 27, 2019
 
