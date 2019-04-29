@@ -3,7 +3,7 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
@@ -14,8 +14,9 @@
     "link": "npm install ./../@squirtle/api",
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
+    "install-peer": "npm install github:PKief/vscode-material-icon-theme --ignore-scripts",
     "build-quick": "ts-node ./scripts/prepare-assets.ts && tsc && npm run lic && ts-node scripts/build.ts",
-    "build-common": "npm run clean-dir && npm install && npm run build-quick",
+    "build-common": "npm run clean-dir && npm install && npm run install-peer && npm run build-quick",
     "build-win": "npm run build-common && start .\\build",
     "build-linux": "ts-node ./scripts/build-linux.ts && cd ./../Quark-electron-linux && npm run build-common",
     "bw": "npm run build-win",
@@ -51,6 +52,7 @@
     "johnny-five": "^1.0.0",
     "markdown-it": "^8.4.2",
     "markdown-loader": "^5.0.0",
+    "material-icon-theme": "github:PKief/vscode-material-icon-theme",
     "memory-fs": "^0.4.1",
     "node-pty": "^0.8.1",
     "node-sass": "^4.11.0",
@@ -129,5 +131,8 @@
     "Quark",
     "Electron"
   ],
+  "peerDependencies": {
+    "material-icon-theme": "github:PKief/vscode-material-icon-theme"
+  },
   "license": "ISC"
 }

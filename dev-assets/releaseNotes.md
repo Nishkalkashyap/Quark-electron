@@ -1,3 +1,31 @@
+<!-- Quark-0.2.5-start -->
+## Quark 0.2.5 - April 29, 2019
+
+#### Features
+* added material theme icons.
+* added recent file sorting in file explorer.
+* added recent file sorting in quick open file.
+
+#### Bug fixes:
+* fixed onDidRemoveView handle.
+* fixed file rename handle css.
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.5.deb": "2zxEFLuJLw73gpwkbzQuehchueL1hr/Iqv+bRQV3hPASI5rQAwlg4X+qntj4BnhC/nJDmiktiqxbqDtz/ZtBLQ==",
+    "Quark-win-0.2.5.exe": "JSRNbg2ebKPgfONaIuDm0OB3pBdb9sYWNajUV4JN1BGjv1hG6x1AqMtm6icP1OKVfIGQmWZEw2N4JdMEjGk/DA==",
+    "Quark-win-x64-0.2.5.zip": "g+zvTJBV4Tqn/cl9x0NyvCCtGVgLdnQfwsNZICCIJDTMw91U7bn53vHypQ/CjuaNNzh9kD2caEKu2n7ITSUrSw==",
+    "Quark-linux-x64-0.2.5.tar.gz": "0n3r+m73vD/XEFj4dmsdYSq3+bqBB42MoEK+JjEEmuvEDhQQrcFPtLuIhjGXyvuhs8W5tihX22i8nJp1blRvow==",
+    "Quark-linux-x86_64-0.2.5.AppImage": "+lAl2QVCoQZ7MQaFTBgEiEQWJzTaGjvoVANs5CIn15eM+YDvFk5pXW+lZsCxvh9H+7cl6MEO1dcdZGe2gyf1VQ=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.5-end -->
+
+
 <!-- Quark-0.2.4-start -->
 ## Quark 0.2.4 - April 28, 2019
 

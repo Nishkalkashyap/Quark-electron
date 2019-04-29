@@ -1,10 +1,8 @@
-#### Features:
-* Added emmet through emmet-monaco-es dependency.
-* Added type definition support for in-memory files.
+#### Features
+* added material theme icons.
+* added recent file sorting in file explorer.
+* added recent file sorting in quick open file.
 
 #### Bug fixes:
-* Fixed react's `regeneratorRuntime not defined` error.
-
-#### Minor Changes:
-* Fixed output channel theme issue.
-* Terminal theme now borrows colors from global css variables.
+* fixed onDidRemoveView handle.
+* fixed file rename handle css.
