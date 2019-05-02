@@ -2,7 +2,6 @@ import * as ncp from 'ncp';
 import * as fs from 'fs-extra';
 import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
-import * as path from 'path';
 
 copyDefinitions();
 makeIcons();
@@ -15,7 +14,7 @@ function copyDefinitions() {
     const dev = Package.devDependencies;
     const all = Object.keys(Object.assign({}, deps, dev));
 
-    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', '@types/react', '@types/react-dom', 'electron', '@types/chart.js', 'vue']
+    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', '@types/react', '@types/prop-types', '@types/react-dom', 'electron', '@types/chart.js', 'vue']
 
     all.map((val) => {
 

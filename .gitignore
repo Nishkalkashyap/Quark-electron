@@ -62,5 +62,6 @@ cloud-storage-key.json
 Thumbs.db
 UserInterfaceState.xcuserstate
 *.build.qrk
+*.store.qrk
 dev-assets/bills
 index.js
