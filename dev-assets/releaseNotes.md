@@ -1,3 +1,45 @@
+<!-- Quark-0.2.6-start -->
+## Quark 0.2.6 - May 3, 2019
+
+#### Features
+* Added react-styled-components.
+* Added partial typescript support.
+* Added find and replace component.
+* Added react snippets.
+* Added textmate grammar for scss and json.
+* Added vscode-monaco theme converter.
+* Added electron, one-dark theme.
+* Updated tmLanguage definitions.
+
+#### Other changes
+* Changed webpack default mode from 'production' to 'development'.
+
+#### Dependencies:
+* Added: `styled-components@4.2.0`
+* Added: `prop-types@15.7.2`
+* Updated: `material-icon-theme@3.7.1` (Previous: vgithub)
+* Added: `@babel/preset-typescript@7.3.3`
+* Added: `@babel/plugin-proposal-object-rest-spread@7.4.4`
+* Removed: `sass-loader@7.1.0`
+* Removed: `node-sass@4.11.0`
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.6.deb": "OBb+45HFUpkCEpupsQdLi9TpWOBF29OnBy5QMzUzmpfS7XDYBmy4Rch4jNAqCI2WbmQgASb7AgSOi85JLG0Ryg==",
+    "Quark-win-0.2.6.exe": "Q67ggpqrXH+9fv/OAeEVqTXwP4TFl9Lz77fF3JPrxRGMY8fkMpRQDCvF1qz74zbOXD6gP9dsUE7jLwmLoGPy5g==",
+    "Quark-win-x64-0.2.6.zip": "A05VkU3q9t9b4/30ewMLrgD5oF0IWPkQuvEMhM7Q/n19h9fvTYjqUCfO1krpeFyIUEt0sA+cglbmqjPuASyjlg==",
+    "Quark-linux-x64-0.2.6.tar.gz": "vtMHLr3OkO8Tw5aeYpAsAKCkCS5EkvHnCGjtMiyf8intoaelJGp+VqygLu90niP4cnA5DiIIBS6xiPtocEBkVg==",
+    "Quark-linux-x86_64-0.2.6.AppImage": "DpsXEt9Eh+0OWmodCOmN7+X0zhudsp34rdtIk7L89MnFBmDUom4Wa4AI86AXFGG2pL9pkTKCn7AkhBp8Br5vrA=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.6-end -->
+
+
 <!-- Quark-0.2.5-start -->
 ## Quark 0.2.5 - April 29, 2019
 
