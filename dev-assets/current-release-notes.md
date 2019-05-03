@@ -1,8 +1,12 @@
 #### Features
-* added material theme icons.
-* added recent file sorting in file explorer.
-* added recent file sorting in quick open file.
+* Added react-styled-components.
+* Added partial typescript support.
+* Added find and replace component.
+* Added react snippets.
+* Added textmate grammar for scss and json.
+* Added vscode-monaco theme converter.
+* Added electron, one-dark theme.
+* Updated tmLanguage definitions.
 
-#### Bug fixes:
-* fixed onDidRemoveView handle.
-* fixed file rename handle css.
+#### Other changes
+* Changed webpack default mode from 'production' to 'development'.

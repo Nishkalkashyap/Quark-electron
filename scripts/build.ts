@@ -65,6 +65,10 @@ builder.build({
                     arch: ['x64']
                 },
                 // {
+                //     target: 'appx',
+                //     arch: ['x64']
+                // }
+                // {
                 //     target: 'msi'
                 // },
                 // {
@@ -88,6 +92,20 @@ builder.build({
             runAfterFinish: true,
             createDesktopShortcut: true,
             createStartMenuShortcut: true
+        },
+        appx: {
+            // identityName: 'Quarkjs',
+            // backgroundColor: '#000000',
+            // displayName: 'Quarkjs',
+            // publisherDisplayName: 'Nishkal',
+            // applicationId : 'Quarkjs',
+            
+            
+            identityName : '12724Nishkal.Quarkjs',
+            displayName : 'Quarkjs',
+            "applicationId":"Quarkjs",
+            "publisher" : "CN=88BEC0DF-9467-4B64-BE19-2F563CC75E57",
+            "publisherDisplayName" : "Nishkal"
         },
         linux: {
             "category": "IDE",
