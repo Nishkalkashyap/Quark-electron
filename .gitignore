@@ -65,3 +65,4 @@ UserInterfaceState.xcuserstate
 *.store.qrk
 dev-assets/bills
 index.js
+.quark/

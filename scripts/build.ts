@@ -32,8 +32,10 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!release",
     "!dev-assets",
     "!scripts",
-    "!splash_assets"
+    "!splash_assets",
+    "!.quark"
 ]
+
 
 builder.build({
     config: {
@@ -46,7 +48,7 @@ builder.build({
             "definitions-unpacked"
         ],
         fileAssociations: {
-            ext: 'qrk',
+            ext: ['qrk', 'qrk.asar'],
             role: 'Editor'
         },
         files: defaultFiles,
@@ -99,13 +101,13 @@ builder.build({
             // displayName: 'Quarkjs',
             // publisherDisplayName: 'Nishkal',
             // applicationId : 'Quarkjs',
-            
-            
-            identityName : '12724Nishkal.Quarkjs',
-            displayName : 'Quarkjs',
-            "applicationId":"Quarkjs",
-            "publisher" : "CN=88BEC0DF-9467-4B64-BE19-2F563CC75E57",
-            "publisherDisplayName" : "Nishkal"
+
+
+            identityName: '12724Nishkal.Quarkjs',
+            displayName: 'Quarkjs',
+            "applicationId": "Quarkjs",
+            "publisher": "CN=88BEC0DF-9467-4B64-BE19-2F563CC75E57",
+            "publisherDisplayName": "Nishkal"
         },
         linux: {
             "category": "IDE",
