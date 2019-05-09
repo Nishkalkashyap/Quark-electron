@@ -1,3 +1,33 @@
+<!-- Quark-0.2.8-start -->
+## Quark 0.2.8 - May 9, 2019
+
+#### Bug fixes:
+* Fixed 'main file path' null error in auto-colpletion.
+* Replaced spawn with fork in npm install script.
+* Fixed imports from relative paths.
+
+#### Features
+* partially implemented asar packager in backend.
+
+#### Other changes
+* New project now starts in a folder.
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.8.deb": "WO6KvjLahiRSn/X/g7IEjyxxn5uM0KqQqqZiivp31p7joVY3qx5bB1J3ZGtobZviZThkO0v2nW99AzZslY+fIg==",
+    "Quark-win-0.2.8.exe": "tNbTQTQqGqU8WocbHLDQN43mSESJY6k2M+ZywX7WMcotvwaPxltCVa5mv/J7meHrk7EFxzPUWzSNh9GbBAOVQA==",
+    "Quark-win-x64-0.2.8.zip": "G537WXwhfZpAWQHhEyIZQYKXcTfj4JZWERDbdHSM3OdGst5hDKeveAqirV0hpWJEEPwmCcrUPcu2OXvreNnauA==",
+    "Quark-linux-x64-0.2.8.tar.gz": "BruHJfjw6E2cTMQoFazjiUI8Q89NFc4FX9z0iN2M8j5JrNqjCeA5lPtBUVL+xty9i2l7kqk2ILrL4t5z4qBBfA==",
+    "Quark-linux-x86_64-0.2.8.AppImage": "+EC0zKMtGjwCtSZWLcArZODizpVm5vjnNYY5Tr2o6rm+0Q3rYkTmYZJJA8k4LfBDdgXEdVvt6ZBqk6No9GxS6g=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.8-end -->
+
+
 <!-- Quark-0.2.7-start -->
 ## Quark 0.2.7 - May 4, 2019
 

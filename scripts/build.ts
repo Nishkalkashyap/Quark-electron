@@ -47,10 +47,10 @@ builder.build({
         asarUnpack: [
             "definitions-unpacked"
         ],
-        fileAssociations: {
-            ext: ['qrk', 'qrk.asar'],
-            role: 'Editor'
-        },
+        fileAssociations: [
+            { ext: 'qrk'},
+            { ext: 'qrk.asar'}
+        ],
         files: defaultFiles,
         directories: {
             output: 'build',
