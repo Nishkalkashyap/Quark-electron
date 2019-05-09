@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, crashReporter, shell, remote } from "electron";
+import { app, BrowserWindow, ipcMain, crashReporter, shell, remote, dialog } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as url from 'url';
@@ -43,7 +43,7 @@ function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
     });
 }
 
-async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): Promise<IBrowserWindow> {
+async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): Promise<IBrowserWindow> {
     // publishGlobalEvent(_fileName, _fileName);
     typeof _fileName == 'string' ? null : _fileName = null;
     let fileName = _fileName || path.resolve(process.argv[2] || process.argv[1] || path.join(process.argv[0], './no_file.qrk'));
@@ -52,7 +52,7 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         let win: IBrowserWindow;
         let showLandingPage: boolean;
-        if (fileName.includes('no_file.qrk') || fileName == app.getAppPath()) {
+        if (fileName.includes('no_file.qrk') || fileName == app.getAppPath() || fileName == path.dirname(app.getPath('exe'))) {
             win = getLandingPageWindow();
             showLandingPage = true;
         } else {
@@ -83,6 +83,13 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
                     //val = null if not found
                     if (val == null) {
                         win.webContents.openDevTools();
+                        dialog.showMessageBox(win, {
+                            title: 'Error',
+                            message: 'Failed to parse file.',
+                            buttons: ['Close']
+                        }, (r, c) => {
+                            win.close();
+                        });
                     }
                 })
                 .catch((err) => { console.log(err, 'never executed'); })
@@ -98,6 +105,16 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
             // if (!k) {
             win.close();
             // }
+
+            dialog.showMessageBox(win, {
+                title: 'Window Crashed',
+                message: 'Reopen current project? ',
+                buttons: ['Yes', 'No']
+            }, (r, c) => {
+                if (r == 0) {
+                    createWindow(windowTypes, _fileName);
+                }
+            });
         });
 
 
@@ -144,20 +161,20 @@ if (!_isSecondInstance) {
             quarkFilePath.match(buildFileMatchPattern) ? createOrFocusWindow(runModeWindows, path.resolve(quarkFilePath)) : createOrFocusWindow(devModeWindows, path.resolve(quarkFilePath));
             return;
         }
-        createOrFocusWindow(devModeWindows, workingDirectory);
+        createOrFocusWindow(devModeWindows, path.resolve(workingDirectory));
     });
 }
 
 function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: string) {
     const val = windowTypes.find((_val: IBrowserWindow) => {
-        return _val.data.project === workingDirectory;
+        return _val.data.project == path.resolve(workingDirectory);
     });
 
     if (val) {
         if (val.isMinimized()) { val.restore() };
         val.focus();
     } else {
-        createWindow(windowTypes, workingDirectory);
+        createWindow(windowTypes, path.resolve(workingDirectory));
     }
 }
 
@@ -169,7 +186,7 @@ app.on('ready', () => {
         windowType = runModeWindows;
     }
 
-    createWindow(windowType);
+    createWindow(windowType, app.getAppPath());
     registerListeners();
     autoUpdater.checkForUpdatesAndNotify();
 });

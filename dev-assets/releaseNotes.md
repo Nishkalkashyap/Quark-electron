@@ -1,3 +1,28 @@
+<!-- Quark-0.2.10-start -->
+## Quark 0.2.10 - May 9, 2019
+
+#### Bug fixes:
+* Fixed app.secondInstance new browserWindow issue. (Needs more testing)
+
+#### Other changes
+* Added close dialog on browserWindow fail.
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.10.deb": "1+4MSUXR2F2RxgL8XekmhhmCEM3RAu7QKnsVeaFmul0FuwvoEDPgNxRVbkDYBKBhKzlWysLE+Y8UnDz8q1fPNg==",
+    "Quark-win-0.2.10.exe": "R5pOhECOh6BQ9yiB+zqdlW6rF7Vpr/ZJXgn4eeXWhac+YCEjNS3s3vfJ4N2AjFX3dxGVCxWFAtOrVPJUWCZPJw==",
+    "Quark-win-x64-0.2.10.zip": "xiCTqTp76XU3xqYWm1V4a2CjPnYSBWNZVaWNHwjAwJ6c7pXDLAGrIWQ4gDSfc6jdkAQJuqyEvKBHvk3c1mUNpw==",
+    "Quark-linux-x64-0.2.10.tar.gz": "VVBQbR4sPr/HkCmEaw1SR8NdHOfF8l3KSvV1Or3UqnGhSQ+yullWxgL2CXMkRCYR6cEXne8mKZd1LSgmHjNqpA==",
+    "Quark-linux-x86_64-0.2.10.AppImage": "J0yBR7dFDDdMsZRZsRLwdmJewmLj3+6vAfJGlnH4zOedcDlO/pHoqUTAUINREHblnbfXZca4Fdru+5GuNLLcEQ=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.10-end -->
+
+
 <!-- Quark-0.2.9-start -->
 ## Quark 0.2.9 - May 9, 2019
 

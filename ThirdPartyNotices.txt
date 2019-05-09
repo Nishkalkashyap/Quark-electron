@@ -26980,8 +26980,8 @@ The complete list of contributors can be found at: https://github.com/hapijs/qs/
 ----------------------------------------------------------------------------
 
 
-Package: quark@0.2.9
-License: ISC
+Package: quark@0.2.10
+License: GPL-3.0
 License Source: LICENSE
 Source Text: 
 
