@@ -3,7 +3,7 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
@@ -133,5 +133,5 @@
     "Quark",
     "Electron"
   ],
-  "license": "ISC"
+  "license": "GPL-3.0"
 }

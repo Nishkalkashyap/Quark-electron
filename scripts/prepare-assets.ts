@@ -2,6 +2,7 @@ import * as ncp from 'ncp';
 import * as fs from 'fs-extra';
 import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
+import { printConsoleStatus } from './util';
 
 copyDefinitions();
 makeIcons();
@@ -27,12 +28,13 @@ function copyDefinitions() {
             }
         ], (e, _files) => {
             if (e) {
-                console.error(e);
+                printConsoleStatus(e.name, 'danger');
+                printConsoleStatus(e.message, 'danger');
                 return;
             }
             if (_files.length == 0)
                 return;
-            console.log(_files.length, val);
+            printConsoleStatus(`Copied ${_files.length} definitions from ${val}`, 'success');
             copyFiles();
         });
 
@@ -40,7 +42,7 @@ function copyDefinitions() {
             const mkdirp = require('mkdirp');
             mkdirp('./definitions/' + val, (e) => {
                 if (e) {
-                    console.log(e);
+                    printConsoleStatus(`Error: ${e}`, 'danger');
                 }
             });
 
@@ -56,7 +58,8 @@ function copyDefinitions() {
                 dereference: true
             }, (e) => {
                 if (e) {
-                    console.log(e, 'failed');
+                    printConsoleStatus(`Error: ${e.name}`, 'danger');
+                    printConsoleStatus(`Error: ${e.message}`, 'danger');
                 }
             });
         }
@@ -73,10 +76,16 @@ function copyAssets() {
                 return file.search('js.map') == -1
             }
         }, (e) => {
-            console.log(e);
+            if (e) {
+                printConsoleStatus(`Error: ${e.name}`, 'danger');
+                printConsoleStatus(`Error: ${e.message}`, 'danger');
+            }
         });
-    } catch (err) {
-        console.log(err);
+    } catch (e) {
+        if (e) {
+            printConsoleStatus(`Error: ${e.name}`, 'danger');
+            printConsoleStatus(`Error: ${e.message}`, 'danger');
+        }
     }
 }
 

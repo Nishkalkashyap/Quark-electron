@@ -2,6 +2,7 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import * as os from 'os';
+import { printConsoleStatus } from './util';
 dotenv.config({
     path: './scripts/prod.env'
 });
@@ -36,6 +37,7 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!.quark"
 ]
 
+printConsoleStatus(`Starting Build`, 'success');
 
 builder.build({
     config: {
@@ -48,8 +50,8 @@ builder.build({
             "definitions-unpacked"
         ],
         fileAssociations: [
-            { ext: 'qrk'},
-            { ext: 'qrk.asar'}
+            { ext: 'qrk' },
+            { ext: 'qrk.asar' }
         ],
         files: defaultFiles,
         directories: {
@@ -96,13 +98,6 @@ builder.build({
             createStartMenuShortcut: true
         },
         appx: {
-            // identityName: 'Quarkjs',
-            // backgroundColor: '#000000',
-            // displayName: 'Quarkjs',
-            // publisherDisplayName: 'Nishkal',
-            // applicationId : 'Quarkjs',
-
-
             identityName: '12724Nishkal.Quarkjs',
             displayName: 'Quarkjs',
             "applicationId": "Quarkjs",
@@ -154,7 +149,30 @@ builder.build({
                 from: 'definitions',
                 to: 'definitions'
             }
-        ]
+        ],
+
+        // artifactBuildStarted: (c) => {
+        //     printConsoleStatus('\n\nBuild Started', 'success');
+        //     printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
+        // },
+        afterSign: (c) => {
+            printConsoleStatus('\n\nApplication Signed', 'success');
+        },
+        afterPack: (c) => {
+            printConsoleStatus('\n\nApplication packaged', 'success');
+            printConsoleStatus('MetaData:', 'success');
+            printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
+            printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
+            printConsoleStatus(`Arch: ${c.arch}`, 'info');
+        },
+        afterAllArtifactBuild: async (c) => {
+            printConsoleStatus('\n\nAll artifacts built', 'success');
+            printConsoleStatus(`${c.artifactPaths.join(' ')}`, 'info');
+            printConsoleStatus(`Outdir: ${c.outDir}`, 'info');
+
+            printConsoleStatus('\n\nBuild Success', 'success');
+            return []
+        }
     }
 });
 
