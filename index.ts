@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, crashReporter, shell } from "electron";
+import { app, BrowserWindow, ipcMain, crashReporter, shell, remote } from "electron";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as url from 'url';
@@ -23,6 +23,8 @@ crashReporter.start({
 const devModeWindows: IBrowserWindow[] = [];
 const runModeWindows: IBrowserWindow[] = [];
 
+const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
+
 function registerListeners() {
     ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, arg) => {
         createOrFocusWindow(runModeWindows, arg);
@@ -45,21 +47,22 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName?: string): 
     // publishGlobalEvent(_fileName, _fileName);
     typeof _fileName == 'string' ? null : _fileName = null;
     let fileName = _fileName || path.resolve(process.argv[2] || process.argv[1] || path.join(process.argv[0], './no_file.qrk'));
-    fileName = (await fs.pathExists(fileName) && (await fs.stat(fileName)).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
+    // fileName = (await fs.pathExists(fileName) && (await fs.stat(fileName)).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
+    // console.log(fileName, process.argv);
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         let win: IBrowserWindow;
         let showLandingPage: boolean;
-        if (!fileName.includes('no_file.qrk')) {
-            win = getDesignerPageWindow();
-            // win = getLandingPageWindow();
-            showLandingPage = false;
-        } else {
+        if (fileName.includes('no_file.qrk') || fileName == app.getAppPath()) {
             win = getLandingPageWindow();
             showLandingPage = true;
+        } else {
+            win = getDesignerPageWindow();
+            showLandingPage = false;
         }
 
         win.data = {
-            project: fileName,
+            // project: fileName,
+            project: path.resolve(fileName),
             showLandingPage,
             isDevMode: windowTypes == devModeWindows,
             appPath: app.getAppPath(),
@@ -133,12 +136,12 @@ if (!_isSecondInstance) {
     app.quit();
 } else {
     app.on('second-instance', (event, commandLine, workingDirectory) => {
-        const quark = commandLine.find((val) => {
-            return val.endsWith('.qrk');
-        });
+        const quarkFilePath = (commandLine.find((val) => {
+            return val.endsWith('.qrk') || !!val.match(buildFileMatchPattern);
+        }));
 
-        if (quark) {
-            quark.endsWith('.build.qrk') ? createOrFocusWindow(runModeWindows, quark) : createOrFocusWindow(devModeWindows, quark);
+        if (quarkFilePath) {
+            quarkFilePath.match(buildFileMatchPattern) ? createOrFocusWindow(runModeWindows, path.resolve(quarkFilePath)) : createOrFocusWindow(devModeWindows, path.resolve(quarkFilePath));
             return;
         }
         createOrFocusWindow(devModeWindows, workingDirectory);
@@ -162,7 +165,7 @@ function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: st
 app.on('ready', () => {
 
     let windowType: typeof devModeWindows = devModeWindows;
-    if ((process.argv[2] || process.argv[1] || process.argv[0]).endsWith('.build.qrk')) {
+    if ((process.argv[2] || process.argv[1] || process.argv[0]).match(buildFileMatchPattern)) {
         windowType = runModeWindows;
     }
 

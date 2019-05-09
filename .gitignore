@@ -63,6 +63,8 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 *.build.qrk
 *.store.qrk
+*.asar.qrk
+*.qrk.asar
 dev-assets/bills
 index.js
 .quark/
