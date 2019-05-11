@@ -3,7 +3,6 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as url from 'url';
 
-
 import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
@@ -131,7 +130,11 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): P
                 win.loadURL(_url);
             }
         });
-        win.webContents.on('new-window', (e) => {
+        win.webContents.on('new-window', (e, _url) => {
+            const protocol = url.parse(_url).protocol;
+            if ((protocol === 'http:' || protocol === 'https:') && !_url.includes('localhost')) {
+                shell.openExternal(_url);
+            }
             e.preventDefault();
         });
         win.addListener('closed', () => {
@@ -179,6 +182,7 @@ function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: st
 }
 
 
+app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.on('ready', () => {
 
     let windowType: typeof devModeWindows = devModeWindows;
@@ -186,7 +190,7 @@ app.on('ready', () => {
         windowType = runModeWindows;
     }
 
-    createWindow(windowType, app.getAppPath());
+    createWindow(windowType, path.resolve((process.argv[2] || process.argv[1] || process.argv[0])));
     registerListeners();
     autoUpdater.checkForUpdatesAndNotify();
 });
