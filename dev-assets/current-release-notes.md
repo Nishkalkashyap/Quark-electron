@@ -1,5 +1,11 @@
 #### Bug fixes:
-* Fixed app.secondInstance new browserWindow issue. (Needs more testing)
+* Fixed html-emmet bug.
 
 #### Other changes
-* Added close dialog on browserWindow fail.
+* Removed p5.js due to license issues.
+
+#### Features
+* Added path intellisence.
+* Added icons in suggest-widget.
+* Added and tested eslint. Working out on use-cases.
+* Added text-to-worker method in util.

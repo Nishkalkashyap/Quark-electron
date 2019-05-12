@@ -1,3 +1,40 @@
+<!-- Quark-0.2.11-start -->
+## Quark 0.2.11 - May 13, 2019
+
+#### Bug fixes:
+* Fixed html-emmet bug.
+
+#### Other changes
+* Removed p5.js due to license issues.
+
+#### Features
+* Added path intellisence.
+* Added icons in suggest-widget.
+* Added and tested eslint. Working out on use-cases.
+* Added text-to-worker method in util.
+
+#### Dependencies:
+* Added: `stylus@0.54.5`
+* Added: `stylus-loader@3.0.2`
+* Added: `@babel/plugin-syntax-dynamic-import@7.2.0`
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.11.deb": "k+qW1mxEi4B/IoEz7f/IKuuSIDGKL0nxNIEtGLHUGGLs+/wO+pFIiZEjsUziDGuTE8WrR1vuL3wD0yhDb/9F5g==",
+    "Quark-win-0.2.11.exe": "TmOh8XUd2j91NUuOxtXcuN8m2cCBk3mg8eHbqSXWPweZAWhTC0IQr8eCNitaryv7zLoh9rzXOYnQu+W3Lsdo0w==",
+    "Quark-win-x64-0.2.11.zip": "qjbrZP2PGpqJkNDrFo2w+oNnvmgbMs/IML+aYNpVi3Y7uucM+ElqtTYPLp5nzIxhRBADSRlZPEMh3U/G9rOPTw==",
+    "Quark-linux-x64-0.2.11.tar.gz": "Wwkhu1ZsaY7K4vFQp9KgSipSPqIqrkgHR+JCKx1UDUCiQkBj8+2F3Y+Cixd4XLuqgohdu2r1aarLIcxYdzsVUg==",
+    "Quark-linux-x86_64-0.2.11.AppImage": "BJLv9tl2guP9SIh6UE5e3i0intqrILAWbQJxu5P/poB5uE2xuhTzArTr4m15Y64mBkKTalyk6UaAu+63xK1D/g=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.11-end -->
+
+
 <!-- Quark-0.2.10-start -->
 ## Quark 0.2.10 - May 9, 2019
 
