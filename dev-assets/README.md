@@ -25,18 +25,23 @@ npm run test
 
 add .quarkignore like vscode ignore
 
-<!-- styled-components react
-development mode instead or prod in webpack
-add electron website like background at quark
-added partial typescript support
-added find and replace component
 
-add react snippets
-add create view snippets
 
-added typescript
-added textmate grammar for scss, json
-improved colorization support
-added electron , one dark theme
-updated tmLanguage definitions -->
+## Packaged
+### Directly started: == shortcut
+* process.argv.length = 1;
+* process.argv[0] = 'exe' path;
 
+### File opened start:
+* process.argv.length = 2;
+* process.argv[0] = 'exe' path && process.argv[1] = 'file-path';
+
+
+## Not-Packaged
+### Directly started:
+* process.argv.length = 2;
+* process.argv[0] = 'exe' path && process.argv[1] = 'working dir';
+
+### File opened start:
+* process.argv.length = 3;
+* process.argv[0] = 'exe' path && process.argv[1] = 'working dir'; && process.argv[2] = 'file-path' 
