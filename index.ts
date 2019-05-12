@@ -1,5 +1,4 @@
 import { app, BrowserWindow, ipcMain, crashReporter, shell, remote, dialog } from "electron";
-import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -87,7 +86,9 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): P
                             message: 'Failed to parse file.',
                             buttons: ['Close']
                         }, (r, c) => {
-                            win.close();
+                            if (app.isPackaged) {
+                                win.close();
+                            }
                         });
                     }
                 })
