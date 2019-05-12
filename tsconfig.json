@@ -19,7 +19,8 @@
       "node_modules/@types"
     ],
     "strict": false,
-    "outDir": "./"
+    "outDir": "./",
+    "skipLibCheck": true
   },
   "exclude": [
     "./dist",
@@ -29,6 +30,7 @@
     "./www/**",
     "./build/**",
     "./definitions",
-    "./scripts"
+    "./scripts",
+    "./node_modules/**"
   ]
 }
