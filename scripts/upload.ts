@@ -133,11 +133,15 @@ function statusChecker() {
     }, 500);
 }
 
-async function checkIntrgrity(filename: string) {
+async function checkIntrgrity(filename: string): Promise<boolean> {
     const file = storage.bucket(bucketName).file(`Quark-${json.version}/${filename}`);
     const meta: StorageObjectMetadata = (await file.getMetadata())[0];
     const hash = await hasha.fromFile(`./release/${json.version}/${filename}`, { algorithm: 'md5', encoding: 'base64' });
-    return meta.md5Hash == hash.toString();
+    const result = meta.md5Hash == hash.toString();
+    if (process.env.DELETE_FILES === 'yes' && !result) {
+        file.delete();
+    }
+    return result;
 }
 
 async function copyToRoot() {

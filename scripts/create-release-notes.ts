@@ -68,7 +68,7 @@ async function createShaHash(): Promise<any> {
     str = str.concat(preText, '\n');
     str = str.concat(`## Quark ${json.version} - ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`, '\n\n');
     str = str.concat(tempNotes, '\n\n');
-    str = str.concat(await gitDiff());
+    str = str.concat(await gitDiff());    
     str = str.concat(`!!! info See SHA-512 Hashes`, '\n');
     str = str.concat(`<DropDown>`, '\n');
     str = str.concat(`<ReleaseNotes :sha='${js.js_beautify(JSON.stringify(obj))}' />`, '\n');
@@ -142,7 +142,7 @@ async function gitDiff(): Promise<string> {
 
         let text = '';
 
-        if (!(added.length && removed.length)) {
+        if (!(added.length || removed.length)) {
             return text;
         }
 
