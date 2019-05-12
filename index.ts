@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain, crashReporter, shell, remote, dialog } from "electron";
 import * as path from 'path';
 import * as url from 'url';
+import * as fs from 'fs-extra';
 
 import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
@@ -10,6 +11,12 @@ import log from 'electron-log';
 autoUpdater.logger = log;
 autoUpdater.logger['transports'].file.level = 'info';
 log.info('App starting...');
+
+interface WindowMeta {
+    type: ('landing' | 'designer');
+    filepath: string;
+    windowType: IBrowserWindow[];
+}
 
 crashReporter.start({
     productName: 'Quarkjs',
@@ -22,14 +29,16 @@ const devModeWindows: IBrowserWindow[] = [];
 const runModeWindows: IBrowserWindow[] = [];
 
 const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
+const LANDING_PAGE_APP_PATH = app.getPath('userData');
+const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
 
 function registerListeners() {
-    ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, arg) => {
-        createOrFocusWindow(runModeWindows, arg);
+    ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, absoluteFilePath: string) => {
+        createOrFocusWindow(runModeWindows, absoluteFilePath);
     });
 
-    ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, arg) => {
-        createOrFocusWindow(devModeWindows, arg);
+    ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, absoluteFilePath: string) => {
+        createOrFocusWindow(devModeWindows, absoluteFilePath);
     });
 }
 
@@ -41,16 +50,12 @@ function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
     });
 }
 
-async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): Promise<IBrowserWindow> {
-    // publishGlobalEvent(_fileName, _fileName);
-    typeof _fileName == 'string' ? null : _fileName = null;
-    let fileName = _fileName || path.resolve(process.argv[2] || process.argv[1] || path.join(process.argv[0], './no_file.qrk'));
-    // fileName = (await fs.pathExists(fileName) && (await fs.stat(fileName)).isDirectory()) ? path.join(fileName, './no_file.qrk') : fileName;
-    // console.log(fileName, process.argv);
+async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: string): Promise<IBrowserWindow> {
+
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         let win: IBrowserWindow;
         let showLandingPage: boolean;
-        if (fileName.includes('no_file.qrk') || fileName == app.getAppPath() || fileName == path.dirname(app.getPath('exe'))) {
+        if (absoluteFilePath == LANDING_PAGE_APP_PATH) {
             win = getLandingPageWindow();
             showLandingPage = true;
         } else {
@@ -59,8 +64,7 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): P
         }
 
         win.data = {
-            // project: fileName,
-            project: path.resolve(fileName),
+            project: path.resolve(absoluteFilePath),
             showLandingPage,
             isDevMode: windowTypes == devModeWindows,
             appPath: app.getAppPath(),
@@ -112,7 +116,7 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): P
                 buttons: ['Yes', 'No']
             }, (r, c) => {
                 if (r == 0) {
-                    createWindow(windowTypes, _fileName);
+                    _createWindow(windowTypes, absoluteFilePath);
                 }
             });
         });
@@ -141,60 +145,45 @@ async function createWindow(windowTypes: IBrowserWindow[], _fileName: string): P
         win.addListener('closed', () => {
             const index = windowTypes.findIndex((val) => { return val.data.project == win.data.project });
             windowTypes.splice(index, 1);
-            win = null;
         });
         resolve(win);
-        // })
-        // .catch(() => {
-        //     reject(null);
-        // });
     });
     return promise;
 }
 
-const _isSecondInstance = app.requestSingleInstanceLock();
-if (!_isSecondInstance) {
-    app.quit();
-} else {
-    app.on('second-instance', (event, commandLine, workingDirectory) => {
-        const quarkFilePath = (commandLine.find((val) => {
-            return val.endsWith('.qrk') || !!val.match(buildFileMatchPattern);
-        }));
 
-        if (quarkFilePath) {
-            quarkFilePath.match(buildFileMatchPattern) ? createOrFocusWindow(runModeWindows, path.resolve(quarkFilePath)) : createOrFocusWindow(devModeWindows, path.resolve(quarkFilePath));
-            return;
-        }
-        createOrFocusWindow(devModeWindows, path.resolve(workingDirectory));
-    });
-}
 
-function createOrFocusWindow(windowTypes: IBrowserWindow[], workingDirectory: string) {
-    const val = windowTypes.find((_val: IBrowserWindow) => {
-        return _val.data.project == path.resolve(workingDirectory);
+function createOrFocusWindow(windowTypes: IBrowserWindow[], absoluteFilePath: string) {
+
+    const win = windowTypes.find((_win: IBrowserWindow) => {
+        return _win.data.project == absoluteFilePath;
     });
 
-    if (val) {
-        if (val.isMinimized()) { val.restore() };
-        val.focus();
+    if (win) {
+        if (win.isMinimized()) { win.restore() };
+        win.focus();
     } else {
-        createWindow(windowTypes, path.resolve(workingDirectory));
+        _createWindow(windowTypes, absoluteFilePath);
     }
 }
 
 
 app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.on('ready', () => {
-
-    let windowType: typeof devModeWindows = devModeWindows;
-    if ((process.argv[2] || process.argv[1] || process.argv[0]).match(buildFileMatchPattern)) {
-        windowType = runModeWindows;
-    }
-
-    createWindow(windowType, path.resolve((process.argv[2] || process.argv[1] || process.argv[0])));
+    createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
     autoUpdater.checkForUpdatesAndNotify();
 });
+
+const _isSecondInstance = app.requestSingleInstanceLock();
+if (!_isSecondInstance) {
+    app.quit();
+} else {
+    app.on('second-instance', (event, commandLine) => {
+        console.log(commandLine, '\n\n\n');
+        createNewInstanceWindow(commandLine).catch(console.error);
+    });
+}
 
 
 app.on('window-all-closed', function () {
@@ -202,6 +191,39 @@ app.on('window-all-closed', function () {
         app.quit();
     }
 });
+
+async function createNewInstanceWindow(args: string[]): Promise<void> {
+    const type = await getWindowMetaFromArgs(args);
+    createOrFocusWindow(type.windowType, type.filepath);
+}
+
+async function getWindowMetaFromArgs(args: string[]): Promise<WindowMeta> {
+    let meta: WindowMeta;
+    if (app.isPackaged || args.length == 2) {
+        meta = {
+            type: args.length == 2 ? 'designer' : 'landing',
+            filepath: args.length == 2 ? path.resolve(args[1]) : LANDING_PAGE_APP_PATH,
+            windowType: args.length == 2 ? args[1].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+        }
+    } else {
+        meta = {
+            type: args.length == 3 ? 'designer' : 'landing',
+            filepath: args.length == 3 ? path.resolve(args[2]) : LANDING_PAGE_APP_PATH,
+            windowType: args.length == 3 ? args[2].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+        }
+    }
+
+    const passMetaFlag = (await fs.pathExists(meta.filepath) && (await fs.stat(meta.filepath)).isFile());
+    if (passMetaFlag) {
+        return meta;
+    }
+
+    return {
+        type: 'landing',
+        filepath: LANDING_PAGE_APP_PATH,
+        windowType: LANDING_PAGE_WINDOW_TYPE
+    }
+}
 
 function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
