@@ -1,3 +1,32 @@
+<!-- Quark-0.2.12-start -->
+## Quark 0.2.12 - May 15, 2019
+
+#### Minor changes
+* Updated monaco-editor version to 0.15.6.
+* Removed emmet css.
+* Implemented new monaco-editor context menu.
+* Implemented new definition/reference provider.
+
+#### Dependencies:
+* Updated: `johnny-five@1.1.0` (Previous: v1.0.0)
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.12.deb": "xbNI5nOFHmoOgvyiAmRPD5TaulNSW8NDwP9QwPz4+Zef+9mrV0lTrZsAbOtl/TLIHAyK+hkFXaEYe3zdKah4hg==",
+    "Quark-win-0.2.12.exe": "toCsSd4g8KsBGY89hfpzRP+P2vPiNJRN6EezKArlHCqwPE3mrWAKBDp+KtTEQFgYh2pCC+p1/mO5cc9uznOU+w==",
+    "Quark-win-x64-0.2.12.zip": "OaBb6LQNXKDP1RaKVMLpVmi6vpMwJNdcTa5XF+AedI4XxKDo5yZDfTYcBAhafQX3LewmGjXW8xeWEK1nXfJMCQ==",
+    "Quark-linux-x64-0.2.12.tar.gz": "N3xyLrF4U0rahbrI/x7cE3YEgeLz80q0sM5mRZNbHx04Sq1xxo646IQVgT7Y5XW3QhV0Tj5LBSJTxNQLmJaNJg==",
+    "Quark-linux-x86_64-0.2.12.AppImage": "UIwk/Zd2lX5wGWfhQdX4vHbflcgA2zfrs9pT8d/NoFS0UE4VSqreN8AEkucMUqMq7mLTdJnE3miKQHF5pqie4w=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.12-end -->
+
+
 <!-- Quark-0.2.11-start -->
 ## Quark 0.2.11 - May 13, 2019
 

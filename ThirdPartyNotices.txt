@@ -3074,67 +3074,187 @@ IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @serialport/parser-byte-length@1.0.5
+Package: @serialport/parser-byte-length@2.0.2
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-See our api docs https://node-serialport.github.io/parsers/ByteLengthParser.html
+The MIT License (MIT)
+
+Copyright 2010 Christopher Williams. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: @serialport/parser-cctalk@1.0.5
+Package: @serialport/parser-cctalk@2.0.2
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-See our api docs https://node-serialport.github.io/parsers/CCTalkParser.html
+The MIT License (MIT)
+
+Copyright 2010 Christopher Williams. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: @serialport/parser-delimiter@1.0.5
+Package: @serialport/parser-delimiter@2.0.2
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-See our api docs https://node-serialport.github.io/parsers/DelimiterParser.html
+The MIT License (MIT)
+
+Copyright 2010 Christopher Williams. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: @serialport/parser-readline@1.0.5
+Package: @serialport/parser-readline@2.0.2
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-See our api docs https://node-serialport.github.io/parsers/ReadLineParser.html
+The MIT License (MIT)
+
+Copyright 2010 Christopher Williams. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: @serialport/parser-ready@1.0.5
+Package: @serialport/parser-ready@2.0.2
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-See our api docs https://node-serialport.github.io/parsers/ReadyParser.html
+The MIT License (MIT)
+
+Copyright 2010 Christopher Williams. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: @serialport/parser-regex@1.0.5
+Package: @serialport/parser-regex@2.0.2
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-See our api docs https://node-serialport.github.io/parsers/RegexParser.html
+The MIT License (MIT)
+
+Copyright 2010 Christopher Williams. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -4997,750 +5117,6 @@ THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: ansi-bgblack@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bgblue@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bgcyan@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bggreen@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bgmagenta@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bgred@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bgwhite@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bgyellow@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-black@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-blue@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-bold@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-colors@0.2.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Brian Woodward.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-cyan@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-dim@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-gray@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-green@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-grey@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-hidden@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-inverse@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-italic@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-magenta@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-red@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-reset@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-strikethrough@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: ansi-styles@3.2.1
 License: MIT
 License Source: license
@@ -5755,130 +5131,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-underline@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-white@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-wrap@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: ansi-yellow@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) <%= year() %>, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -6012,37 +5264,6 @@ Copyright (c) 2015, Rebecca Turner
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: arr-swap@1.0.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -7112,86 +6333,10 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: bindings@1.3.0
+Package: bindings@1.5.0
 License: MIT
-License Source: README.md
+License Source: LICENSE.md
 Source Text: 
-
-node-bindings
-=============
-### Helper module for loading your native module's .node file
-
-This is a helper module for authors of Node.js native addon modules.
-It is basically the "swiss army knife" of `require()`ing your native module's
-`.node` file.
-
-Throughout the course of Node's native addon history, addons have ended up being
-compiled in a variety of different places, depending on which build tool and which
-version of node was used. To make matters worse, now the _gyp_ build tool can
-produce either a _Release_ or _Debug_ build, each being built into different
-locations.
-
-This module checks _all_ the possible locations that a native addon would be built
-at, and returns the first one that loads successfully.
-
-
-Installation
-------------
-
-Install with `npm`:
-
-``` bash
-$ npm install bindings
-```
-
-Or add it to the `"dependencies"` section of your _package.json_ file.
-
-
-Example
--------
-
-`require()`ing the proper bindings file for the current node version, platform
-and architecture is as simple as:
-
-``` js
-var bindings = require('bindings')('binding.node')
-
-// Use your bindings defined in your C files
-bindings.your_c_function()
-```
-
-
-Nice Error Output
------------------
-
-When the `.node` file could not be loaded, `node-bindings` throws an Error with
-a nice error message telling you exactly what was tried. You can also check the
-`err.tries` Array property.
-
-```
-Error: Could not load the bindings file. Tried:
- → /Users/nrajlich/ref/build/binding.node
- → /Users/nrajlich/ref/build/Debug/binding.node
- → /Users/nrajlich/ref/build/Release/binding.node
- → /Users/nrajlich/ref/out/Debug/binding.node
- → /Users/nrajlich/ref/Debug/binding.node
- → /Users/nrajlich/ref/out/Release/binding.node
- → /Users/nrajlich/ref/Release/binding.node
- → /Users/nrajlich/ref/build/default/binding.node
- → /Users/nrajlich/ref/compiled/0.8.2/darwin/x64/binding.node
-    at bindings (/Users/nrajlich/ref/node_modules/bindings/bindings.js:84:13)
-    at Object.<anonymous> (/Users/nrajlich/ref/lib/ref.js:5:47)
-    at Module._compile (module.js:449:26)
-    at Object.Module._extensions..js (module.js:467:10)
-    at Module.load (module.js:356:32)
-    at Function.Module._load (module.js:312:12)
-    ...
-```
-
-The searching for the `.node` file will originate from the first directory in which has a `package.json` file is found. 
-
-License
--------
 
 (The MIT License)
 
@@ -9169,37 +8314,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: choices-separator@2.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: chrome-trace-event@1.0.0
 License: MIT
 License Source: LICENSE.txt
@@ -9468,36 +8582,6 @@ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
 WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
 ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-
-----------------------------------------------------------------------------
-
-
-Package: clone-deep@1.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2017, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 ----------------------------------------------------------------------------
 
@@ -13054,37 +12138,6 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: error-symbol@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: es-abstract@1.13.0
 License: MIT
 License Source: LICENSE
@@ -13500,55 +12553,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: expand-template@1.1.1
-License: WTFPL
-License Source: README.md
+Package: expand-template@2.0.3
+License: (MIT OR WTFPL)
+License Source: LICENSE
 Source Text: 
 
-# expand-template
+The MIT License (MIT)
 
-> Expand placeholders in a template string.
+Copyright (c) 2018 Lars-Magnus Skog
 
-[![npm](https://img.shields.io/npm/v/expand-template.svg)](https://www.npmjs.com/package/expand-template)
-[![Build Status](https://travis-ci.org/ralphtheninja/expand-template.svg?branch=master)](https://travis-ci.org/ralphtheninja/expand-template)
-[![dependencies](https://david-dm.org/ralptheninja/expand-template.svg)](https://david-dm.org/ralptheninja/expand-template)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Install
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-```
-$ npm i expand-template -S
-```
-
-## Usage
-
-Default functionality expands templates using `{}` as separators for string placeholders.
-
-```js
-var expand = require('expand-template')()
-var template = '{foo}/{foo}/{bar}/{bar}'
-console.log(expand(template, {
-  foo: 'BAR',
-  bar: 'FOO'
-}))
-// -> BAR/BAR/FOO/FOO
-```
-
-Custom separators:
-
-```js
-var expand = require('expand-template')({ sep: '[]' })
-var template = '[foo]/[foo]/[bar]/[bar]'
-console.log(expand(template, {
-  foo: 'BAR',
-  bar: 'FOO'
-}))
-// -> BAR/BAR/FOO/FOO
-```
-
-## License
-All code, unless stated otherwise, is dual-licensed under [`WTFPL`](http://www.wtfpl.net/txt/copying/) and [`MIT`](https://opensource.org/licenses/MIT).
-
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 ----------------------------------------------------------------------------
 
@@ -13941,7 +12971,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: firmata@0.19.1
+Package: firmata@2.0.0
 License: MIT
 License Source: readme.md
 Source Text: 
@@ -13983,8 +13013,8 @@ If you run *firmata* from the command line it will prompt you for the serial por
 #### With a path string: 
 
 ```js
-var Board = require("firmata");
-var board = new Board("system path or name");
+const Firmata = require("firmata");
+const board = new Firmata("system path or name");
 
 board.on("ready", () => {
   // Arduino is ready to communicate
@@ -13994,9 +13024,9 @@ board.on("ready", () => {
 #### With a Serialport object:
 
 ```js
-var Serialport = require("serialport");
-var Board = require("firmata");
-var board = new Board(new Serialport(...));
+const Serialport = require("serialport");
+const Firmata = require("firmata");
+const board = new Firmata(new Serialport(...));
 
 board.on("ready", () => {
   // Arduino is ready to communicate
@@ -14009,9 +13039,9 @@ board.on("ready", () => {
 
 
 ```js
-var Etherport = require("etherport");
-var Board = require("firmata");
-var board = new Board(new Etherport(...));
+const Etherport = require("etherport");
+const Firmata = require("firmata");
+const board = new Firmata(new Etherport(...));
 
 board.on("ready", () => {
   // Arduino is ready to communicate
@@ -14021,8 +13051,8 @@ board.on("ready", () => {
 ### Using the `readyCallback`:
 
 ```js
-var Board = require("firmata");
-var board = new Board("system path or name", () => {
+const Firmata = require("firmata");
+const board = new Firmata("system path or name", () => {
   // Arduino is ready to communicate
 });
 ```
@@ -14030,9 +13060,9 @@ var board = new Board("system path or name", () => {
 #### With a Serialport object:
 
 ```js
-var Serialport = require("serialport");
-var Board = require("firmata");
-var board = new Board(new Serialport(...), () => {
+const Serialport = require("serialport");
+const Firmata = require("firmata");
+const board = new Firmata(new Serialport(...), () => {
   // Arduino is ready to communicate
 });
 ```
@@ -14040,9 +13070,9 @@ var board = new Board(new Serialport(...), () => {
 #### With an Etherport object:
 
 ```js
-var Etherport = require("etherport");
-var Board = require("firmata");
-var board = new Board(new Etherport(...), () => {
+const Etherport = require("etherport");
+const Firmata = require("firmata");
+const board = new Firmata(new Etherport(...), () => {
   // Arduino is ready to communicate
 });
 ```
@@ -14051,12 +13081,12 @@ var board = new Board(new Etherport(...), () => {
 **Any object can be a `Transport` object, as long as it emits an "open" event and a "data" event, which match the semantics of a `Serialport` object.**
 
 
-# `Board`
+# `Firmata`
 
-The `Board` constructor creates an instance that represents a physical board. 
+The `Firmata` constructor creates an instance that represents a physical board. 
 
-- `new Board(path[, options][, readyCallback])` 
-- `new Board(port[, options][, readyCallback])` 
+- `new Firmata(path[, options][, readyCallback])` 
+- `new Firmata(port[, options][, readyCallback])` 
 
   | Parameter | Type   | Description | Default  | Required |
   |-----------|------- |------------ |--------- |----------|
@@ -14068,13 +13098,13 @@ The `Board` constructor creates an instance that represents a physical board.
   \* _**Either**_ a **path** or a **port** are required.
 
   - Notes: 
-    - `new Board(path: string)`: instances can be constructed using only a system path of the serial port to open or name, for example: 
-      + `new Board("/dev/usb.whatever")`
-      + `new Board("/dev/ttyACM0")`
-      + `new Board("COM1")`
-    - `new Board(port: Transport)`: instances can be constructed using a "Transport" object, for example: 
-      + `new Board(new Serialport(...))` 
-      + `new Board(new Etherport(...))`
+    - `new Firmata(path: string)`: instances can be constructed using only a system path of the serial port to open or name, for example: 
+      + `new Firmata("/dev/usb.whatever")`
+      + `new Firmata("/dev/ttyACM0")`
+      + `new Firmata("COM1")`
+    - `new Firmata(port: Transport)`: instances can be constructed using a "Transport" object, for example: 
+      + `new Firmata(new Serialport(...))` 
+      + `new Firmata(new Etherport(...))`
 
 - Options<a name="board-options"></a>
 
@@ -14091,7 +13121,7 @@ The `Board` constructor creates an instance that represents a physical board.
 
 
 
-  ## Board Instance
+  ## Firmata Instance
 
 - `board.MODES`
   This is an enumeration of the different modes available. These are used in calls to the *pinMode* function.
@@ -14128,7 +13158,7 @@ The `Board` constructor creates an instance that represents a physical board.
   {
     mode: Number,  // Current mode of pin which is on the the board.MODES.
     value: Number, // Current value of the pin. when pin is digital and set to output it will be
-                   // Board.HIGH or Board.LOW. If the pin is an analog pin it will be an numeric
+                   // Firmata.HIGH or Firmata.LOW. If the pin is an analog pin it will be an numeric
                    // value between 0 and 1023.
     supportedModes: [ ...Number ], // Array of modes from board.MODES that are supported on this pin.
     analogChannel: Number, // Will be 127 for digital pins and the pin number for analog pins.
@@ -14139,7 +13169,7 @@ The `Board` constructor creates an instance that represents a physical board.
 
   This array holds all pins digital and analog. To get the analog pin number as seen on the arduino board use the analogChannel attribute.
 
-- `analogPins`
+- `board.analogPins`
 
   This is an array of all the array indexes of the analog pins in the `board.pins` array. For example to get the analog pin 5 from the `board.pins` attributes use:
 
@@ -14147,19 +13177,23 @@ The `Board` constructor creates an instance that represents a physical board.
   board.pins[board.analogPins[5]];`
   ```
 
-## Board Prototype API
+## Firmata Prototype API
 
 ### Pin
 
-- `pinMode(pin,mode)`
+- `board.pinMode(pin,mode)`
 
-  Set a mode for a pin. pin is the number of the pin and the mode is on of the Board.MODES values. All digital pins are set to board.MODES.OUTPUT by default (because this is what the Firmata firmware running on the board defaults to) and all analog pins are set to board.MODES.ANALOG (analog input) by default.
+  Set a mode for a pin. pin is the number of the pin and the mode is on of the Firmata.MODES values. All digital pins are set to board.MODES.OUTPUT by default (because this is what the Firmata firmware running on the board defaults to) and all analog pins are set to board.MODES.ANALOG (analog input) by default.
 
-- `digitalWrite(pin,value)`
+- `board.digitalWrite(pin,value,enqueue)`
 
-  Write an output to a digital pin. pin is the number of the pin and the value is either board.HIGH or board.LOW.
+  Write an output to a digital pin. pin is the number of the pin and the value is either board.HIGH or board.LOW. enqueue is optional and when true will update the local pin value but will not write the data until `flushDigitalPorts()` is called.
 
-- `digitalRead(pin,callback)`
+- `board.flushDigitalPorts()`
+
+  Directs firmata to update all ports whose values have been changed via digitalWrite with the `enqueue` parameter set to true.
+
+- `board.digitalRead(pin,callback)`
 
   Register to get the digital value (board.HIGH or board.LOW). The value is reported via the callback whenever it changes. To get the locally stored value at any other time you can use `board.pins[pinNumber].value`.
 
@@ -14175,11 +13209,11 @@ The `Board` constructor creates an instance that represents a physical board.
 
   *Note if you are familiar with the use of digitalRead when writing an Arduino sketch, the firmata.js implementation of digitalRead is very different in that it's reporting-based rather than immediately returning a value as in an Arduino sketch.*
 
-- `analogWrite(pin,value)`
+- `board.analogWrite(pin,value)`
 
   Write an output to an analog pin (PWM). pin is the number of the pin and the value is between 0 and 255.
 
-- `analogRead(pin,callback)`
+- `board.analogRead(pin,callback)`
 
   Register to get the analog value (0 - 1023) of the pin. The value is reported via the callback at the current sampling interval. The sampling interval is 19 milliseconds by default so the analog value is reported every 19 ms unless the sampling interval is changed. See documentation for `board.setSamplingInterval` below. To get the locally stored value at any other time you can use `board.pins[board.analogPins[analogPinNumber]].value`, but the value will only be as fresh as the most recent report via the sampling interval.
 
@@ -14195,39 +13229,40 @@ The `Board` constructor creates an instance that represents a physical board.
 
   *Note if you are familiar with the use of analogRead when writing an Arduino sketch, the firmata.js implementation of analogRead is very different in that it's reporting-based rather than immediately returning a value as in an Arduino sketch.*
 
-- `setSamplingInterval(interval)`
+- `board.setSamplingInterval(interval)`
 
   Set the sampling interval in milliseconds. Default is 19 ms. Minimum is 10 ms, max is 65535 ms. The sampling interval controls how often analog values are reported when using `board.analogRead` and how often i2c device values are reported when using `board.i2cRead`. The same sampling interval is used for both analog and i2c value reporting.
 
-  You can alternatively set the sampling interval when creating a new Board instance:
+  You can alternatively set the sampling interval when creating a new Firmata instance:
 
   ```js
   // set sampling interval to 30 milliseconds
-  var board = new Board(serialPortName, {samplingInterval: 30});
+  const board = new Firmata(serialPortName, {samplingInterval: 30});
   ```
 
 
-- `getSamplingInterval()`
+- `board.getSamplingInterval()`
 
   Get the current sampling interval value in milliseconds.
 
 ### Servo
 
-- `servoWrite(pin, degree)`
+- `board.servoWrite(pin, degree)`
+- `board.servoWrite(pin, pulse)`
 
   Write a degree value to a servo pin.
 
-- `servoConfig(pin, min, max)`
+- `board.servoConfig(pin, min, max)`
 
   Setup a servo with a specific min and max pulse (call instead of `pinMode`, which will provide default).
 
 ### I2C
 
-- `i2cConfig(delay)`
+- `board.i2cConfig(delay)`
 
   Configure and enable I2C, optionally provide a value in μs to delay between reads (defaults to `0`). Required to enable I2C communication.
 
-- `i2cConfig(options)`
+- `board.i2cConfig(options)`
 
   Configure and enable I2C, optionally provide an object that contains properties to use for  whose value is a number in μs to delay between reads. Required to enable I2C communication.
 
@@ -14243,83 +13278,83 @@ The `Board` constructor creates an instance that represents a physical board.
   | stopTX  | Stop transmission after setting a register to read from. Setting to `false` will keep the transmission connection active. An example of the `false` behavior is the [MMA8452](https://github.com/sparkfun/MMA8452_Accelerometer/blob/master/Libraries/Arduino/src/SparkFun_MMA8452Q.cpp#L242-L270) | true | No |
 
 
-- `i2cWrite(address, [...bytes])`
+- `board.i2cWrite(address, [...bytes])`
 
   Write an arbitrary number of bytes. May not exceed 64 Bytes.
 
-- `i2cWrite(address, register, [...bytes])`
+- `board.i2cWrite(address, register, [...bytes])`
 
   Write an arbitrary number of bytes to the specified register. May not exceed 64 Bytes.
 
-- `i2cWriteReg(address, register, byte)`
+- `board.i2cWriteReg(address, register, byte)`
 
   Write a byte value to a specific register.
 
-- `i2cRead(address, numberOfBytesToRead, handler(data))`
+- `board.i2cRead(address, numberOfBytesToRead, handler(data))`
 
   Read a specified number of bytes, continuously. `handler` receives an array of values, with a length corresponding to the number of read bytes.
 
-- `i2cRead(address, register, numberOfBytesToRead, handler(data))`
+- `board.i2cRead(address, register, numberOfBytesToRead, handler(data))`
 
   Read a specified number of bytes from a register, continuously. `handler` receives an array of values, with a length corresponding to the number of read bytes.
 
-- `i2cReadOnce(address, numberOfBytesToRead, handler(data))`
+- `board.i2cReadOnce(address, numberOfBytesToRead, handler(data))`
 
   Read a specified number of bytes, one time. `handler` receives an array of values, with a length corresponding to the number of read bytes.
 
-- `i2cReadOnce(address, register, numberOfBytesToRead, handler(data))`
+- `board.i2cReadOnce(address, register, numberOfBytesToRead, handler(data))`
 
   Read a specified number of bytes from a register, one time. `handler` receives an array of values, with a length corresponding to the number of read bytes.
 
-- `sendI2CConfig(delay)` **Deprecated**
+- `board.sendI2CConfig(delay)` **Deprecated**
 
   Set I2C Config on the arduino
 
-- `sendI2CWriteRequest(slaveAddress, [bytes])` **Deprecated**
+- `board.sendI2CWriteRequest(slaveAddress, [bytes])` **Deprecated**
 
   Write an array of bytes to a an I2C device.
 
-- `sendI2CReadRequest(slaveAddress, numBytes, function(data))` **Deprecated**
+- `board.sendI2CReadRequest(slaveAddress, numBytes, function(data))` **Deprecated**
 
   Requests a number of bytes from a slave I2C device. When the bytes are received from the I2C device the callback is called with the byte array.
 
 ### Debug
 
-- `sendString("a string")`
+- `board.sendString("a string")`
 
   Send an arbitrary string.
 
 ### One-Wire
 
-- `sendOneWireConfig(pin, enableParasiticPower)`
+- `board.sendOneWireConfig(pin, enableParasiticPower)`
 
   Configure the pin as the controller in a 1-wire bus. Set `enableParasiticPower` to `true` if you want the data pin to power the bus.
 
-- `sendOneWireSearch(pin, callback)`
+- `board.sendOneWireSearch(pin, callback)`
 
   Searches for 1-wire devices on the bus. The callback should accept an error argument and an array of device identifiers.
 
-- `sendOneWireAlarmsSearch(pin, callback)`
+- `board.sendOneWireAlarmsSearch(pin, callback)`
 
   Searches for 1-wire devices on the bus in an alarmed state. The callback should accept and error argument and an array of device identifiers.
 
-- `sendOneWireRead(pin, device, numBytesToRead, callback)`
+- `board.sendOneWireRead(pin, device, numBytesToRead, callback)`
 
   Reads data from a device on the bus and invokes the callback.
 
-- `sendOneWireReset()`
+- `board.sendOneWireReset()`
 
   Resets all devices on the bus.
 
-- `sendOneWireWrite(pin, device, data)`
+- `board.sendOneWireWrite(pin, device, data)`
 
   Writes data to the bus to be received by the device. The device should be obtained from a previous call to `sendOneWireSearch`.
 
-- `sendOneWireDelay(pin, delay)`
+- `board.sendOneWireDelay(pin, delay)`
 
   Tells Firmata to not do anything for the amount of ms. Use when you need to give a device attached to the bus time to do a calculation.
 
-- `sendOneWireWriteAndRead(pin, device, data, numBytesToRead, callback)`
+- `board.sendOneWireWriteAndRead(pin, device, data, numBytesToRead, callback)`
 
   Sends the `data` to the `device` on the bus, reads the specified number of bytes and invokes the `callback`.
 
@@ -14348,7 +13383,7 @@ The `Board` constructor creates an instance that represents a physical board.
   Configure a hardware or serial port -- required before using serial read/write functions
 
   ```
-  options = {
+  {
     portId: board.SERIAL_PORT_IDs.HW_SERIAL1, // <number> The serial port to use (HW_SERIAL2, SW_SERIAL0, SW_SERIAL1...)
     baud:   115200, // <number> (optional) The baud rate of the serial port; default is 57600
     rxPin:  5,      // <number> (optional)[SW Serial only] The RX pin of the SoftwareSerial instance
@@ -14428,12 +13463,12 @@ accelStepper support 2, 3, and 4 wire configurations as well as step + direction
   }
   ```
   
-  - `board.accelStepperConfig(opts)`
+  - `board.accelStepperConfig(options)`
 
   Configure a stepper motor
 
     ```
-    opts = {
+    {
       deviceNum: 0, // <number> Device number for the stepper (range 0-9)
       type: board.STEPPER.TYPE.DRIVER, // <number> (optional) Type of stepper or controller; default is FOUR_WIRE
       stepSize: board.STEPPER.STEP_SIZE.HALF, // <number> (optional) Size of step; default is WHOLE
@@ -14463,39 +13498,39 @@ accelStepper support 2, 3, and 4 wire configurations as well as step + direction
     1. Invert motor pins 1, 2 & enablePin = 0b11001 = 25
 
 
-- `board.prototype.accelStepperZero(deviceNum)`
+- `board.accelStepperZero(deviceNum)`
 
   Set the current stepper position to zero
 
-- `Board.prototype.accelStepperStep(deviceNum, steps, callback)`
+- `board.accelStepperStep(deviceNum, steps, callback)`
 
   Move the stepper motor by a number of steps. Optional callback will be called when motor has finished moving or stop is called
 
-- `Board.prototype.accelStepperTo(deviceNum, position, callback)`
+- `board.accelStepperTo(deviceNum, position, callback)`
 
   Move the stepper motor to a specified position. Optional callback will be called when motor has finished moving or stop is called
 
-- `Board.prototype.accelStepperEnable(deviceNum, enabled)`
+- `board.accelStepperEnable(deviceNum, enabled)`
 
   If enabled param is set to false, stepper will be disabled, otherwise stepper will be enabled
 
-- `Board.prototype.accelStepperStop(deviceNum)`
+- `board.accelStepperStop(deviceNum)`
 
   Stop the stepper motor. Triggers a stepper-done event
 
-- `Board.prototype.accelStepperReportPosition(deviceNum)`
+- `board.accelStepperReportPosition(deviceNum)`
 
   Request the current position of the stepper. Triggers a `"stepper-position"` event.
 
-- `Board.prototype.accelStepperSpeed(deviceNum, speed)`
+- `board.accelStepperSpeed(deviceNum, speed)`
 
   Set the speed of the stepper in steps per second
 
-- `Board.prototype.accelStepperAcceleration(deviceNum, acceleration)`
+- `board.accelStepperAcceleration(deviceNum, acceleration)`
 
   Set the acceleration and deceleration for the stepper in steps / sec^2
 
-- `Board.prototype.multiStepperConfig(opts)`
+- `board.multiStepperConfig(opts)`
   
   Configure a multStepper group. multiStepper groups allow you to pass an array of targeted positions and have all the steppers move to their targets and arrive at the same time. Note that acceleration cannot be used when moving a multiStepper group.
 
@@ -14506,11 +13541,11 @@ accelStepper support 2, 3, and 4 wire configurations as well as step + direction
   }
   ```
 
-- `Board.prototype.multiStepperTo(groupNum, positions, callback)`
+- `board.multiStepperTo(groupNum, positions, callback)`
 
   Move a goup of steppers to and array of desired positions. Optional callback will be called when group has finished moving or multiStepperStop is called
 
-- `Board.prototype.multiStepperStop(groupNum)`
+- `board.multiStepperStop(groupNum)`
 
   Stop a group of stepper motors. Triggers a multi-stepper-done event
 
@@ -14520,22 +13555,26 @@ accelStepper support 2, 3, and 4 wire configurations as well as step + direction
 
   Allow user code to handle arbitrary sysex responses. `commandByte` must be associated with some message that's expected from the slave device. The `handler` is called with an array of _raw_ data from the slave. Data decoding must be done within the handler itself.
 
-  - Use `Board.decode(data)` to extract useful values from the incoming response data.
+  - Use `Firmata.decode(data)` to extract useful values from the incoming response data.
 
 - `board.sysexCommand(message)`
 
   Allow user code to send arbitrary sysex messages. The `message` array is expected to be all necessary bytes between `START_SYSEX` and `END_SYSEX` (non-inclusive). It will be assumed that the data in the message array is already encoded as 2 7-bit bytes LSB first.
 
-  - Use `Board.encode(data)` to encode data values into an array of 7-bit byte pairs.
+  - Use `Firmata.encode(data)` to encode data values into an array of 7-bit byte pairs.
+
+- `board.clearSysexResponse(commandByte)`
+
+  Allow user to remove sysex response handler such as one previously set through board.sysexResponse(commandByte, handler).
 
 
 ### Encode/Decode
 
-- `Board.encode(data)`
+- `Firmata.encode(data)`
 
   Encode an array of 8-bit data values as an array of two 7-bit byte pairs (each). (LSB first).
 
-- `Board.decode(data)`
+- `Firmata.decode(data)`
 
   Decode an array of 7-bit byte pairs into a an array of 8-bit data values. (LSB first)
 
@@ -14544,7 +13583,8 @@ accelStepper support 2, 3, and 4 wire configurations as well as step + direction
 
 (The MIT License)
 
-Copyright (c) 2011-2015 Julian Gautier <julian.gautier@alumni.neumont.edu>
+Copyright (c) 2011-2015 Julian Gautier <julian.gautier@alumni.neumont.edu>\
+Copyright (c) 2015-2019 The Firmata.js Authors (see AUTHORS.md)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -14577,68 +13617,6 @@ Source Text:
 The MIT License (MIT)
 
 Copyright (c) 2015 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: for-in@0.1.8
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: for-own@1.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2015, 2017, Jon Schlinkert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -16856,37 +15834,6 @@ index(arr, obj);
 ----------------------------------------------------------------------------
 
 
-Package: info-symbol@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: inherits@2.0.1
 License: ISC
 License Source: LICENSE
@@ -17342,37 +16289,6 @@ MIT © [Sindre Sorhus](http://sindresorhus.com)
 ----------------------------------------------------------------------------
 
 
-Package: is-number@6.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2018, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: is-obj@1.0.1
 License: MIT
 License Source: license
@@ -17734,7 +16650,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: johnny-five@1.0.0
+Package: johnny-five@1.1.0
 License: MIT
 License Source: README.md
 Source Text: 
@@ -17803,6 +16719,7 @@ _Artwork by [Mike Sgier](http://msgierillustration.com)_
 [![Travis Build Status](https://travis-ci.org/rwaldron/johnny-five.svg?branch=master)](https://travis-ci.org/rwaldron/johnny-five)
 [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/hmke71k7uemtnami/branch/master?svg=true)](https://ci.appveyor.com/project/rwaldron/johnny-five)
 [![Coverage Status](https://coveralls.io/repos/github/rwaldron/johnny-five/badge.svg?branch=master)](https://coveralls.io/github/rwaldron/johnny-five?branch=master)
+[![Install Size](https://packagephobia.now.sh/badge?p=johnny-five)](https://packagephobia.now.sh/result?p=johnny-five)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/rwaldron/johnny-five)
 
 
@@ -18772,37 +17689,6 @@ THE SOFTWARE
 ----------------------------------------------------------------------------
 
 
-Package: koalas@1.0.2
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2013, 2017, Brian Woodward
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: latest-version@3.1.0
 License: MIT
 License Source: license
@@ -18811,37 +17697,6 @@ Source Text:
 The MIT License (MIT)
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: lazy-cache@2.0.2
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015-2016, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20546,37 +19401,6 @@ terms above.
 ----------------------------------------------------------------------------
 
 
-Package: log-ok@0.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: log-update@2.3.0
 License: MIT
 License Source: license
@@ -20591,37 +19415,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: log-utils@0.2.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -21725,37 +20518,6 @@ Redistribution and use in source and binary forms, with or without modification,
 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: mixin-object@2.0.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -24393,37 +23155,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: pointer-symbol@1.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: postcss-modules-extract-imports@2.0.0
 License: ISC
 License Source: LICENSE
@@ -24596,7 +23327,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: prebuild-install@2.5.3
+Package: prebuild-install@5.2.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -24737,38 +23468,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: promirepl@1.0.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014 David M. Lee, II
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-----------------------------------------------------------------------------
-
-
 Package: promise-inflight@1.0.1
 License: ISC
 License Source: LICENSE
@@ -24818,219 +23517,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-actions@3.0.2
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-base@4.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-checkbox@2.2.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-choices@4.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2018, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-list@3.2.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-question@5.0.2
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-----------------------------------------------------------------------------
-
-
-Package: prompt-radio@1.2.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 ----------------------------------------------------------------------------
 
@@ -26059,7 +24545,7 @@ The complete list of contributors can be found at: https://github.com/hapijs/qs/
 ----------------------------------------------------------------------------
 
 
-Package: quark@0.2.11
+Package: quark@0.2.12
 License: GPL-3.0
 License Source: LICENSE
 Source Text: 
@@ -26843,37 +25329,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: radio-symbol@2.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: randombytes@2.1.0
 License: MIT
 License Source: LICENSE
@@ -27312,67 +25767,6 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-
-----------------------------------------------------------------------------
-
-
-Package: readline-ui@2.2.3
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: readline-utils@2.2.3
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 ----------------------------------------------------------------------------
 
@@ -28545,7 +26939,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: serialport@6.0.5
+Package: serialport@7.1.4
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -28571,68 +26965,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: set-getter@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016, Brian Woodward.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: set-value@3.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2018, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -28783,36 +27115,6 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The MIT License (MIT)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-----------------------------------------------------------------------------
-
-
-Package: shallow-clone@1.0.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015-2017, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -30116,37 +28418,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: strip-color@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: strip-eof@1.0.0
 License: MIT
 License Source: license
@@ -30323,37 +28594,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: success-symbol@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -30652,37 +28892,6 @@ Source Text:
 The MIT License (MIT)
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: terminal-paginator@2.0.2
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -31157,37 +29366,6 @@ read('package.json', 'utf8')(function(err, str){
 ----------------------------------------------------------------------------
 
 
-Package: time-stamp@1.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: timed-out@4.0.1
 License: MIT
 License Source: license
@@ -31385,37 +29563,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: toggle-array@1.0.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -33119,37 +31266,6 @@ The buble implementation is built from a fork at https://github.com/yyx990803/bu
 ----------------------------------------------------------------------------
 
 
-Package: warning-symbol@0.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: watchpack@1.6.0
 License: MIT
 License Source: LICENSE
@@ -33466,37 +31582,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: window-size@1.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015-2017, Jon Schlinkert
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
