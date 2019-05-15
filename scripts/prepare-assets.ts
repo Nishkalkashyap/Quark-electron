@@ -16,7 +16,24 @@ function copyDefinitions() {
     const all = Object.keys(Object.assign({}, deps, dev));
 
     // const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', '@types/react', '@types/prop-types', '@types/react-dom', 'electron', '@types/chart.js', 'vue', 'text-to-worker', 'tslib']
-    const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', '@types/react', '@types/prop-types', '@types/react-dom', 'electron', '@types/chart.js', '@types/styled-components', 'vue', 'tslib']
+    const includeFiles = [
+        '@squirtle/api',
+        '@types/firmata',
+        '@types/fs-extra',
+        '@types/johnny-five',
+        '@types/node',
+        '@types/serialport',
+        '@types/p5',
+        '@types/react',
+        '@types/prop-types',
+        '@types/react-dom',
+        '@types/chart.js',
+        '@types/styled-components',
+        'electron',
+        'vue',
+        'tslib',
+        'typescript'
+    ]
 
     all.map((val) => {
 

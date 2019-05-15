@@ -110,13 +110,13 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
             win.close();
             // }
 
-            dialog.showMessageBox(win, {
+            dialog.showMessageBox({
                 title: 'Window Crashed',
                 message: 'Reopen current project? ',
                 buttons: ['Yes', 'No']
             }, (r, c) => {
                 if (r == 0) {
-                    _createWindow(windowTypes, absoluteFilePath);
+                    createOrFocusWindow(windowTypes, absoluteFilePath);
                 }
             });
         });
