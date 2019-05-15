@@ -1,3 +1,40 @@
+<!-- Quark-0.2.13-start -->
+## Quark 0.2.13 - May 15, 2019
+
+#### Minor changes
+* Updated snippets to dynamic imports.
+* Removed old definition providers.
+* Dependency update release.
+
+#### Dependencies:
+* Updated: `webpack@4.31.0` (Previous: v4.30.0)
+* Updated: `typescript@3.4.5` (Previous: v3.3.3333)
+* Updated: `ts-loader@5.4.5` (Previous: v5.3.3)
+* Updated: `serialport@7.1.5` (Previous: v7.1.4)
+* Updated: `electron@4.2.1` (Previous: v4.1.3)
+* Updated: `electron-builder@20.40.2` (Previous: v20.39.0)
+* Updated: `electron-builder-squirrel-windows@20.41.0` (Previous: v20.40.0)
+* Updated: `babel-loader@8.0.6` (Previous: v8.0.5)
+* Updated: `@babel/preset-env@7.4.4` (Previous: v7.4.3)
+* Updated: `@babel/core@7.4.4` (Previous: v7.4.3)
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.13.deb": "D3lK/zbpB1f4OpuX+FOXwlc4S6QcspEHKwfv3a9X7WRkQQ2oAdnX0hZGs7EFGxFBcTFGZk2wM2MW+6uJrb8g+w==",
+    "Quark-win-0.2.13.exe": "0HUArgDqnzLKmP/WTRFKuaS0TBvvvlGNNMVJK02a1K3KZSgGbKfKqFdBTrDqDUI/dq2xSfch2yGhbILiVdD97w==",
+    "Quark-win-x64-0.2.13.zip": "pHYbrDcmVwpdN3MUOrvW7ABaa3eawo5CUxP7NWEvkIvbF9FpFHjHd22ukJmxXxrTrca7+kdfLy07Khn4j+o6kQ==",
+    "Quark-linux-x64-0.2.13.tar.gz": "6NTVjirrsjKIYUuaxKLV0dyO27JO9WO0Zmx+rpYkNKLTf4Ypk802LwDhsf/Ou2og3OOfv8BHDUdYGTB1gQDWIw==",
+    "Quark-linux-x86_64-0.2.13.AppImage": "ISYLWxu2oVa29SJ27ljjzzIhfurTdK0z4F2ya6GbaoPFHHb4IhHoL83V16ruhXm0FwmwJQcvkhqj6AvB3IRkQA=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.13-end -->
+
+
 <!-- Quark-0.2.12-start -->
 ## Quark 0.2.12 - May 15, 2019
 
