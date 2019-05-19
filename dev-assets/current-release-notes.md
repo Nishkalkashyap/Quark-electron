@@ -1,4 +1,2 @@
-#### Minor changes
-* Updated snippets to dynamic imports.
-* Removed old definition providers.
-* Dependency update release.
+#### Bug fixes:
+* Wrong config.entry file name (data type) caused window to crash.
