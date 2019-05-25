@@ -1,2 +1,3 @@
 #### Bug fixes:
-* Wrong config.entry file name (data type) caused window to crash.
+* Fixed snippets default import error.
+* Fixed output-channel settings error.

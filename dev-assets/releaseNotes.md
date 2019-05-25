@@ -1,3 +1,26 @@
+<!-- Quark-0.2.15-start -->
+## Quark 0.2.15 - May 23, 2019
+
+#### Bug fixes:
+* Fixed snippets default import error.
+* Fixed output-channel settings error.
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.15.deb": "MpjTQ8zBfxvbzJF2YIsL5gF9VaZsD+goBmZRWJ2uC6rvhgm3xR+XRNyXWFlj+p8cwe0xYWcyi/3e0G8l4rSCAg==",
+    "Quark-win-0.2.15.exe": "59lyPsFm95VS0dsmZU/SnF+x0IigiqGXbncXMDvCFyiesUoAM2YhJ1sN+3h3pmRNCI0S2/rszhrHKYLMLqvhVw==",
+    "Quark-win-x64-0.2.15.zip": "eCqW4WJj1jXhsOwPrGJslAv9UF6bk7ms/Z/hd5H2CmUphgqJNrtWOZd/5mnGSxoWGTUxbSbNTcX9Rqr6LtNBHg==",
+    "Quark-linux-x64-0.2.15.tar.gz": "aTaBXeqW0YkJikNnkrHt8MSgufI+kYC0qpGTDRaj18HYFm9lbLLmkv2NKvAAqGoTfJkbvxR9RtlzyGjXu6boEA==",
+    "Quark-linux-x86_64-0.2.15.AppImage": "jp+pnyzYO+1oc6QCKcZx+b05G3cNFNoRrGHfG3WxNwYfcLDcPhxwdxks/wGvTdElgAl2qjSsljeL50wtIK4xyA=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.15-end -->
+
+
 <!-- Quark-0.2.14-start -->
 ## Quark 0.2.14 - May 19, 2019
 
