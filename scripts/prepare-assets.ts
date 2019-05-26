@@ -15,7 +15,6 @@ function copyDefinitions() {
     const dev = Package.devDependencies;
     const all = Object.keys(Object.assign({}, deps, dev));
 
-    // const includeFiles = ['@squirtle/api', '@types/firmata', '@types/fs-extra', '@types/johnny-five', '@types/node', '@types/serialport', '@types/p5', '@types/react', '@types/prop-types', '@types/react-dom', 'electron', '@types/chart.js', 'vue', 'text-to-worker', 'tslib']
     const includeFiles = [
         '@squirtle/api',
         '@types/firmata',
@@ -23,7 +22,6 @@ function copyDefinitions() {
         '@types/johnny-five',
         '@types/node',
         '@types/serialport',
-        '@types/p5',
         '@types/react',
         '@types/prop-types',
         '@types/react-dom',

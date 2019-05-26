@@ -1,3 +1,43 @@
+<!-- Quark-0.2.16-start -->
+## Quark 0.2.16 - May 26, 2019
+
+#### Bug fixes:
+* Fixed output-channel bug.
+
+#### Other changes
+* Changes @squirtle namespace to @quarkjs.
+* Removed p5.js package.
+
+#### Dependencies:
+* Updated: `webpack@4.32.2` (Previous: v4.31.0)
+* Updated: `npm@6.9.0` (Previous: v6.8.0)
+* Updated: `electron@4.2.2` (Previous: v4.2.1)
+* Updated: `electron-builder@20.41.0` (Previous: v20.40.2)
+* Updated: `electron-builder-squirrel-windows@20.42.0` (Previous: v20.41.0)
+* Updated: `chokidar@2.1.6` (Previous: v2.1.5)
+* Added: `@quarkjs/api@file`
+* Updated: `@babel/preset-env@7.4.5` (Previous: v7.4.4)
+* Updated: `@babel/core@7.4.5` (Previous: v7.4.4)
+* Removed: `p5@0.8.0`
+* Removed: `@squirtle/api@file`
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-linux-amd64-0.2.16.deb": "n9ARyZOJzgqNNESlv9+n3r8ebV4eomuWyUDHIzXaEPRp49dDLBOuPdPsln3IdiNl9XBqQI6mFuRFhlKn8D4wdg==",
+    "Quark-win-0.2.16.exe": "EmzMotksOF0tnLkWJzLAmH7uZVSNCtkA7we+sg9TlTGfPReAIenIjRmOMAhbi0ywTqF5AmtEMGxpLj1N3ZXkQg==",
+    "Quark-win-x64-0.2.16.zip": "cqDxs6GEXzAdnR7xthYKO6tIUmPlcoj49l37Cs9TZWxpBRPeDl5YnYr7L3nJsUGKAMExDnX3X08FR08moKveWQ==",
+    "Quark-linux-x64-0.2.16.tar.gz": "ou5Y9oOEzt7POjvD115WpnL4z8YSFjSM/ZLpM3QiiSuIDry9rWub27llbclpY8skjJ+9kuBhjUsAtRINaqxD7w==",
+    "Quark-linux-x86_64-0.2.16.AppImage": "+r8f+2W59gGQLI14iI41by6RS0YD9tXfX9UlW+vCyaxDJA8Mh6Y9mXMMJoBS8gS32oVX5pVqeHGhP1Nvn6J+0A=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.16-end -->
+
+
 <!-- Quark-0.2.15-start -->
 ## Quark 0.2.15 - May 23, 2019
 

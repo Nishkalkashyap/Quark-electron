@@ -3,8 +3,8 @@ import * as path from 'path';
 import * as url from 'url';
 import * as fs from 'fs-extra';
 
-import { IpcEvents } from '@squirtle/api/umd/src/api/electron/electron.internal';
-import { IBrowserWindow } from '@squirtle/api/umd/src/api/electron/electron.internal';
+import { IpcEvents } from '@quarkjs/api/umd/src/api/electron/electron.internal';
+import { IBrowserWindow } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
 import log from 'electron-log';

@@ -1,3 +1,6 @@
 #### Bug fixes:
-* Fixed snippets default import error.
-* Fixed output-channel settings error.
+* Fixed output-channel bug.
+
+#### Other changes
+* Changes @squirtle namespace to @quarkjs.
+* Removed p5.js package.
