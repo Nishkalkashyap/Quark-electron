@@ -3,10 +3,11 @@ import * as fs from 'fs-extra';
 import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
 import { printConsoleStatus } from './util';
+import * as unzipper from 'unzipper';
 
 copyDefinitions();
 makeIcons();
-copyAssets();
+unzipWWW().catch(console.error);
 
 function copyDefinitions() {
 
@@ -82,27 +83,15 @@ function copyDefinitions() {
     });
 }
 
-function copyAssets() {
-
-    fs.removeSync('./www/');
-
-    try {
-        ncp.ncp('./../QuarkUMD/dist/', './www/', {
-            filter: (file) => {
-                return file.search('js.map') == -1
-            }
-        }, (e) => {
-            if (e) {
-                printConsoleStatus(`Error: ${e.name}`, 'danger');
-                printConsoleStatus(`Error: ${e.message}`, 'danger');
-            }
+function unzipWWW() {
+    return new Promise((resolve) => {
+        const archiveOutPath = './buildResources/www.zip';
+        const stream = fs.createReadStream(archiveOutPath)
+            .pipe(unzipper.Extract({ path: './www' }));
+        stream.on('end', () => {
+            resolve();
         });
-    } catch (e) {
-        if (e) {
-            printConsoleStatus(`Error: ${e.name}`, 'danger');
-            printConsoleStatus(`Error: ${e.message}`, 'danger');
-        }
-    }
+    });
 }
 
 function makeIcons() {

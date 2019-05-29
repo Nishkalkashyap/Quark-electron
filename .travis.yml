@@ -1,12 +1,13 @@
 sudo: required
 dist: trusty
+if: branch = release
 
 language: node_js
 
 matrix:
   include:
     - os: linux
-      node_js: 10.2.0
+      node_js: "node"
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
 
@@ -30,13 +31,8 @@ before_install:
 install:
   - npm install
 
-after_success:
-  - npm run qb
-
-branches:
-  except:
-    - "/^v\\d+\\.\\d+\\.\\d+$/"
-
+# after_success:
+  # - npm run qb
 
 #Deploy Configuration
 # deploy:
