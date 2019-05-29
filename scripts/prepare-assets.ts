@@ -5,9 +5,12 @@ import * as sharp from 'sharp';
 import { printConsoleStatus } from './util';
 import * as unzipper from 'unzipper';
 
-copyDefinitions();
-makeIcons();
-unzipWWW().catch(console.error);
+root().catch(console.error);
+async function root() {
+    await unzipWWW();
+    copyDefinitions();
+    makeIcons();
+}
 
 function copyDefinitions() {
 
