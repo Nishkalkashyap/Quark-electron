@@ -109,6 +109,7 @@ function makeIcons() {
             .resize(size, size)
             .toBuffer()
             .then((buffer) => {
+                fs.ensureFileSync(`./buildResources/icons/${size}x${size}.png`);
                 fs.writeFileSync(`./buildResources/icons/${size}x${size}.png`, buffer);
             }).catch((err) => {
                 console.log(err);
