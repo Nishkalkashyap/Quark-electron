@@ -2,11 +2,13 @@ import * as fs from 'fs-extra';
 import * as archiver from 'archiver';
 import { printConsoleStatus } from './util';
 
-const archiveOutPath = './buildResources/www.zip';
-zipFolder();
+const wwwOutPath = './buildResources/www.zip';
+const squirtleOutPath = './buildResources/squirtle.zip';
+makeZip('./../QuarkUMD/dist', wwwOutPath);
+makeZip('./../@squirtle/api', squirtleOutPath);
 
-function zipFolder() {
-    var output = fs.createWriteStream(archiveOutPath);
+function makeZip(inDir: string, outFilePath: string) {
+    var output = fs.createWriteStream(outFilePath);
     const archive = archiver('zip', {
         zlib: { level: 9 }
     });
@@ -36,6 +38,6 @@ function zipFolder() {
 
     archive.pipe(output);
 
-    archive.directory('./www', false);
+    archive.directory(inDir, false);
     archive.finalize();
 }

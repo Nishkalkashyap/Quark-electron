@@ -84,14 +84,29 @@ function copyDefinitions() {
 }
 
 function unzipWWW() {
-    return new Promise((resolve) => {
-        const archiveOutPath = './buildResources/www.zip';
-        const stream = fs.createReadStream(archiveOutPath)
-            .pipe(unzipper.Extract({ path: './www' }));
-        stream.on('end', () => {
-            resolve();
-        });
+    return new Promise(async (resolve) => {
+        const squirtleOutPath = './buildResources/squirtle.zip';
+        const wwwOutPath = './buildResources/www.zip';
+
+        await Promise.all([
+            unzip(squirtleOutPath, './squirtle'),
+            unzip(squirtleOutPath, './node_modules/@quarkjs/api'),
+            unzip(wwwOutPath, './www')
+        ]);
+        console.log('here');
+        resolve();
     });
+
+    function unzip(infile: string, outdir: string) {
+        fs.ensureDirSync(outdir);
+        return new Promise((resolve) => {
+            const wwwStream = fs.createReadStream(infile)
+                .pipe(unzipper.Extract({ path: outdir }));
+            wwwStream.on('end', () => {
+                resolve();
+            });
+        });
+    }
 }
 
 function makeIcons() {
