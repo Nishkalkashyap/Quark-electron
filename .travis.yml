@@ -29,6 +29,7 @@ before_install:
 
 install:
   - npm install
+  - npm run link
 
 script:
   - npm run build-quick

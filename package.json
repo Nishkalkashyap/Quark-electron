@@ -11,7 +11,7 @@
     "land": "ts-node ./scripts/prepare-assets.ts && tsc && electron .",
     "start": "ts-node ./scripts/prepare-assets.ts && tsc && electron . ./start.qrk",
     "qs": "electron . ./start.qrk",
-    "link": "npm install ./../@squirtle/api",
+    "link": "npm install ./.quark/quarkjs --no-save",
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
     "copy": "npm run clean-dir && ts-node ./scripts/copy-html.ts",

@@ -14,10 +14,11 @@ function copyDefinitions() {
     const Package = fs.readJsonSync('./package.json');
     const deps = Package.dependencies;
     const dev = Package.devDependencies;
-    const all = Object.keys(Object.assign({}, deps, dev));
+    const all = Object.keys(Object.assign({ '@quarkjs/api': '' }, deps, dev));
 
     const includeFiles = [
-        '@squirtle/api',
+        // '@squirtle/api',
+        '@quarkjs/api',
         '@types/firmata',
         '@types/fs-extra',
         '@types/johnny-five',
@@ -39,21 +40,24 @@ function copyDefinitions() {
         if (!includeFiles.includes(val))
             return;
 
-        recc(`./node_modules/` + val, [
-            (file, stat) => {
-                return !stat.isDirectory() && !file.endsWith('.d.ts');
-            }
-        ], (e, _files) => {
-            if (e) {
-                printConsoleStatus(e.name, 'danger');
-                printConsoleStatus(e.message, 'danger');
-                return;
-            }
-            if (_files.length == 0)
-                return;
-            printConsoleStatus(`Copied ${_files.length} definitions from ${val}`, 'success');
-            copyFiles();
-        });
+        // recc(`./node_modules/` + val, [
+        //     (file, stat) => {
+        //         if (file.includes('quark')) {
+        //             console.log(file);
+        //         }
+        //         return !stat.isDirectory() && !file.endsWith('.d.ts');
+        //     }
+        // ], (e, _files) => {
+        //     if (e) {
+        //         printConsoleStatus(e.name, 'danger');
+        //         printConsoleStatus(e.message, 'danger');
+        //         return;
+        //     }
+        //     if (_files.length == 0)
+        //         return;
+        //     printConsoleStatus(`Copied ${_files.length} definitions from ${val}`, 'success');
+        // });
+        copyFiles();
 
         function copyFiles() {
             const mkdirp = require('mkdirp');
@@ -65,19 +69,22 @@ function copyDefinitions() {
 
             ncp.ncp(`./node_modules/` + val, './definitions/' + val, {
                 filter: (file) => {
-                    return (
+                    let bool = (
                         ((fs.statSync(file).isDirectory() || file.includes('.d.ts') || file.endsWith('package.json'))
                             && (!file.replace('node_modules', '').includes('node_modules')))
                         && (file.search(/api[\\/]umd/) == -1)
                         && (file.search('.git') == -1)
                     );
+                    return bool;
                 },
                 dereference: true
             }, (e) => {
                 if (e) {
                     printConsoleStatus(`Error: ${e.name}`, 'danger');
                     printConsoleStatus(`Error: ${e.message}`, 'danger');
+                    return;
                 }
+                printConsoleStatus(`Copied definitions from ${val}`, 'success');
             });
         }
     });
@@ -89,8 +96,7 @@ function unzipWWW() {
         const wwwOutPath = './buildResources/www.zip';
 
         await Promise.all([
-            unzip(squirtleOutPath, './squirtle'),
-            unzip(squirtleOutPath, './node_modules/@quarkjs/api'),
+            unzip(squirtleOutPath, './.quark/quarkjs'),
             unzip(wwwOutPath, './www')
         ]);
         console.log('here');
@@ -99,6 +105,7 @@ function unzipWWW() {
 
     function unzip(infile: string, outdir: string) {
         fs.ensureDirSync(outdir);
+        fs.emptyDirSync(outdir);
         return new Promise((resolve) => {
             const wwwStream = fs.createReadStream(infile)
                 .pipe(unzipper.Extract({ path: outdir }));
