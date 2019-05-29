@@ -30,6 +30,9 @@ before_install:
 install:
   - npm install
 
+script:
+  - npm run build-quick
+
 # after_success:
   # - npm run qb
 
