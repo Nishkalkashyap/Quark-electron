@@ -7,7 +7,7 @@ import * as unzipper from 'unzipper';
 
 root().catch(console.error);
 async function root() {
-    await unzipWWW();
+    await unzipWWWSquirtle();
     copyDefinitions();
     makeIcons();
 }
@@ -93,7 +93,7 @@ function copyDefinitions() {
     });
 }
 
-function unzipWWW() {
+function unzipWWWSquirtle() {
     return new Promise(async (resolve) => {
         const squirtleOutPath = './buildResources/squirtle.zip';
         const wwwOutPath = './buildResources/www.zip';
@@ -102,7 +102,6 @@ function unzipWWW() {
             unzip(squirtleOutPath, './.quark/quarkjs'),
             unzip(wwwOutPath, './www')
         ]);
-        console.log('here');
         resolve();
     });
 

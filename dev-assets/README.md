@@ -6,6 +6,7 @@ needed by vue language
 
 
 update package.json version
+npm run copy
 npm run bl && npm run bw
 npm run release
 Test the exe
