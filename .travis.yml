@@ -12,8 +12,6 @@ matrix:
       node_js: lts/*
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
-    - os: windows
-      node_js: lts/*
 
 addons:
   apt:

@@ -55,7 +55,7 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         let win: IBrowserWindow;
         let showLandingPage: boolean;
-        if (absoluteFilePath == LANDING_PAGE_APP_PATH) {
+        if (absoluteFilePath == LANDING_PAGE_APP_PATH || !fs.existsSync(absoluteFilePath)) {
             win = getLandingPageWindow();
             showLandingPage = true;
         } else {
