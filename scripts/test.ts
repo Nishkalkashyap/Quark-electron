@@ -52,7 +52,7 @@ function exitTest() {
 function getMacosFolder() {
     const dir = fs.readdirSync('./build');
     dir.map((val) => {
-        if (val.includes('unpacked') || val.includes('mac')) {
+        if (val.endsWith('mac')) {
             console.log('val = ', fs.readdirSync(path.join('./build', val)));
         }
     });
