@@ -8,14 +8,16 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "land": "ts-node ./scripts/prepare-assets.ts && tsc && electron .",
-    "start": "ts-node ./scripts/prepare-assets.ts && tsc && electron . ./start.qrk",
+    "land": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron .",
+    "start": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./start.qrk",
     "qs": "electron . ./start.qrk",
+    "pack": "webpack --config webpack.config.js",
+    "packk": "tsc",
     "link": "npm install ./.quark/quarkjs --no-save",
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
     "copy": "npm run clean-dir && ts-node ./scripts/copy-html.ts",
-    "build-quick": "ts-node ./scripts/prepare-assets.ts && npm run link && tsc && npm run lic && ts-node scripts/build.ts",
+    "build-quick": "ts-node ./scripts/prepare-assets.ts && npm run link && npm run pack && npm run lic && ts-node scripts/build.ts",
     "build-common": "npm run clean-dir && npm install && npm run build-quick",
     "build-win": "npm run build-common && start .\\build",
     "build-linux": "ts-node ./scripts/build-linux.ts && cd ./../Quark-electron-linux && npm run build-common",
@@ -135,6 +137,7 @@
     "ts-node": "^8.1.1",
     "tslib": "^1.9.3",
     "unzipper": "^0.9.15",
+    "webpack-cli": "^3.3.2",
     "yamljs": "^0.3.0"
   },
   "keywords": [
