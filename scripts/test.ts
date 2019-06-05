@@ -62,7 +62,7 @@ function postBuild() {
         }
     })
     dir.map((val) => {
-        if (!!val.val.match(/(mac|unpacked)/)) {
+        if (!!val.val.match(/(mac|unpacked)/) && val.isDir) {
             console.log('build-dir = ', fs.readdirSync(path.join('./build', val.val)));
         }
     });
