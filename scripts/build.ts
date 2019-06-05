@@ -159,14 +159,14 @@ builder.build({
                     target: 'dmg',
                     arch: ['x64']
                 },
-                {
-                    target: 'zip',
-                    arch: ['x64']
-                },
-                {
-                    target: 'dir',
-                    arch: ['x64']
-                },
+                // {
+                //     target: 'zip',
+                //     arch: ['x64']
+                // },
+                // {
+                //     target: 'dir',
+                //     arch: ['x64']
+                // },
             ]
 
         },

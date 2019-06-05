@@ -1,4 +1,4 @@
-import { execFile } from "child_process";
+import { execFile, execSync } from "child_process";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { printConsoleStatus } from './util';
@@ -24,7 +24,7 @@ async function runTest() {
                 // 'mac/Quark.app' : null;
                 `Quark-mac-${version}.dmg` : null;
 
-    filePath.includes('mac') ? getMacosFolder() : null;
+    filePath.includes('mac') ? macOSHandle() : null;
     if (!filePath) {
         process.exit(0);
     }
@@ -62,7 +62,11 @@ function exitTest() {
     process.exit(1);
 }
 
-function getMacosFolder() {
+function macOSHandle() {
+
+    const result = execSync(`chmod -R 777 ./build`);
+    console.log(result.toString());
+
     const dir = fs.readdirSync('./build').map((val) => {
         return {
             val,
