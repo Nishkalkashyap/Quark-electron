@@ -24,7 +24,7 @@ async function runTest() {
                 // 'mac/Quark.app' : null;
                 `Quark-mac-${version}.dmg` : null;
 
-    filePath.includes('mac') ? macOSHandle() : null;
+    filePath.match(/(mac|dmg)/) ? macOSHandle() : null;
     if (!filePath) {
         process.exit(0);
     }

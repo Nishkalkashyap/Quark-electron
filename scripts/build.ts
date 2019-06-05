@@ -159,6 +159,10 @@ builder.build({
                     target: 'dmg',
                     arch: ['x64']
                 },
+                {
+                    target: 'pkg',
+                    arch: ['x64']
+                },
                 // {
                 //     target: 'zip',
                 //     arch: ['x64']
