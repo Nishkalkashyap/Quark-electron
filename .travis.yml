@@ -1,11 +1,17 @@
 sudo: required
 dist: trusty
 
+env:
+  - ELECTRON_CACHE=$HOME/.cache/electron
+  - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 language: node_js
 cache: 
   - npm
   - directories:
     - ./build
+    - $HOME/.cache/electron
+    - $HOME/.cache/electron-builder
+
 
 notifications:
   email:
