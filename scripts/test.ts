@@ -1,10 +1,19 @@
 import { execFile } from "child_process";
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import console = require("console");
+import { printConsoleStatus } from './util';
+
+let hasEnded: boolean = false;
 
 runTest().catch(console.error);
 async function runTest() {
+    console.time('test');
+
+    setTimeout(() => {
+        if (!hasEnded) {
+            exitTest();
+        }
+    }, 1000 * 60 * 2);
 
     let filePath = process.platform == 'win32' ? 'win-unpacked/Quark.exe' : process.platform == 'linux' ? 'linux-unpacked/quark' : null;
 
@@ -19,25 +28,33 @@ async function runTest() {
     cp.on('close', (m) => { console.log(`close: ${m}`) });
     cp.on('error', (m) => { console.log(`error: ${m}`) });
     cp.on('exit', (m) => {
+        console.timeEnd('test');
         console.log(`exit: ${m}`);
-        const filePath = './test/__testResults/result.json';
-        if (fs.existsSync(filePath)) {
-            const result = fs.readJsonSync(filePath);
-            if (result.value == true) {
-                process.exit(0);
-                return;
-            }
-        }
-        process.exit(1);
+        exitTest();
     });
+}
+
+function exitTest() {
+    const filePath = './test/__testResults/result.json';
+    hasEnded = true;
+    if (fs.existsSync(filePath)) {
+        const result = fs.readJsonSync(filePath);
+        if (result.value == true) {
+            printConsoleStatus('Test successful', 'success');
+            process.exit(0);
+            return;
+        }
+    }
+    printConsoleStatus('Test Failed', 'success');
+    process.exit(1);
 }
 
 function getMacosFolder() {
     const dir = fs.readdirSync('./build');
     dir.map((val) => {
-        if (val.includes('unpacked')) {
-            console.log(fs.readdirSync(path.join('./build', val)));
+        if (val.includes('unpacked') || val.includes('mac')) {
+            console.log('val = ', fs.readdirSync(path.join('./build', val)));
         }
     });
-    console.log(dir);
+    console.log('dir = ', dir);
 }
