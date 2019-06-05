@@ -23,8 +23,8 @@ async function runTest() {
             `Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
                 'mac/Quark.app' : null;
 
+    filePath.includes('mac') ? getMacosFolder() : null;
     if (!filePath) {
-        getMacosFolder();
         process.exit(0);
     }
 

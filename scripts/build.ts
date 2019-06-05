@@ -7,9 +7,9 @@ dotenv.config({
     path: './scripts/prod.env'
 });
 
-if (os.platform() == 'linux') {
-    process.env.DEBUG = 'electron-builder';
-}
+// if (os.platform() == 'linux') {
+//     process.env.DEBUG = 'electron-builder';
+// }
 
 const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "**/*",
@@ -105,6 +105,11 @@ builder.build({
             "publisher": "CN=88BEC0DF-9467-4B64-BE19-2F563CC75E57",
             "publisherDisplayName": "Nishkal"
         },
+
+
+
+
+
         linux: {
             "category": "IDE",
             "target": [
@@ -143,10 +148,32 @@ builder.build({
             systemIntegration: 'ask',
             license: 'LICENSE'
         },
+
+
         mac: {
-            target: 'default',
-            category: 'public.app-category.utilities'
+            // target: 'default',
+            // category: 'public.app-category.utilities',
+            category: 'public.app-category.developer-tools',
+            target: [
+                {
+                    target: 'dmg',
+                    arch: ['x64']
+                },
+                {
+                    target: 'zip',
+                    arch: ['x64']
+                },
+                {
+                    target: 'dir',
+                    arch: ['x64']
+                },
+            ]
+
         },
+
+
+
+
         publish: {
             provider: 'generic',
             url: 'https://storage.googleapis.com/quarkjs-auto-update',
