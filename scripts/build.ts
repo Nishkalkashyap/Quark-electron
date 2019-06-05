@@ -34,7 +34,8 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!dev-assets",
     "!scripts",
     "!splash_assets",
-    "!.quark"
+    "!.quark",
+    "!test"
 ]
 
 printConsoleStatus(`Starting Build`, 'success');
