@@ -17,19 +17,21 @@ async function runTest() {
         }
     }, 1000 * 60 * 2);
 
-    let filePath = process.platform == 'win32' ?
-        'win-unpacked/Quark.exe' : process.platform == 'linux' ?
-            // 'linux-unpacked/quark' : process.platform == 'darwin' ?
-            `Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
-                'mac/Quark.app' : null;
-                // `Quark-mac-${version}.dmg` : null;
+    let command = process.platform == 'win32' ?
+        `./build/win-unpacked/Quark.exe` : process.platform == 'linux' ?
+            // './build/linux-unpacked/quark' : process.platform == 'darwin' ?
+            `./build/Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
+                './build/mac/Quark.app' : null;
+    // `./build/Quark-mac-${version}.dmg` : null;
 
-    filePath.match(/(mac|dmg)/) ? macOSHandle() : null;
-    if (!filePath) {
+    command.match(/(mac|dmg)/) ? macOSHandle() : null;
+    if (!command) {
         process.exit(0);
     }
 
-    execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], (error, stdout, stderr) => {
+    execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'],{
+        env : process.env,
+    } , (error, stdout, stderr) => {
         console.timeEnd('test');
         postBuild();
         console.log(stdout);
