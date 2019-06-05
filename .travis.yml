@@ -59,6 +59,7 @@ addons:
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo snap install snapcraft --classic; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'Set-MpPreference -DisableRealtimeMonitoring $true'; fi
 
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install python --version 2.7.2; fi
