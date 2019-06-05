@@ -38,6 +38,10 @@ function makeZip(inDir: string, outFilePath: string) {
 
     archive.pipe(output);
 
-    archive.directory(inDir, false);
+    // archive.directory(inDir, false);
+    archive.glob('**', {
+        cwd: inDir,
+        ignore: ['**/node_modules/**']
+    })
     archive.finalize();
 }
