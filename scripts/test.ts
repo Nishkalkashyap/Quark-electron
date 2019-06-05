@@ -74,7 +74,7 @@ function postBuild() {
         // const result = execSync(`ls`);
         // console.log(result.toString());
     } else {
-        const result = execSync(`ls -la`);
+        const result = execSync(`ls -la ./build`);
         console.log(result.toString());
     }
 }
