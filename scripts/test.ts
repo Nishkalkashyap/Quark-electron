@@ -21,7 +21,8 @@ async function runTest() {
         'win-unpacked/Quark.exe' : process.platform == 'linux' ?
             // 'linux-unpacked/quark' : process.platform == 'darwin' ?
             `Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
-                'mac/Quark.app' : null;
+                // 'mac/Quark.app' : null;
+                `Quark-mac-${version}.dmg` : null;
 
     filePath.includes('mac') ? getMacosFolder() : null;
     if (!filePath) {
@@ -62,13 +63,18 @@ function exitTest() {
 }
 
 function getMacosFolder() {
-    const dir = fs.readdirSync('./build');
+    const dir = fs.readdirSync('./build').map((val) => {
+        return {
+            val,
+            stat: fs.statSync(path.join('./build', val)).isDirectory()
+        }
+    })
     dir.map((val) => {
-        if (val.endsWith('mac')) {
-            console.log('val = ', fs.readdirSync(path.join('./build', val)));
+        if (val.val.endsWith('mac')) {
+            console.log('val = ', fs.readdirSync(path.join('./build', val.val)));
         }
     });
-    console.log('dir = ', dir);
+    console.log('dir = ', JSON.stringify(dir));
 }
 
 // val =  [ 'Quark.app' ]
