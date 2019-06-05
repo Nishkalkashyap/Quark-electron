@@ -21,8 +21,8 @@ async function runTest() {
         'win-unpacked/Quark.exe' : process.platform == 'linux' ?
             // 'linux-unpacked/quark' : process.platform == 'darwin' ?
             `Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
-                // 'mac/Quark.app' : null;
-                `Quark-mac-${version}.dmg` : null;
+                'mac/Quark.app' : null;
+                // `Quark-mac-${version}.dmg` : null;
 
     filePath.includes('mac') ? macOSHandle() : null;
     if (!filePath) {
