@@ -1,10 +1,17 @@
 import { execFile } from "child_process";
 import * as fs from 'fs-extra';
+import * as path from 'path';
+import console = require("console");
 
 runTest().catch(console.error);
 async function runTest() {
 
     let filePath = process.platform == 'win32' ? 'win-unpacked/Quark.exe' : process.platform == 'linux' ? 'linux-unpacked/quark' : null;
+
+    if (!filePath) {
+        getMacosFolder();
+        process.exit(0);
+    }
 
     const cp = execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
 
@@ -23,4 +30,14 @@ async function runTest() {
         }
         process.exit(1);
     });
+}
+
+function getMacosFolder() {
+    const dir = fs.readdirSync('./build');
+    dir.map((val) => {
+        if (val.includes('unpacked')) {
+            console.log(fs.readdirSync(path.join('./build', val)));
+        }
+    });
+    console.log(dir);
 }

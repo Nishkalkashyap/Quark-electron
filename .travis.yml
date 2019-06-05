@@ -8,10 +8,10 @@ matrix:
       node_js: lts/*
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
-    # - os: osx
-    #   node_js: lts/*
-    #   env: CC=clang CXX=clang++ npm_config_clang=1
-    #   compiler: clang
+    - os: osx
+      node_js: lts/*
+      env: CC=clang CXX=clang++ npm_config_clang=1
+      compiler: clang
 
 addons:
   apt:
