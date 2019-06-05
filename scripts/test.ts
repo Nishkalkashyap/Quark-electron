@@ -4,6 +4,8 @@ import * as path from 'path';
 import { printConsoleStatus } from './util';
 
 let hasEnded: boolean = false;
+const packageJSON = JSON.parse(fs.readFileSync('./package.json').toString());
+const version = packageJSON.version;
 
 runTest().catch(console.error);
 async function runTest() {
@@ -17,7 +19,8 @@ async function runTest() {
 
     let filePath = process.platform == 'win32' ?
         'win-unpacked/Quark.exe' : process.platform == 'linux' ?
-            'linux-unpacked/quark' : process.platform == 'darwin' ?
+            // 'linux-unpacked/quark' : process.platform == 'darwin' ?
+            `Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
                 'mac/Quark.app' : null;
 
     if (!filePath) {
