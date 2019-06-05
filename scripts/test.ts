@@ -15,7 +15,10 @@ async function runTest() {
         }
     }, 1000 * 60 * 2);
 
-    let filePath = process.platform == 'win32' ? 'win-unpacked/Quark.exe' : process.platform == 'linux' ? 'linux-unpacked/quark' : null;
+    let filePath = process.platform == 'win32' ?
+        'win-unpacked/Quark.exe' : process.platform == 'linux' ?
+            'linux-unpacked/quark' : process.platform == 'darwin' ?
+                'mac/Quark.app' : null;
 
     if (!filePath) {
         getMacosFolder();
@@ -58,3 +61,10 @@ function getMacosFolder() {
     });
     console.log('dir = ', dir);
 }
+
+// val =  [ 'Quark.app' ]
+// dir =  [ 'Quark-mac-0.2.17.dmg',
+//   'Quark-mac-0.2.17.dmg.blockmap',
+//   'Quark-mac-0.2.17.zip',
+//   'latest-mac.yml',
+//   'mac' ]
