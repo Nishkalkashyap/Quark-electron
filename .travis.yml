@@ -12,6 +12,10 @@ matrix:
       node_js: lts/*
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
+    # - os: windows
+    #   node_js: lts/*
+    #   env: CC=clang CXX=clang++ npm_config_clang=1
+    #   compiler: clang
 
 addons:
   apt:
@@ -34,8 +38,8 @@ install:
   - npm install
 
 script:
-  - sudo npm run build-quick
-  - sudo npm run test-build
+  - npm run build-quick
+  - npm run test-build
 
 # after_success:
   # - npm run qb

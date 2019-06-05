@@ -132,6 +132,12 @@ builder.build({
                 //     "arch": ["x64"]
                 // }
             ]
+                .filter((val) => {
+                    if (process.env.TRAVIS_OS_NAME) {
+                        return !val.target.endsWith('.gz');
+                    }
+                    return true;
+                }) as builder.TargetConfigType
         },
         appImage: {
             systemIntegration: 'ask',

@@ -27,8 +27,11 @@ async function runTest() {
 
     const cp = execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
 
-    cp.stdout.on('data', (data) => { console.log(data); });
-    cp.stderr.on('data', (data) => { console.log(data); });
+    if (cp.stderr && cp.stdout) {
+        cp.stdout.on('data', (data) => { console.log(data); });
+        cp.stderr.on('data', (data) => { console.log(data); });
+    }
+
 
     cp.on('message', (m) => { console.log(`message: ${m}`) });
     cp.on('close', (m) => { console.log(`close: ${m}`) });
