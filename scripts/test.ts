@@ -29,20 +29,11 @@ async function runTest() {
         process.exit(0);
     }
 
-    const cp = execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
-
-    if (cp.stderr && cp.stdout) {
-        cp.stdout.on('data', (data) => { console.log(data); });
-        cp.stderr.on('data', (data) => { console.log(data); });
-    }
-
-
-    cp.on('message', (m) => { console.log(`message: ${m}`) });
-    cp.on('close', (m) => { console.log(`close: ${m}`) });
-    cp.on('error', (m) => { console.log(`error: ${m}`) });
-    cp.on('exit', (m) => {
+    execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], (error, stdout, stderr) => {
         console.timeEnd('test');
-        console.log(`exit: ${m}`);
+        console.log(stdout);
+        console.log(stderr);
+        console.log(error);
         exitTest();
     });
 }

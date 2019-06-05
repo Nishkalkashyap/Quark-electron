@@ -8,7 +8,9 @@ cache:
     - ./build
 
 notifications:
-  email: false
+  email:
+    on_success: never
+    on_failure: change
 
 matrix:
   include:
@@ -24,6 +26,7 @@ matrix:
       node_js: lts/*
   allow_failures:
     - os: osx
+  fast_finish: true
 
       # python: 3.4
       # node_js: lts/*
