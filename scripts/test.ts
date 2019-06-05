@@ -29,9 +29,9 @@ async function runTest() {
         process.exit(0);
     }
 
-    execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'],{
-        env : process.env,
-    } , (error, stdout, stderr) => {
+    execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], {
+        env: process.env,
+    }, (error, stdout, stderr) => {
         console.timeEnd('test');
         postBuild();
         console.log(stdout);
