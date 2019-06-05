@@ -21,8 +21,8 @@ async function runTest() {
         'win-unpacked/Quark.exe' : process.platform == 'linux' ?
             // 'linux-unpacked/quark' : process.platform == 'darwin' ?
             `Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
-                // 'mac/Quark.app' : null;
-                `Quark-mac-${version}.dmg` : null;
+                'mac/Quark.app' : null;
+                // `Quark-mac-${version}.dmg` : null;
 
     filePath.match(/(mac|dmg)/) ? macOSHandle() : null;
     if (!filePath) {
@@ -58,19 +58,19 @@ function postBuild() {
     const dir = fs.readdirSync('./build').map((val) => {
         return {
             val,
-            stat: fs.statSync(path.join('./build', val)).isDirectory()
+            isDir: fs.statSync(path.join('./build', val)).isDirectory()
         }
     })
     dir.map((val) => {
         if (!!val.val.match(/(mac|unpacked)/)) {
-            console.log('val = ', fs.readdirSync(path.join('./build', val.val)));
+            console.log('build-dir = ', fs.readdirSync(path.join('./build', val.val)));
         }
     });
     console.log('dir = \n\n', JSON.stringify(dir, undefined, 4));
 
     if (process.platform == 'win32') {
-        const result = execSync(`ls`);
-        console.log(result.toString());
+        // const result = execSync(`ls`);
+        // console.log(result.toString());
     } else {
         const result = execSync(`ls -la`);
         console.log(result.toString());
