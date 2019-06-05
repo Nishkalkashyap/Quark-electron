@@ -1,9 +1,6 @@
 sudo: required
 dist: trusty
 
-env:
-  - ELECTRON_CACHE=$HOME/.cache/electron
-  - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 language: node_js
 cache: 
   - npm
@@ -24,12 +21,21 @@ matrix:
       node_js: lts/*
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
+      env:
+        - ELECTRON_CACHE=$HOME/.cache/electron
+        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+        
     - os: osx
       node_js: lts/*
-      env: CC=clang CXX=clang++ npm_config_clang=1
-      compiler: clang
+      env:
+        - ELECTRON_CACHE=$HOME/.cache/electron
+        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+
     - os: windows
       node_js: lts/*
+      env:
+        - ELECTRON_CACHE=$HOME/.cache/electron
+        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
   allow_failures:
     - os: osx
   fast_finish: true
