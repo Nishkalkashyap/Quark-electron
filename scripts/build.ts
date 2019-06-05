@@ -163,10 +163,10 @@ builder.build({
                 //     target: 'zip',
                 //     arch: ['x64']
                 // },
-                // {
-                //     target: 'dir',
-                //     arch: ['x64']
-                // },
+                {
+                    target: 'dir',
+                    arch: ['x64']
+                },
             ]
 
         },
