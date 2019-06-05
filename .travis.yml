@@ -34,8 +34,8 @@ install:
   - npm install
 
 script:
-  - npm run build-quick
-  - npm run test-build
+  - sudo npm run build-quick
+  - sudo npm run test-build
 
 # after_success:
   # - npm run qb
