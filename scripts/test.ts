@@ -31,6 +31,7 @@ async function runTest() {
 
     execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], (error, stdout, stderr) => {
         console.timeEnd('test');
+        postBuild();
         console.log(stdout);
         console.log(stderr);
         console.log(error);
@@ -53,11 +54,7 @@ function exitTest() {
     process.exit(1);
 }
 
-function macOSHandle() {
-
-    const result = execSync(`chmod -R 777 ./build`);
-    console.log(result.toString());
-
+function postBuild() {
     const dir = fs.readdirSync('./build').map((val) => {
         return {
             val,
@@ -65,12 +62,25 @@ function macOSHandle() {
         }
     })
     dir.map((val) => {
-        if (val.val.endsWith('mac')) {
+        if (!!val.val.match(/(mac|unpacked)/)) {
             console.log('val = ', fs.readdirSync(path.join('./build', val.val)));
         }
     });
-    // console.log('dir = ', JSON.stringify(dir, undefined, 4));
-    execSync(`ls -ls`);
+    console.log('dir = \n\n', JSON.stringify(dir, undefined, 4));
+
+    if (process.platform == 'win32') {
+        const result = execSync(`ls`);
+        console.log(result.toString());
+    } else {
+        const result = execSync(`ls -la`);
+        console.log(result.toString());
+    }
+}
+
+function macOSHandle() {
+    const result = execSync(`chmod -R 777 ./build`);
+    console.log(result.toString());
+    execSync(`ls -la`);
 }
 
 // val =  [ 'Quark.app' ]
