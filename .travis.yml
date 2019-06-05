@@ -60,6 +60,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo snap install snapcraft --classic; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'Set-MpPreference -DisableRealtimeMonitoring $true'; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then Powershell -Command 'Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
 
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install python --version 2.7.2; fi
 
@@ -69,7 +70,7 @@ install:
 script:
   - npm run build-quick
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm run test-build; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then posershell -command 'npm run test-build'; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
 # after_success:
