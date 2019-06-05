@@ -2,7 +2,10 @@ sudo: required
 dist: trusty
 
 language: node_js
-cache: npm
+cache: 
+  - npm
+  - directories:
+    - ./build
 
 notifications:
   email: false
@@ -19,6 +22,9 @@ matrix:
       compiler: clang
     - os: windows
       node_js: lts/*
+  allow_failures:
+    - os: osx
+
       # python: 3.4
       # node_js: lts/*
 
