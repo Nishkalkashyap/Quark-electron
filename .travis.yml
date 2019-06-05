@@ -4,6 +4,9 @@ dist: trusty
 language: node_js
 cache: npm
 
+notifications:
+  email: false
+
 matrix:
   include:
     - os: linux
@@ -14,10 +17,9 @@ matrix:
       node_js: lts/*
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
-    # - os: windows
-    #   node_js: lts/*
-    #   env: CC=clang CXX=clang++ npm_config_clang=1
-    #   compiler: clang
+    - os: windows
+      # python: 3.4
+      # node_js: lts/*
 
 addons:
   apt:
@@ -36,12 +38,15 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo snap install snapcraft --classic; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
 
+  # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install python --version 2.7.2; fi
+
 install:
   - npm install
 
 script:
   - npm run build-quick
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm run test-build; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
 # after_success:
