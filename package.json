@@ -13,7 +13,7 @@
     "qs": "electron . ./start.qrk",
     "test": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk",
     "qt": "electron . ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk",
-    "test-build" : "ts-node ./scripts/test.ts",
+    "test-build": "ts-node ./scripts/test.ts",
     "pack": "webpack --config webpack.config.js",
     "packk": "tsc",
     "link": "npm install ./.quark/quarkjs --no-save",

@@ -27,6 +27,9 @@ async function runTest() {
 
     const cp = execFile(`./build/${filePath}`, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
 
+    cp.stdout.on('data', (data) => { console.log(data); });
+    cp.stderr.on('data', (data) => { console.log(data); });
+
     cp.on('message', (m) => { console.log(`message: ${m}`) });
     cp.on('close', (m) => { console.log(`close: ${m}`) });
     cp.on('error', (m) => { console.log(`error: ${m}`) });
@@ -38,17 +41,17 @@ async function runTest() {
 }
 
 function exitTest() {
-    const filePath = './test/__testResults/result.json';
+    const filePath = './test/__testResults__/result.json';
     hasEnded = true;
     if (fs.existsSync(filePath)) {
         const result = fs.readJsonSync(filePath);
+        // console.log(result, result.value, typeof result.value);
         if (result.value == true) {
             printConsoleStatus('Test successful', 'success');
             process.exit(0);
-            return;
         }
     }
-    printConsoleStatus('Test Failed', 'success');
+    printConsoleStatus('Test Failed', 'danger');
     process.exit(1);
 }
 
