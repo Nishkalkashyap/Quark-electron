@@ -1,6 +1,8 @@
 sudo: required
 dist: trusty
+
 language: node_js
+cache: npm
 
 matrix:
   include:
@@ -39,7 +41,8 @@ install:
 
 script:
   - npm run build-quick
-  - npm run test-build
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
 # after_success:
   # - npm run qb
