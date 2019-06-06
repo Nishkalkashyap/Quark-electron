@@ -1,4 +1,5 @@
 # https://github.com/sindresorhus/appveyor-node/blob/master/appveyor.yml
+os: unstable
 
 environment:
   matrix:
