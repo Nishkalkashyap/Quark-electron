@@ -72,6 +72,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la C:/Windows/System32/; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./build/win-unpacked/Quark.exe ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
