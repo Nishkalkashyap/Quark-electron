@@ -4,15 +4,18 @@ environment:
   matrix:
     - platform: x64
 
-image: Visual Studio 2017
+# image: Visual Studio 2017
 
-init:
-  - yarn config set msvs_version 2017 # we need this to build `pty.js`
-  - npm config set msvs_version 2017 # we need this to build `pty.js`
+# init:
+#   - yarn config set msvs_version 2017 # we need this to build `pty.js`
+#   - npm config set msvs_version 2017 # we need this to build `pty.js`
 
 cache:
   - node_modules
   - '%USERPROFILE%\.electron'
+  - '%USERPROFILE%\.electron-gyp'
+  - '%USERPROFILE%\.node-gyp'
+  - '%USERPROFILE%\.windows-build-tools'
 
 install:
   - ps: Install-Product node 10.2.0 x64

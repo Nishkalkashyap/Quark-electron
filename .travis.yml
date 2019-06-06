@@ -20,10 +20,10 @@ matrix:
     - os: linux
       node_js: lts/*
       env: CC=clang CXX=clang++ npm_config_clang=1
-      compiler: clang
       env:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+      compiler: clang
         
     - os: osx
       node_js: lts/*
@@ -70,7 +70,8 @@ install:
 script:
   - npm run build-quick
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
+  # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./build/win-unpacked/Quark.exe ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
 # after_success:
