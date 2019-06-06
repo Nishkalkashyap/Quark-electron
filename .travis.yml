@@ -70,7 +70,7 @@ install:
 script:
   - npm run build-quick
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then posershell -command 'npm run test-build'; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
 # after_success:
