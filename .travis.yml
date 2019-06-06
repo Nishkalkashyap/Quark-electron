@@ -75,34 +75,23 @@ install:
 script:
   - npm run build-quick
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
+
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la C:/Windows/System32/; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./build/win-unpacked/Quark.exe ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk; fi
+  
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo chown -R travis:travis /home/travis/; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
 
 # after_success:
   # - npm run qb
-deploy:
-  provider: gcs
-  access_key_id: GOOGW5SCWZHA42FT7THEI7TF
-  secret_access_key:
-    secure: BYb3QH4rddkbWUBSd48bfBPDnok4yf03QEaUtMcvUnm23VWpLXeR2nZuApVaU2ssKAXuvjtBhEeDZdrOr9jcvJD5UTzWNVBMrXA4X7eoHHbxz/6IO4Bk1GhziKARWn6RVxNMLxsBTCGAP1KwMHpRvg91fCRGJ5oB691MiGc8V+FQ0O4Kpeq2xDQSC8SHKvoXpx3eYeQq86e0me4HrLr+eUZmQ/IWaza0dFZvRteT7NgtnosCwRFoKatVyGjLj7Vke53WBPtQGuVPUatYvXLL2Ebz0vM1zWT1/kgyr/VqsaOZ2QCuekUUBMdkXLwnLPCjp2t3l+YHKyQI5SYdg457W9/c/WU0OeQnGvjRZ1855yduw6bDz3RH7uQ9KisgS04SfVsAJg/zOFlMQmOdtceIr38Az1SwdDQetz0vsewFSMf7HukRA/klWvbdopBXm8rWOC6cigxo0d0C+TfbMtBFGHYLyx/4JK0UB5kwhDxdI2sYa6ek6gX3yFhqgz1k1qsPBbpPX5qgvkrJ5F/SeJ5CA+6mXnDiouLnjEPAceBEQOySYL39eOSixqrJfAdxUJSFIe/Jph5qYV+rxHsGtcWOQPAXrBh9xjk+NnvPRWBt2YF9TeNs3ZowC8IJAlwdSnqyNXSkdg2BS1Q261x3uQsdUDRKApu1pfR1pvYBNRVPxPs=
-  bucket: quarkjs-travis
-  local-dir: www
-  skip_cleanup: true
-  acl: public-read
-
-#Deploy Configuration
 # deploy:
 #   provider: gcs
-#   access_key_id: "GOOGW5SCWZHA42FT7THEI7TF"
-#   secret_access_key: 
-#     secure : "DZqKp2VkSfAFBiNCHOcuaGeuEp0I+n38rumvUP5IB0JNc1+nCvBo00k1y8f8PIrhHtJlGvOF3kAS2qZAFxVwpKjZE0wUdL0GTWppWBkqearuPdSX8Kn/N0tm0jXjYqgwSdF1gwDkU3S9CrSjL9rxuswNmLcbHUlNAr/fE49pQQq1f92NEPK/qoAaBBkaVeQsg2DbNca7TxBrIm6U0Up6xNAQmCio71JmC7Ezh0YESFxPT8I5Ng2TB7eaud3dwl1yqe/mODVk8AQ9OdfoSTA0PSRchTrH5Zi6a5Zl5U4Pps+5wdG/r1xA2u5UIF6OZ3TDCMD3++M0hHW/ij6PP773xi9Bwykycs1Qpr/dFxPD5WSL/Rlu76hvfzXTvIFePvu63GlMeXB3+ayTIi/KvRehVQpA51TdR7BteeMH16yPzrnVznwmQjBxV2ybl+Ui53ypLyyoupF/h/u1ggbtYA6mjpmdx+yXHcGPNAUsDu6QiEa0XcRWsYD/MgDwrSvUEtnnHhKq7X9Vm4KC0CW95Vv2C6QYBLEYlpjTfpnfcRyLGD0tDUY69VSp7TtZPqQdNh3i9wCzg+AYpJT3dQPBsVIgKnGavj1fK7xcAPPIzxWX1ZGXCofTUEXgDEohPVTE0mRs9pNv6LUQcvtUuyMucap0HhktAc6Ye9yUsbDM+zEmiHo="
-#   bucket: "autoupdate.diymechatronics.com"
+#   access_key_id: GOOGW5SCWZHA42FT7THEI7TF
+#   secret_access_key:
+#     secure: BYb3QH4rddkbWUBSd48bfBPDnok4yf03QEaUtMcvUnm23VWpLXeR2nZuApVaU2ssKAXuvjtBhEeDZdrOr9jcvJD5UTzWNVBMrXA4X7eoHHbxz/6IO4Bk1GhziKARWn6RVxNMLxsBTCGAP1KwMHpRvg91fCRGJ5oB691MiGc8V+FQ0O4Kpeq2xDQSC8SHKvoXpx3eYeQq86e0me4HrLr+eUZmQ/IWaza0dFZvRteT7NgtnosCwRFoKatVyGjLj7Vke53WBPtQGuVPUatYvXLL2Ebz0vM1zWT1/kgyr/VqsaOZ2QCuekUUBMdkXLwnLPCjp2t3l+YHKyQI5SYdg457W9/c/WU0OeQnGvjRZ1855yduw6bDz3RH7uQ9KisgS04SfVsAJg/zOFlMQmOdtceIr38Az1SwdDQetz0vsewFSMf7HukRA/klWvbdopBXm8rWOC6cigxo0d0C+TfbMtBFGHYLyx/4JK0UB5kwhDxdI2sYa6ek6gX3yFhqgz1k1qsPBbpPX5qgvkrJ5F/SeJ5CA+6mXnDiouLnjEPAceBEQOySYL39eOSixqrJfAdxUJSFIe/Jph5qYV+rxHsGtcWOQPAXrBh9xjk+NnvPRWBt2YF9TeNs3ZowC8IJAlwdSnqyNXSkdg2BS1Q261x3uQsdUDRKApu1pfR1pvYBNRVPxPs=
+#   bucket: quarkjs-travis
+#   local-dir: www
 #   skip_cleanup: true
 #   acl: public-read
-#   file:
-#     - build_$TRAVIS_OS_NAME.tar
-#   on:
-#     branch: release
