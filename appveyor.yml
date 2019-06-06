@@ -7,8 +7,8 @@ environment:
 image: Visual Studio 2017
 
 init:
-  - yarn config set msvs_version 2015 # we need this to build `pty.js`
-  - npm config set msvs_version 2015 # we need this to build `pty.js`
+  - yarn config set msvs_version 2017 # we need this to build `pty.js`
+  - npm config set msvs_version 2017 # we need this to build `pty.js`
 
 cache:
   - node_modules
@@ -23,7 +23,7 @@ install:
   - set CI=true
   - npm install
 
-build: off
+# build: off
 
 matrix:
   fast_finish: true
