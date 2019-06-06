@@ -23,7 +23,7 @@ async function runTest() {
             // './build/linux-unpacked/quark' : process.platform == 'darwin' ?
             `./build/Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
                 // './build/mac/Quark.app' : null;
-                `open ./build/Quark-mac-${version}.dmg` : null;
+                `open ${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
                 // `./build/Quark-mac-${version}.pkg` : null;
 
     command.match(/(mac|dmg)/) ? macOSHandle() : null;
