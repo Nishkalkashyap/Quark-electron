@@ -27,8 +27,6 @@ matrix:
         
     - os: osx
       node_js: lts/*
-      services:
-        - xvfb
       env:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
@@ -81,8 +79,8 @@ script:
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la C:/Windows/System32/; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./build/win-unpacked/Quark.exe ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk; fi
   
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo chown -R travis:travis /home/travis/; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build; fi
+  # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then --unsafe-perm=true --allow-root; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build --unsafe-perm=true --allow-root; fi
 
 # after_success:
   # - npm run qb

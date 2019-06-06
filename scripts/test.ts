@@ -6,6 +6,7 @@ import { printConsoleStatus } from './util';
 let hasEnded: boolean = false;
 const packageJSON = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = packageJSON.version;
+const filePath = './test/__testResults__/result.json';
 
 runTest().catch(console.error);
 async function runTest() {
@@ -22,14 +23,17 @@ async function runTest() {
             // './build/linux-unpacked/quark' : process.platform == 'darwin' ?
             `./build/Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
                 // './build/mac/Quark.app' : null;
-    // `./build/Quark-mac-${version}.dmg` : null;
-    `./build/Quark-mac-${version}.pkg` : null;
+                `open ./build/Quark-mac-${version}.dmg` : null;
+                // `./build/Quark-mac-${version}.pkg` : null;
 
     command.match(/(mac|dmg)/) ? macOSHandle() : null;
     if (!command) {
         process.exit(0);
     }
 
+    if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+    }
     execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], {
         env: process.env,
     }, (error, stdout, stderr) => {
@@ -43,7 +47,6 @@ async function runTest() {
 }
 
 function exitTest() {
-    const filePath = './test/__testResults__/result.json';
     hasEnded = true;
     if (fs.existsSync(filePath)) {
         const result = fs.readJsonSync(filePath);
