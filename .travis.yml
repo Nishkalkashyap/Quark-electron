@@ -91,6 +91,7 @@ deploy:
   bucket: quarkjs-travis
   local-dir: www
   skip_cleanup: true
+  acl: public-read
 
 #Deploy Configuration
 # deploy:
