@@ -61,6 +61,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
 
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo spctl --master-disable; fi
 
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'Set-MpPreference -DisableRealtimeMonitoring $true'; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then Powershell -Command 'Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
