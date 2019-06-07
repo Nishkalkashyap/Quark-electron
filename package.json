@@ -19,7 +19,7 @@
     "link": "npm install ./.quark/quarkjs --no-save",
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
-    "copy": "ts-node ./scripts/copy-html.ts",
+    "zip": "ts-node ./scripts/prepare-zip.ts",
     "build-quick": "ts-node ./scripts/prepare-assets.ts && npm run link && npm run pack && npm run lic && ts-node scripts/build.ts",
     "build-common": "npm install && npm run build-quick",
     "build-win": "npm run build-common && start .\\build",
