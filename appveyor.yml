@@ -40,9 +40,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
-  artifacts: 
-    - executables
-    - results
+  artifact: results
   draft: true
   prerelease: true
   on:
