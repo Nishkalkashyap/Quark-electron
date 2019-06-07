@@ -16,7 +16,7 @@ async function runTest() {
         if (!hasEnded) {
             exitTest();
         }
-    }, 1000 * 60 * 2);
+    }, 1000 * 60 * 4);
 
     let command = process.platform == 'win32' ?
         `./build/win-unpacked/Quark.exe` : process.platform == 'linux' ?
