@@ -1,9 +1,5 @@
 # https://github.com/sindresorhus/appveyor-node/blob/master/appveyor.yml
 os: unstable
-max_jobs: 5
-build:
-  parallel: true
-  verbosity: minimal
 
 environment:
   matrix:
@@ -20,7 +16,7 @@ install:
   - npm install -g npm@latest
   - npm install
 
-# build: off
+build: off
 
 matrix:
   fast_finish: true
