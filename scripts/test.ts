@@ -1,4 +1,4 @@
-import { execFile, execSync } from "child_process";
+import { execFile, execSync, spawn, spawnSync } from "child_process";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { printConsoleStatus } from './util';
@@ -25,7 +25,7 @@ async function runTest() {
                 // './build/mac/Quark.app' : null;
                 // `${path.resolve(`./build/mac/Quark.app`)}` : null;
                 `${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
-                // `${path.resolve(`./build/Quark-mac-${version}.pkg`)}` : null;
+    // `${path.resolve(`./build/Quark-mac-${version}.pkg`)}` : null;
 
     command.match(/(mac|dmg)/) ? macOSHandle() : null;
     if (!command) {
@@ -35,15 +35,28 @@ async function runTest() {
     if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
     }
-    execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], {
-        env: process.env,
-    }, (error, stdout, stderr) => {
-        console.timeEnd('test');
-        postBuild();
-        console.log(stdout);
-        console.log(stderr);
-        console.log(error);
+    // execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], {
+    //     env: process.env,
+    // }, (error, stdout, stderr) => {
+    //     console.timeEnd('test');
+    //     postBuild();
+    //     console.log(stdout);
+    //     console.log(stderr);
+    //     console.log(error);
+    //     exitTest();
+    // });
+
+    const cp = spawn(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
+    cp.stdout.on('data', function (data) { console.log(data.toString()); });
+    cp.stderr.on('data', function (data) { console.log(data.toString()); });
+    cp.on('close', (e) => {
+        // postBuild();
         exitTest();
+        console.log(e);
+    });
+
+    cp.on('error', (e) => {
+        console.error(e);
     });
 }
 
