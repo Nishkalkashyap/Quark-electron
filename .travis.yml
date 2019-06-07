@@ -91,6 +91,6 @@ deploy:
   secret_access_key:
     secure: BYb3QH4rddkbWUBSd48bfBPDnok4yf03QEaUtMcvUnm23VWpLXeR2nZuApVaU2ssKAXuvjtBhEeDZdrOr9jcvJD5UTzWNVBMrXA4X7eoHHbxz/6IO4Bk1GhziKARWn6RVxNMLxsBTCGAP1KwMHpRvg91fCRGJ5oB691MiGc8V+FQ0O4Kpeq2xDQSC8SHKvoXpx3eYeQq86e0me4HrLr+eUZmQ/IWaza0dFZvRteT7NgtnosCwRFoKatVyGjLj7Vke53WBPtQGuVPUatYvXLL2Ebz0vM1zWT1/kgyr/VqsaOZ2QCuekUUBMdkXLwnLPCjp2t3l+YHKyQI5SYdg457W9/c/WU0OeQnGvjRZ1855yduw6bDz3RH7uQ9KisgS04SfVsAJg/zOFlMQmOdtceIr38Az1SwdDQetz0vsewFSMf7HukRA/klWvbdopBXm8rWOC6cigxo0d0C+TfbMtBFGHYLyx/4JK0UB5kwhDxdI2sYa6ek6gX3yFhqgz1k1qsPBbpPX5qgvkrJ5F/SeJ5CA+6mXnDiouLnjEPAceBEQOySYL39eOSixqrJfAdxUJSFIe/Jph5qYV+rxHsGtcWOQPAXrBh9xjk+NnvPRWBt2YF9TeNs3ZowC8IJAlwdSnqyNXSkdg2BS1Q261x3uQsdUDRKApu1pfR1pvYBNRVPxPs=
   bucket: quarkjs-travis
-  local-dir: "./test/__testResults/screenshots"
+  local-dir: "./test/__testResults__/screenshots"
   skip_cleanup: true
   acl: public-read
