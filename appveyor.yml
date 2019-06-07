@@ -1,5 +1,9 @@
 # https://github.com/sindresorhus/appveyor-node/blob/master/appveyor.yml
 os: unstable
+max_jobs: 5
+build:
+  parallel: true
+  verbosity: minimal
 
 environment:
   matrix:
@@ -7,21 +11,16 @@ environment:
 
 cache:
   - node_modules
-  - '%USERPROFILE%\.electron'
   - '%USERPROFILE%\.electron-gyp'
   - '%USERPROFILE%\.node-gyp'
-  - '%USERPROFILE%\.windows-build-tools'
 
 install:
   - ps: Install-Product node 10.15.3 x64
   - set CI=true
   - npm install -g npm@latest
-  # - set PATH=%APPDATA%\npm;%PATH%	  
-  # - npm i -g node-gyp && node-gyp clean
-  # - npm install --global --production windows-build-tools
   - npm install
 
-build: off
+# build: off
 
 matrix:
   fast_finish: true
@@ -31,3 +30,16 @@ test_script:
   - npm --version
   - npm run build-quick
   - npm run test-build
+
+deploy:
+  release: myproduct-v$(appveyor_build_version)
+  description: 'Release description'
+  provider: GitHub
+  auth_token:
+    secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
+  artifact: ./www            # upload all NuGet packages to release assets
+  draft: true
+  prerelease: true
+  on:
+    branch: master                 # release from master branch only
+    # APPVEYOR_REPO_TAG: true 
