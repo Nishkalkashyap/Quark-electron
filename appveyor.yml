@@ -28,21 +28,21 @@ test_script:
   - npm run build-quick
   - npm run test-build
 
-artifacts:
-  - path: ./build/*.exe
-    name: executables
-  - path: ./test/__testResults__
-    name: results
+# artifacts:
+#   - path: ./build/*.exe
+#     name: executables
+#   - path: ./test/__testResults__
+#     name: results
 
-deploy:
-  release: myproduct-v$(appveyor_build_version)
-  description: 'Release description'
-  provider: GitHub
-  auth_token:
-    secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
-  artifact: executables, results
-  draft: true
-  prerelease: true
-  on:
-    branch: master                 # release from master branch only
+# deploy:
+#   release: myproduct-v$(appveyor_build_version)
+#   description: 'Release description'
+#   provider: GitHub
+#   auth_token:
+#     secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
+#   artifact: executables, results
+#   draft: true
+#   prerelease: true
+#   on:
+#     branch: master
     # APPVEYOR_REPO_TAG: true 
