@@ -23,8 +23,8 @@ async function runTest() {
             // './build/linux-unpacked/quark' : process.platform == 'darwin' ?
             `./build/Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
                 // './build/mac/Quark.app' : null;
-                // `${path.resolve(`./build/mac/Quark.app`)}` : null;
-                `${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
+                `${path.resolve(`./build/mac/Quark.app`)}` : null;
+    // `${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
     // `${path.resolve(`./build/Quark-mac-${version}.pkg`)}` : null;
 
     command.match(/(mac|dmg)/) ? macOSHandle() : null;
