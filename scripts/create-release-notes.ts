@@ -31,6 +31,7 @@ async function root() {
         printConsoleStatus(`Failed to publish status.`, 'danger');
         printConsoleStatus(`${err}`, 'danger');
     });
+    updateReadme();
 }
 
 
@@ -233,6 +234,13 @@ async function publishStatus() {
             });
         }
     });
+}
+
+function updateReadme() {
+    let file = fs.readFileSync('./README.md').toString();
+    const regex = /```json[\w\W]+?```/;
+    file = file.replace(regex, '```json\n' + JSON.stringify(json.dependencies, undefined, 4) + '\n```');
+    fs.writeFileSync('./README.md', file);
 }
 
 interface IStatus {
