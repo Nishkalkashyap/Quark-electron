@@ -3,7 +3,7 @@ import * as fs from 'fs-extra';
 import { printConsoleStatus } from './util';
 import console = require('console');
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = './cloud-storage-key.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 const bucketName = 'quarkjs-auto-update';
 const json = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = json.version;
