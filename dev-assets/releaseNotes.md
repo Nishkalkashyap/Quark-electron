@@ -1,3 +1,31 @@
+<!-- Quark-0.2.17-start -->
+## Quark 0.2.17 - June 8, 2019
+
+#### Features
+* Added recently-opened file menu item.
+* Added inbuild e2e tests. :sob: (finally)
+* Running tests on travis-ci and appveyor.
+* Partially added firebase-user console.
+
+
+
+
+!!! info See SHA-512 Hashes
+<DropDown>
+<ReleaseNotes :sha='{
+    "Quark-win-0.2.17.exe": "sWjMF/sGIprcwjN0dRH9v7vL1mZw+1VJB/2w8fzYjekYGu2cCO3HFmkLI4bXKPIh7QWkK5Tz+ERmf1xhcx2Fhw==",
+    "Quark-linux-amd64-0.2.17.deb": "+LqHs9vZ5QfYCH3Y0m00nOiZ/x1QnQrTzLNTIWmEU2FbZm7Bjc1uS1R4BlXbqn/WOS7UwP1/OWla1zHZFM5ZzQ==",
+    "Quark-win-x64-0.2.17.zip": "bG4ZG+PXhQbNPXtH4ofAeo9ZbxCXmTBowMtkHnZ74Ng0hEapJnF7QwnGoqYm0iLQ1TeyZ730kyKnEoSVTz/RmQ==",
+    "Quark-linux-x64-0.2.17.tar.gz": "LOCfu2/Pbp29YWH88gVq6BW3iVNY4TlXS0O+55FECJoajLQfayNHjDkyShiwiE7xMBwQgp3eo+77wqZbIbSM1Q==",
+    "Quark-linux-x86_64-0.2.17.AppImage": "SyMlKeRwxnk9P1lxQ9hu6+zwo24HCdjZqSblgdjM4H6aZEQUXxuxPfxj0dURQT2SwXG7UipKlFamgovi4pDFXQ=="
+}' />
+</DropDown>
+!!!
+
+<!-- ---------------------------------------------- -->
+<!-- Quark-0.2.17-end -->
+
+
 <!-- Quark-0.2.16-start -->
 ## Quark 0.2.16 - May 26, 2019
 
