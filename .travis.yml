@@ -25,17 +25,17 @@ matrix:
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
       compiler: clang
         
-    - os: osx
-      node_js: lts/*
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-
-    # - os: windows
+    # - os: osx
     #   node_js: lts/*
     #   env:
     #     - ELECTRON_CACHE=$HOME/.cache/electron
     #     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+
+    - os: windows
+      node_js: lts/*
+      env:
+        - ELECTRON_CACHE=$HOME/.cache/electron
+        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
   allow_failures:
     - os: osx
   fast_finish: true
