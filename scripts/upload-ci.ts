@@ -1,10 +1,10 @@
 import { Storage } from '@google-cloud/storage';
 import * as fs from 'fs-extra';
 import { printConsoleStatus } from './util';
-import console = require('console');
+import * as path from 'path';
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
-const bucketName = 'quarkjs-auto-update';
+const bucketName = 'quarkjs-travis';
 const json = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = json.version;
 
@@ -27,7 +27,7 @@ const paths = [
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
         printConsoleStatus(`Found file: ${_path}`, 'info');
-        const file = storage.bucket(bucketName).file(`Quark-${json.version}-test/${_path}`);
+        const file = storage.bucket(bucketName).file(`Quark-${json.version}-test/${path.basename(_path)}`);
         printConsoleStatus(`Uploading: ${_path}`, 'info');
         fs.createReadStream(_path)
             .pipe(file.createWriteStream())
@@ -38,7 +38,7 @@ paths.map((_path) => {
                 }
             })
             .on('finish', function () {
-                printConsoleStatus(`Finished file: ${_path}`, 'danger');
+                printConsoleStatus(`Finished file: ${_path}`, 'info');
             });
         return;
     }
