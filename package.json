@@ -28,6 +28,7 @@
     "bl": "bash -c 'npm run build-linux'",
     "release": "ts-node ./scripts/release.ts",
     "upload": "cross-env DELETE_FILES=no ts-node ./scripts/upload.ts",
+    "upload-ci": "ts-node ./scripts/upload-ci.ts",
     "notes": "ts-node ./scripts/create-release-notes.ts",
     "out": "npm outdated",
     "upgrade": "npm-upgrade",

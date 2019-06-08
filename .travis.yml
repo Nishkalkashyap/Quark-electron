@@ -1,30 +1,25 @@
 sudo: required
 dist: trusty
-
 language: node_js
-cache: 
-  - npm
-  - directories:
-    - ./build
-    - $HOME/.cache/electron
-    - $HOME/.cache/electron-builder
-
-
+cache:
+- npm
+- directories:
+  - "./build"
+  - "$HOME/.cache/electron"
+  - "$HOME/.cache/electron-builder"
 notifications:
   email:
     on_success: never
     on_failure: change
-
 matrix:
   include:
-    - os: linux
-      node_js: lts/*
-      env: CC=clang CXX=clang++ npm_config_clang=1
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-      compiler: clang
-        
+  - os: linux
+    node_js: lts/*
+    env:
+    - ELECTRON_CACHE=$HOME/.cache/electron
+    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    compiler: clang
+ 
     # - os: osx
     #   node_js: lts/*
     #   env:
@@ -37,54 +32,53 @@ matrix:
     #     - ELECTRON_CACHE=$HOME/.cache/electron
     #     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
   allow_failures:
-    - os: osx
+  - os: osx
   fast_finish: true
-
-      # python: 3.4
-      # node_js: lts/*
-
 addons:
   apt:
     packages:
-      - gcc-multilib
-      - g++-multilib
-      - libgnome-keyring-dev
-      - icnsutils
-      - graphicsmagick
-      - xz-utils
-      - rpm
-      - bsdtar
-      - snapd
-
+    - gcc-multilib
+    - g++-multilib
+    - libgnome-keyring-dev
+    - icnsutils
+    - graphicsmagick
+    - xz-utils
+    - rpm
+    - bsdtar
+    - snapd
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo snap install snapcraft --classic; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
-
-  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo spctl --master-disable; fi
-
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'Set-MpPreference -DisableRealtimeMonitoring $true'; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then Powershell -Command 'Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
-
+- openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
+  -in cloud-storage-key.json.enc -out ./dev-assets/cloud-storage-key.json -d
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo snap install snapcraft --classic; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb
+  start; sleep 3; fi
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8;
+  echo ok )& fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo spctl --master-disable; fi
+- if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'Set-MpPreference
+  -DisableRealtimeMonitoring $true'; fi
+- if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then Powershell -Command 'Set-ExecutionPolicy
+  -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
   # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install python --version 2.7.2; fi
 
 install:
-  - npm install
+- npm install
 
 script:
-  - npm run build-quick
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
+- npm run build-quick
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
+- npm run upload-ci
 
-  # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
-  # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la C:/Windows/System32/; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./build/win-unpacked/Quark.exe ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk; fi
-  
-  # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then --unsafe-perm=true --allow-root; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build --unsafe-perm=true --allow-root; fi
+# - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
+# - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
+# - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./build/win-unpacked/Quark.exe ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk; fi
+# - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la C:/Windows/System32/; fi
+# - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build --unsafe-perm=true --allow-root; fi
+# - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then --unsafe-perm=true --allow-root; fi
+# - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo npm run test-build --unsafe-perm=true --allow-root; fi
 
 # after_success:
-  # - npm run qb
+#   - npm run qb
 # deploy:
 #   provider: gcs
 #   access_key_id: GOOGW5SCWZHA42FT7THEI7TF
