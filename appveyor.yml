@@ -3,7 +3,7 @@ os: unstable
 # CLOUD_STORAGE_ENCRYPT_FILE_KEY
 max_jobs: 5
 environment:
-  CLOUD_STORAGE_ENCRYPT_FILE_KEY:
+  ENCRYPT_FILE_KEY:
     secure: BSNfEghh/l4KAC3jAcwAjgTibl6UHcZ08ppSFBieQ8E=
   matrix:
     - platform: x64
