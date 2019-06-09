@@ -30,9 +30,9 @@ const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'wi
 
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
-        printConsoleStatus(`Found file: ${_path}`, 'info');
+        // printConsoleStatus(`Found file: ${_path}`, 'info');
         const file = storage.bucket(bucketName).file(`Quark-${json.version}-test/${path.basename(_path)}`);
-        printConsoleStatus(`Uploading: ${_path}`, 'info');
+        // printConsoleStatus(`Uploading: ${_path}`, 'info');
         fs.createReadStream(_path)
             .pipe(file.createWriteStream())
             .on('error', function (err) {
@@ -42,7 +42,7 @@ paths.map((_path) => {
                 }
             })
             .on('finish', function () {
-                printConsoleStatus(`Finished file: ${_path}`, 'info');
+                printConsoleStatus(`Finished file: ${_path}`, 'success');
             });
         return;
     }
