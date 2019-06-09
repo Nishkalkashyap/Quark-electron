@@ -4,7 +4,7 @@ language: node_js
 cache:
 - npm
 - directories:
-  - "./build"
+  # - "./build"
   - "$HOME/.cache/electron"
   - "$HOME/.cache/electron-builder"
 notifications:
