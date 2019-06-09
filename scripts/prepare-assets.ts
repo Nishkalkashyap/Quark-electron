@@ -3,17 +3,16 @@ import * as fs from 'fs-extra';
 import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
 import { printConsoleStatus } from './util';
-import * as unzipper from 'unzipper';
+import * as tar from 'tar';
 
 root().catch(console.error);
 async function root() {
     await unzipWWWSquirtle();
-    copyDefinitions();
+    await copyDefinitions();
     makeIcons();
 }
 
-function copyDefinitions() {
-
+async function copyDefinitions() {
     const Package = fs.readJsonSync('./package.json');
     const deps = Package.dependencies;
     const dev = Package.devDependencies;
@@ -36,85 +35,60 @@ function copyDefinitions() {
         'vue',
         'tslib',
         'typescript'
-    ]
+    ];
 
-    all.map((val) => {
+    return new Promise((resolve) => {
 
-        if (!includeFiles.includes(val))
-            return;
 
-        // recc(`./node_modules/` + val, [
-        //     (file, stat) => {
-        //         if (file.includes('quark')) {
-        //             console.log(file);
-        //         }
-        //         return !stat.isDirectory() && !file.endsWith('.d.ts');
-        //     }
-        // ], (e, _files) => {
-        //     if (e) {
-        //         printConsoleStatus(e.name, 'danger');
-        //         printConsoleStatus(e.message, 'danger');
-        //         return;
-        //     }
-        //     if (_files.length == 0)
-        //         return;
-        //     printConsoleStatus(`Copied ${_files.length} definitions from ${val}`, 'success');
-        // });
-        copyFiles();
+        all.map((val) => {
 
-        function copyFiles() {
-            const mkdirp = require('mkdirp');
-            mkdirp('./definitions/' + val, (e) => {
-                if (e) {
-                    printConsoleStatus(`Error: ${e}`, 'danger');
-                }
-            });
+            if (!includeFiles.includes(val)) {
+                return;
+            }
 
-            ncp.ncp(`./node_modules/` + val, './definitions/' + val, {
-                filter: (file) => {
-                    let bool = (
-                        ((fs.statSync(file).isDirectory() || file.includes('.d.ts') || file.endsWith('package.json'))
-                            && (!file.replace('node_modules', '').includes('node_modules')))
-                        && (file.search(/api[\\/]umd/) == -1)
-                        && (file.search('.git') == -1)
-                    );
-                    return bool;
-                },
-                dereference: true
-            }, (e) => {
-                if (e) {
-                    printConsoleStatus(`Error: ${e.name}`, 'danger');
-                    printConsoleStatus(`Error: ${e.message}`, 'danger');
-                    return;
-                }
-                printConsoleStatus(`Copied definitions from ${val}`, 'success');
-            });
-        }
+            copyFiles();
+
+            function copyFiles() {
+
+                fs.ensureDirSync('./definitions/' + val);
+                ncp.ncp(`./node_modules/` + val, './definitions/' + val, {
+                    filter: (file) => {
+                        let bool = (
+                            ((fs.statSync(file).isDirectory() || file.includes('.d.ts') || file.endsWith('package.json'))
+                                && (!file.replace('node_modules', '').includes('node_modules')))
+                            && (file.search(/api[\\/]umd/) == -1)
+                            && (file.search('.git') == -1)
+                        );
+                        return bool;
+                    },
+                    // dereference: true
+                }, (e) => {
+                    if (e) {
+                        printConsoleStatus(`Error: ${e.name}`, 'danger');
+                        printConsoleStatus(`Error: ${e.message}`, 'danger');
+                    } else {
+                        printConsoleStatus(`Copied definitions from ${val}`, 'success');
+                    }
+                    resolve();
+                });
+            }
+        });
     });
 }
 
-function unzipWWWSquirtle() {
-    return new Promise(async (resolve) => {
-        const squirtleOutPath = './buildResources/squirtle.zip';
-        const wwwOutPath = './buildResources/www.zip';
+async function unzipWWWSquirtle() {
+    const squirtleOutPath = './buildResources/squirtle.tar.gz';
+    const wwwOutPath = './buildResources/www.tar.gz';
 
-        await Promise.all([
-            unzip(squirtleOutPath, './.quark/quarkjs'),
-            unzip(wwwOutPath, './www')
-        ]);
-        resolve();
-    });
+    await Promise.all([
+        unzip(squirtleOutPath, './.quark/quarkjs'),
+        unzip(wwwOutPath, './www')
+    ]);
 
-    function unzip(infile: string, outdir: string) {
+    async function unzip(infile: string, outdir: string) {
         fs.ensureDirSync(outdir);
         fs.emptyDirSync(outdir);
-        return new Promise((resolve) => {
-            const wwwStream = fs.createReadStream(infile)
-                .pipe(unzipper.Extract({ path: outdir }));
-            wwwStream.on('end', () => {
-                resolve();
-            });
-        });
+        await tar.x({ C: outdir, file: infile });
     }
 }
 

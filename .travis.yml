@@ -68,6 +68,7 @@ script:
 - npm run build-quick
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run test-build; fi
 - npm run upload-ci
+- ls -ls ./definitions
 
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
