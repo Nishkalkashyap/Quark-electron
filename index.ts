@@ -173,6 +173,20 @@ app.on('ready', () => {
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
     autoUpdater.checkForUpdatesAndNotify();
+
+    autoUpdater.on('update-downloaded', (event, info) => {
+        dialog.showMessageBox({
+            type: 'question',
+            buttons: ['Install and Relaunch', 'Later'],
+            defaultId: 0,
+            message: 'A new version of ' + app.getName() + ' has been downloaded'
+        }, response => {
+            if (response === 0) {
+                setTimeout(() => autoUpdater.quitAndInstall(), 1);
+            }
+        });
+    });
+    
 });
 
 const _isSecondInstance = app.requestSingleInstanceLock();
