@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 import * as os from 'os';
 import { printConsoleStatus } from './util';
 import console = require('console');
+import { execSync } from 'child_process';
 dotenv.config({
     path: './scripts/prod.env'
 });
@@ -211,9 +212,11 @@ builder.build({
 });
 
 function filterCI(arr: builder.TargetConfiguration[]) {
+    const gitBranch = execSync('git branch').toString();
     return arr.filter((val) => {
-        console.log(`IS CI: ${process.env.CI}`);
-        if (process.env.CI) {
+        const isMaster = gitBranch.includes('master') ? true : false;
+        // console.log(`IS CI: ${process.env.CI}`);
+        if (process.env.CI && isMaster) {
             return !val.target.match(/(gz|deb|zip)$/);
         }
         return true;
