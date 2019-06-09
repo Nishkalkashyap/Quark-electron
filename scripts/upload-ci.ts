@@ -27,15 +27,13 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-const allowFaliure = execSync('git status').includes('On branch master');
+const allowFaliure = execSync('git status').includes('origin/master');
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
-        // printConsoleStatus(`Found file: ${_path}`, 'info');
         const file = storage.bucket(bucketName).file(`Quark-${json.version}/${path.basename(_path)}`);
-        // printConsoleStatus(`Uploading: ${_path}`, 'info');
         fs.createReadStream(_path)
             .pipe(file.createWriteStream())
             .on('error', function (err) {
@@ -51,7 +49,7 @@ paths.map((_path) => {
     }
 
 
-    printConsoleStatus(`File not found: ${_path}`, 'danger');
+    printConsoleStatus(`File not found: ${_path}; Allow faliure: ${allowFaliure};`, 'danger');
     if (!allowFaliure) {
         throw Error(`File not found: ${_path}`);
     }
