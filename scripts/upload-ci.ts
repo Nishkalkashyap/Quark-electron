@@ -12,17 +12,21 @@ const storage = new Storage({
     projectId: 'diy-mechatronics'
 });
 
-const paths = [
+const winFiles = [
     `./build/Quark-win-${version}.exe`,
     `./build/Quark-win-${version}.exe.blockmap`,
     `./build/Quark-win-x64-${version}.zip`,
-    './build/latest.yml',
+    './build/latest.yml'
+];
 
+const linuxFiles = [
     `./build/Quark-linux-amd64-${version}.deb`,
     `./build/Quark-linux-x64-${version}.tar.gz`,
     `./build/Quark-linux-x86_64-${version}.AppImage`,
-    `./build/latest-linux.yml`,
+    `./build/latest-linux.yml`
 ]
+
+const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
@@ -43,6 +47,8 @@ paths.map((_path) => {
         return;
     }
 
+
     printConsoleStatus(`File not found: ${_path}`, 'danger');
+    throw Error(`File not found: ${_path}`);
 });
 
