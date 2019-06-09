@@ -28,8 +28,9 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-const status = execSync('git rev-parse --abbrev-ref HEAD').toString();
-const isMaster = status.includes('master');
+// const status = execSync('git rev-parse --abbrev-ref HEAD').toString();
+const status = execSync('git branch').toString();
+const isMaster = !!status.match(/\*[\s]+?master/);
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 

@@ -88,7 +88,7 @@ builder.build({
                 // }
             ].filter((val) => {
                 if (process.env.TRAVIS_OS_NAME) {
-                    return !val.target.match(/\.(zip)$/);
+                    return !val.target.match(/(zip)$/);
                 }
                 return true;
             }) as builder.TargetConfigType,
@@ -144,7 +144,7 @@ builder.build({
                 // }
             ].filter((val) => {
                 if (process.env.TRAVIS_OS_NAME) {
-                    return !val.target.match(/\.(gz|deb)$/);
+                    return !val.target.match(/(gz|deb)$/);
                 }
                 return true;
             }) as builder.TargetConfigType
