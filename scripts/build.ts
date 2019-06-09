@@ -3,6 +3,7 @@ import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import * as os from 'os';
 import { printConsoleStatus } from './util';
+import console = require('console');
 dotenv.config({
     path: './scripts/prod.env'
 });
@@ -87,7 +88,8 @@ builder.build({
                 //     target: 'portable'
                 // }
             ].filter((val) => {
-                if (process.env.TRAVIS_OS_NAME) {
+                console.log(`IS CI: ${process.env.CI}`);
+                if (process.env.CI) {
                     return !val.target.match(/(zip)$/);
                 }
                 return true;
@@ -143,7 +145,8 @@ builder.build({
                 //     "arch": ["x64"]
                 // }
             ].filter((val) => {
-                if (process.env.TRAVIS_OS_NAME) {
+                console.log(`IS CI: ${process.env.CI}`);
+                if (process.env.CI) {
                     return !val.target.match(/(gz|deb)$/);
                 }
                 return true;
