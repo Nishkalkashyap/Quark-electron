@@ -62,7 +62,7 @@ builder.build({
             buildResources: 'buildResources'
         },
         win: {
-            target: [
+            target: filterCI([
                 {
                     target: 'nsis',
                     arch: ['x64']
@@ -87,13 +87,7 @@ builder.build({
                 // {
                 //     target: 'portable'
                 // }
-            ].filter((val) => {
-                console.log(`IS CI: ${process.env.CI}`);
-                if (process.env.CI) {
-                    return !val.target.match(/(zip)$/);
-                }
-                return true;
-            }) as builder.TargetConfigType,
+            ]),
             forceCodeSigning: !!process.env.CSC_LINK,
             publisherName: 'Nishkal'
         },
@@ -120,7 +114,7 @@ builder.build({
 
         linux: {
             "category": "IDE",
-            "target": [
+            "target": filterCI([
                 {
                     "target": "deb",
                     arch: ['x64']
@@ -144,13 +138,7 @@ builder.build({
                 //     "target": "snap",
                 //     "arch": ["x64"]
                 // }
-            ].filter((val) => {
-                console.log(`IS CI: ${process.env.CI}`);
-                if (process.env.CI) {
-                    return !val.target.match(/(gz|deb)$/);
-                }
-                return true;
-            }) as builder.TargetConfigType
+            ])
         },
         appImage: {
             systemIntegration: 'ask',
@@ -221,6 +209,16 @@ builder.build({
         }
     }
 });
+
+function filterCI(arr: builder.TargetConfiguration[]) {
+    return arr.filter((val) => {
+        console.log(`IS CI: ${process.env.CI}`);
+        if (process.env.CI) {
+            return !val.target.match(/(gz|deb|zip)$/);
+        }
+        return true;
+    }) as builder.TargetConfigType
+}
 
 
 // http://sha256timestamp.ws.symantec.com/sha256/timestamp

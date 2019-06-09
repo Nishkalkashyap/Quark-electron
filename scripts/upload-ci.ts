@@ -28,9 +28,8 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-// const status = execSync('git rev-parse --abbrev-ref HEAD').toString();
-const status = execSync('git branch').toString();
-const isMaster = !!status.match(/\*[\s]+?master/);
+const isMaster = process.env.TRAVIS_BRANCH ?
+    process.env.TRAVIS_BRANCH.includes('master') : !!execSync('git branch').toString().match(/\*[\s]+?master/);
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
@@ -57,7 +56,6 @@ function upload() {
 
         printConsoleStatus(`File not found: ${_path}; Allow faliure: ${isMaster};`, 'danger');
         if (!isMaster) {
-            console.log(status);
             throw Error(`File not found: ${_path}`);
         }
     });
