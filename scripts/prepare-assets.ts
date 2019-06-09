@@ -5,7 +5,10 @@ import * as sharp from 'sharp';
 import { printConsoleStatus } from './util';
 import * as tar from 'tar';
 
-root().catch(console.error);
+root().catch((err) => {
+    console.error(err);
+    throw Error('Failed to prepare assets');
+});
 async function root() {
     await unzipWWWSquirtle();
     await copyDefinitions();
@@ -66,6 +69,7 @@ async function copyDefinitions() {
                     if (e) {
                         printConsoleStatus(`Error: ${e.name}`, 'danger');
                         printConsoleStatus(`Error: ${e.message}`, 'danger');
+                        throw Error(`Error: ${e.message}`);
                     } else {
                         printConsoleStatus(`Copied definitions from ${val}`, 'success');
                     }
@@ -110,7 +114,7 @@ function makeIcons() {
                 fs.ensureFileSync(`./buildResources/icons/${size}x${size}.png`);
                 fs.writeFileSync(`./buildResources/icons/${size}x${size}.png`, buffer);
             }).catch((err) => {
-                console.log(err);
+                throw Error(`Error: ${err}`);
             });
     }
 }
