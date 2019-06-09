@@ -3,6 +3,7 @@ import * as fs from 'fs-extra';
 import { printConsoleStatus } from './util';
 import * as path from 'path';
 import { execSync } from 'child_process';
+import console = require('console');
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 const bucketName = 'quarkjs-builds';
@@ -27,7 +28,8 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-const allowFaliure = execSync('git status').includes('origin/master');
+const status = execSync('git status');
+const allowFaliure = status.includes('origin/master');
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
@@ -51,6 +53,7 @@ paths.map((_path) => {
 
     printConsoleStatus(`File not found: ${_path}; Allow faliure: ${allowFaliure};`, 'danger');
     if (!allowFaliure) {
+        console.log(status);
         throw Error(`File not found: ${_path}`);
     }
 });
