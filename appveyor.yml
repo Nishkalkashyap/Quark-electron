@@ -4,7 +4,7 @@ os: unstable
 max_jobs: 5
 environment:
   ENCRYPT_FILE_KEY:
-    secure: BSNfEghh/l4KAC3jAcwAjgTibl6UHcZ08ppSFBieQ8E=
+    secure: DJRY4Jgb+fnRkC6Esb2W3w==
   matrix:
     - platform: x64
 
