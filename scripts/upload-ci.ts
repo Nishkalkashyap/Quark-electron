@@ -2,9 +2,10 @@ import { Storage } from '@google-cloud/storage';
 import * as fs from 'fs-extra';
 import { printConsoleStatus } from './util';
 import * as path from 'path';
+import { execSync } from 'child_process';
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
-const bucketName = 'quarkjs-travis';
+const bucketName = 'quarkjs-builds';
 const json = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = json.version;
 
@@ -26,12 +27,14 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
+const allowFaliure = execSync('git status').includes('On branch master');
+
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
 paths.map((_path) => {
     if (fs.existsSync(_path)) {
         // printConsoleStatus(`Found file: ${_path}`, 'info');
-        const file = storage.bucket(bucketName).file(`Quark-${json.version}-test/${path.basename(_path)}`);
+        const file = storage.bucket(bucketName).file(`Quark-${json.version}/${path.basename(_path)}`);
         // printConsoleStatus(`Uploading: ${_path}`, 'info');
         fs.createReadStream(_path)
             .pipe(file.createWriteStream())
@@ -49,6 +52,8 @@ paths.map((_path) => {
 
 
     printConsoleStatus(`File not found: ${_path}`, 'danger');
-    throw Error(`File not found: ${_path}`);
+    if (!allowFaliure) {
+        throw Error(`File not found: ${_path}`);
+    }
 });
 

@@ -86,7 +86,12 @@ builder.build({
                 // {
                 //     target: 'portable'
                 // }
-            ],
+            ].filter((val) => {
+                if (process.env.TRAVIS_OS_NAME) {
+                    return !val.target.match(/\.(zip)$/);
+                }
+                return true;
+            }) as builder.TargetConfigType,
             forceCodeSigning: !!process.env.CSC_LINK,
             publisherName: 'Nishkal'
         },
@@ -137,7 +142,12 @@ builder.build({
                 //     "target": "snap",
                 //     "arch": ["x64"]
                 // }
-            ]
+            ].filter((val) => {
+                if (process.env.TRAVIS_OS_NAME) {
+                    return !val.target.match(/\.(gz|deb)$/);
+                }
+                return true;
+            }) as builder.TargetConfigType
         },
         appImage: {
             systemIntegration: 'ask',
