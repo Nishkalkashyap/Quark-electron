@@ -28,8 +28,10 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-const isMaster = process.env.TRAVIS_BRANCH ?
-    process.env.TRAVIS_BRANCH.includes('master') : !!execSync('git branch').toString().match(/\*[\s]+?master/);
+// const isMaster = process.env.TRAVIS_BRANCH ? process.env.TRAVIS_BRANCH.includes('master') : !!execSync('git branch').toString().match(/\*[\s]+?master/);
+const status = execSync('git branch').toString();
+console.log(status);
+const isMaster = status.includes('master') ? true : false;
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
@@ -56,6 +58,7 @@ function upload() {
 
         printConsoleStatus(`File not found: ${_path}; Allow faliure: ${isMaster};`, 'danger');
         if (!isMaster) {
+            console.log(status);
             throw Error(`File not found: ${_path}`);
         }
     });
