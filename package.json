@@ -20,7 +20,7 @@
     "native": "electron-builder install-app-deps",
     "lic": "ts-node ./scripts/license.ts",
     "zip": "ts-node ./scripts/prepare-zip.ts",
-    "build-quick": "ts-node ./scripts/prepare-assets.ts && npm run link && npm run pack && npm run lic && ts-node scripts/build.ts",
+    "build-quick": "npm run link && ts-node ./scripts/prepare-assets.ts && npm run pack && npm run lic && ts-node scripts/build.ts",
     "build-common": "npm install && npm run build-quick",
     "build-win": "npm run build-common && start .\\build",
     "build-linux": "ts-node ./scripts/build-linux.ts && cd ./../Quark-electron-linux && npm run build-common",
