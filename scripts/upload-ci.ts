@@ -29,32 +29,37 @@ const linuxFiles = [
 ]
 
 const status = execSync('git rev-parse --abbrev-ref HEAD').toString();
-const allowFaliure = status.includes('master');
+const isMaster = status.includes('master');
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
-paths.map((_path) => {
-    if (fs.existsSync(_path)) {
-        const file = storage.bucket(bucketName).file(`Quark-${json.version}/${path.basename(_path)}`);
-        fs.createReadStream(_path)
-            .pipe(file.createWriteStream())
-            .on('error', function (err) {
-                if (err) {
-                    console.error(err);
-                    printConsoleStatus(`Error uploading: ${_path}`, 'danger');
-                }
-            })
-            .on('finish', function () {
-                printConsoleStatus(`Finished file: ${_path}`, 'success');
-            });
-        return;
-    }
+upload();
+function upload() {
+
+    paths.map((_path) => {
+        if (fs.existsSync(_path)) {
+            const file = storage.bucket(bucketName).file(`Quark-${json.version}-${isMaster ? 'master' : 'release'}/${path.basename(_path)}`);
+            fs.createReadStream(_path)
+                .pipe(file.createWriteStream())
+                .on('error', function (err) {
+                    if (err) {
+                        console.error(err);
+                        printConsoleStatus(`Error uploading: ${_path}`, 'danger');
+                    }
+                })
+                .on('finish', function () {
+                    printConsoleStatus(`Finished file: ${_path}`, 'success');
+                });
+            return;
+        }
 
 
-    printConsoleStatus(`File not found: ${_path}; Allow faliure: ${allowFaliure};`, 'danger');
-    if (!allowFaliure) {
-        console.log(status);
-        throw Error(`File not found: ${_path}`);
-    }
-});
+        printConsoleStatus(`File not found: ${_path}; Allow faliure: ${isMaster};`, 'danger');
+        if (!isMaster) {
+            console.log(status);
+            throw Error(`File not found: ${_path}`);
+        }
+    });
 
+
+}

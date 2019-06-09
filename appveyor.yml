@@ -8,7 +8,6 @@ environment:
 
 cache:
   - node_modules
-  - ./build/.cache
   - '%USERPROFILE%\.electron-gyp'
   - '%USERPROFILE%\.node-gyp'
 
