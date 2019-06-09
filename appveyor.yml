@@ -1,8 +1,10 @@
 # https://github.com/sindresorhus/appveyor-node/blob/master/appveyor.yml
 os: unstable
-
+# CLOUD_STORAGE_ENCRYPT_FILE_KEY
 max_jobs: 5
 environment:
+  CLOUD_STORAGE_ENCRYPT_FILE_KEY:
+    secure: BSNfEghh/l4KAC3jAcwAjgTibl6UHcZ08ppSFBieQ8E=
   matrix:
     - platform: x64
 
@@ -12,6 +14,9 @@ cache:
   - '%USERPROFILE%\.node-gyp'
 
 install:
+  - ps: iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/appveyor/secure-file/master/install.ps1'))
+  - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/cloud-storage-key.json.enc -secret %CLOUD_STORAGE_ENCRYPT_FILE_KEY%
+  
   - ps: Install-Product node 10.15.3 x64
   - set CI=true
   - npm install -g npm@latest
@@ -27,6 +32,7 @@ test_script:
   - npm --version
   - npm run build-quick
   - npm run test-build
+  - npm run upload-ci
 
 # artifacts:
 #   - path: ./build/*.exe

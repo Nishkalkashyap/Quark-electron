@@ -35,7 +35,8 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!scripts",
     "!splash_assets",
     "!.quark",
-    "!test"
+    "!test",
+    "!appveyor-tools",
 ]
 
 printConsoleStatus(`Starting Build`, 'success');
