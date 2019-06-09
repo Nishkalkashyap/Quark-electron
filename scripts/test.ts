@@ -66,6 +66,7 @@ function exitTest() {
         const result = fs.readJsonSync(filePath);
         // console.log(result, result.value, typeof result.value);
         if (result.value == true) {
+            console.log(fs.readFileSync('./test/__testResults__/test-logs.txt'));
             printConsoleStatus('Test successful', 'success');
             process.exit(0);
         }

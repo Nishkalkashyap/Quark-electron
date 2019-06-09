@@ -28,8 +28,8 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-const status = execSync('git status').toString();
-const allowFaliure = status.includes('origin/master');
+const status = execSync('git rev-parse --abbrev-ref HEAD').toString();
+const allowFaliure = status.includes('master');
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
 
