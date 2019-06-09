@@ -34,13 +34,14 @@ console.log(gitBranch);
 const isMaster = gitBranch.includes('master') ? true : false;
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
+paths.push('./test/__testResults__/test-logs.txt');
 
 upload();
 function upload() {
 
     paths.map((_path) => {
         if (fs.existsSync(_path)) {
-            const file = storage.bucket(bucketName).file(`Quark-${json.version}-${isMaster ? 'master' : 'release'}/${path.basename(_path)}`);
+            const file = storage.bucket(bucketName).file(`Quark-${json.version}-${isMaster ? 'master' : 'release'}/${_path.endsWith('txt') ? (process.platform + '-' + path.basename(_path)) : path.basename(_path)}`);
             fs.createReadStream(_path)
                 .pipe(file.createWriteStream())
                 .on('error', function (err) {
