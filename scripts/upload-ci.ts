@@ -28,7 +28,7 @@ const linuxFiles = [
     `./build/latest-linux.yml`
 ]
 
-const status = execSync('git status');
+const status = execSync('git status').toString();
 const allowFaliure = status.includes('origin/master');
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
