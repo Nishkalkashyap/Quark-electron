@@ -1,4 +1,4 @@
-import { execFile, execSync, spawn, spawnSync } from "child_process";
+import { execSync, spawn } from "child_process";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { printConsoleStatus } from './util';
@@ -10,8 +10,6 @@ const filePath = './test/__testResults__/result.json';
 
 runTest().catch(console.error);
 async function runTest() {
-    console.time('test');
-
     setTimeout(() => {
         if (!hasEnded) {
             exitTest();
@@ -35,16 +33,6 @@ async function runTest() {
     if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
     }
-    // execFile(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk'], {
-    //     env: process.env,
-    // }, (error, stdout, stderr) => {
-    //     console.timeEnd('test');
-    //     postBuild();
-    //     console.log(stdout);
-    //     console.log(stderr);
-    //     console.log(error);
-    //     exitTest();
-    // });
 
     const cp = spawn(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
     cp.stdout.on('data', function (data) { console.log(data.toString()); });
@@ -52,7 +40,6 @@ async function runTest() {
     cp.on('close', (e) => {
         // postBuild();
         exitTest();
-        console.log(e);
     });
 
     cp.on('error', (e) => {
@@ -64,7 +51,6 @@ function exitTest() {
     hasEnded = true;
     if (fs.existsSync(filePath)) {
         const result = fs.readJsonSync(filePath);
-        // console.log(result, result.value, typeof result.value);
         if (result.value == true) {
             console.log(fs.readFileSync('./test/__testResults__/test-logs.txt').toString(), result);
             printConsoleStatus('Test successful', 'success');
