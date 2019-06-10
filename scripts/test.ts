@@ -55,6 +55,7 @@ function exitTest() {
             console.log(fs.readFileSync('./test/__testResults__/test-logs.txt').toString(), result);
             printConsoleStatus('Test successful', 'success');
             process.exit(0);
+            return;
         }
     }
     printConsoleStatus('Test Failed', 'danger');

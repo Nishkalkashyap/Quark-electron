@@ -13056,7 +13056,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: electron-store@3.2.0
+Package: electron-store@3.3.0
 License: MIT
 License Source: license
 Source Text: 

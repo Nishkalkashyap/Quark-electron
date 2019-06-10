@@ -221,6 +221,11 @@ function filterCI(arr: builder.TargetConfiguration[]) {
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml)$/);
         }
+
+        if (!process.env.CI) {
+            return val.target.match(/(nsis|AppImage|yml)$/);
+        }
+        
         return true;
     }) as builder.TargetConfigType
 }
