@@ -76,18 +76,20 @@ builder.build({
                 //     target: 'appx',
                 //     arch: ['x64']
                 // }
-                // {
-                //     target: 'msi'
-                // },
+                {
+                    target: 'msi',
+                    arch: ['x64']
+                },
                 // {
                 //     target: 'squirrel'
                 // },
                 // {
                 //     target: 'nsis-web'
                 // },
-                // {
-                //     target: 'portable'
-                // }
+                {
+                    target: 'portable',
+                    arch: ['x64']
+                }
             ]),
             forceCodeSigning: !!process.env.CSC_LINK,
             publisherName: 'Nishkal'
@@ -217,7 +219,7 @@ function filterCI(arr: builder.TargetConfiguration[]) {
         const isMaster = gitBranch.includes('master') ? true : false;
         // console.log(`IS CI: ${process.env.CI}`);
         if (process.env.CI && isMaster) {
-            return !val.target.match(/(gz|deb|zip)$/);
+            return val.target.match(/(nsis|AppImage|yml)$/);
         }
         return true;
     }) as builder.TargetConfigType
