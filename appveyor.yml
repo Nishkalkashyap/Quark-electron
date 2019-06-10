@@ -27,11 +27,18 @@ build: off
 matrix:
   fast_finish: true
 
-test_script:
+before_build:
   - node --version
   - npm --version
-  - npm run build-quick
-  - npm run test-build
+
+build_script:
+  - npm run build-ci
+
+test_script:
+  - npm run test-ci
+
+# after_test:
+build_success:
   - npm run upload-ci
 
 # artifacts:
