@@ -37,8 +37,8 @@ build_script:
 test_script:
   - npm run test-ci
 
-# after_test:
-build_success:
+after_test:
+# build_success:// does not exists
   - npm run upload-ci
 
 # artifacts:
