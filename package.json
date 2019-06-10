@@ -22,7 +22,7 @@
     "build-linux": "ts-node ./scripts/build-linux.ts && cd ./../Quark-electron-linux && npm run build-common",
     "bw": "npm run build-win",
     "bl": "bash -c 'npm run build-linux'",
-    "tar": "ts-node ./scripts/prepare-tar.ts",
+    "tar": "ts-node ./scripts/prepare-tar.ts && npm run link && ts-node ./scripts/prepare-assets.ts",
     "release": "ts-node ./scripts/release.ts",
     "upload": "cross-env DELETE_FILES=no ts-node ./scripts/upload.ts",
     "notes": "ts-node ./scripts/create-release-notes.ts",

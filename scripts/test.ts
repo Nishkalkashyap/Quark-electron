@@ -52,14 +52,19 @@ function exitTest() {
     if (fs.existsSync(filePath)) {
         const result = fs.readJsonSync(filePath);
         if (result.value == true) {
-            console.log(fs.readFileSync('./test/__testResults__/test-logs.txt').toString(), result);
+            const fileData = fs.readFileSync('./test/__testResults__/test-logs.txt').toString();
+            console.log(fileData);
             printConsoleStatus('Test successful', 'success');
-            process.exit(0);
+
+            if (fileData.match(/\[error\]/)) {
+                throw Error('Test Failed');
+            }
+            
             return;
         }
     }
     printConsoleStatus('Test Failed', 'danger');
-    process.exit(1);
+    throw Error('Test Failed');
 }
 
 function postBuild() {
