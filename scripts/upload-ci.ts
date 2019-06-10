@@ -18,6 +18,7 @@ const winFiles = [
     `./build/Quark-win-${version}.exe`,
     `./build/Quark-win-${version}.exe.blockmap`,
     `./build/Quark-win-x64-${version}.zip`,
+    `./build/Quark-win-x64-${version}.msi`,
     './build/latest.yml'
 ];
 

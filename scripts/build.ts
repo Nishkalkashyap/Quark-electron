@@ -86,10 +86,10 @@ builder.build({
                 // {
                 //     target: 'nsis-web'
                 // },
-                {
-                    target: 'portable',
-                    arch: ['x64']
-                }
+                // {fails
+                //     target: 'portable',
+                //     arch: ['x64']
+                // }
             ]),
             forceCodeSigning: !!process.env.CSC_LINK,
             publisherName: 'Nishkal'
