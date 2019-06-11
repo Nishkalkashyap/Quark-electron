@@ -2,9 +2,7 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import * as os from 'os';
-import { printConsoleStatus } from './util';
-import console = require('console');
-import { execSync } from 'child_process';
+import { printConsoleStatus, getCurrentBranch } from './util';
 dotenv.config({
     path: './scripts/prod.env'
 });
@@ -214,10 +212,8 @@ builder.build({
 });
 
 function filterCI(arr: builder.TargetConfiguration[]) {
-    const gitBranch = execSync('git branch').toString();
+    const isMaster = getCurrentBranch() == 'master';
     return arr.filter((val) => {
-        const isMaster = gitBranch.includes('master') ? true : false;
-        // console.log(`IS CI: ${process.env.CI}`);
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml)$/);
         }
@@ -225,7 +221,7 @@ function filterCI(arr: builder.TargetConfiguration[]) {
         if (!process.env.CI) {
             return val.target.match(/(nsis|AppImage|yml)$/);
         }
-        
+
         return true;
     }) as builder.TargetConfigType
 }
