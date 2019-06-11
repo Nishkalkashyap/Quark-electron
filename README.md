@@ -11,11 +11,11 @@ This repo is the development repo for the [Quark](https://quarkjs.io) product.
 
 ## Quark
 
-<!-- ![Image](./readme/Quark.png) -->
-<video muted autoplay loop style="max-width:100%; height:auto" name="media" poster="./readme/hello-world-intro.png">
+![Hello World](./readme/hello-world.gif)
+<!-- <video muted autoplay loop style="max-width:100%; height:auto" name="media" poster="./readme/hello-world-intro.png">
   <source src="./readme/hello-world-intro.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video> 
+</video>  -->
 
 Quark is a cross-platform, integrated development environment for rapidly building - functional , prototypal projects, written in HTML, CSS and JavaScript with native desktop app like capabilities.
 
@@ -85,6 +85,39 @@ Quark includes a set of built-in packages. Namely
 }
 ```
  -->
+
+## Showcase 
+
+#### System resource monitor
+Monitors system resources. View CPU loads, memory usage, process explorer.
+
+![System Information](./readme/system-monitor.gif)
+
+#### Digital control systems
+Digital control system made with Arduino UNO using pre-installed serialport library.
+
+![Control System](./readme/control-system.gif)
+
+
+#### Plot Charts
+Plot charts using plotly.js
+
+![Plot Charts](./readme/plot-charts.gif)
+
+#### Stock analyzing app
+Analyze historic/real-time stock data.
+
+![Stock analyzing app](./readme/stock-analyzing-app.gif)
+
+#### News App
+News app with multiple country and source filter.
+
+![News App](./readme/news-app.gif)
+
+#### Web Browser
+Web browser with multiple split view support.
+
+![Web Browser](./readme/web-browser.gif)
 
 
 ## Feedback
