@@ -7,12 +7,12 @@ import chalk from 'chalk';
 import { table } from 'table';
 import { exec } from 'child_process';
 import { PackageJson } from '@google-cloud/common/build/src/util';
-import { printConsoleStatus } from './util';
+import { printConsoleStatus, buckets } from './util';
 const json: PackageJson = require('./../package.json');
 import * as hasha from 'hasha';
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
-const bucketName = 'quarkjs-auto-update';
+const bucketName : buckets = 'quarkjs-auto-update';
 
 const storage = new Storage({
     projectId: 'diy-mechatronics'

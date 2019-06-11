@@ -1,12 +1,12 @@
 import { Storage } from '@google-cloud/storage';
 import * as fs from 'fs-extra';
-import { printConsoleStatus } from './util';
+import { printConsoleStatus, buckets } from './util';
 import * as path from 'path';
 import { execSync } from 'child_process';
 import console = require('console');
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
-const bucketName = 'quarkjs-builds';
+const bucketName : buckets = 'quarkjs-builds';
 const json = JSON.parse(fs.readFileSync('./package.json').toString());
 const version = json.version;
 
