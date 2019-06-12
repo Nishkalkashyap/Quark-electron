@@ -45,7 +45,7 @@ export const metaData: {
     }
 };
 
-export const currentBranch = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch();
+export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch() as any;
 
 // printConsoleStatus('Added restore view state snackbar', 'danger');
 // printConsoleStatus('Added restore view state snackbar', 'info');

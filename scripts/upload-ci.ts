@@ -35,7 +35,10 @@ console.log(gitBranch);
 const isMaster = gitBranch.includes('master') ? true : false;
 
 const paths = process.platform == 'linux' ? linuxFiles : process.platform == 'win32' ? winFiles : linuxFiles;
+
 paths.push('./test/__testResults__/test-logs.txt');
+paths.push('./dev-assets/releaseNotes.md');
+paths.push('./package.json');
 
 upload();
 function upload() {
