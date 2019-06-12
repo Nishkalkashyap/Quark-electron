@@ -2,7 +2,7 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import * as os from 'os';
-import { printConsoleStatus, getCurrentBranch } from './util';
+import { printConsoleStatus, currentBranch } from './util';
 dotenv.config({
     path: './scripts/prod.env'
 });
@@ -212,7 +212,7 @@ builder.build({
 });
 
 function filterCI(arr: builder.TargetConfiguration[]) {
-    const isMaster = getCurrentBranch() == 'master';
+    const isMaster = currentBranch == 'master';
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml)$/);

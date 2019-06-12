@@ -7,13 +7,39 @@ export function printConsoleStatus(message: string, status: 'danger' | 'success'
     console.log(color(Array(indent).fill('\s').join('') + `| ${emoji}  | ${message}`));
 }
 
-export function getCurrentBranch(): branches {
+function getCurrentBranch(): branches {
     const gitBranch = execSync('git branch').toString();
     return gitBranch.includes('master') ? 'master' : gitBranch.includes('release') ? 'release' : 'insiders';
 }
 
 export type buckets = 'quarkjs-release-insiders' | 'quarkjs-builds' | 'quarkjs-auto-update';
 export type branches = 'master' | 'release' | 'insiders';
+
+export const metaData: {
+    [branch: string]: {
+        type: 'nightly' | 'nightly-all' | 'insiders' | 'stable';
+        storageUrl: 'quark-build-nightly.quarkjs.io' | 'quark-build-nightly-all.quarkjs.io' | 'quark-build-insiders.quarkjs.io' | 'quark-build-stable.quarkjs.io';
+    }
+} = {
+    'master': {
+        type: 'nightly',
+        storageUrl: 'quark-build-nightly.quarkjs.io'
+    },
+    'master-all': {
+        type: 'nightly-all',
+        storageUrl: 'quark-build-nightly-all.quarkjs.io'
+    },
+    'insiders': {
+        type: 'insiders',
+        storageUrl: 'quark-build-insiders.quarkjs.io'
+    },
+    'stable': {
+        type: 'stable',
+        storageUrl: 'quark-build-stable.quarkjs.io'
+    }
+};
+
+export const currentBranch = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch();
 
 // printConsoleStatus('Added restore view state snackbar', 'danger');
 // printConsoleStatus('Added restore view state snackbar', 'info');
