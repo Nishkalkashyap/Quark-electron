@@ -36,6 +36,7 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!.quark",
     "!test",
     "!appveyor-tools",
+    "!readme",
 ]
 
 printConsoleStatus(`Starting Build`, 'success');
