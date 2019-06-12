@@ -88,6 +88,7 @@ export function uploadFilesToBucket(bucketName: string, version: number, paths: 
     paths.map((_path) => {
         if (fs.existsSync(_path)) {
             const file = storage.bucket(bucketName).file(`Quark-${version}/${_path.endsWith('txt') ? (process.platform + '-' + path.basename(_path)) : path.basename(_path)}`);
+            file.makePublic();
             fs.createReadStream(_path)
                 .pipe(file.createWriteStream())
                 .on('error', function (err) {
@@ -146,7 +147,7 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
         });
 
     });
-    
+
     const promises: Promise<any>[] = currentVersionFiles.map((file) => {
         return file.copy(file.name.replace(`${folder}/`, ''));
     });
