@@ -61,22 +61,21 @@ before_install:
 #   -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
 
 install:
-- if [ "$TRAVIS_BRANCH" == "master"] || ["$TRAVIS_BRANCH" == "master-all" ]; then npm install; fi
-# - if [ "$TRAVIS_BRANCH" == "master"] || ["$TRAVIS_BRANCH" == "master-all" ]; then npm install; fi
+- if [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "master-all" ]]; then npm install; fi
 
 before_script:
 - node --version
 - npm --version
 
 script:
-- if [ "$TRAVIS_BRANCH" == "master"] || ["$TRAVIS_BRANCH" == "master-all" ]; then npm build-ci; fi
-- if [ "$TRAVIS_BRANCH" == "master"] || ["$TRAVIS_BRANCH" == "master-all" ]; then npm test-ci; fi
+- if [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "master-all" ]]; then npm build-ci; fi
+- if [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "master-all" ]]; then npm test-ci; fi
 
 # - npm run build-ci
 # - npm run test-ci
 
 after_success:
-- if [ "$TRAVIS_BRANCH" == "master"] || ["$TRAVIS_BRANCH" == "master-all" ]; then npm upload-ci; fi
+- if [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "master-all" ]]; then npm upload-ci; fi
 # - npm run upload-ci
 
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
