@@ -28,13 +28,17 @@ async function createShasumFile(paths: string[], outPath: string) {
     const promises = paths
         .filter((filePath) => {
             return fs.existsSync(filePath)
-        }).filter((filePath)=>{
+        }).filter((filePath) => {
             return !filePath.match(/\.(blockmap|yml)$/)
         })
         .map(async (filePath) => {
-            const hash = await hasha.fromFile(filePath, { algorithm: 'sha512', encoding: 'base64' });
-            obj[path.basename(filePath)] = hash;
-            return hash;
+            try {
+                const hash = await hasha.fromFile(filePath, { algorithm: 'sha512', encoding: 'base64' });
+                obj[path.basename(filePath)] = hash;
+                return hash;
+            } catch (err) {
+                throw Error(err);
+            }
         });
 
     await Promise.all(promises);
