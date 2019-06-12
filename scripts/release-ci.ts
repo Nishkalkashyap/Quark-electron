@@ -24,21 +24,21 @@ async function release() {
         }
 
         if (currentBranch == 'insiders') {
-                const exists = await folderAlreadyExists('quark-build-insiders.quarkjs.io', folderName);
-                if (exists) {
-                        throw Error(`Folder already exists ${folderName}`);
-                }
-                await doBucketTransfer('quark-build-nightly-all.quarkjs.io', 'quark-build-insiders.quarkjs.io', folderName);
+                // const exists = await folderAlreadyExists('quark-build-insiders.quarkjs.io', folderName);
+                // if (exists) {
+                //         throw Error(`Folder already exists ${folderName}`);
+                // }
+                // await doBucketTransfer('quark-build-nightly-all.quarkjs.io', 'quark-build-insiders.quarkjs.io', folderName);
                 await copyContentsToRoot('quark-build-insiders.quarkjs.io', folderName);
                 return;
         }
 
         if (currentBranch == 'stable') {
-                const exists = await folderAlreadyExists('quark-build-stable.quarkjs.io', folderName);
-                if (exists) {
-                        throw Error(`Folder already exists ${folderName}`);
-                }
-                await doBucketTransfer('quark-build-insiders.quarkjs.io', 'quark-build-stable.quarkjs.io', folderName);
+                // const exists = await folderAlreadyExists('quark-build-stable.quarkjs.io', folderName);
+                // if (exists) {
+                //         throw Error(`Folder already exists ${folderName}`);
+                // }
+                // await doBucketTransfer('quark-build-insiders.quarkjs.io', 'quark-build-stable.quarkjs.io', folderName);
                 await copyContentsToRoot('quark-build-stable.quarkjs.io', folderName)
                 return;
         }

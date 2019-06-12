@@ -47,6 +47,7 @@ addons:
     - bsdtar
     - snapd
 before_install:
+- npm run preinstall-ci
 
 # - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
 # - cd $TRAVIS_REPO_SLUG
@@ -58,7 +59,8 @@ before_install:
   if [ $TRAVIS_BRANCH == "master" ] || [ $TRAVIS_BRANCH == "master-all" ]; then
       export QUARK_RUN_BUILD=true;
     else 
-      export QUARK_RUN_BUILD=false;
+      # export QUARK_RUN_BUILD=false;
+      export QUARK_RUN_BUILD=true;
   fi
 - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ $QUARK_RUN_BUILD == "true" ]; then sudo snap install snapcraft --classic; fi
 - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ $QUARK_RUN_BUILD == "true" ]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb
