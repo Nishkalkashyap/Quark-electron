@@ -3,7 +3,7 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { execSync } from "child_process";
 
-
+checkout().catch(console.error);
 async function checkout() {
 
     if (currentBranch == 'master' || currentBranch == 'master-all') {
