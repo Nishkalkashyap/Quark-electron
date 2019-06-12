@@ -53,11 +53,11 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb
   start; sleep 3; fi
 - |
-  if [ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "master-all" ]; 
-  then
-    export QUARK_RUN_BUILD=true
-  else 
-    export QUARK_RUN_BUILD=false
+  # if [ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "master-all" ]; 
+  if [ $TRAVIS_BRANCH == "master" ] || [ $TRAVIS_BRANCH == "master-all" ]; then
+      export QUARK_RUN_BUILD=true
+    else 
+      export QUARK_RUN_BUILD=false
   fi
 # - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8;
 #   echo ok )& fi
