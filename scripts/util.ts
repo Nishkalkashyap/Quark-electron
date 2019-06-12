@@ -1,5 +1,9 @@
 import chalk from 'chalk';
 import { execSync } from 'child_process';
+import * as fs from 'fs-extra';
+import * as path from 'path';
+import { Storage } from '@google-cloud/storage';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 
 export function printConsoleStatus(message: string, status: 'danger' | 'success' | 'warning' | 'info', indent: number = 0): void {
     let emoji = (status == 'danger') ? '  ❗' : (status == 'success') ? ' ✅ ' : (status == 'warning') ? ' ⚠️ ' : ' ️️💁 ';
@@ -66,4 +70,35 @@ export function getFilesForVersion(version: number, type: typeof process.platfor
             `./build/latest-linux.yml`
         ];
     }
+}
+
+export function uploadFilesToBucket(bucketName: string, version: number, paths: string[], allowFailFiles: boolean) {
+
+    const storage = new Storage({
+        projectId: 'diy-mechatronics'
+    });
+
+    paths.map((_path) => {
+        if (fs.existsSync(_path)) {
+            const file = storage.bucket(bucketName).file(`Quark-${version}/${_path.endsWith('txt') ? (process.platform + '-' + path.basename(_path)) : path.basename(_path)}`);
+            fs.createReadStream(_path)
+                .pipe(file.createWriteStream())
+                .on('error', function (err) {
+                    if (err) {
+                        console.error(err);
+                        printConsoleStatus(`Error uploading: ${_path}`, 'danger');
+                    }
+                })
+                .on('finish', function () {
+                    printConsoleStatus(`Finished file: ${_path}`, 'success');
+                });
+            return;
+        }
+
+
+        printConsoleStatus(`File not found: ${_path}; Allow faliure: ${allowFailFiles};`, 'danger');
+        if (!allowFailFiles) {
+            throw Error(`File not found: ${_path}`);
+        }
+    });
 }
