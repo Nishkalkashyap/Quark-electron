@@ -131,6 +131,22 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
     await Promise.all(filesToCopy);
 }
 
+export async function folderAlreadyExists(bucketName: bucketName, folder: string) {
+    const folders = await storage.bucket(bucketName).getFiles();
+    const arr: string[] = [];
+    folders.map((folder) => {
+        folder.map((file) => {
+            arr.push(file.name);
+        });
+    });
+
+    const result = arr.some((fileName) => {
+        return fileName.includes(folder);
+    });
+
+    return result;
+}
+
 export async function copyContentsToRoot(bucketName: bucketName, folder: string) {
     const currentVersionFiles: File[] = [];
     const filesToDelete: File[] = [];
