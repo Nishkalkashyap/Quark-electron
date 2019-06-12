@@ -30,7 +30,8 @@
     "build-ci": "npm run build-quick",
     "test-ci": "ts-node ./scripts/test.ts",
     "upload-ci": "ts-node ./scripts/upload-ci.ts",
-    "release-ci": "git checkout release && git merge master && git push && git checkout master"
+    "release-ci": "git checkout release && git merge master && git push && git checkout master",
+    "release-insider": "git checkout insiders && git merge master && git push && git checkout master"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",

@@ -72,11 +72,11 @@ export function getFilesForVersion(version: number, type: typeof process.platfor
     }
 }
 
+const storage = new Storage({
+    projectId: 'diy-mechatronics'
+});
 export function uploadFilesToBucket(bucketName: string, version: number, paths: string[], allowFailFiles: boolean) {
 
-    const storage = new Storage({
-        projectId: 'diy-mechatronics'
-    });
 
     paths.map((_path) => {
         if (fs.existsSync(_path)) {
@@ -100,5 +100,19 @@ export function uploadFilesToBucket(bucketName: string, version: number, paths: 
         if (!allowFailFiles) {
             throw Error(`File not found: ${_path}`);
         }
+    });
+}
+
+export async function doBucketTransfer(copyFromBucket: string, copyToBucket: string, folderName: string) {
+    const folders = await storage.bucket(copyFromBucket).getFiles();
+
+    const destBucket = storage.bucket(copyToBucket);
+
+    folders.filter((folder) => {
+        folder.map((file) => {
+            if (file.name.includes(folderName)) {
+                file.copy(destBucket.file(file.name));
+            }
+        });
     });
 }
