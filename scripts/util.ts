@@ -82,13 +82,13 @@ export function getFilesForVersion(version: number, type: typeof process.platfor
 const storage = new Storage({
     projectId: 'diy-mechatronics'
 });
-export function uploadFilesToBucket(bucketName: string, version: number, paths: string[], allowFailFiles: boolean) {
 
+export function uploadFilesToBucket(bucketName: string, version: number, paths: string[], allowFailFiles: boolean) {
 
     paths.map((_path) => {
         if (fs.existsSync(_path)) {
-            const file = storage.bucket(bucketName).file(`Quark-${version}/${_path.endsWith('txt') ? (process.platform + '-' + path.basename(_path)) : path.basename(_path)}`);
-            file.makePublic();
+            const fileName = `Quark-${version}/${path.basename(_path)}`;
+            const file = storage.bucket(bucketName).file(fileName);
             fs.createReadStream(_path)
                 .pipe(file.createWriteStream())
                 .on('error', function (err) {
@@ -98,6 +98,9 @@ export function uploadFilesToBucket(bucketName: string, version: number, paths: 
                     }
                 })
                 .on('finish', function () {
+                    setTimeout(() => {
+                        file.makePublic();
+                    }, 1000);
                     printConsoleStatus(`Finished file: ${_path}`, 'success');
                 });
             return;
