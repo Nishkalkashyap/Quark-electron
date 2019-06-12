@@ -15,9 +15,9 @@ export function printConsoleStatus(message: string, status: 'danger' | 'success'
 function getCurrentBranch(): branches {
     const gitBranch = execSync('git branch').toString() as branches;
     return (
-        gitBranch.includes('master-all') ? 'master-all' :
-            gitBranch.includes('master') ? 'master' :
-                gitBranch.includes('insiders') ? 'insiders' : 'stable'
+        gitBranch.includes('* master-all') ? 'master-all' :
+            gitBranch.includes('* master') ? 'master' :
+                gitBranch.includes('* insiders') ? 'insiders' : 'stable'
     );
 }
 
