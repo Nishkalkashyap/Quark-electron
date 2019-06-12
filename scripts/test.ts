@@ -54,13 +54,13 @@ function exitTest() {
         if (result.value == true) {
             const fileData = fs.readFileSync('./test/__testResults__/test-logs.txt').toString();
             console.log(fileData);
-            printConsoleStatus('Test successful', 'success');
-
+            
             if (fileData.match(/\[error\]/)) {
                 throw Error('Test Failed');
             }
             
-            return;
+            printConsoleStatus('Test successful', 'success');
+            process.exit(0);//required
         }
     }
     printConsoleStatus('Test Failed', 'danger');
