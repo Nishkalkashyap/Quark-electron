@@ -171,9 +171,10 @@ export async function copyContentsToRoot(bucketName: bucketName, folderName: str
                 });
             });
 
-            const promises: Promise<any>[] = currentVersionFiles.map((file) => {
+            const promises: Promise<any>[] = currentVersionFiles.map(async (file) => {
                 console.log(`Copying: ${file} to ${file.name.replace(`${folderName}/`, '')}`);
-                return file.copy(file.name.replace(`${folderName}/`, ''));
+                const copy = await file.copy(file.name.replace(`${folderName}/`, ''));
+                return copy[0].makePublic();
             });
 
             promises.concat(filesToDelete.map((file) => {
