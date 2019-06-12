@@ -16,12 +16,12 @@ async function root() {
     const logsFilePath = `./test/__testResults__/${process.platform}-test-logs.txt`;
     fs.copyFileSync('./test/__testResults__/test-logs.txt', logsFilePath);
 
-    const gitFilePath = './git-commit.txt';
-    addGitCommit(gitFilePath);
+    // const gitFilePath = './git-commit.txt';
+    // addGitCommit(gitFilePath);
 
     paths.push(shasumFilePath);
     paths.push(logsFilePath);
-    paths.push(gitFilePath);
+    // paths.push(gitFilePath);
     paths.push('./dev-assets/releaseNotes.md');
     paths.push('./package.json');
 
@@ -51,8 +51,8 @@ async function createShasumFile(paths: string[], outPath: string) {
     fs.writeJsonSync(outPath, obj);
 }
 
-function addGitCommit(filePath: string) {
-    const res = execSync('git show --format="%H" --no-patch').toString();
-    fs.ensureFileSync(filePath);
-    fs.writeFileSync(filePath, res);
-}
+// function addGitCommit(filePath: string) {
+//     const res = execSync('git show --format="%H" --no-patch').toString();
+//     fs.ensureFileSync(filePath);
+//     fs.writeFileSync(filePath, res);
+// }

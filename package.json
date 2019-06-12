@@ -27,7 +27,6 @@
     "upload": "cross-env DELETE_FILES=no ts-node ./scripts/upload.ts",
     "notes": "ts-node ./scripts/create-release-notes.ts",
     "native": "electron-builder install-app-deps",
-    "preinstall-ci": "npm install -g ts-node typescript && npx ts-node ./scripts/git-checkout.ts",
     "build-ci": "npm run build-quick",
     "test-ci": "ts-node ./scripts/test.ts",
     "upload-ci": "ts-node ./scripts/upload-ci.ts",
