@@ -43,6 +43,7 @@ printConsoleStatus(`Starting Build`, 'success');
 
 builder.build({
     config: {
+        generateUpdatesFilesForAllChannels: true,
         appId: 'in.nishkal',
         copyright: 'Copyright © 2019 Nishkal Kashyap',
         productName: 'Quark',
