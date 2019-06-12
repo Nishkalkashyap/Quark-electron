@@ -47,6 +47,11 @@ addons:
     - bsdtar
     - snapd
 before_install:
+
+# - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
+# - cd $TRAVIS_REPO_SLUG
+# - git checkout -qf $TRAVIS_COMMIT
+
 - openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
   -in cloud-storage-key.json.enc -out ./dev-assets/cloud-storage-key.json -d
 - |
