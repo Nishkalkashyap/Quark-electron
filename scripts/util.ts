@@ -47,7 +47,23 @@ export const metaData: {
 
 export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch() as any;
 
-// printConsoleStatus('Added restore view state snackbar', 'danger');
-// printConsoleStatus('Added restore view state snackbar', 'info');
-// printConsoleStatus('Added restore view state snackbar', 'success');
-// printConsoleStatus('Added restore view state snackbar', 'warning');
+export function getFilesForVersion(version: number, type: typeof process.platform) {
+    if (type == 'win32') {
+        return [
+            `./build/Quark-win-${version}.exe`,
+            `./build/Quark-win-${version}.exe.blockmap`,
+            `./build/Quark-win-x64-${version}.zip`,
+            `./build/Quark-win-x64-${version}.msi`,
+            './build/latest.yml'
+        ];
+    }
+
+    if (type == 'linux') {
+        return [
+            `./build/Quark-linux-amd64-${version}.deb`,
+            `./build/Quark-linux-x64-${version}.tar.gz`,
+            `./build/Quark-linux-x86_64-${version}.AppImage`,
+            `./build/latest-linux.yml`
+        ];
+    }
+}
