@@ -53,7 +53,6 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb
   start; sleep 3; fi
 - |
-  # if [ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "master-all" ]; 
   if [ $TRAVIS_BRANCH == "master" ] || [ $TRAVIS_BRANCH == "master-all" ]; then
       export QUARK_RUN_BUILD=true;
     else 
@@ -69,8 +68,6 @@ before_install:
 
 install:
 - echo $QUARK_RUN_BUILD
-- echo $QUARK_RUN_BUILD == true
-- echo $QUARK_RUN_BUILD == "true"
 - if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm install; fi
 
 before_script:
@@ -78,11 +75,11 @@ before_script:
 - npm --version
 
 script:
-- npm run build-ci
-- npm run test-ci
+- if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run build-ci; fi
+- if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run test-ci; fi
 
 after_success:
-- npm run upload-ci
+- if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run upload-ci; fi
 
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
