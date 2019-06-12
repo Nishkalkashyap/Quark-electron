@@ -177,8 +177,7 @@ builder.build({
 
         publish: {
             provider: 'generic',
-            // url: 'https://storage.googleapis.com/quarkjs-auto-update',
-            url: metaData[currentBranch].autoUpdateUrl
+            url: metaData['stable'].autoUpdateUrl
         },
         extraResources: [
             {
