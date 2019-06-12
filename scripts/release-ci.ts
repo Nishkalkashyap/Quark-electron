@@ -13,6 +13,9 @@ async function release() {
         const packageJson = fs.readJsonSync('./package.json');
         const folderName = `Quark-${releaseJson[currentBranch] || packageJson.version}`;
 
+        console.log(`Releasing version: ${folderName}`);
+        console.log(`Branch: ${currentBranch}`);
+
         if (currentBranch == 'master-all') {
                 await copyContentsToRoot('quark-build-nightly-all.quarkjs.io', folderName);
                 return;

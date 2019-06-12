@@ -115,8 +115,9 @@ export function uploadFilesToBucket(bucketName: string, version: number, paths: 
 }
 
 export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderName: string) {
-    const folders = await storage.bucket(copyFromBucket).getFiles();
+    printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket} to ${copyToBucket};`, 'info');
 
+    const folders = await storage.bucket(copyFromBucket).getFiles();
     const destBucket = storage.bucket(copyToBucket);
     const filesToCopy: Promise<[File, request.Response]>[] = [];
 
@@ -129,6 +130,7 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
     });
 
     await Promise.all(filesToCopy);
+    printConsoleStatus(`Transferred contents from bucket: ${copyFromBucket} to ${copyToBucket};`, 'success');
 }
 
 export async function folderAlreadyExists(bucketName: bucketName, folder: string) {
@@ -144,10 +146,12 @@ export async function folderAlreadyExists(bucketName: bucketName, folder: string
         return fileName.includes(folder);
     });
 
+    printConsoleStatus(`Folder already exists?: ${result}`, 'info');
     return result;
 }
 
 export async function copyContentsToRoot(bucketName: bucketName, folder: string) {
+    printConsoleStatus(`Copying contents to root: ${bucketName} to ${folder};`, 'info');
     const currentVersionFiles: File[] = [];
     const filesToDelete: File[] = [];
     storage.bucket(bucketName).getFiles().then(async (folders) => {
@@ -176,4 +180,5 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
     }));
 
     await Promise.all(promises);
+    printConsoleStatus(`Copied contents to root: ${bucketName} to ${folder};`, 'success');
 }
