@@ -5,9 +5,6 @@ import * as path from 'path';
 release().catch(console.error);
 async function release() {
 
-        if (currentBranch == 'master') {
-                return;
-        }
 
         const releaseJson = fs.readJsonSync(path.join(__dirname, './release.json'));
         const packageJson = fs.readJsonSync('./package.json');
@@ -15,6 +12,11 @@ async function release() {
 
         console.log(`Releasing version: ${folderName}`);
         console.log(`Branch: ${currentBranch}`);
+
+        if (currentBranch == 'master') {
+                await copyContentsToRoot('quark-build-nightly.quarkjs.io', folderName);
+                return;
+        }
 
         if (currentBranch == 'master-all') {
                 await copyContentsToRoot('quark-build-nightly-all.quarkjs.io', folderName);
