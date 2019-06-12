@@ -172,13 +172,13 @@ export async function copyContentsToRoot(bucketName: bucketName, folderName: str
             });
 
             const promises: Promise<any>[] = currentVersionFiles.map(async (file) => {
-                console.log(`Copying: ${file} to ${file.name.replace(`${folderName}/`, '')}`);
+                console.log(`Copying: ${file.name} to ${file.name.replace(`${folderName}/`, '')}`);
                 const copy = await file.copy(file.name.replace(`${folderName}/`, ''));
                 return copy[0].makePublic();
             });
 
             promises.concat(filesToDelete.map((file) => {
-                console.log(`Deleting: ${file}`);
+                console.log(`Deleting: ${file.name}`);
                 return file.delete();
             }));
 
