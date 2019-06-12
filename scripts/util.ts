@@ -150,8 +150,8 @@ export async function folderAlreadyExists(bucketName: bucketName, folder: string
     return result;
 }
 
-export async function copyContentsToRoot(bucketName: bucketName, folder: string) {
-    printConsoleStatus(`Copying contents to root: ${bucketName} from ${folder};`, 'info');
+export async function copyContentsToRoot(bucketName: bucketName, folderName: string) {
+    printConsoleStatus(`Copying contents to root: ${bucketName} from ${folderName};`, 'info');
     return new Promise(async (resolve) => {
         const currentVersionFiles: File[] = [];
         const filesToDelete: File[] = [];
@@ -159,15 +159,15 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
             folders.map((folder) => {
                 folder.map((file) => {
 
-                    console.log(file.name, `${folder}/`, file.name.includes(`${folder}/`));
+                    console.log(file.name, `${folderName}/`, file.name.includes(`${folderName}/`));
 
                     if (!file.name.includes('/') && !file.name.toLocaleLowerCase().match(/(appimage|blockmap)/)) {
                         filesToDelete.push(file);
-                        console.log(file.name, 'filter1', `${folder}/`, file.name.includes(`${folder}/`));
+                        console.log(file.name, 'filter1', `${folderName}/`, file.name.includes(`${folderName}/`));
                     }
 
-                    if (!file.name.includes(`${folder}/`)) {
-                        console.log(file.name, 'filter2', `${folder}/`, file.name.includes(`${folder}/`));
+                    if (!file.name.includes(`${folderName}/`)) {
+                        console.log(file.name, 'filter2', `${folderName}/`, file.name.includes(`${folderName}/`));
                         return;
                     }
 
@@ -176,8 +176,8 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
             });
 
             const promises: Promise<any>[] = currentVersionFiles.map((file) => {
-                console.log(`Copying: ${file} to ${file.name.replace(`${folder}/`, '')}`);
-                return file.copy(file.name.replace(`${folder}/`, ''));
+                console.log(`Copying: ${file} to ${file.name.replace(`${folderName}/`, '')}`);
+                return file.copy(file.name.replace(`${folderName}/`, ''));
             });
 
             promises.concat(filesToDelete.map((file) => {
@@ -191,6 +191,6 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
             console.log(err);
             resolve(false);
         });
-        printConsoleStatus(`Copied contents to root: ${bucketName} from ${folder};`, 'success');
+        printConsoleStatus(`Copied contents to root: ${bucketName} from ${folderName};`, 'success');
     });
 }
