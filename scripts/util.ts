@@ -2,7 +2,8 @@ import chalk from 'chalk';
 import { execSync } from 'child_process';
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import { Storage } from '@google-cloud/storage';
+import { Storage, File } from '@google-cloud/storage';
+import request = require('request');
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 
 export function printConsoleStatus(message: string, status: 'danger' | 'success' | 'warning' | 'info', indent: number = 0): void {
@@ -109,16 +110,50 @@ export function uploadFilesToBucket(bucketName: string, version: number, paths: 
     });
 }
 
-export async function doBucketTransfer(copyFromBucket: string, copyToBucket: string, folderName: string) {
+export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderName: string) {
     const folders = await storage.bucket(copyFromBucket).getFiles();
 
     const destBucket = storage.bucket(copyToBucket);
+    const filesToCopy: Promise<[File, request.Response]>[] = [];
 
     folders.filter((folder) => {
         folder.map((file) => {
             if (file.name.includes(folderName)) {
-                file.copy(destBucket.file(file.name));
+                filesToCopy.push(file.copy(destBucket.file(file.name)));
             }
         });
     });
+
+    await Promise.all(filesToCopy);
+}
+
+export async function copyContentsToRoot(bucketName: bucketName, folder: string) {
+    const currentVersionFiles: File[] = [];
+    const filesToDelete: File[] = [];
+    storage.bucket(bucketName).getFiles().then(async (folders) => {
+        folders.map((folder) => {
+            folder.map((file) => {
+                if (!file.name.includes('/') && !file.name.toLocaleLowerCase().match(/(appimage|blockmap)/)) {
+                    filesToDelete.push(file);
+                }
+
+                if (!file.name.includes(`${folder}/`)) {
+                    return;
+                }
+
+                currentVersionFiles.push(file);
+            });
+        });
+
+    });
+    
+    const promises: Promise<any>[] = currentVersionFiles.map((file) => {
+        return file.copy(file.name.replace(`${folder}/`, ''));
+    });
+
+    promises.concat(filesToDelete.map((file) => {
+        return file.delete();
+    }));
+
+    await Promise.all(promises);
 }

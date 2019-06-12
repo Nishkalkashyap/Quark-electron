@@ -30,7 +30,8 @@
     "build-ci": "npm run build-quick",
     "test-ci": "ts-node ./scripts/test.ts",
     "upload-ci": "ts-node ./scripts/upload-ci.ts",
-    "release-ci": "git checkout release && git merge master && git push && git checkout master",
+    "release-ci": "ts-node ./scripts/release-ci.ts",
+    "release-ci-olddddddddddddd": "git checkout release && git merge master && git push && git checkout master",
     "release-master-all": "git checkout master-all && git merge master && git push && git checkout master",
     "release-insiders": "git checkout insiders && git merge master && git push && git checkout master",
     "release-stable": "git checkout stable && git merge master && git push && git checkout master"
