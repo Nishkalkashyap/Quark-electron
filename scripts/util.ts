@@ -157,11 +157,16 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
     storage.bucket(bucketName).getFiles().then(async (folders) => {
         folders.map((folder) => {
             folder.map((file) => {
+
+                console.log(file);
+
                 if (!file.name.includes('/') && !file.name.toLocaleLowerCase().match(/(appimage|blockmap)/)) {
                     filesToDelete.push(file);
+                    console.log(file, 'filter1');
                 }
 
                 if (!file.name.includes(`${folder}/`)) {
+                    console.log(file, 'filter2');
                     return;
                 }
 
