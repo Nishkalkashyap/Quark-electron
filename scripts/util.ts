@@ -191,3 +191,15 @@ export async function copyContentsToRoot(bucketName: bucketName, folderName: str
         printConsoleStatus(`Copied contents to root: ${bucketName} from ${folderName};`, 'success');
     });
 }
+
+export async function fetchFolderContents(bucketName: bucketName, folderName: string) {
+    const arr: File[] = [];
+    (await storage.bucket(bucketName).getFiles()).map((files) => {
+        files.map((file) => {
+            if (file.name.includes(`${folderName}/`)) {
+                arr.push(file);
+            }
+        })
+    });
+    return arr;
+}
