@@ -162,11 +162,11 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
 
                 if (!file.name.includes('/') && !file.name.toLocaleLowerCase().match(/(appimage|blockmap)/)) {
                     filesToDelete.push(file);
-                    console.log(file, 'filter1');
+                    console.log(file.name, 'filter1');
                 }
 
                 if (!file.name.includes(`${folder}/`)) {
-                    console.log(file, 'filter2');
+                    console.log(file.name, 'filter2');
                     return;
                 }
 
@@ -174,18 +174,17 @@ export async function copyContentsToRoot(bucketName: bucketName, folder: string)
             });
         });
 
+        const promises: Promise<any>[] = currentVersionFiles.map((file) => {
+            console.log(`Copying: ${file} to ${file.name.replace(`${folder}/`, '')}`);
+            return file.copy(file.name.replace(`${folder}/`, ''));
+        });
+
+        promises.concat(filesToDelete.map((file) => {
+            console.log(`Deleting: ${file}`);
+            return file.delete();
+        }));
+
+        await Promise.all(promises);
+        printConsoleStatus(`Copied contents to root: ${bucketName} to ${folder};`, 'success');
     });
-
-    const promises: Promise<any>[] = currentVersionFiles.map((file) => {
-        console.log(`Copying: ${file} to ${file.name.replace(`${folder}/`, '')}`);
-        return file.copy(file.name.replace(`${folder}/`, ''));
-    });
-
-    promises.concat(filesToDelete.map((file) => {
-        console.log(`Deleting: ${file}`);
-        return file.delete();
-    }));
-
-    await Promise.all(promises);
-    printConsoleStatus(`Copied contents to root: ${bucketName} to ${folder};`, 'success');
 }

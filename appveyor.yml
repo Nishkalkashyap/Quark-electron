@@ -45,6 +45,7 @@ test_script:
 after_test:
 # build_success:// does not exists
   - npm run upload-ci
+  - npm run release-ci
 
 # artifacts:
 #   - path: ./build/*.exe
