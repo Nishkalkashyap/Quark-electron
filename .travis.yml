@@ -85,6 +85,7 @@ script:
 after_success:
 - if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run upload-ci; fi
 - npm run release-ci
+- ls -la ./build
 
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ls -la ./build/win-unpacked/; fi
