@@ -62,7 +62,7 @@ before_install:
 
 install:
  - |
-    if [ $TRAVIS_BRANCH == "master" && $TRAVIS_BRANCH == "master-all" ]; then
+    if [ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "master-all" ]; then
       npm install
     fi
 
@@ -71,8 +71,8 @@ before_script:
 - npm --version
 
 script:
-- npm build-ci
-- npm test-ci
+- npm run build-ci
+- npm run test-ci
 
 after_success:
 - npm run upload-ci
