@@ -23,29 +23,35 @@ function getCurrentBranch(): branches {
 export type buckets = 'quarkjs-release-insiders' | 'quarkjs-builds' | 'quarkjs-auto-update';
 export type branches = 'master' | 'master-all' | 'insiders' | 'stable';
 export type releaseType = 'nightly' | 'nightly-all' | 'insiders' | 'stable';
-export type storageUrl = 'quark-build-nightly.quarkjs.io' | 'quark-build-nightly-all.quarkjs.io' | 'quark-build-insiders.quarkjs.io' | 'quark-build-stable.quarkjs.io';
+export type storageUrl = 'https://quark-build-nightly.quarkjs.io' | 'https://quark-build-nightly-all.quarkjs.io' | 'https://quark-build-insiders.quarkjs.io' | 'https://quark-build-stable.quarkjs.io';
+export type bucketName = 'quark-build-nightly.quarkjs.io' | 'quark-build-nightly-all.quarkjs.io' | 'quark-build-insiders.quarkjs.io' | 'quark-build-stable.quarkjs.io';
 
 export const metaData: {
     [key in branches]: {
         type: releaseType;
-        storageUrl: storageUrl;
+        autoUpdateUrl: storageUrl;
+        bucketName: bucketName;
     }
 } = {
     'master': {
         type: 'nightly',
-        storageUrl: 'quark-build-nightly.quarkjs.io'
+        autoUpdateUrl: 'https://quark-build-nightly.quarkjs.io',
+        bucketName: 'quark-build-nightly.quarkjs.io'
     },
     'master-all': {
         type: 'nightly-all',
-        storageUrl: 'quark-build-nightly-all.quarkjs.io'
+        autoUpdateUrl: 'https://quark-build-nightly-all.quarkjs.io',
+        bucketName: 'quark-build-nightly-all.quarkjs.io'
     },
     'insiders': {
         type: 'insiders',
-        storageUrl: 'quark-build-insiders.quarkjs.io'
+        autoUpdateUrl: 'https://quark-build-insiders.quarkjs.io',
+        bucketName: 'quark-build-insiders.quarkjs.io'
     },
     'stable': {
         type: 'stable',
-        storageUrl: 'quark-build-stable.quarkjs.io'
+        autoUpdateUrl: 'https://quark-build-stable.quarkjs.io',
+        bucketName: 'quark-build-stable.quarkjs.io'
     }
 };
 

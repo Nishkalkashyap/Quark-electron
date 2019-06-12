@@ -14,5 +14,5 @@ function root() {
     paths.push('./dev-assets/releaseNotes.md');
     paths.push('./package.json');
 
-    uploadFilesToBucket(metaData[currentBranch].storageUrl, json.version, paths, currentBranch == 'master');
+    uploadFilesToBucket(metaData[currentBranch].bucketName, json.version, paths, currentBranch == 'master');
 }

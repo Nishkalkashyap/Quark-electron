@@ -1,8 +1,7 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
-import * as os from 'os';
-import { printConsoleStatus, currentBranch } from './util';
+import { printConsoleStatus, currentBranch, metaData } from './util';
 dotenv.config({
     path: './scripts/prod.env'
 });
@@ -177,7 +176,8 @@ builder.build({
 
         publish: {
             provider: 'generic',
-            url: 'https://storage.googleapis.com/quarkjs-auto-update',
+            // url: 'https://storage.googleapis.com/quarkjs-auto-update',
+            url: metaData[currentBranch].autoUpdateUrl
         },
         extraResources: [
             {

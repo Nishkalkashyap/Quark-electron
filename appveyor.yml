@@ -1,10 +1,15 @@
 # https://github.com/sindresorhus/appveyor-node/blob/master/appveyor.yml
 os: unstable
 # CLOUD_STORAGE_ENCRYPT_FILE_KEY
-max_jobs: 5
+max_jobs: 2
 environment:
   matrix:
     - platform: x64
+
+branches:
+  only:
+    - master
+    - master-all
 
 cache:
   - node_modules
