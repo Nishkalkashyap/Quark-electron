@@ -6,10 +6,10 @@ environment:
   matrix:
     - platform: x64
 
-# branches:
-#   only:
-#     - master
-#     - master-all
+branches:
+  only:
+    - master
+    - master-all
 
 cache:
   - node_modules

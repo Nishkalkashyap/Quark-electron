@@ -5,41 +5,34 @@ import * as path from 'path';
 release().catch(console.error);
 async function release() {
 
-
         const releaseJson = fs.readJsonSync(path.join(__dirname, './release.json'));
         const packageJson = fs.readJsonSync('./package.json');
-        const folderName = `Quark-${releaseJson[currentBranch] || packageJson.version}`;
 
-        console.log(`Releasing version: ${folderName}`);
+        console.log(`Releasing version: ${packageJson.version}`);
         console.log(`Branch: ${currentBranch}`);
 
         if (currentBranch == 'master') {
-                await copyContentsToRoot('quark-build-nightly.quarkjs.io', folderName);
+                const masterFolderName = `Quark-${packageJson.version}`;
+                await copyContentsToRoot('quark-build-nightly.quarkjs.io', masterFolderName);
                 return;
         }
 
-        if (currentBranch == 'master-all') {
-                await copyContentsToRoot('quark-build-nightly-all.quarkjs.io', folderName);
-                return;
-        }
+        const masterAllFolderName = `Quark-${packageJson.version}`;
+        await copyContentsToRoot('quark-build-nightly-all.quarkjs.io', masterAllFolderName);
 
-        if (currentBranch == 'insiders') {
-                const exists = await folderAlreadyExists('quark-build-insiders.quarkjs.io', folderName);
-                if (exists) {
-                        throw Error(`Folder already exists ${folderName}`);
-                }
-                await doBucketTransfer('quark-build-nightly-all.quarkjs.io', 'quark-build-insiders.quarkjs.io', folderName);
-                await copyContentsToRoot('quark-build-insiders.quarkjs.io', folderName);
-                return;
-        }
 
-        if (currentBranch == 'stable') {
-                const exists = await folderAlreadyExists('quark-build-stable.quarkjs.io', folderName);
-                if (exists) {
-                        throw Error(`Folder already exists ${folderName}`);
-                }
-                await doBucketTransfer('quark-build-insiders.quarkjs.io', 'quark-build-stable.quarkjs.io', folderName);
-                await copyContentsToRoot('quark-build-stable.quarkjs.io', folderName)
-                return;
+        const insidersFolderName = `Quark-${releaseJson['insiders']}`;
+        const insidersExists = await folderAlreadyExists('quark-build-insiders.quarkjs.io', insidersFolderName);
+        if (!insidersExists) {
+                await doBucketTransfer('quark-build-nightly-all.quarkjs.io', 'quark-build-insiders.quarkjs.io', insidersFolderName);
+                await copyContentsToRoot('quark-build-insiders.quarkjs.io', insidersFolderName);
+        }
+        
+
+        const stableFolderName = `Quark-${releaseJson['stable']}`;
+        const stableReleaseExists = await folderAlreadyExists('quark-build-stable.quarkjs.io', stableFolderName);
+        if (!stableReleaseExists) {
+                await doBucketTransfer('quark-build-insiders.quarkjs.io', 'quark-build-stable.quarkjs.io', stableFolderName);
+                await copyContentsToRoot('quark-build-stable.quarkjs.io', stableFolderName)
         }
 }
