@@ -76,10 +76,10 @@ before_script:
 
 script:
 - if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run build-ci; fi
-# - if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run test-ci; fi
+- if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run test-ci; fi
 
 after_success:
-# - if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run upload-ci; fi
+- if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm run upload-ci; fi
 - npm run release-ci
 
 # - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -command 'npm run test-build'; fi

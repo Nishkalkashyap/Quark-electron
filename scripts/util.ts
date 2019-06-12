@@ -159,15 +159,11 @@ export async function copyContentsToRoot(bucketName: bucketName, folderName: str
             folders.map((folder) => {
                 folder.map((file) => {
 
-                    console.log(file.name, `${folderName}/`, file.name.includes(`${folderName}/`));
-
                     if (!file.name.includes('/') && !file.name.toLocaleLowerCase().match(/(appimage|blockmap)/)) {
                         filesToDelete.push(file);
-                        console.log(file.name, 'filter1', `${folderName}/`, file.name.includes(`${folderName}/`));
                     }
 
                     if (!file.name.includes(`${folderName}/`)) {
-                        console.log(file.name, 'filter2', `${folderName}/`, file.name.includes(`${folderName}/`));
                         return;
                     }
 
