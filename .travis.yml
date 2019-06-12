@@ -68,6 +68,9 @@ before_install:
 #   -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
 
 install:
+- echo $QUARK_RUN_BUILD
+- echo $QUARK_RUN_BUILD == true
+- echo $QUARK_RUN_BUILD == "true"
 - if [[ "$QUARK_RUN_BUILD" == "true" ]]; then npm install; fi
 
 before_script:
