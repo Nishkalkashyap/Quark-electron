@@ -8,17 +8,23 @@ export function printConsoleStatus(message: string, status: 'danger' | 'success'
 }
 
 function getCurrentBranch(): branches {
-    const gitBranch = execSync('git branch').toString();
-    return gitBranch.includes('master') ? 'master' : gitBranch.includes('release') ? 'release' : 'insiders';
+    const gitBranch = execSync('git branch').toString() as branches;
+    return (
+        gitBranch.includes('master-all') ? 'master-all' :
+            gitBranch.includes('master') ? 'master' :
+                gitBranch.includes('insiders') ? 'insiders' : 'stable'
+    );
 }
 
 export type buckets = 'quarkjs-release-insiders' | 'quarkjs-builds' | 'quarkjs-auto-update';
-export type branches = 'master' | 'release' | 'insiders';
+export type branches = 'master' | 'master-all' | 'insiders' | 'stable';
+export type releaseType = 'nightly' | 'nightly-all' | 'insiders' | 'stable';
+export type storageUrl = 'quark-build-nightly.quarkjs.io' | 'quark-build-nightly-all.quarkjs.io' | 'quark-build-insiders.quarkjs.io' | 'quark-build-stable.quarkjs.io';
 
 export const metaData: {
-    [branch: string]: {
-        type: 'nightly' | 'nightly-all' | 'insiders' | 'stable';
-        storageUrl: 'quark-build-nightly.quarkjs.io' | 'quark-build-nightly-all.quarkjs.io' | 'quark-build-insiders.quarkjs.io' | 'quark-build-stable.quarkjs.io';
+    [key in branches]: {
+        type: releaseType;
+        storageUrl: storageUrl;
     }
 } = {
     'master': {
