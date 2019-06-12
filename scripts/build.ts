@@ -2,9 +2,9 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch, metaData } from './util';
-dotenv.config({
-    path: './scripts/prod.env'
-});
+if (currentBranch == 'master-all' && process.env.CI) {
+    dotenv.config({ path: './scripts/prod.env' });
+}
 
 // if (os.platform() == 'linux') {
 //     process.env.DEBUG = 'electron-builder';
