@@ -25,11 +25,15 @@ async function root() {
 
 async function createShasumFile(paths: string[], outPath: string) {
     let obj: any = {};
-    const promises = paths.map(async (filePath) => {
-        const hash = await hasha.fromFile(filePath, { algorithm: 'sha512', encoding: 'base64' });
-        obj[path.basename(filePath)] = hash;
-        return hash;
-    });
+    const promises = paths
+        .filter((filePath) => {
+            return fs.existsSync(filePath)
+        })
+        .map(async (filePath) => {
+            const hash = await hasha.fromFile(filePath, { algorithm: 'sha512', encoding: 'base64' });
+            obj[path.basename(filePath)] = hash;
+            return hash;
+        });
 
     await Promise.all(promises);
     fs.ensureFileSync(outPath);
