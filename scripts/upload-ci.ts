@@ -24,7 +24,7 @@ async function root() {
     paths.push('./dev-assets/releaseNotes.md');
     paths.push('./package.json');
 
-    uploadFilesToBucket('quark-builds.quarkjs.io', json.version, paths, currentBranch == 'master');
+    uploadFilesToBucket('quark-builds.quarkjs.io', `${currentBranch}-${json.version}`, paths, currentBranch == 'master');
 }
 
 async function createShasumFile(paths: string[], outPath: string) {

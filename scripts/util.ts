@@ -52,7 +52,7 @@ const storage = new Storage({
     projectId: 'diy-mechatronics'
 });
 
-export function uploadFilesToBucket(bucketName: bucketName, version: number, paths: string[], allowFailFiles: boolean) {
+export function uploadFilesToBucket(bucketName: bucketName, version: number | string, paths: string[], allowFailFiles: boolean) {
 
     paths.map((_path) => {
         if (fs.existsSync(_path)) {
