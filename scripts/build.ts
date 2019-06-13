@@ -1,7 +1,7 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
-import { printConsoleStatus, currentBranch, metaData } from './util';
+import { printConsoleStatus, currentBranch } from './util';
 if (currentBranch == 'master-all' && process.env.CI) {
     dotenv.config({ path: './scripts/prod.env' });
 }
@@ -178,7 +178,7 @@ builder.build({
 
         publish: {
             provider: 'generic',
-            url: metaData['stable'].autoUpdateUrl
+            url: 'https://quark-release.quarkjs.io/stable'
         },
         extraResources: [
             {

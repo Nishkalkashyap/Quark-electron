@@ -1,8 +1,7 @@
 import * as fs from 'fs-extra';
-import { getFilesToUpload, uploadFilesToBucket, metaData, currentBranch } from './util';
+import { getFilesToUpload, uploadFilesToBucket, currentBranch } from './util';
 import * as hasha from 'hasha';
 import * as path from 'path';
-import { execSync } from 'child_process';
 
 const json = JSON.parse(fs.readFileSync('./package.json').toString());
 
@@ -25,7 +24,7 @@ async function root() {
     paths.push('./dev-assets/releaseNotes.md');
     paths.push('./package.json');
 
-    uploadFilesToBucket(metaData[currentBranch].bucketName, json.version, paths, currentBranch == 'master');
+    uploadFilesToBucket('quark-builds.quarkjs.io', json.version, paths, currentBranch == 'master');
 }
 
 async function createShasumFile(paths: string[], outPath: string) {

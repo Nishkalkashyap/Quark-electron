@@ -16,45 +16,14 @@ function getCurrentBranch(): branches {
     const gitBranch = execSync('git branch').toString() as branches;
     return (
         gitBranch.includes('* master-all') ? 'master-all' :
-            gitBranch.includes('* master') ? 'master' :
-                gitBranch.includes('* insiders') ? 'insiders' : 'stable'
+            gitBranch.includes('* master') ? 'master' : null
     );
 }
 
-export type buckets = 'quarkjs-release-insiders' | 'quarkjs-builds' | 'quarkjs-auto-update';
-export type branches = 'master' | 'master-all' | 'insiders' | 'stable';
-export type releaseType = 'nightly' | 'nightly-all' | 'insiders' | 'stable';
-export type storageUrl = 'https://quark-build-nightly.quarkjs.io' | 'https://quark-build-nightly-all.quarkjs.io' | 'https://quark-build-insiders.quarkjs.io' | 'https://quark-build-stable.quarkjs.io';
-export type bucketName = 'quark-build-nightly.quarkjs.io' | 'quark-build-nightly-all.quarkjs.io' | 'quark-build-insiders.quarkjs.io' | 'quark-build-stable.quarkjs.io';
-
-export const metaData: {
-    [key in branches]: {
-        type: releaseType;
-        autoUpdateUrl: storageUrl;
-        bucketName: bucketName;
-    }
-} = {
-    'master': {
-        type: 'nightly',
-        autoUpdateUrl: 'https://quark-build-nightly.quarkjs.io',
-        bucketName: 'quark-build-nightly.quarkjs.io'
-    },
-    'master-all': {
-        type: 'nightly-all',
-        autoUpdateUrl: 'https://quark-build-nightly-all.quarkjs.io',
-        bucketName: 'quark-build-nightly-all.quarkjs.io'
-    },
-    'insiders': {
-        type: 'insiders',
-        autoUpdateUrl: 'https://quark-build-insiders.quarkjs.io',
-        bucketName: 'quark-build-insiders.quarkjs.io'
-    },
-    'stable': {
-        type: 'stable',
-        autoUpdateUrl: 'https://quark-build-stable.quarkjs.io',
-        bucketName: 'quark-build-stable.quarkjs.io'
-    }
-};
+// export type buckets = 'quark-release' | 'quark-builds';
+export type branches = 'master' | 'master-all';
+export type storageUrl = 'https://quark-release.quarkjs.io' | 'https://quark-builds.quarkjs.io';
+export type bucketName = 'quark-release.quarkjs.io' | 'quark-builds.quarkjs.io';
 
 export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch() as any;
 
@@ -83,7 +52,7 @@ const storage = new Storage({
     projectId: 'diy-mechatronics'
 });
 
-export function uploadFilesToBucket(bucketName: string, version: number, paths: string[], allowFailFiles: boolean) {
+export function uploadFilesToBucket(bucketName: bucketName, version: number, paths: string[], allowFailFiles: boolean) {
 
     paths.map((_path) => {
         if (fs.existsSync(_path)) {
