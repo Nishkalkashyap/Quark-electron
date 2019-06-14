@@ -2,23 +2,24 @@ import { currentBranch, doBucketTransfer, cleanDirectory } from "./util";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-release().catch(console.error);
+release().catch((err) => {
+        if (err) {
+                console.error(err);
+                throw Error(`Failed to release`);
+        }
+});
 async function release() {
+
+        if (currentBranch == 'master') {
+                return;
+        }
 
         const releaseJson = fs.readJsonSync(path.join(__dirname, './release.json'));
         const packageJson = fs.readJsonSync('./package.json');
-
         console.log(`Releasing version: ${packageJson.version}`);
         console.log(`Branch: ${currentBranch}`);
 
-        // if (currentBranch == 'master') {
-        //         return;
-        // }
-
-        // const masterAllFolderName = `Quark-${packageJson.version}`;
-        // await copyContentsToRoot('quark-build-nightly-all.quarkjs.io', masterAllFolderName);
-
-        const insidersFolderCopyFrom = `Quark-master-${releaseJson['insiders']}`;
+        const insidersFolderCopyFrom = `Quark-master-all-${releaseJson['insiders']}`;
         const insidersFolderCopyTo = `Quark-insiders-${releaseJson['insiders']}`;
         await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo);
         await cleanDirectory('quark-release.quarkjs.io', 'insiders');
