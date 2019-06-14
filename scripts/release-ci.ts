@@ -23,6 +23,7 @@ async function release() {
         // const insidersReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
         // if (!insidersReleaseExists) {
         await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo);
+        await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders');
         // } else {
         //         printConsoleStatus(`Release ${insidersFolderCopyTo} already exists.`, 'warning');
         // }
@@ -32,6 +33,7 @@ async function release() {
         // const stableReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
         // if (!stableReleaseExists) {
         await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo);
+        await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyTo, 'stable');
         // } else {
         //         printConsoleStatus(`Release ${stableFolderCopyTo} already exists.`, 'warning');
         // }
