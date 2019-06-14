@@ -7,18 +7,30 @@ add typescript alias for @project/ -->
 ## Do not delete vscode-language-services.
 needed by vue language
 
-
-update package.json version
-npm run zip
-npm run bl && npm run bw
-npm run test-build
-npm run release
-npm run upload
-npm run notes //to social.quarkjs.io
-
+<!-- If local release -->
+<!-- In this dir -->
+    update package.json version
+    npm run zip
+    npm run bl && npm run bw
+    npm run test-build
+    npm run release
+    npm run upload
+    npm run notes //to social.quarkjs.io
 <!-- in documentation -->
-npm run land
-npm run test
+    npm run land
+    npm run test
+
+
+<!-- If cloud release -->
+<!-- In this dir -->
+    update package.json version
+    npm run zip
+    npm run release-master-all
+<!-- in documentation -->
+    npm run land
+    npm run test
+
+
 
 
 #### Features

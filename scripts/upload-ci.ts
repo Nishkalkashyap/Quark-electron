@@ -21,7 +21,7 @@ async function root() {
     paths.push(shasumFilePath);
     paths.push(logsFilePath);
     // paths.push(gitFilePath);
-    paths.push('./dev-assets/releaseNotes.md');
+    paths.push('./dev-assets/current-release-notes.md');
     paths.push('./package.json');
 
     uploadFilesToBucket('quark-builds.quarkjs.io', `${currentBranch}-${json.version}`, paths, currentBranch == 'master');
