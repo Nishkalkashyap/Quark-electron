@@ -1,4 +1,4 @@
-import { currentBranch, doBucketTransfer, cleanDirectory, folderAlreadyExists, branches } from "./util";
+import { currentBranch, doBucketTransfer, cleanDirectory, folderAlreadyExists, branches, printConsoleStatus } from "./util";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
@@ -23,7 +23,8 @@ async function release() {
         const insidersAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
 
         if (insidersAlreadyExists) {
-                throw Error(`Error: Release Quark-insiders-${packageJson.version} already exists.`);
+                printConsoleStatus(`Error: Release Quark-insiders-${packageJson.version} already exists.`, 'danger');
+                return;
         }
         await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
         await cleanDirectory('quark-release.quarkjs.io', 'insiders');
@@ -34,7 +35,8 @@ async function release() {
         const stableAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
 
         if (stableAlreadyExists) {
-                throw Error(`Error: Release Quark-stable-${packageJson.version} already exists.`);
+                printConsoleStatus(`Error: Release Quark-stable-${packageJson.version} already exists.`, 'danger');
+                return;
         }
         await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
         await cleanDirectory('quark-release.quarkjs.io', 'stable');
