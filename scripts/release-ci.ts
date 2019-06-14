@@ -1,4 +1,4 @@
-import { currentBranch, doBucketTransfer, cleanDirectory } from "./util";
+import { currentBranch, doBucketTransfer, cleanDirectory, printConsoleStatus } from "./util";
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
@@ -18,6 +18,11 @@ async function release() {
         const packageJson = fs.readJsonSync('./package.json');
         console.log(`Releasing version: ${packageJson.version}`);
         console.log(`Branch: ${currentBranch}`);
+
+        const releaseNotesFile = fs.readFileSync('./dev-assets/releaseNotes.md').toString();
+        if (!releaseNotesFile.includes(`Quark-${packageJson.version}`)) {
+                printConsoleStatus(`Not upload files. Reason: release notes not found for current version ${packageJson.version}`, 'warning');
+        }
 
         const insidersFolderCopyFrom = `Quark-master-all-${releaseJson['insiders']}`;
         const insidersFolderCopyTo = `Quark-insiders-${releaseJson['insiders']}`;
