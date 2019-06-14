@@ -10,7 +10,7 @@ needed by vue language
 <!-- If local release -->
 <!-- In this dir -->
     update package.json version
-    npm run zip
+    npm run tar
     npm run bl && npm run bw
     npm run test-build
     npm run release
@@ -24,7 +24,7 @@ needed by vue language
 <!-- If cloud release -->
 <!-- In this dir -->
     update package.json version
-    npm run zip
+    npm run tar
     git commit and push
     npm run release-master-all
     npm run release-ci

@@ -5,10 +5,10 @@ import * as tar from 'tar';
 
 const wwwOutPath = './buildResources/www.tar.gz';
 const squirtleOutPath = './buildResources/squirtle.tar.gz';
-makeZip('./../QuarkUMD/dist', wwwOutPath, '');
-makeZip('./../@squirtle/api', squirtleOutPath, 'package');
+makeTar('./../QuarkUMD/dist', wwwOutPath, '');
+makeTar('./../@squirtle/api', squirtleOutPath, 'package');
 
-function makeZip(inDir: string, outFilePath: string, prefix: string) {
+function makeTar(inDir: string, outFilePath: string, prefix: string) {
     console.log(path.join(process.cwd(), outFilePath), path.resolve(inDir));
     (<any>tar).c({
         // tar.c({
