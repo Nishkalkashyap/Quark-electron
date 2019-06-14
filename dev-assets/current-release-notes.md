@@ -1,2 +1,2 @@
-#### Bug fixes:
-* Fixed allow downgrade bug.
+#### Features
+* Removed window on-did-load handle. Window is now shown open by default.
