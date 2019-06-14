@@ -94,8 +94,8 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
         folder.map((file) => {
             if (file.name.includes(folderFrom)) {
                 const destFile = path.join(folderTo, path.basename(file.name));
-                filesToCopy.push(file.copy(destBucket.file(file.name)));
-                // filesToCopy.push(file.copy(destBucket.file(destFile)));
+                // filesToCopy.push(file.copy(destBucket.file(file.name)));
+                filesToCopy.push(file.copy(destBucket.file(destFile)));
             }
         });
     });
