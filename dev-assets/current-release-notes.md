@@ -1,3 +1,2 @@
-#### Other changes
-* Partially added crash reporter.
-* Dependency updates.
+#### Bug fixes:
+* Fixed allow downgrade bug.

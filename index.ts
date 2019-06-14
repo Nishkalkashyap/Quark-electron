@@ -43,7 +43,7 @@ async function setAutoUpdaterOptions() {
         });
         console.log(`Update url set to: https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`);
 
-        autoUpdater.allowDowngrade = fileData.releaseChannel == 'insiders';
+        autoUpdater.allowDowngrade = fileData.releaseChannel == 'stable';
         console.log(`Allow downgrade: ${autoUpdater.allowDowngrade}`);
 
         if (fileData.disableAutoUpdates) {
@@ -129,18 +129,18 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
         win.webContents.on('crashed', (e, k) => {
             console.error('Window Crashed', k);
             // if (!k) {
-                win.close();
+            win.close();
             // }
 
-                dialog.showMessageBox({
-                    title: 'Window Crashed',
-                    message: 'Reopen current project? ',
-                    buttons: ['Yes', 'No']
-                }, (r, c) => {
-                    if (r == 0) {
-                        createOrFocusWindow(windowTypes, absoluteFilePath);
-                    }
-                });
+            dialog.showMessageBox({
+                title: 'Window Crashed',
+                message: 'Reopen current project? ',
+                buttons: ['Yes', 'No']
+            }, (r, c) => {
+                if (r == 0) {
+                    createOrFocusWindow(windowTypes, absoluteFilePath);
+                }
+            });
         });
 
 
