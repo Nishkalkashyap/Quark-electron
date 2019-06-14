@@ -35,7 +35,7 @@ const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
 async function setAutoUpdaterOptions() {
     log.info(`Auto updates file path: ${autoUpdatesFilePath}`);
 
-    const exists = fs.pathExists(autoUpdatesFilePath);
+    const exists = await fs.pathExists(autoUpdatesFilePath);
     if (exists) {
         const fileData: AutoUpdateInterface = await fs.readJson(autoUpdatesFilePath);
         autoUpdater.setFeedURL({
