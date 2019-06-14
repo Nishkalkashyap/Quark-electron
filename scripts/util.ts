@@ -84,7 +84,7 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
 }
 
 export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderFrom: string, folderTo: string) {
-    printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket} to ${copyToBucket};`, 'info');
+    printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'info');
 
     const folders = await storage.bucket(copyFromBucket).getFiles();
     const destBucket = storage.bucket(copyToBucket);
@@ -101,7 +101,7 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
     });
 
     await Promise.all(filesToCopy);
-    printConsoleStatus(`Transferred contents from bucket: ${copyFromBucket} to ${copyToBucket};`, 'success');
+    printConsoleStatus(`Transferred contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'success');
 }
 
 export async function folderAlreadyExists(bucketName: bucketName, folder: string) {

@@ -20,19 +20,19 @@ async function release() {
 
         const insidersFolderCopyFrom = `Quark-master-${releaseJson['insiders']}`;
         const insidersFolderCopyTo = `Quark-insiders-${releaseJson['insiders']}`;
-        const insidersReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
-        if (!insidersReleaseExists) {
-                await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo);
-        } else {
-                printConsoleStatus(`Release ${insidersFolderCopyTo} already exists.`, 'warning');
-        }
+        // const insidersReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
+        // if (!insidersReleaseExists) {
+        await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo);
+        // } else {
+        //         printConsoleStatus(`Release ${insidersFolderCopyTo} already exists.`, 'warning');
+        // }
 
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
         const stableFolderCopyTo = `Quark-stable-${releaseJson['stable']}`;
-        const stableReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
-        if (!stableReleaseExists) {
-                await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo);
-        } else {
-                printConsoleStatus(`Release ${stableFolderCopyTo} already exists.`, 'warning');
-        }
+        // const stableReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
+        // if (!stableReleaseExists) {
+        await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo);
+        // } else {
+        //         printConsoleStatus(`Release ${stableFolderCopyTo} already exists.`, 'warning');
+        // }
 }
