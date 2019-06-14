@@ -2,8 +2,9 @@ import { app, BrowserWindow, ipcMain, crashReporter, shell, dialog } from "elect
 import * as path from 'path';
 import * as url from 'url';
 import * as fs from 'fs-extra';
+import { get } from 'lodash';
 
-import { IpcEvents, autoUpdatesFilePath, AutoUpdateInterface } from '@quarkjs/api/umd/src/api/electron/electron.internal';
+import { IpcEvents, autoUpdatesFilePath, AutoUpdateInterface, AppMainProcessData, getHashKeyForProject, mainProcessDataFilePath, HASHED_KEYS } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
@@ -30,6 +31,7 @@ const runModeWindows: IBrowserWindow[] = [];
 const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
 const LANDING_PAGE_APP_PATH = app.getPath('userData');
 const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
+let mainProcessData: AppMainProcessData;
 
 async function setAutoUpdaterOptions() {
     log.info(`Auto updates file path: ${autoUpdatesFilePath}`);
@@ -81,7 +83,7 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
             win = getLandingPageWindow();
             showLandingPage = true;
         } else {
-            win = getDesignerPageWindow();
+            win = getDesignerPageWindow(path.resolve(absoluteFilePath));
             showLandingPage = false;
         }
 
@@ -101,7 +103,7 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
 
         // win.webContents.on('dom-ready', () => {
         win.webContents.on('did-finish-load', () => {
-            win.show();
+            // win.show();
             win.webContents.executeJavaScript(`document.querySelector('app-views-container') || document.querySelector('app-new-landing')`)
                 .then((val) => {
                     //val = null if not found
@@ -192,12 +194,27 @@ function createOrFocusWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
 
 app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.on('ready', () => {
+    setMainProcessData();
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
     setAutoUpdaterOptions().catch((err) => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
     });
+
+    function setMainProcessData() {
+        if (fs.existsSync(mainProcessDataFilePath)) {
+            try {
+                const file = fs.readFileSync(mainProcessDataFilePath).toString();
+                console.log(file, 'file');
+                mainProcessData = JSON.parse(file);
+            } catch (err) {
+                console.error(err);
+            }
+            return;
+        }
+        mainProcessData = {} as any;
+    }
 });
 
 const _isSecondInstance = app.requestSingleInstanceLock();
@@ -254,7 +271,9 @@ function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         backgroundColor: '#000000',
         resizable: !app.isPackaged,
-        show: false,
+        show: true,
+        width: 400,
+        height: 600,
         frame: true,
         autoHideMenuBar: false,
         webPreferences: {
@@ -267,10 +286,10 @@ function getLandingPageWindow(): IBrowserWindow {
     return <IBrowserWindow>win;
 }
 
-function getDesignerPageWindow(): IBrowserWindow {
+function getDesignerPageWindow(projectPath: string): IBrowserWindow {
     const win = new BrowserWindow({
-        backgroundColor: '#000000',
-        show: false,
+        backgroundColor: get(mainProcessData, `bgColors.${getHashKeyForProject(HASHED_KEYS.BG_COLOR, projectPath)}`) || '#222428',
+        show: true,
         frame: false,
         minHeight: 600,
         minWidth: 400,

@@ -9,6 +9,7 @@
   "bin": "index.js",
   "scripts": {
     "land": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron .",
+    "ql": "npm run pack && electron .",
     "start": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./start.qrk",
     "qs": "npm run pack && electron . ./start.qrk",
     "test": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk",
@@ -95,6 +96,7 @@
     "@types/johnny-five": "0.0.40",
     "@types/js-beautify": "^1.8.1",
     "@types/license-checker": "^25.0.0",
+    "@types/lodash": "^4.14.134",
     "@types/ncp": "^2.0.1",
     "@types/node": "^11.13.14",
     "@types/package-json": "^5.0.1",
@@ -119,6 +121,7 @@
     "hasha": "^5.0.0",
     "js-beautify": "^1.10.0",
     "license-checker": "^25.0.1",
+    "lodash": "^4.17.11",
     "mastodon-api": "^1.3.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",

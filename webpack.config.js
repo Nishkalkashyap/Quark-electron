@@ -10,7 +10,7 @@ module.exports = {
         filename: 'index.js',
     },
     externals: [nodeExternals({
-        whitelist: [/@quarkjs.+/]
+        whitelist: [/@quarkjs.+/, 'lodash']
     })],
     module: {
         rules: [
