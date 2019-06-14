@@ -89,7 +89,7 @@ export async function cleanDirectory(bucketName: string, dirName: string) {
     const filesToDelete: Promise<[request.Response]>[] = [];
     folders.filter((folder) => {
         folder.map((file) => {
-            if (file.name.includes(dirName)) {
+            if (file.name.startsWith(dirName)) {
                 filesToDelete.push(file.delete());
             }
         });
@@ -108,7 +108,7 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
 
     folders.filter((folder) => {
         folder.map((file) => {
-            if (file.name.includes(folderFrom)) {
+            if (file.name.startsWith(folderFrom)) {
                 const destFile = path.posix.join(folderTo, path.basename(file.name));
                 filesToCopy.push(file.copy(destBucket.file(destFile)));
             }

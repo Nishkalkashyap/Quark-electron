@@ -22,6 +22,7 @@ async function release() {
         const releaseNotesFile = fs.readFileSync('./dev-assets/releaseNotes.md').toString();
         if (!releaseNotesFile.includes(`Quark-${packageJson.version}`)) {
                 printConsoleStatus(`Not upload files. Reason: release notes not found for current version ${packageJson.version}`, 'warning');
+                return;
         }
 
         const insidersFolderCopyFrom = `Quark-master-all-${releaseJson['insiders']}`;
