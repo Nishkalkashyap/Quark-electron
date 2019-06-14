@@ -1,9 +1,9 @@
-import { app, BrowserWindow, ipcMain, crashReporter, shell, remote, dialog } from "electron";
+import { app, BrowserWindow, ipcMain, crashReporter, shell, dialog } from "electron";
 import * as path from 'path';
 import * as url from 'url';
 import * as fs from 'fs-extra';
 
-import { IpcEvents } from '@quarkjs/api/umd/src/api/electron/electron.internal';
+import { IpcEvents, autoUpdatesFilePath, AutoUpdateInterface } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
@@ -31,6 +31,25 @@ const runModeWindows: IBrowserWindow[] = [];
 const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
 const LANDING_PAGE_APP_PATH = app.getPath('userData');
 const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
+
+async function setAutoUpdaterOptions() {
+    log.info(`Auto updates file path: ${autoUpdatesFilePath}`);
+
+    const exists = fs.pathExists(autoUpdatesFilePath);
+    if (exists) {
+        const fileData: AutoUpdateInterface = await fs.readJson(autoUpdatesFilePath);
+        autoUpdater.setFeedURL({
+            provider: 'generic',
+            url: `https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`
+        });
+        autoUpdater.allowDowngrade = fileData.releaseChannel == 'insiders';
+
+        if (fileData.disableAutoUpdates) {
+            return;
+        }
+    }
+    autoUpdater.checkForUpdatesAndNotify();
+}
 
 function registerListeners() {
     ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, absoluteFilePath: string) => {
@@ -172,21 +191,10 @@ app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.on('ready', () => {
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
-    autoUpdater.checkForUpdatesAndNotify();
-
-    autoUpdater.on('update-downloaded', (event, info) => {
-        dialog.showMessageBox({
-            type: 'question',
-            buttons: ['Install and Relaunch', 'Later'],
-            defaultId: 0,
-            message: 'A new version of ' + app.getName() + ' has been downloaded'
-        }, response => {
-            if (response === 0) {
-                setTimeout(() => autoUpdater.quitAndInstall(), 1);
-            }
-        });
+    setAutoUpdaterOptions().catch((err) => {
+        console.error(err);
+        log.error(`Auto updater failed to initialize`);
     });
-    
 });
 
 const _isSecondInstance = app.requestSingleInstanceLock();
