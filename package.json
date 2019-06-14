@@ -3,7 +3,7 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.2.18",
+  "version": "0.3.0",
   "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
@@ -32,9 +32,7 @@
     "upload-ci": "ts-node ./scripts/upload-ci.ts",
     "release-ci": "ts-node ./scripts/release-ci.ts",
     "release-ci-olddddddddddddd": "git checkout release && git merge master && git push && git checkout master",
-    "release-master-all": "git checkout master-all && git merge master && git push && git checkout master",
-    "release-insiders": "git checkout insiders && git merge master && git push && git checkout master",
-    "release-stable": "git checkout stable && git merge master && git push && git checkout master"
+    "release-master-all": "git checkout master-all && git merge master && git push && git checkout master"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
