@@ -1,2 +1,2 @@
 #### Other changes
-* Testing auto-updates for cloud-releaes.
+* removed quit and install dialog on auto-update.

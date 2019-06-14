@@ -1,6 +1,5 @@
 import * as ncp from 'ncp';
 import * as fs from 'fs-extra';
-import * as recc from 'recursive-readdir';
 import * as sharp from 'sharp';
 import { printConsoleStatus } from './util';
 import * as tar from 'tar';
@@ -67,6 +66,7 @@ async function copyDefinitions() {
                     // dereference: true
                 }, (e) => {
                     if (e) {
+                        console.error(e);
                         printConsoleStatus(`Error: ${e.name}`, 'danger');
                         printConsoleStatus(`Error: ${e.message}`, 'danger');
                         throw Error(`Error: ${e.message}`);
