@@ -24,11 +24,11 @@ async function release() {
 
         if (insidersAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-insiders-${packageJson.version} already exists.`, 'danger');
-                return;
+        } else {
+                await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
+                await cleanDirectory('quark-release.quarkjs.io', 'insiders');
+                await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders', true);
         }
-        await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
-        await cleanDirectory('quark-release.quarkjs.io', 'insiders');
-        await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders', true);
 
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
         const stableFolderCopyTo = `Quark-stable-${releaseJson['stable']}`;
@@ -36,9 +36,9 @@ async function release() {
 
         if (stableAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-stable-${packageJson.version} already exists.`, 'danger');
-                return;
+        } else {
+                await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
+                await cleanDirectory('quark-release.quarkjs.io', 'stable');
+                await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyTo, 'stable', true);
         }
-        await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
-        await cleanDirectory('quark-release.quarkjs.io', 'stable');
-        await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyTo, 'stable', true);
 }
