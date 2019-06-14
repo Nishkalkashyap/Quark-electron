@@ -31,7 +31,7 @@ async function release() {
         const stableFolderCopyTo = `Quark-stable-${releaseJson['stable']}`;
         // const stableReleaseExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
         // if (!stableReleaseExists) {
-        await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo);
+        await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo);
         // } else {
         //         printConsoleStatus(`Release ${stableFolderCopyTo} already exists.`, 'warning');
         // }

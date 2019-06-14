@@ -94,13 +94,13 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
         folder.map((file) => {
             if (file.name.includes(folderFrom)) {
                 const destFile = path.posix.join(folderTo, path.basename(file.name));
-                // filesToCopy.push(file.copy(destBucket.file(file.name)));
                 filesToCopy.push(file.copy(destBucket.file(destFile)));
             }
         });
     });
 
     await Promise.all(filesToCopy);
+    printConsoleStatus(`Transferred : ${filesToCopy.length} files`, 'success');
     printConsoleStatus(`Transferred contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'success');
 }
 
