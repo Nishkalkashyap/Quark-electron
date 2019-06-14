@@ -25,9 +25,11 @@ needed by vue language
 <!-- In this dir -->
     update package.json version
     npm run zip
+    git commit and push
     npm run release-master-all
+    npm run release-ci
 <!-- in documentation -->
-    npm run land
+    npm run prepare-release
     npm run test
 
 
