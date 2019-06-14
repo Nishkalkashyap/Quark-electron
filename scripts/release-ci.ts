@@ -10,22 +10,24 @@ release().catch((err) => {
 });
 async function release() {
 
-        if (currentBranch == 'master') {
-                return;
-        }
+        const copyBranchName = 'master';
+
+        // if (currentBranch == 'master') {
+        //         return;
+        // }
 
         const releaseJson = fs.readJsonSync(path.join(__dirname, './release.json'));
         const packageJson = fs.readJsonSync('./package.json');
         console.log(`Releasing version: ${packageJson.version}`);
         console.log(`Branch: ${currentBranch}`);
 
-        const releaseNotesFile = fs.readFileSync('./dev-assets/releaseNotes.md').toString();
-        if (!releaseNotesFile.includes(`Quark-${packageJson.version}`)) {
-                printConsoleStatus(`Not upload files. Reason: release notes not found for current version ${packageJson.version}`, 'warning');
-                return;
-        }
+        // const releaseNotesFile = fs.readFileSync('./dev-assets/releaseNotes.md').toString();
+        // if (!releaseNotesFile.includes(`Quark-${packageJson.version}`)) {
+        //         printConsoleStatus(`Not upload files. Reason: release notes not found for current version ${packageJson.version}`, 'warning');
+        //         return;
+        // }
 
-        const insidersFolderCopyFrom = `Quark-master-all-${releaseJson['insiders']}`;
+        const insidersFolderCopyFrom = `Quark-${copyBranchName}-${releaseJson['insiders']}`;
         const insidersFolderCopyTo = `Quark-insiders-${releaseJson['insiders']}`;
         await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo);
         await cleanDirectory('quark-release.quarkjs.io', 'insiders');
