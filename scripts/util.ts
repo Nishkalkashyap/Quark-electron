@@ -83,6 +83,22 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
     });
 }
 
+export async function cleanDirectory(bucketName: string, dirName: string) {
+    printConsoleStatus(`Removing contents from bucket: ${bucketName}/${dirName}`, 'info');
+    const folders = await storage.bucket(bucketName).getFiles();
+    const filesToDelete: Promise<[request.Response]>[] = [];
+    folders.filter((folder) => {
+        folder.map((file) => {
+            if (file.name.includes(dirName)) {
+                filesToDelete.push(file.delete());
+            }
+        });
+    });
+    await Promise.all(filesToDelete);
+    printConsoleStatus(`Removed ${filesToDelete.length} files from bucket: ${bucketName}/${dirName}`, 'success');
+
+}
+
 export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderFrom: string, folderTo: string) {
     printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'info');
 
