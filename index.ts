@@ -42,9 +42,13 @@ async function setAutoUpdaterOptions() {
             provider: 'generic',
             url: `https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`
         });
+        log.log(`Update url set to: https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`);
+
         autoUpdater.allowDowngrade = fileData.releaseChannel == 'insiders';
+        log.log(`Allow downgrade: ${autoUpdater.allowDowngrade}`);
 
         if (fileData.disableAutoUpdates) {
+            log.log(`Auto Updates statue: ${fileData.disableAutoUpdates} (fileData.disableAutoUpdates)`);
             return;
         }
     }
