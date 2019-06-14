@@ -83,7 +83,7 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
     });
 }
 
-export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderName: string) {
+export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderFrom: string, folderTo: string) {
     printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket} to ${copyToBucket};`, 'info');
 
     const folders = await storage.bucket(copyFromBucket).getFiles();
@@ -92,8 +92,10 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
 
     folders.filter((folder) => {
         folder.map((file) => {
-            if (file.name.includes(folderName)) {
+            if (file.name.includes(folderFrom)) {
+                const destFile = path.join(folderTo, path.basename(file.name));
                 filesToCopy.push(file.copy(destBucket.file(file.name)));
+                // filesToCopy.push(file.copy(destBucket.file(destFile)));
             }
         });
     });
