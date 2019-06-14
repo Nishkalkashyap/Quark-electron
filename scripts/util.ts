@@ -99,7 +99,7 @@ export async function cleanDirectory(bucketName: string, dirName: string) {
 
 }
 
-export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderFrom: string, folderTo: string) {
+export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderFrom: string, folderTo: string, makePublic: boolean) {
     printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'info');
 
     const folders = await storage.bucket(copyFromBucket).getFiles();
@@ -109,13 +109,20 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
     folders.filter((folder) => {
         folder.map((file) => {
             if (file.name.startsWith(folderFrom)) {
-                const destFile = path.posix.join(folderTo, path.basename(file.name));
-                filesToCopy.push(file.copy(destBucket.file(destFile)));
+                const destFileName = path.posix.join(folderTo, path.basename(file.name));
+                filesToCopy.push(file.copy(destBucket.file(destFileName)));
             }
         });
     });
 
-    await Promise.all(filesToCopy);
+    const cpoiedFiles = await Promise.all(filesToCopy);
+    if (makePublic) {
+        const publicPromiseAll = cpoiedFiles.map((file) => {
+            return file[0].makePublic();
+        });
+        await Promise.all(publicPromiseAll);
+    }
+
     printConsoleStatus(`Transferred : ${filesToCopy.length} files`, 'success');
     printConsoleStatus(`Transferred contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'success');
 }
