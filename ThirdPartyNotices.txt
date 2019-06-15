@@ -18483,30 +18483,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: indexof@0.0.1
-License: MIT*
-License Source: Readme.md
-Source Text: 
-
-
-# indexOf
-
-  Lame indexOf thing, thanks microsoft
-
-## Example
-
-```js
-var index = require('indexof');
-index(arr, obj);
-```
-
-## License
-
-  MIT
-
-----------------------------------------------------------------------------
-
-
 Package: inflight@1.0.6
 License: ISC
 License Source: LICENSE
@@ -24670,7 +24646,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: node-libs-browser@2.2.0
+Package: node-libs-browser@2.2.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -26859,7 +26835,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: path-browserify@0.0.0
+Package: path-browserify@0.0.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -28686,7 +28662,7 @@ The complete list of contributors can be found at: https://github.com/hapijs/qs/
 ----------------------------------------------------------------------------
 
 
-Package: quark@0.3.3
+Package: quark@0.3.7
 License: GPL-3.0
 License Source: LICENSE
 Source Text: 
@@ -35037,7 +35013,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: tslib@1.9.3
+Package: tslib@1.10.0
 License: Apache-2.0
 License Source: LICENSE.txt
 Source Text: 
@@ -35355,7 +35331,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: typescript@3.5.1
+Package: typescript@3.5.2
 License: Apache-2.0
 License Source: LICENSE.txt
 Source Text: 
@@ -36783,7 +36759,7 @@ THE SOFTWARE
 ----------------------------------------------------------------------------
 
 
-Package: vm-browserify@0.0.4
+Package: vm-browserify@1.1.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -37308,7 +37284,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: webpack@4.33.0
+Package: webpack@4.34.0
 License: MIT
 License Source: LICENSE
 Source Text: 
