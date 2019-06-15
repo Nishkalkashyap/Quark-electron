@@ -1,2 +1,6 @@
 #### Features
-* Fixed textmate-tokens issue. [TMThemes are not working properly #5](https://github.com/NeekSandhu/monaco-textmate/issues/5)
+* Added clipboard readHTML and writeHTML functions.
+
+#### Other changes
+* Updated test scripts.
+* Updated default runtime theme.
