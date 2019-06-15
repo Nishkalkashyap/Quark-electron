@@ -2,7 +2,7 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch } from './util';
-if (currentBranch == 'master-all' && process.env.CI) {
+if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'darwin') {
     dotenv.config({ path: './scripts/prod.env' });
 }
 
