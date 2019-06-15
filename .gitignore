@@ -69,3 +69,4 @@ dev-assets/bills
 index.js
 .quark/
 test/__testResults__
+secrets.tar

@@ -8,10 +8,10 @@ if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'da
     console.log(fs.existsSync('./dev-assets/prod.env'));
     dotenv.config({ path: './dev-assets/prod.env' });
     console.log(process.env.CSC_LINK);
-    if (process.platform == 'darwin') {
-        process.env.CSC_LINK = './dev-assets/envValue.txt';
-        console.log(process.env.CSC_LINK);
-    }
+    // if (process.platform == 'darwin') {
+    //     process.env.CSC_LINK = './dev-assets/envValue.txt';
+    //     console.log(process.env.CSC_LINK);
+    // }
 }
 
 // if (os.platform() == 'linux') {
