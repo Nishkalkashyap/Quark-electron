@@ -20,11 +20,11 @@ matrix:
     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     compiler: clang
  
-    - os: osx
-      node_js: lts/*
-      env:
-        - ELECTRON_CACHE=$HOME/.cache/electron
-        - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+  - os: osx
+    node_js: lts/*
+    env:
+      - ELECTRON_CACHE=$HOME/.cache/electron
+      - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
     # - os: windows
     #   node_js: lts/*
