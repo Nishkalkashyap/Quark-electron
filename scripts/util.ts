@@ -34,8 +34,7 @@ export function getFilesToUpload(version: number, type: typeof process.platform)
             `./build/Quark-win-${version}.exe.blockmap`,
             `./build/Quark-win-x64-${version}.zip`,
             `./build/Quark-win-x64-${version}.msi`,
-            './build/latest.yml',
-            './dev-assets/prod.env',
+            './build/latest.yml'
         ];
     }
 
