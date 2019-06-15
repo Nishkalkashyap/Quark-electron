@@ -10,16 +10,18 @@ async function root() {
     const paths = getFilesToUpload(json.version, process.platform);
 
     const shasumFilePath = `./${process.platform}-shasum.json`;
+    paths.push(shasumFilePath);
     await createShasumFile(paths, shasumFilePath);
 
-    const logsFilePath = `./test/__testResults__/${process.platform}-test-logs.txt`;
-    fs.copyFileSync('./test/__testResults__/test-logs.txt', logsFilePath);
+    if (process.platform != 'darwin') {
+        const logsFilePath = `./test/__testResults__/${process.platform}-test-logs.txt`;
+        fs.copyFileSync('./test/__testResults__/test-logs.txt', logsFilePath);
+        paths.push(logsFilePath);
+    }
 
     // const gitFilePath = './git-commit.txt';
     // addGitCommit(gitFilePath);
 
-    paths.push(shasumFilePath);
-    paths.push(logsFilePath);
     // paths.push(gitFilePath);
     paths.push('./dev-assets/current-release-notes.md');
     paths.push('./package.json');

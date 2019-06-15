@@ -1,8 +1,11 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
+import * as fs from 'fs-extra';
 import { printConsoleStatus, currentBranch } from './util';
 if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'darwin') {
+    console.log(`Environment variables Initiated`);
+    console.log(fs.existsSync('./dev-assets/prod.env'));
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
@@ -43,7 +46,7 @@ printConsoleStatus(`Starting Build`, 'success');
 
 builder.build({
     config: {
-        generateUpdatesFilesForAllChannels: true,
+        // generateUpdatesFilesForAllChannels: true,
         appId: 'in.nishkal',
         copyright: 'Copyright © 2019 Nishkal Kashyap',
         productName: 'Quark',
