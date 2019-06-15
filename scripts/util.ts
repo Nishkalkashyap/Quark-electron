@@ -46,6 +46,16 @@ export function getFilesToUpload(version: number, type: typeof process.platform)
             `./build/latest-linux.yml`
         ];
     }
+
+    if (type == 'darwin') {
+        return [
+            `./build/Quark-mac-${version}.dmg`,
+            `./build/Quark-mac-${version}.dmg.blockmap`,
+            `./build/Quark-mac-${version}.pkg`,
+            `./build/in.nishkal.plist`,
+            `./build/latest-mac.yml`
+        ];
+    }
 }
 
 const storage = new Storage({

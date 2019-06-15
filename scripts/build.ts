@@ -152,25 +152,25 @@ builder.build({
             // target: 'default',
             // category: 'public.app-category.utilities',
             category: 'public.app-category.developer-tools',
-            target: [
-                {
-                    target: 'dmg',
-                    arch: ['x64']
-                },
-                {
-                    target: 'pkg',
-                    arch: ['x64']
-                },
-                // {
-                //     target: 'zip',
-                //     arch: ['x64']
-                // },
-                {
-                    target: 'dir',
-                    arch: ['x64']
-                },
-            ]
-
+            // target: filterCI([
+            //     {
+            //         target: 'default',
+            //         arch: ['x64']
+            //     },
+            //     {
+            //         target: 'dmg',
+            //         arch: ['x64']
+            //     },
+            //     {
+            //         target: 'pkg',
+            //         arch: ['x64']
+            //     },
+            //     {
+            //         target: 'zip',
+            //         arch: ['x64']
+            //     }
+            // ]),
+            "darkModeSupport": true
         },
 
 
@@ -216,7 +216,7 @@ function filterCI(arr: builder.TargetConfiguration[]) {
     const isMaster = currentBranch == 'master';
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
-            return val.target.match(/(nsis|AppImage|yml)$/);
+            return val.target.match(/(nsis|AppImage|yml|dmg)$/);
         }
 
         if (!process.env.CI) {
