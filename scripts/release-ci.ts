@@ -23,7 +23,7 @@ async function release() {
         const insidersAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
 
         if (insidersAlreadyExists) {
-                printConsoleStatus(`Error: Release Quark-insiders-${packageJson.version} already exists.`, 'warning');
+                printConsoleStatus(`Error: Release Quark-insiders-${releaseJson['insiders']} already exists.`, 'warning');
         } else {
                 await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
                 await cleanDirectory('quark-release.quarkjs.io', 'insiders');
@@ -35,7 +35,7 @@ async function release() {
         const stableAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
 
         if (stableAlreadyExists) {
-                printConsoleStatus(`Error: Release Quark-stable-${packageJson.version} already exists.`, 'warning');
+                printConsoleStatus(`Error: Release Quark-stable-${releaseJson['stable']} already exists.`, 'warning');
         } else {
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
                 await cleanDirectory('quark-release.quarkjs.io', 'stable');

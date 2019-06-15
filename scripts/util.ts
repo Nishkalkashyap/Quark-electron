@@ -115,10 +115,19 @@ export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket:
         });
     });
 
-    const cpoiedFiles = await Promise.all(filesToCopy);
+    const copiedFiles = await Promise.all(filesToCopy);
     if (makePublic) {
-        const publicPromiseAll = cpoiedFiles.map((file) => {
-            return file[0].makePublic();
+        const publicPromiseAll = copiedFiles.map(async (file) => {
+            await file[0].makePublic();
+            if (file[0].name.match(/\.(yml|json|txt|md)$/)) {
+                console.log(`File name: ${file[0].name} matched for no cache control.`);
+                const meta = {
+                    cacheControl: 'no-store',//this is the main one
+                    'Cache-Control': 'no-store',
+                    // metadata: {}
+                }
+                await file[0].setMetadata(meta);
+            }
         });
         await Promise.all(publicPromiseAll);
     }
