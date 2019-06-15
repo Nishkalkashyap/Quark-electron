@@ -40,9 +40,12 @@ addons:
     - snapd
 before_install:
 - openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
-  -in ./scripts/travis-prod.env.enc -out ./scripts/prod.env -d
+  -in ./dev-assets/travis-code-sign.p12.enc -out ./dev-assets/code-sign.p12 -d
 - openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
-  -in cloud-storage-key.json.enc -out ./dev-assets/cloud-storage-key.json -d
+  -in ./dev-assets/travis-cloud-storage-key.json.enc -out ./dev-assets/cloud-storage-key.json
+  -d
+- openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
+  -in ./scripts/travis-prod.env.enc -out ./scripts/prod.env -d
 - "if [ $TRAVIS_BRANCH == \"master\" ] || [ $TRAVIS_BRANCH == \"master-all\" ]; then\n
   \   export QUARK_RUN_BUILD=true;\n  else \n    export QUARK_RUN_BUILD=false;\nfi\n"
 - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ $QUARK_RUN_BUILD == "true" ]; then sudo
