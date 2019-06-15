@@ -1,16 +1,9 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
-import * as fs from 'fs-extra';
 import { printConsoleStatus, currentBranch } from './util';
-if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'darwin') {
-    console.log(`Environment variables Initiated`);
+if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
     dotenv.config({ path: './dev-assets/prod.env' });
-    console.log(process.env.CSC_LINK);
-    if (process.platform == 'darwin') {
-        console.log(`Encrypting to base 64`);
-        process.env.CSC_LINK = fs.readFileSync('./dev-assets/envValue.txt').toString();
-    }
 }
 
 // if (os.platform() == 'linux') {
