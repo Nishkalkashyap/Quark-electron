@@ -3,6 +3,7 @@ import * as fs from 'fs-extra';
 import * as sharp from 'sharp';
 import { printConsoleStatus, storage, bucketName } from './util';
 import * as tar from 'tar';
+import { makeTar } from './prepare-tar';
 
 root().catch((err) => {
     console.error(err);
@@ -11,6 +12,9 @@ root().catch((err) => {
 async function root() {
     if (process.env.CI) {
         await downloadTarArchive();
+    } else {
+        const wwwOutPath = './buildResources/www.tar.gz';
+        await makeTar('./../QuarkUMD/dist', wwwOutPath, '');
     }
     await extractTarArchives();
     await copyDefinitions();
@@ -24,7 +28,6 @@ async function copyDefinitions() {
     const all = Object.keys(Object.assign({ '@quarkjs/api': '' }, deps, dev));
 
     const includeFiles = [
-        // '@squirtle/api',
         '@quarkjs/api',
         '@types/firmata',
         '@types/fs-extra',
