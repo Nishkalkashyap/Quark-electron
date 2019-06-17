@@ -1,7 +1,7 @@
 import * as ncp from 'ncp';
 import * as fs from 'fs-extra';
 import * as sharp from 'sharp';
-import { printConsoleStatus } from './util';
+import { printConsoleStatus, storage, bucketName } from './util';
 import * as tar from 'tar';
 
 root().catch((err) => {
@@ -9,7 +9,10 @@ root().catch((err) => {
     throw Error('Failed to prepare assets');
 });
 async function root() {
-    await unzipWWWSquirtle();
+    if (process.env.CI) {
+        await downloadTarArchive();
+    }
+    await extractTarArchives();
     await copyDefinitions();
     makeIcons();
 }
@@ -80,16 +83,25 @@ async function copyDefinitions() {
     });
 }
 
-async function unzipWWWSquirtle() {
+
+async function downloadTarArchive() {
+    const wwwOutPath = './buildResources/www.tar.gz';
+    const bucketName: bucketName = 'quark-build-assets';
+    await storage.bucket(bucketName).file('www.tar.gz').download({
+        destination: wwwOutPath
+    });
+}
+
+async function extractTarArchives() {
     const squirtleOutPath = './buildResources/squirtle.tar.gz';
     const wwwOutPath = './buildResources/www.tar.gz';
 
     await Promise.all([
-        unzip(squirtleOutPath, './.quark/quarkjs'),
-        unzip(wwwOutPath, './www')
+        // extractArchive(squirtleOutPath, './.quark/quarkjs'),
+        extractArchive(wwwOutPath, './www')
     ]);
 
-    async function unzip(infile: string, outdir: string) {
+    async function extractArchive(infile: string, outdir: string) {
         fs.ensureDirSync(outdir);
         fs.emptyDirSync(outdir);
         await tar.x({ C: outdir, file: infile });

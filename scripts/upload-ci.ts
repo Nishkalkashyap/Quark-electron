@@ -2,6 +2,7 @@ import * as fs from 'fs-extra';
 import { getFilesToUpload, uploadFilesToBucket, currentBranch } from './util';
 import * as hasha from 'hasha';
 import * as path from 'path';
+import { execSync } from 'child_process';
 
 const json = JSON.parse(fs.readFileSync('./package.json').toString());
 
@@ -13,16 +14,21 @@ async function root() {
     paths.push(shasumFilePath);
     await createShasumFile(paths, shasumFilePath);
 
+    const gitFilePath = './git-commit.txt';
+    paths.push(gitFilePath);
+    addGitCommit(gitFilePath);
+
+    const wwwOutPath = './buildResources/www.tar.gz';
+    paths.push(wwwOutPath);
+
+
     if (process.platform != 'darwin') {
         const logsFilePath = `./test/__testResults__/${process.platform}-test-logs.txt`;
         fs.copyFileSync('./test/__testResults__/test-logs.txt', logsFilePath);
         paths.push(logsFilePath);
     }
 
-    // const gitFilePath = './git-commit.txt';
-    // addGitCommit(gitFilePath);
 
-    // paths.push(gitFilePath);
     paths.push('./dev-assets/current-release-notes.md');
     paths.push('./package.json');
 
@@ -52,8 +58,8 @@ async function createShasumFile(paths: string[], outPath: string) {
     fs.writeJsonSync(outPath, obj);
 }
 
-// function addGitCommit(filePath: string) {
-//     const res = execSync('git show --format="%H" --no-patch').toString();
-//     fs.ensureFileSync(filePath);
-//     fs.writeFileSync(filePath, res);
-// }
+function addGitCommit(filePath: string) {
+    const res = execSync('git show --format="%H" --no-patch').toString();
+    fs.ensureFileSync(filePath);
+    fs.writeFileSync(filePath, res);
+}

@@ -3,11 +3,12 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "One software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
+    "install": "npm install @quarkjs/api@latest",
     "land": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron .",
     "ql": "npm run pack && electron .",
     "start": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./start.qrk",

@@ -23,7 +23,7 @@ function getCurrentBranch(): branches {
 // export type buckets = 'quark-release' | 'quark-builds';
 export type branches = 'master' | 'master-all';
 export type storageUrl = 'https://quark-release.quarkjs.io' | 'https://quark-builds.quarkjs.io';
-export type bucketName = 'quark-release.quarkjs.io' | 'quark-builds.quarkjs.io';
+export type bucketName = 'quark-release.quarkjs.io' | 'quark-builds.quarkjs.io' | 'quark-build-assets';
 
 export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch() as any;
 
@@ -58,7 +58,7 @@ export function getFilesToUpload(version: number, type: typeof process.platform)
     }
 }
 
-const storage = new Storage({
+export const storage = new Storage({
     projectId: 'diy-mechatronics'
 });
 
