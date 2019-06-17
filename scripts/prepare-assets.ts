@@ -89,6 +89,7 @@ async function copyDefinitions() {
 
 async function downloadTarArchive() {
     const wwwOutPath = './buildResources/www.tar.gz';
+    fs.ensureFileSync(wwwOutPath);
     printConsoleStatus(`Downloading archive: ${wwwOutPath}`, 'info');
     const bucketName: bucketName = 'quark-build-assets';
     await storage.bucket(bucketName).file('www.tar.gz').download({
