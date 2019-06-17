@@ -1,2 +1,2 @@
-#### Other changes
-* Added CI/CD pipeline for view (QuarkUMD).
+#### Bug fixes:
+* Fixed drag not working issue. (from dependency angular-split).

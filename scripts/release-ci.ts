@@ -13,6 +13,7 @@ async function release() {
         const copyBranchName: branches = 'master-all';
 
         const releaseJson = fs.readJsonSync(path.join(__dirname, './release.json'));
+        const brokenJson = fs.readJsonSync(path.join(__dirname, './broken-releases.json'));
         const packageJson = fs.readJsonSync('./package.json');
         console.log(`Releasing version: ${releaseJson['stable']}`);
         console.log(`Branch: ${currentBranch}`);
@@ -33,6 +34,11 @@ async function release() {
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
         const stableFolderCopyTo = `Quark-stable-${releaseJson['stable']}`;
         const stableAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
+
+        if ((brokenJson as string[]).includes(releaseJson['stable'])) {
+                printConsoleStatus(`Tried to release broken release`, 'danger');
+                throw Error(`Tried to release broken release`);
+        }
 
         if (stableAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-stable-${releaseJson['stable']} already exists.`, 'warning');
