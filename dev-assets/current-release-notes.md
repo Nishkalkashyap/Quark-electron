@@ -1,6 +1,2 @@
-#### Features
-* Added clipboard readHTML and writeHTML functions.
-
 #### Other changes
-* Updated test scripts.
-* Updated default runtime theme.
+* Added CI/CD pipeline for view (QuarkUMD).

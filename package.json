@@ -4,7 +4,7 @@
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
   "version": "0.3.8",
-  "description": "One software sketchbook for rapid prototyping and development of your projects.",
+  "description": "Software sketchbook for rapid prototyping and development of your projects.",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
