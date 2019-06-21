@@ -10,14 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: 'openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(decryptionKey)'
+    
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-
-- script: |
-    openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(decryptionKey)
-  displayName: 'Decrypt Archive'
 
 - task: ExtractFiles@1
   inputs:
