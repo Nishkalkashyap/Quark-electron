@@ -70,3 +70,4 @@ index.js
 .quark/
 test/__testResults__
 secrets.tar
+azure-secrets.tar
