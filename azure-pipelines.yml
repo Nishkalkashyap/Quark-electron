@@ -21,7 +21,7 @@ steps:
 
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: 'azure-secrets.tar'
+    archiveFilePatterns: '*azure-secrets.tar'
     destinationFolder: './dev-assets'
     cleanDestinationFolder: false
 
