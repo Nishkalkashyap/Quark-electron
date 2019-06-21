@@ -19,9 +19,11 @@ steps:
     openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(decryptionKey)
   displayName: 'Decrypt Archive'
 
-- script: |
-    tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
-  displayName: 'Extract Archive'
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: 'azure-secrets.tar'
+    destinationFolder: './dev-assets'
+    cleanDestinationFolder: false
 
 - script: |
     npm install
