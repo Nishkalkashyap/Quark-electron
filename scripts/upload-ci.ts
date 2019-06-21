@@ -31,6 +31,7 @@ async function root() {
 
     paths.push('./dev-assets/current-release-notes.md');
     paths.push('./package.json');
+    paths.push('./scripts/broken-releases.json');
 
     uploadFilesToBucket('quark-builds.quarkjs.io', `${currentBranch}-${json.version}`, paths, currentBranch == 'master');
 }
