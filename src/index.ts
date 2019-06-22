@@ -1,10 +1,11 @@
-import { app, crashReporter } from "electron";
+import { app, crashReporter, Notification } from "electron";
 import log from 'electron-log';
 import { setMainProcessData, mainProcessData, } from './util';
 import { registerListeners, createNewInstanceWindow } from './window';
 import { initializeLogger, setAutoUpdaterOptions } from './auto-updater';
 import { registerProcessExplorer } from './process.explorer';
 import { enableAutoLaunch } from './auto-launch';
+import { registerTray } from './tray';
 
 initializeLogger();
 
@@ -15,6 +16,7 @@ crashReporter.start({
 });
 
 app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
+app.setAppUserModelId(process.execPath);
 app.on('ready', () => {
     // has to be first
     setMainProcessData();
@@ -23,6 +25,7 @@ app.on('ready', () => {
     registerListeners();
     registerProcessExplorer();
     enableAutoLaunch();
+    registerTray();
     setAutoUpdaterOptions().catch((err) => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
@@ -40,10 +43,18 @@ if (!_isSecondInstance) {
 }
 
 
+let notificationWasShownOnce: boolean = false;
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
-        if (!(mainProcessData.leaveAppRunningOnWindowClose && app.isPackaged)) {
+        // if (!(mainProcessData.leaveAppRunningOnWindowClose && app.isPackaged)) {
+        if (!(mainProcessData.leaveAppRunningOnWindowClose)) {
             app.quit();
+        } else {
+            if (!notificationWasShownOnce) {
+                const notif = new Notification({ title: 'Quark', body: 'Quark is running in the background. You can access the app from the tray icon.' });
+                notif.show();
+                notificationWasShownOnce = true;
+            }
         }
     }
 });

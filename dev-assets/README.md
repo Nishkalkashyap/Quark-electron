@@ -35,10 +35,10 @@ needed by vue language
 
 
 
-#### Features
+#### Features:
 #### Bug fixes:
-#### Other changes
-#### Dependencies
+#### Other changes:
+#### Dependencies:
 #### Minor Changes:
 #### Breaking:
 
