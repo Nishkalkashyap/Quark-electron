@@ -17,6 +17,7 @@ async function release() {
         const packageJson = fs.readJsonSync('./package.json');
         console.log(`Releasing version: ${releaseJson['stable']}`);
         console.log(`Branch: ${currentBranch}`);
+        const ignores = /(blockmap)/;
 
 
         const insidersFolderCopyFrom = `Quark-${copyBranchName}-${releaseJson['insiders']}`;
@@ -27,7 +28,7 @@ async function release() {
                 printConsoleStatus(`Error: Release Quark-insiders-${releaseJson['insiders']} already exists.`, 'warning');
         } else {
                 await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
-                await cleanDirectory('quark-release.quarkjs.io', 'insiders');
+                await cleanDirectory('quark-release.quarkjs.io', 'insiders', ignores);
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders', true);
         }
 
@@ -44,7 +45,7 @@ async function release() {
                 printConsoleStatus(`Error: Release Quark-stable-${releaseJson['stable']} already exists.`, 'warning');
         } else {
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
-                await cleanDirectory('quark-release.quarkjs.io', 'stable');
+                await cleanDirectory('quark-release.quarkjs.io', 'stable', ignores);
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyTo, 'stable', true);
         }
 }

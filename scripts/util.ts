@@ -93,14 +93,18 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
     });
 }
 
-export async function cleanDirectory(bucketName: string, dirName: string) {
+export async function cleanDirectory(bucketName: string, dirName: string, ignores: RegExp) {
     printConsoleStatus(`Removing contents from bucket: ${bucketName}/${dirName}`, 'info');
     const folders = await storage.bucket(bucketName).getFiles();
     const filesToDelete: Promise<[request.Response]>[] = [];
     folders.filter((folder) => {
         folder.map((file) => {
             if (file.name.startsWith(dirName)) {
-                filesToDelete.push(file.delete());
+
+                const canDeleteFile = !file.name.match(ignores);
+                if (canDeleteFile) {
+                    filesToDelete.push(file.delete());
+                }
             }
         });
     });
