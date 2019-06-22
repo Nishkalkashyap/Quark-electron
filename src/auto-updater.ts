@@ -19,16 +19,16 @@ export async function setAutoUpdaterOptions() {
             provider: 'generic',
             url: `https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`
         });
-        // console.log(`Update url set to: https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`);
+        console.log(`Update url set to: https://quark-release.quarkjs.io/${fileData.releaseChannel || 'stable'}`);
 
         autoUpdater.allowDowngrade = fileData.releaseChannel == 'stable';
-        // console.log(`Allow downgrade: ${autoUpdater.allowDowngrade}`);
+        console.log(`Allow downgrade: ${autoUpdater.allowDowngrade}`);
 
         if (fileData.disableAutoUpdates) {
-            // console.log(`Auto Updates status: ${fileData.disableAutoUpdates} (fileData.disableAutoUpdates)`);
+            console.log(`Auto Updates status: ${fileData.disableAutoUpdates} (fileData.disableAutoUpdates)`);
             return;
         }
     }
     const result = await autoUpdater.checkForUpdatesAndNotify();
-    // console.log(result);
+    console.log(result, 'result');
 }

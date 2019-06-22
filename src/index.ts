@@ -11,20 +11,16 @@ crashReporter.start({
     companyName: 'Quark',
     submitURL: 'https://quarkjs.io/crash-reporter'
 });
-console.time('starting-app');
 
 app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.on('ready', () => {
-    console.timeLog('starting-app');
     setMainProcessData();
-    console.timeLog('starting-app');
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
     setAutoUpdaterOptions().catch((err) => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
     });
-    console.timeEnd('starting-app');
 });
 
 const _isSecondInstance = app.requestSingleInstanceLock();
