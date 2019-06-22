@@ -3,11 +3,13 @@ var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'production',
-    // mode: 'development',
-    entry: path.resolve('./index.ts'),
+    entry: path.resolve('./src/index.ts'),
     output: {
         path: path.resolve('./'),
         filename: 'index.js',
+    },
+    resolve: {
+        extensions: ['.ts', '.js', '.json']
     },
     externals: [nodeExternals({
         whitelist: [/@quarkjs.+/, 'lodash']

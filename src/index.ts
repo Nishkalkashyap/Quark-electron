@@ -2,13 +2,13 @@ import { app, BrowserWindow, ipcMain, crashReporter, shell, dialog } from "elect
 import * as path from 'path';
 import * as url from 'url';
 import * as fs from 'fs-extra';
-import { get } from 'lodash';
-
-import { IpcEvents, autoUpdatesFilePath, AutoUpdateInterface, AppMainProcessData, getHashKeyForProject, mainProcessDataFilePath, HASHED_KEYS } from '@quarkjs/api/umd/src/api/electron/electron.internal';
+import { IpcEvents, autoUpdatesFilePath, AutoUpdateInterface } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { IBrowserWindow } from '@quarkjs/api/umd/src/api/electron/electron.internal';
 import { autoUpdater } from 'electron-updater';
 
 import log from 'electron-log';
+import { getLandingPageWindow, getDesignerPageWindow, setMainProcessData } from './util';
+
 autoUpdater.logger = log;
 autoUpdater.logger['transports'].file.level = 'info';
 log.info('App starting...');
@@ -31,7 +31,6 @@ const runModeWindows: IBrowserWindow[] = [];
 const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
 const LANDING_PAGE_APP_PATH = app.getPath('userData');
 const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
-let mainProcessData: AppMainProcessData;
 
 async function setAutoUpdaterOptions() {
     log.info(`Auto updates file path: ${autoUpdatesFilePath}`);
@@ -53,7 +52,7 @@ async function setAutoUpdaterOptions() {
             return;
         }
     }
-    autoUpdater.checkForUpdatesAndNotify();
+    const result = autoUpdater.checkForUpdatesAndNotify();
 }
 
 function registerListeners() {
@@ -175,8 +174,6 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
     return promise;
 }
 
-
-
 function createOrFocusWindow(windowTypes: IBrowserWindow[], absoluteFilePath: string) {
 
     const win = windowTypes.find((_win: IBrowserWindow) => {
@@ -201,20 +198,6 @@ app.on('ready', () => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
     });
-
-    function setMainProcessData() {
-        if (fs.existsSync(mainProcessDataFilePath)) {
-            try {
-                const file = fs.readFileSync(mainProcessDataFilePath).toString();
-                console.log(file, 'file');
-                mainProcessData = JSON.parse(file);
-            } catch (err) {
-                console.error(err);
-            }
-            return;
-        }
-        mainProcessData = {} as any;
-    }
 });
 
 const _isSecondInstance = app.requestSingleInstanceLock();
@@ -237,70 +220,32 @@ app.on('window-all-closed', function () {
 async function createNewInstanceWindow(args: string[]): Promise<void> {
     const type = await getWindowMetaFromArgs(args);
     createOrFocusWindow(type.windowType, type.filepath);
-}
 
-async function getWindowMetaFromArgs(args: string[]): Promise<WindowMeta> {
-    let meta: WindowMeta;
-    if (app.isPackaged || args.length == 2) {
-        meta = {
-            type: args.length == 2 ? 'designer' : 'landing',
-            filepath: args.length == 2 ? path.resolve(args[1]) : LANDING_PAGE_APP_PATH,
-            windowType: args.length == 2 ? args[1].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+    async function getWindowMetaFromArgs(args: string[]): Promise<WindowMeta> {
+        let meta: WindowMeta;
+        if (app.isPackaged || args.length == 2) {
+            meta = {
+                type: args.length == 2 ? 'designer' : 'landing',
+                filepath: args.length == 2 ? path.resolve(args[1]) : LANDING_PAGE_APP_PATH,
+                windowType: args.length == 2 ? args[1].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+            }
+        } else {
+            meta = {
+                type: args.length == 3 ? 'designer' : 'landing',
+                filepath: args.length == 3 ? path.resolve(args[2]) : LANDING_PAGE_APP_PATH,
+                windowType: args.length == 3 ? args[2].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+            }
         }
-    } else {
-        meta = {
-            type: args.length == 3 ? 'designer' : 'landing',
-            filepath: args.length == 3 ? path.resolve(args[2]) : LANDING_PAGE_APP_PATH,
-            windowType: args.length == 3 ? args[2].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+
+        const passMetaFlag = (await fs.pathExistsSync(meta.filepath) && (await fs.stat(meta.filepath)).isFile());
+        if (passMetaFlag) {
+            return meta;
+        }
+
+        return {
+            type: 'landing',
+            filepath: LANDING_PAGE_APP_PATH,
+            windowType: LANDING_PAGE_WINDOW_TYPE
         }
     }
-
-    const passMetaFlag = (await fs.pathExists(meta.filepath) && (await fs.stat(meta.filepath)).isFile());
-    if (passMetaFlag) {
-        return meta;
-    }
-
-    return {
-        type: 'landing',
-        filepath: LANDING_PAGE_APP_PATH,
-        windowType: LANDING_PAGE_WINDOW_TYPE
-    }
-}
-
-function getLandingPageWindow(): IBrowserWindow {
-    const win = new BrowserWindow({
-        backgroundColor: '#000000',
-        resizable: !app.isPackaged,
-        show: true,
-        width: 400,
-        height: 600,
-        frame: true,
-        autoHideMenuBar: false,
-        webPreferences: {
-            webSecurity: false,
-            nodeIntegration: true,
-            nodeIntegrationInWorker: true,
-            allowRunningInsecureContent: true
-        }
-    });
-    return <IBrowserWindow>win;
-}
-
-function getDesignerPageWindow(projectPath: string): IBrowserWindow {
-    const win = new BrowserWindow({
-        backgroundColor: get(mainProcessData, `bgColors.${getHashKeyForProject(HASHED_KEYS.BG_COLOR, projectPath)}`) || '#222428',
-        show: true,
-        frame: false,
-        minHeight: 600,
-        minWidth: 400,
-        width: 900,
-        height: 700,
-        webPreferences: {
-            webSecurity: false,
-            nodeIntegration: true,
-            nodeIntegrationInWorker: true,
-            allowRunningInsecureContent: true
-        }
-    });
-    return <IBrowserWindow>win;
 }

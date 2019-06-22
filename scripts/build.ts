@@ -37,6 +37,7 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!test",
     "!appveyor-tools",
     "!readme",
+    "!src",
 ]
 
 printConsoleStatus(`Starting Build`, 'success');
