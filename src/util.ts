@@ -10,7 +10,7 @@ export const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
 export const LANDING_PAGE_APP_PATH = app.getPath('userData');
 export const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
 
-let mainProcessData: AppMainProcessData;
+export let mainProcessData: AppMainProcessData;
 export function setMainProcessData() {
     if (fs.existsSync(mainProcessDataFilePath)) {
         try {
@@ -61,6 +61,18 @@ export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
         }
     });
     return <IBrowserWindow>win;
+}
+
+export function handleEmptyPromise(func: Promise<any>) {
+    return new Promise((resolve) => {
+        func.then((val) => {
+            console.log(val);
+        }).catch((err) => {
+            console.error(err);
+        }).finally(() => {
+            resolve(null);
+        });
+    });
 }
 
 export interface WindowMeta {

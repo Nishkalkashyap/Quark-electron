@@ -1,9 +1,10 @@
 import { app, crashReporter } from "electron";
 import log from 'electron-log';
-import { setMainProcessData, } from './util';
+import { setMainProcessData, mainProcessData, } from './util';
 import { registerListeners, createNewInstanceWindow } from './window';
 import { initializeLogger, setAutoUpdaterOptions } from './auto-updater';
 import { registerProcessExplorer } from './process.explorer';
+import { enableAutoLaunch } from './auto-launch';
 
 initializeLogger();
 
@@ -15,10 +16,13 @@ crashReporter.start({
 
 app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.on('ready', () => {
+    // has to be first
     setMainProcessData();
+
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
     registerProcessExplorer();
+    enableAutoLaunch();
     setAutoUpdaterOptions().catch((err) => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
@@ -38,6 +42,8 @@ if (!_isSecondInstance) {
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
-        app.quit();
+        if (!(mainProcessData.leaveAppRunningOnWindowClose && app.isPackaged)) {
+            app.quit();
+        }
     }
 });
