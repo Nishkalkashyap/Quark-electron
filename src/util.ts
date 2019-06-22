@@ -3,7 +3,14 @@ import { get } from 'lodash';
 import { BrowserWindow, app } from 'electron';
 import * as fs from 'fs-extra';
 
-let mainProcessData: AppMainProcessData;
+
+
+export const devModeWindows: IBrowserWindow[] = [];
+export const runModeWindows: IBrowserWindow[] = [];
+
+export const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
+export const LANDING_PAGE_APP_PATH = app.getPath('userData');
+export const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
 
 export function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
@@ -24,6 +31,7 @@ export function getLandingPageWindow(): IBrowserWindow {
     return <IBrowserWindow>win;
 }
 
+let mainProcessData: AppMainProcessData;
 export function setMainProcessData() {
     if (fs.existsSync(mainProcessDataFilePath)) {
         try {
