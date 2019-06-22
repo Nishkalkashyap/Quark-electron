@@ -1,7 +1,7 @@
-import { shell, app, dialog, BrowserWindow } from "electron";
-import * as fs from 'fs';
+import { shell, app, dialog, BrowserWindow, ipcMain } from "electron";
+import * as fs from 'fs-extra';
 import { IBrowserWindow, IpcEvents } from '@quarkjs/api/umd/src/api/electron/electron.internal';
-import { getLandingPageWindow, getDesignerPageWindow, devModeWindows, LANDING_PAGE_APP_PATH } from './util';
+import { getLandingPageWindow, getDesignerPageWindow, devModeWindows, LANDING_PAGE_APP_PATH, runModeWindows, WindowMeta, buildFileMatchPattern, LANDING_PAGE_WINDOW_TYPE } from './util';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -10,6 +10,16 @@ function publishGlobalEvent(event: string | IpcEvents, ...args: any[]) {
         win.webContents.send(event, ...args);
         // win.webContents.executeJavaScript(`console.log('${(args[0] as string).replace(/\\/g, '\\\\')}')`)
         // win.webContents.executeJavaScript(`console.log('${(args)}')`)
+    });
+}
+
+export function registerListeners() {
+    ipcMain.on(IpcEvents.ADD_RUN_MODE_WINDOW, (e, absoluteFilePath: string) => {
+        createOrFocusWindow(runModeWindows, absoluteFilePath);
+    });
+
+    ipcMain.on(IpcEvents.ADD_DEV_MODE_WINDOW, (e, absoluteFilePath: string) => {
+        createOrFocusWindow(devModeWindows, absoluteFilePath);
     });
 }
 
@@ -125,5 +135,38 @@ export function createOrFocusWindow(windowTypes: IBrowserWindow[], absoluteFileP
         win.focus();
     } else {
         _createWindow(windowTypes, absoluteFilePath);
+    }
+}
+
+export async function createNewInstanceWindow(args: string[]): Promise<void> {
+    const type = await getWindowMetaFromArgs(args);
+    createOrFocusWindow(type.windowType, type.filepath);
+
+    async function getWindowMetaFromArgs(args: string[]): Promise<WindowMeta> {
+        let meta: WindowMeta;
+        if (app.isPackaged || args.length == 2) {
+            meta = {
+                type: args.length == 2 ? 'designer' : 'landing',
+                filepath: args.length == 2 ? path.resolve(args[1]) : LANDING_PAGE_APP_PATH,
+                windowType: args.length == 2 ? args[1].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+            }
+        } else {
+            meta = {
+                type: args.length == 3 ? 'designer' : 'landing',
+                filepath: args.length == 3 ? path.resolve(args[2]) : LANDING_PAGE_APP_PATH,
+                windowType: args.length == 3 ? args[2].match(buildFileMatchPattern) ? runModeWindows : devModeWindows : LANDING_PAGE_WINDOW_TYPE
+            }
+        }
+
+        const passMetaFlag = (await fs.pathExistsSync(meta.filepath) && (await fs.stat(meta.filepath)).isFile());
+        if (passMetaFlag) {
+            return meta;
+        }
+
+        return {
+            type: 'landing',
+            filepath: LANDING_PAGE_APP_PATH,
+            windowType: LANDING_PAGE_WINDOW_TYPE
+        }
     }
 }

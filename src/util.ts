@@ -3,14 +3,27 @@ import { get } from 'lodash';
 import { BrowserWindow, app } from 'electron';
 import * as fs from 'fs-extra';
 
-
-
 export const devModeWindows: IBrowserWindow[] = [];
 export const runModeWindows: IBrowserWindow[] = [];
 
 export const buildFileMatchPattern = /\.(build.qrk|qrk.asar)$/;
 export const LANDING_PAGE_APP_PATH = app.getPath('userData');
 export const LANDING_PAGE_WINDOW_TYPE = devModeWindows;
+
+let mainProcessData: AppMainProcessData;
+export function setMainProcessData() {
+    if (fs.existsSync(mainProcessDataFilePath)) {
+        try {
+            const file = fs.readFileSync(mainProcessDataFilePath).toString();
+            // console.log(file, 'file');
+            mainProcessData = JSON.parse(file);
+        } catch (err) {
+            console.error(err);
+        }
+        return;
+    }
+    mainProcessData = {} as any;
+}
 
 export function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
@@ -31,21 +44,6 @@ export function getLandingPageWindow(): IBrowserWindow {
     return <IBrowserWindow>win;
 }
 
-let mainProcessData: AppMainProcessData;
-export function setMainProcessData() {
-    if (fs.existsSync(mainProcessDataFilePath)) {
-        try {
-            const file = fs.readFileSync(mainProcessDataFilePath).toString();
-            console.log(file, 'file');
-            mainProcessData = JSON.parse(file);
-        } catch (err) {
-            console.error(err);
-        }
-        return;
-    }
-    mainProcessData = {} as any;
-}
-
 export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
     const win = new BrowserWindow({
         backgroundColor: get(mainProcessData, `bgColors.${getHashKeyForProject(HASHED_KEYS.BG_COLOR, projectPath)}`) || '#222428',
@@ -63,4 +61,10 @@ export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
         }
     });
     return <IBrowserWindow>win;
+}
+
+export interface WindowMeta {
+    type: ('landing' | 'designer');
+    filepath: string;
+    windowType: IBrowserWindow[];
 }
