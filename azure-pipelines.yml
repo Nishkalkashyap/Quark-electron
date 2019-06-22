@@ -11,6 +11,7 @@ pool:
 
 steps:
 - script: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(decryptionKey)
+- script: file ./dev-assets/azure-secrets.tar
 - script: tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
     
 - task: NodeTool@0
