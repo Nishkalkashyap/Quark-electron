@@ -1,8 +1,9 @@
 import { Tray, Menu, BrowserWindow, app, Notification } from 'electron';
+import * as path from 'path';
 
 let tray: Tray = null;
 export function registerTray() {
-    tray = new Tray('./appAssets/32x32.png');
+    tray = new Tray(path.join(app.getAppPath(), './appAssets/32x32.png'));
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Quit',
