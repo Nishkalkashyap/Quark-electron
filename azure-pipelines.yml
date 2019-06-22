@@ -11,10 +11,10 @@ pool:
 
 steps:
 - script: ls -la ./dev-assets
-- script: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.gz.enc -out ./dev-assets/azure-secrets.tar.gz -k $(decryptionKey)
+- script: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(decryptionKey)
 - script: ls -la ./dev-assets
-- script: file ./dev-assets/azure-secrets.tar.gz
-- script: tar xvf ./dev-assets/azure-secrets.tar.gz -C ./dev-assets
+- script: file ./dev-assets/azure-secrets.tar
+- script: tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
     
 - task: NodeTool@0
   inputs:
