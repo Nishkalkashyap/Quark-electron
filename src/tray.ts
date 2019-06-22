@@ -2,7 +2,7 @@ import { Tray, Menu, BrowserWindow, app, Notification } from 'electron';
 
 let tray: Tray = null;
 export function registerTray() {
-    tray = new Tray('./splash_assets/32x32.png');
+    tray = new Tray('./appAssets/32x32.png');
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Quit',
