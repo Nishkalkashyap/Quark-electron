@@ -90,7 +90,7 @@
   },
   "devDependencies": {
     "@google-cloud/storage": "^2.5.0",
-    "@quarkjs/api": "0.0.9",
+    "@quarkjs/api": "^0.1.0",
     "@types/auto-launch": "^5.0.1",
     "@types/chart.js": "^2.7.52",
     "@types/dotenv": "^6.1.1",
