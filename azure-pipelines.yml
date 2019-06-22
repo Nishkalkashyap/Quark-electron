@@ -10,11 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: ls -la ./dev-assets
-- script: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(decryptionKey)
-- script: ls -la ./dev-assets
-- script: file ./dev-assets/azure-secrets.tar
-- script: tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
+- bash: ls -la ./dev-assets
+- bash: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $DECRYPT_KEY
+  env:
+    DECRYPT_KEY: $(decryptionKey)
+- bash: ls -la ./dev-assets
+- bash: file ./dev-assets/azure-secrets.tar
+- bash: tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
     
 - task: NodeTool@0
   inputs:
