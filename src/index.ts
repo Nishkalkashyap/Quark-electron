@@ -3,6 +3,7 @@ import log from 'electron-log';
 import { setMainProcessData, } from './util';
 import { registerListeners, createNewInstanceWindow } from './window';
 import { initializeLogger, setAutoUpdaterOptions } from './auto-updater';
+import { registerProcessExplorer } from './process.explorer';
 
 initializeLogger();
 
@@ -17,6 +18,7 @@ app.on('ready', () => {
     setMainProcessData();
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
+    registerProcessExplorer();
     setAutoUpdaterOptions().catch((err) => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
