@@ -12,7 +12,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: sude apt-get install gcc-multilib g++-multilib libgnome-keyring-dev icnsutils graphicsmagick xz-utils rpm bsdtar snapd
+- bash: sudo apt-get install gcc-multilib g++-multilib libgnome-keyring-dev icnsutils graphicsmagick xz-utils rpm bsdtar snapd
 # - bash: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(DECRYPT_KEY)
 # - bash: file ./dev-assets/azure-secrets.tar
 # - bash: tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
