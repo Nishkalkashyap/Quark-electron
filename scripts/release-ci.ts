@@ -1,6 +1,7 @@
 import { currentBranch, doBucketTransfer, cleanDirectory, folderAlreadyExists, branches, printConsoleStatus } from "./util";
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import { execSync } from "child_process";
 
 release().catch((err) => {
         if (err) {
@@ -30,6 +31,8 @@ async function release() {
                 await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
                 await cleanDirectory('quark-release.quarkjs.io', 'insiders', ignores);
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders', true);
+                fs.writeFileSync(`./dev-assets/current-release-notes.md`, '');
+                execSync(`npm --no-git-tag-version version patch`);
         }
 
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
