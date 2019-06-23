@@ -7,8 +7,17 @@ import { registerProcessExplorer } from './process.explorer';
 import { enableAutoLaunch } from './auto-launch';
 import { registerTray } from './tray';
 
-initializeLogger();
+const _isSecondInstance = app.requestSingleInstanceLock();
+if (!_isSecondInstance) {
+    app.quit();
+} else {
+    app.on('second-instance', (event, commandLine) => {
+        console.log(commandLine, '\n\n\n');
+        createNewInstanceWindow(commandLine).catch(console.error);
+    });
+}
 
+initializeLogger();
 crashReporter.start({
     productName: 'Quarkjs',
     companyName: 'Quark',
@@ -31,16 +40,6 @@ app.on('ready', () => {
         log.error(`Auto updater failed to initialize`);
     });
 });
-
-const _isSecondInstance = app.requestSingleInstanceLock();
-if (!_isSecondInstance) {
-    app.quit();
-} else {
-    app.on('second-instance', (event, commandLine) => {
-        console.log(commandLine, '\n\n\n');
-        createNewInstanceWindow(commandLine).catch(console.error);
-    });
-}
 
 
 let notificationWasShownOnce: boolean = false;
