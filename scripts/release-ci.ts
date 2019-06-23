@@ -24,6 +24,11 @@ async function release() {
         const insidersFolderCopyFrom = `Quark-${copyBranchName}-${releaseJson['insiders']}`;
         const insidersFolderCopyTo = `Quark-insiders-${releaseJson['insiders']}`;
         const insidersAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
+        const releaseNotesExist = fs.readFileSync('./dev-assets/current-release-notes.md').toString().replace(/\s/g, '').length;
+
+        if (!releaseNotesExist) {
+                throw Error(`Please add release notes.`);
+        }
 
         if (insidersAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-insiders-${releaseJson['insiders']} already exists.`, 'warning');
