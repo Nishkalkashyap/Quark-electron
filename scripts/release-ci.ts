@@ -37,7 +37,12 @@ async function release() {
                 await cleanDirectory('quark-release.quarkjs.io', 'insiders', ignores);
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders', true);
                 fs.writeFileSync(`./dev-assets/current-release-notes.md`, '');
+
+                printConsoleStatus(`Increasing version number`, 'info');
                 execSync(`npm --no-git-tag-version version patch`);
+
+                printConsoleStatus(`Running npm install`, 'info');
+                execSync(`npm install`);
         }
 
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
