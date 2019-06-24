@@ -4,13 +4,9 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { Storage, File } from '@google-cloud/storage';
 import request = require('request');
+import { printConsoleStatus } from 'print-console-status';
+export { printConsoleStatus } from 'print-console-status';
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
-
-export function printConsoleStatus(message: string, status: 'danger' | 'success' | 'warning' | 'info', indent: number = 0): void {
-    let emoji = (status == 'danger') ? '  ❗' : (status == 'success') ? ' ✅ ' : (status == 'warning') ? ' ⚠️ ' : ' ️️💁 ';
-    const color = (status == 'danger') ? chalk.redBright : (status == 'success') ? chalk.greenBright : (status == 'warning') ? chalk.yellowBright : chalk.whiteBright;
-    console.log(color(Array(indent).fill('\s').join('') + `| ${emoji}  | ${message}`));
-}
 
 function getCurrentBranch(): branches {
     const gitBranch = execSync('git branch').toString() as branches;
