@@ -74,8 +74,8 @@ async function createRelease() {
         owner,
         repo,
         tag_name,
-        target_commitish: 'master',
-        name: `Quark-${tag_name}`,
+        target_commitish: currentBranch,
+        name: `Quark-${tag_name}-${currentBranch}`,
         draft: true,
         prerelease: true
     });
