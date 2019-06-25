@@ -30,12 +30,12 @@ export async function updateRelease(params: Octokit.ReposUpdateReleaseParams) {
 export async function getCurrentReleaseForBranch(branch: branches) {
     const releases = await listRelease();
     const currentReleaseExists = releases.data.find((rel) => {
-        return rel.tag_name == `v${packageJson.version}-${branch}`;
+        return rel.tag_name == `v${packageJson.version}` && rel.target_commitish == branch;
     });
     return currentReleaseExists;
 }
 
-export async function getReleaseForTagName(tag_name : string) {
+export async function getReleaseForTagName(tag_name: string) {
     const releases = await listRelease();
     const versionRelease = releases.data.find((rel) => {
         return rel.tag_name == tag_name;
