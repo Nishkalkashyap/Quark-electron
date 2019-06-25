@@ -1,5 +1,5 @@
 import * as fs from 'fs-extra';
-import { getFilesToUpload, uploadFilesToBucket, currentBranch } from './util';
+import { getFilesToUpload, uploadFilesToBucket, currentBranch, gitFilePath, wwwOutPath } from './util';
 import * as hasha from 'hasha';
 import * as path from 'path';
 import { execSync } from 'child_process';
@@ -14,11 +14,9 @@ async function root() {
     paths.push(shasumFilePath);
     await createShasumFile(paths, shasumFilePath);
 
-    const gitFilePath = './git-commit.txt';
     paths.push(gitFilePath);
     addGitCommit(gitFilePath);
 
-    const wwwOutPath = './buildResources/www.tar.gz';
     paths.push(wwwOutPath);
 
 

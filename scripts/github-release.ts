@@ -1,12 +1,12 @@
 import * as Octokit from '@octokit/rest';
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import { getFilesToUpload, currentBranch } from './util';
+import { getFilesToUpload, currentBranch, wwwOutPath } from './util';
 import * as mime from 'mime-types';
 import { printConsoleStatus } from 'print-console-status';
 import { packageJson, octokit, owner, repo, tag_name, getCurrentReleaseForBranch } from './github-release-assets';
 
-const files = getFilesToUpload(packageJson.version, process.platform);
+const files = getFilesToUpload(packageJson.version, process.platform).concat(wwwOutPath);
 root()
     .then((res) => {
         printConsoleStatus(`Uploaded all files to github`, 'success');

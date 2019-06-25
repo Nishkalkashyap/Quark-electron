@@ -22,6 +22,9 @@ export type storageUrl = 'https://quark-release.quarkjs.io' | 'https://quark-bui
 export type bucketName = 'quark-release.quarkjs.io' | 'quark-builds.quarkjs.io' | 'quark-build-assets';
 
 export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || getCurrentBranch() as any;
+export const gitFilePath = './git-commit.txt';
+export const wwwOutPath = './buildResources/www.tar.gz';
+
 
 export function getFilesToUpload(version: number, type: typeof process.platform) {
     if (type == 'win32') {
