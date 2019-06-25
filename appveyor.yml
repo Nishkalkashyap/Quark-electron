@@ -63,7 +63,6 @@ deploy:
   release: "Current_CI_Build"
   description: 'Release description'
   provider: GitHub
-  overwrite: true
   auth_token:
     secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
   artifact: exe, blockmap, zip, msi, yml
