@@ -44,7 +44,7 @@ async function release() {
                 }
                 await updateRelease({
                         owner, repo, draft: false, prerelease: true, release_id: currentGithubRelease.id,
-                        name: currentGithubRelease.name.replace(/(master-all|master)/, ''),
+                        name: `Quark-${currentGithubRelease.tag_name}-insiders`,
                         body: fs.readFileSync('./dev-assets/current-release-notes.md').toString()
                 });
 
@@ -78,7 +78,13 @@ async function release() {
         } else {
                 // github-hooks
                 const stableReleaseGithub = await getReleaseForTagName(`v${releaseJson['stable']}`);
-                await updateRelease({ owner, repo, release_id: stableReleaseGithub.id, prerelease: false });
+                if (stableReleaseGithub) {
+                        await updateRelease({
+                                owner, repo, release_id: stableReleaseGithub.id,
+                                name: `Quark-${stableReleaseGithub.tag_name}`,
+                                prerelease: false
+                        });
+                }
 
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
                 await cleanDirectory('quark-release.quarkjs.io', 'stable', ignores);

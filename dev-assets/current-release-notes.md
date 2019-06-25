@@ -1,2 +1,0 @@
-#### Features:
-* Added github releases.
