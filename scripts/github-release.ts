@@ -26,7 +26,7 @@ async function root() {
         release = (await createRelease()).data;
     }
 
-    if (!currentReleaseExists.draft) {
+    if (!release.draft) {
         printConsoleStatus(`Current release is not a draft, will not upload new version`, 'warning');
         return;
     }
