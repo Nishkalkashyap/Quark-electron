@@ -52,7 +52,7 @@ async function uploadAssets(url: string) {
 
         return await octokit.repos.uploadReleaseAsset({
             name: path.basename(file),
-            file: fs.readFileSync(file),
+            file: fs.readFileSync(file).toString(),
             url,
             headers: {
                 "content-length": fs.statSync(file).size,
