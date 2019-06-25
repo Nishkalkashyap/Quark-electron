@@ -70,6 +70,7 @@ deploy:
   file_glob: true
   skip_cleanup: true
   draft: true
+  prerelease: true
   file:
     - build/*.deb
     - build/*.gz

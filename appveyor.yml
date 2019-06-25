@@ -49,15 +49,25 @@ after_test:
 
 artifacts:
   - path: build/*.exe
-    name: executables
+    name: exe
+  - path: build/*.blockmap
+    name: blockmap
+  - path: build/*.zip
+    name: zip
+  - path: build/*.msi
+    name: msi
+  - path: build/*.yml
+    name: yml
 deploy:
   release: $(appveyor_repo_commit)
   description: 'Release description'
   provider: GitHub
+  overwrite: true
   auth_token:
     secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
-  artifact: executables
+  artifact: exe, blockmap, zip, msi, yml
   draft: true
   prerelease: true
+  force_update: true
   on:
     APPVEYOR_REPO_TAG: false 
