@@ -43,21 +43,20 @@ test_script:
   - npm run test-ci
 
 after_test:
-# build_success:// does not exists
   - npm run upload-ci
   # - npm run release-ci
 
-artifacts:
-  - path: build/*.exe
-    name: exe
-  - path: build/*.blockmap
-    name: blockmap
-  - path: build/*.zip
-    name: zip
-  - path: build/*.msi
-    name: msi
-  - path: build/*.yml
-    name: yml
+# artifacts:
+#   - path: build/*.exe
+#     name: exe
+#   - path: build/*.blockmap
+#     name: blockmap
+#   - path: build/*.zip
+#     name: zip
+#   - path: build/*.msi
+#     name: msi
+#   - path: build/*.yml
+#     name: yml
 # deploy:
 #   release: "Current_CI_Build"
 #   description: 'Release description'

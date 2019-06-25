@@ -14,15 +14,18 @@ const octokit = new Octokit({
 const packageJson = JSON.parse(fs.readFileSync('./package.json').toString());
 const owner = 'Nishkalkashyap';
 const repo = 'Quark-electron';
-const tag = `v${packageJson.version}`;
+const tag_name = `v${packageJson.version}`;
 
 const files = getFilesToUpload(packageJson.version, process.platform);
-root().catch(console.error);
+root().catch((err) => {
+    console.error(err);
+    throw Error(`Error uploading file`);
+});
 
 async function root() {
     const releases = await listRelease();
     const currentReleaseExists = releases.data.find((rel) => {
-        return rel.tag_name == tag
+        return rel.tag_name == tag_name
     });
 
     let release: Octokit.ReposListReleasesResponseItem[] | Octokit.ReposCreateReleaseResponse;
@@ -52,7 +55,7 @@ async function uploadAssets(url: string) {
 
         return await octokit.repos.uploadReleaseAsset({
             name: path.basename(file),
-            file: fs.readFileSync(file).toString(),
+            file: fs.readFileSync(file),
             url,
             headers: {
                 "content-length": fs.statSync(file).size,
@@ -68,9 +71,9 @@ async function createRelease() {
     return await octokit.repos.createRelease({
         owner,
         repo,
-        tag_name: tag,
+        tag_name,
         target_commitish: 'master',
-        name: `Quark-${tag}`,
+        name: `Quark-${tag_name}`,
         draft: true,
         prerelease: true
     });
