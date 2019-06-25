@@ -58,16 +58,15 @@ artifacts:
     name: msi
   - path: build/*.yml
     name: yml
-deploy:
-  # release: $(appveyor_repo_commit)
-  release: "Current_CI_Build"
-  description: 'Release description'
-  provider: GitHub
-  auth_token:
-    secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
-  artifact: exe, blockmap, zip, msi, yml
-  draft: true
-  prerelease: true
-  force_update: true
-  on:
-    APPVEYOR_REPO_TAG: false 
+# deploy:
+#   release: "Current_CI_Build"
+#   description: 'Release description'
+#   provider: GitHub
+#   auth_token:
+#     secure: w086h7SsN4ZengkZWbBDWzE2wcX3yNc9lM9vS0d7KD7ED0OSuUeGTEakTvJQzOAH # your encrypted token from GitHub
+#   artifact: exe, blockmap, zip, msi, yml
+#   draft: true
+#   prerelease: true
+#   force_update: true
+#   on:
+#     APPVEYOR_REPO_TAG: false 

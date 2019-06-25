@@ -64,23 +64,23 @@ script:
 after_success:
 - npm run upload-ci
 - ls -la ./build
-deploy:
-  provider: releases
-  api_key:
-    secure: w2jOev3cPNKViXmlN89mnS+O+ec3BlZH6toIz6I5y5v/4r38myfFpmFu/x+x2szGQFgzMTVShZ6MvGHcWB9VICPUIoruWymGm1Ivc9jdMcj6UQ2YW2eF9DQK2gIfJzC6quGtntoHyyfn1yr8pPnAfCYcs62o573dJYHJSYkjUIkCCEki/Yv/jAQdz392b84PPwA14c/nkm0CpuuF8UXQXPXxwHt2yNyNHD5FSL8/tQEGAECMtKdCWzkf6qcPfxuhbHCZl4zlFD4DknihDEDBGZ6NqCdM3lWhsiKRK7CPXbl1yBCQqTEEfS5l231sC1YN+I5bVYiCqBlcZRLM7zzCDUUBgkOJmaoOxJe1SdKlnPBQIyFWMJR6xaWEF4T+S/USNRrDi2jCmfxV8Fpj/DtYVXEvy1mZAI7u42GvNit71PNcz2O932KtC0YZej+gSwnPeuzoih3jHxfXL6hvD9X2qNPgXmR6FlMcULP/W82obQJLHbg+HByxhPamE7iy7nvA/LLunQ9XqEJL4N31Pyuv28n6ErD/W3U/WJdoEctPZM8Za/qmOgKobE/hKA3HN8ABIA09o8FZXX4yho/AXHHiHGBrC23Ww2P8/GAap7a5NMrKhNkqrK70UFT3jfIcXNQoM10gUF6HBMHWIl+crdnT7Ib2440i1ZjtDgEYfWjWAnM=
-  file_glob: true
-  skip_cleanup: true
-  overwrite: true
-  draft: true
-  prerelease: true
-  name: Current_CI_Build
-  tag: Current_CI_Build
-  target_commitish: master
-  file:
-  - build/*.deb
-  - build/*.gz
-  - build/*.AppImage
-  - build/*.yml
-  on:
-    all_branches: true
-    repo: Nishkalkashyap/Quark-electron
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure: w2jOev3cPNKViXmlN89mnS+O+ec3BlZH6toIz6I5y5v/4r38myfFpmFu/x+x2szGQFgzMTVShZ6MvGHcWB9VICPUIoruWymGm1Ivc9jdMcj6UQ2YW2eF9DQK2gIfJzC6quGtntoHyyfn1yr8pPnAfCYcs62o573dJYHJSYkjUIkCCEki/Yv/jAQdz392b84PPwA14c/nkm0CpuuF8UXQXPXxwHt2yNyNHD5FSL8/tQEGAECMtKdCWzkf6qcPfxuhbHCZl4zlFD4DknihDEDBGZ6NqCdM3lWhsiKRK7CPXbl1yBCQqTEEfS5l231sC1YN+I5bVYiCqBlcZRLM7zzCDUUBgkOJmaoOxJe1SdKlnPBQIyFWMJR6xaWEF4T+S/USNRrDi2jCmfxV8Fpj/DtYVXEvy1mZAI7u42GvNit71PNcz2O932KtC0YZej+gSwnPeuzoih3jHxfXL6hvD9X2qNPgXmR6FlMcULP/W82obQJLHbg+HByxhPamE7iy7nvA/LLunQ9XqEJL4N31Pyuv28n6ErD/W3U/WJdoEctPZM8Za/qmOgKobE/hKA3HN8ABIA09o8FZXX4yho/AXHHiHGBrC23Ww2P8/GAap7a5NMrKhNkqrK70UFT3jfIcXNQoM10gUF6HBMHWIl+crdnT7Ib2440i1ZjtDgEYfWjWAnM=
+#   file_glob: true
+#   skip_cleanup: true
+#   overwrite: true
+#   draft: true
+#   prerelease: true
+#   name: Current_CI_Build
+#   tag: Current_CI_Build
+#   target_commitish: master
+#   file:
+#   - build/*.deb
+#   - build/*.gz
+#   - build/*.AppImage
+#   - build/*.yml
+#   on:
+#     all_branches: true
+#     repo: Nishkalkashyap/Quark-electron

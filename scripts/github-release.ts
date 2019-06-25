@@ -45,6 +45,11 @@ async function listRelease() {
 
 async function uploadAssets(url: string) {
     const promises = files.map(async (file) => {
+
+        if (!fs.existsSync(file)) {
+            return;
+        }
+
         return await octokit.repos.uploadReleaseAsset({
             name: path.basename(file),
             file: fs.readFileSync(file),
