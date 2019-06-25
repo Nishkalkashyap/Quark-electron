@@ -2,7 +2,7 @@ import { currentBranch, doBucketTransfer, cleanDirectory, folderAlreadyExists, b
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { execSync } from "child_process";
-import { getCurrentRelease, getAssetsForCurrentRelease, updateRelease, getReleaseForVersion } from "./github-release";
+import { getCurrentReleaseForBranch, getAssetsForCurrentRelease, updateRelease, getReleaseForVersion } from "./github-release-assets";
 
 release().catch((err) => {
         if (err) {
@@ -36,13 +36,13 @@ async function release() {
         } else {
 
                 // github-hooks
-                const currentGithubRelease = await getCurrentRelease();
+                const currentGithubRelease = await getCurrentReleaseForBranch('master-all');
                 const assets = await getAssetsForCurrentRelease(currentGithubRelease.id);
                 if (assets.data.length != 9) {
                         printConsoleStatus(`All assets were not released in github releases`, 'danger');
                         throw Error(`All assets were not released in github releases`);
                 }
-                await updateRelease({ draft: false, prerelease: true } as any);
+                await updateRelease({ draft: false, prerelease: true, body: fs.readFileSync('./dev-assets/current-release-notes.md').toString() } as any);
 
                 // google-cloud-hooks
                 await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
@@ -73,7 +73,7 @@ async function release() {
                 printConsoleStatus(`Error: Release Quark-stable-${releaseJson['stable']} already exists.`, 'warning');
         } else {
                 // github-hooks
-                const stableReleaseGithub = await getReleaseForVersion(releaseJson['stable']);
+                const stableReleaseGithub = await getReleaseForVersion(releaseJson['stable'], 'master-all');
                 await updateRelease({ release_id: stableReleaseGithub.id, prerelease: false } as any);
 
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
