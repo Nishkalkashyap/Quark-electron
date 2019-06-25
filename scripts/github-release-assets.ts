@@ -11,7 +11,7 @@ export const octokit = new Octokit({
 export const packageJson = JSON.parse(fs.readFileSync('./package.json').toString());
 export const owner = 'Nishkalkashyap';
 export const repo = 'Quark-electron';
-export const tag_name = `v${packageJson.version}-${currentBranch}`;
+export const tag_name = `v${packageJson.version}`;
 
 export async function listRelease() {
     return await octokit.repos.listReleases({
@@ -35,10 +35,10 @@ export async function getCurrentReleaseForBranch(branch: branches) {
     return currentReleaseExists;
 }
 
-export async function getReleaseForVersion(version: string, branch: branches) {
+export async function getReleaseForTagName(tag_name : string) {
     const releases = await listRelease();
     const versionRelease = releases.data.find((rel) => {
-        return rel.tag_name == `v${version}-${branch}`
+        return rel.tag_name == tag_name;
     });
     return versionRelease;
 }
