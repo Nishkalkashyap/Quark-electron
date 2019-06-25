@@ -36,7 +36,7 @@ async function root() {
     }
 
     const url = release.upload_url;
-    await uploadAssets(url);
+    await uploadAssets(url, id);
 }
 
 async function listRelease() {
@@ -46,15 +46,31 @@ async function listRelease() {
     });
 }
 
-async function uploadAssets(url: string) {
-    const promises = files.map(async (file) => {
+async function uploadAssets(url: string, release_id: number) {
+    const assets = await octokit.repos.listAssetsForRelease({
+        owner,
+        repo,
+        release_id
+    });
 
+    const promises = files.map(async (file) => {
         if (!fs.existsSync(file)) {
             return;
         }
 
+
+        const name = path.basename(file);
+        const exists = assets.data.find((val) => {
+            return val.name == name;
+        });
+
+        if (exists) {
+            await octokit.repos.deleteReleaseAsset({ owner, repo, asset_id: exists.id })
+        }
+
+
         return await octokit.repos.uploadReleaseAsset({
-            name: path.basename(file),
+            name,
             file: fs.readFileSync(file),
             url,
             headers: {
