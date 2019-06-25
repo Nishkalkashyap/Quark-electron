@@ -36,7 +36,7 @@ async function root() {
     }
 
     const url = release.upload_url;
-    await uploadAssets(url, id);
+    await uploadAssets(url, release.id);
 }
 
 async function listRelease() {
