@@ -4,7 +4,7 @@ import * as path from 'path';
 import { getFilesToUpload } from './util';
 import * as mime from 'mime-types';
 import * as dotenv from 'dotenv';
-import console = require('console');
+import { printConsoleStatus } from 'print-console-status';
 dotenv.config({ path: './dev-assets/prod.env' });
 
 const octokit = new Octokit({
@@ -17,16 +17,17 @@ const repo = 'Quark-electron';
 const tag_name = `v${packageJson.version}`;
 
 const files = getFilesToUpload(packageJson.version, process.platform);
-root().catch((err) => {
-    console.error(err);
-    throw Error(`Error uploading file`);
-});
+root()
+    .then((res) => {
+        printConsoleStatus(`Uploaded all files to github`, 'success');
+    })
+    .catch((err) => {
+        console.error(err);
+        throw Error(`Error uploading file`);
+    });
 
 async function root() {
-    const releases = await listRelease();
-    const currentReleaseExists = releases.data.find((rel) => {
-        return rel.tag_name == tag_name
-    });
+    const currentReleaseExists = await getCurrentRelease();
 
     let release: Octokit.ReposListReleasesResponseItem[] | Octokit.ReposCreateReleaseResponse;
     if (currentReleaseExists) {
@@ -36,14 +37,46 @@ async function root() {
     }
 
     const url = release.upload_url;
-    await uploadAssets(url, release.id);
+    return await uploadAssets(url, release.id);
 }
 
-async function listRelease() {
+export async function listRelease() {
     return await octokit.repos.listReleases({
         owner,
         repo
     });
+}
+
+export async function updateRelease(params: Octokit.ReposUpdateReleaseParams) {
+    return await octokit.repos.updateRelease(Object.assign({
+        owner,
+        repo
+    }, params));
+}
+
+export async function getCurrentRelease() {
+    const releases = await listRelease();
+    const currentReleaseExists = releases.data.find((rel) => {
+        return rel.tag_name == tag_name
+    });
+    return currentReleaseExists;
+}
+
+export async function getReleaseForVersion(version: string) {
+    const releases = await listRelease();
+    const versionRelease = releases.data.find((rel) => {
+        return rel.tag_name == `v${version}`
+    });
+    return versionRelease;
+}
+
+export async function getAssetsForCurrentRelease(release_id: number) {
+    const assets = await octokit.repos.listAssetsForRelease({
+        owner,
+        repo,
+        release_id
+    });
+    return assets;
 }
 
 async function uploadAssets(url: string, release_id: number) {
@@ -68,7 +101,7 @@ async function uploadAssets(url: string, release_id: number) {
             await octokit.repos.deleteReleaseAsset({ owner, repo, asset_id: exists.id })
         }
 
-
+        printConsoleStatus(`Uploading file: ${name}`, 'info');
         return await octokit.repos.uploadReleaseAsset({
             name,
             file: fs.readFileSync(file),

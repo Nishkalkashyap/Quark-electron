@@ -2,6 +2,7 @@ import { currentBranch, doBucketTransfer, cleanDirectory, folderAlreadyExists, b
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { execSync } from "child_process";
+import { getCurrentRelease, getAssetsForCurrentRelease, updateRelease, getReleaseForVersion } from "./github-release";
 
 release().catch((err) => {
         if (err) {
@@ -33,9 +34,23 @@ async function release() {
         if (insidersAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-insiders-${releaseJson['insiders']} already exists.`, 'warning');
         } else {
+
+                // github-hooks
+                const currentGithubRelease = await getCurrentRelease();
+                const assets = await getAssetsForCurrentRelease(currentGithubRelease.id);
+                if (assets.data.length != 9) {
+                        printConsoleStatus(`All assets were not released in github releases`, 'danger');
+                        throw Error(`All assets were not released in github releases`);
+                }
+                await updateRelease({ draft: false, prerelease: true } as any);
+
+                // google-cloud-hooks
                 await doBucketTransfer('quark-builds.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyFrom, insidersFolderCopyTo, false);
                 await cleanDirectory('quark-release.quarkjs.io', 'insiders', ignores);
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', insidersFolderCopyTo, 'insiders', true);
+
+
+                // post-release-hooks
                 fs.writeFileSync(`./dev-assets/current-release-notes.md`, '');
 
                 printConsoleStatus(`Increasing version number`, 'info');
@@ -57,6 +72,10 @@ async function release() {
         if (stableAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-stable-${releaseJson['stable']} already exists.`, 'warning');
         } else {
+                // github-hooks
+                const stableReleaseGithub = await getReleaseForVersion(releaseJson['stable']);
+                await updateRelease({ release_id: stableReleaseGithub.id, prerelease: false } as any);
+
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyFrom, stableFolderCopyTo, false);
                 await cleanDirectory('quark-release.quarkjs.io', 'stable', ignores);
                 await doBucketTransfer('quark-release.quarkjs.io', 'quark-release.quarkjs.io', stableFolderCopyTo, 'stable', true);
