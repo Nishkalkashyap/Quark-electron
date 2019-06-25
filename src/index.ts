@@ -44,6 +44,7 @@ app.on('ready', () => {
 
 let notificationWasShownOnce: boolean = false;
 app.on('window-all-closed', function () {
+    console.log(JSON.stringify(mainProcessData || {}, undefined, 4), 'Main Process Data');
     if (process.platform !== 'darwin') {
         // if (!(mainProcessData.leaveAppRunningOnWindowClose && app.isPackaged)) {
         if (!(mainProcessData.leaveAppRunningOnWindowClose)) {
