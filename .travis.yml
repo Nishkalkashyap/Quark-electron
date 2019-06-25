@@ -63,7 +63,6 @@ script:
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then npm run test-ci; fi
 after_success:
 - npm run upload-ci
-- npm run release-github
 - ls -la ./build
 deploy:
   provider: releases
