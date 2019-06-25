@@ -23,13 +23,12 @@ needed by vue language
 
 <!-- If cloud release -->
 <!-- In this dir -->
-    update package.json version
-    npm run tar
-    git commit and push
-    npm run release-master-all
-    npm run release-ci
+make sure to run `npm run test` in view
+git commit and push
+npm run release-master-all
+npm run release-ci
 <!-- in documentation -->
-    npm run prepare-release
+    npm run release-insiders
     npm run test
 
 
