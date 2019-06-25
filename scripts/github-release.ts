@@ -5,26 +5,18 @@ import { getFilesToUpload } from './util';
 import * as mime from 'mime-types';
 import * as dotenv from 'dotenv';
 import console = require('console');
-dotenv.config({ path: './scripts/prod.env' });
+dotenv.config({ path: './dev-assets/prod.env' });
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_RELEASE
 });
-console.log(process.env.GITHUB_RELEASE);
 
 const packageJson = JSON.parse(fs.readFileSync('./package.json').toString());
 const owner = 'Nishkalkashyap';
 const repo = 'Quark-electron';
 const tag = `v${packageJson.version}`;
 
-// const files = getFilesToUpload(packageJson.version, process.platform);
-const files = ['./package.json'];
-
-// list releases
-// check if ci-test exists
-// if exists, upload assets
-// if not, create releas and then upload assets
-
+const files = getFilesToUpload(packageJson.version, process.platform);
 root().catch(console.error);
 
 async function root() {
@@ -32,17 +24,16 @@ async function root() {
     const currentReleaseExists = releases.data.find((rel) => {
         return rel.tag_name == tag
     });
-    console.log(releases.data);
 
+    let release: Octokit.ReposListReleasesResponseItem[] | Octokit.ReposCreateReleaseResponse;
     if (currentReleaseExists) {
-        // currentReleaseExists.ur
+        release = currentReleaseExists;
     } else {
-        // const release = await createRelease();
-        // console.log(release);
-        createRelease().then((val) => {
-            console.log(val);
-        }).catch(console.error);
+        release = (await createRelease()).data;
     }
+
+    const url = release.upload_url;
+    await uploadAssets(url);
 }
 
 async function listRelease() {
@@ -56,11 +47,11 @@ async function uploadAssets(url: string) {
     const promises = files.map(async (file) => {
         return await octokit.repos.uploadReleaseAsset({
             name: path.basename(file),
-            file,
+            file: fs.readFileSync(file),
             url,
             headers: {
-                "content-length": fs.statSync('').size,
-                "content-type": mime.lookup('') as any
+                "content-length": fs.statSync(file).size,
+                "content-type": mime.lookup(file) as any
             }
         })
     });

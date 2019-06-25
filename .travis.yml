@@ -36,9 +36,12 @@ addons:
     - bsdtar
     - snapd
 before_install:
-- openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
-  -in ./dev-assets/secrets.tar.enc -out ./dev-assets/secrets.tar -d
-- tar xvf ./dev-assets/secrets.tar -C ./dev-assets
+- openssl aes-256-cbc -K $encrypted_56d791a64072_key -iv $encrypted_56d791a64072_iv
+  -in ./dev-assets/travis-secrets.tar.enc -out ./dev-assets/travis-secrets.tar -d
+# - openssl aes-256-cbc -K $encrypted_1248026558a0_key -iv $encrypted_1248026558a0_iv
+#   -in ./dev-assets/secrets.tar.enc -out ./dev-assets/secrets.tar -d
+- tar xvf ./dev-assets/travis-secrets.tar -C ./dev-assets
+# - tar xvf ./dev-assets/secrets.tar -C ./dev-assets
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then base64 ./dev-assets/code-sign.p12 > ./dev-assets/envValue.txt;
   fi
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then base64 -i ./dev-assets/code-sign.p12 -o
@@ -60,10 +63,8 @@ script:
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then npm run test-ci; fi
 after_success:
 - npm run upload-ci
+- npm run release-github
 - ls -la ./build
-# before_deploy:
-# - export TRAVIS_TAG="Current_CI_Build"
-# # - export TRAVIS_TAG=$TRAVIS_COMMIT
 deploy:
   provider: releases
   api_key:
@@ -73,14 +74,14 @@ deploy:
   overwrite: true
   draft: true
   prerelease: true
-  name: "Current_CI_Build"
-  tag: "Current_CI_Build"
-  target_commitish: "master"
+  name: Current_CI_Build
+  tag: Current_CI_Build
+  target_commitish: master
   file:
-    - build/*.deb
-    - build/*.gz
-    - build/*.AppImage
-    - build/*.yml
+  - build/*.deb
+  - build/*.gz
+  - build/*.AppImage
+  - build/*.yml
   on:
     all_branches: true
     repo: Nishkalkashyap/Quark-electron
