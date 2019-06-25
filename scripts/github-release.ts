@@ -26,6 +26,11 @@ async function root() {
         release = (await createRelease()).data;
     }
 
+    if (!currentReleaseExists.draft) {
+        printConsoleStatus(`Current release is not a draft, will not upload new version`, 'warning');
+        return;
+    }
+
     const url = release.upload_url;
     return await uploadAssets(url, release.id);
 }
