@@ -62,7 +62,8 @@ after_success:
 - npm run upload-ci
 - ls -la ./build
 before_deploy:
-- export TRAVIS_TAG=$TRAVIS_COMMIT
+- export TRAVIS_TAG="Current_CI_Build"
+# - export TRAVIS_TAG=$TRAVIS_COMMIT
 deploy:
   provider: releases
   api_key:

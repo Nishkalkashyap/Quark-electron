@@ -59,7 +59,8 @@ artifacts:
   - path: build/*.yml
     name: yml
 deploy:
-  release: $(appveyor_repo_commit)
+  # release: $(appveyor_repo_commit)
+  release: "Current_CI_Build"
   description: 'Release description'
   provider: GitHub
   overwrite: true
