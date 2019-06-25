@@ -74,6 +74,7 @@ deploy:
   draft: true
   prerelease: true
   name: "Current_CI_Build"
+  tag: "Current_CI_Build"
   target_commitish: "master"
   file:
     - build/*.deb
