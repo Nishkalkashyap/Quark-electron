@@ -74,6 +74,8 @@ deploy:
   draft: true
   prerelease: true
   name: "Current_CI_Build"
+  target_commitish: "Current_CI_Build"
+  tag_name: "Current_CI_Build"
   file:
     - build/*.deb
     - build/*.gz
