@@ -27,18 +27,18 @@ async function release() {
         const insidersAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', insidersFolderCopyTo);
         const releaseNotesExist = fs.readFileSync('./dev-assets/current-release-notes.md').toString().replace(/\s/g, '').length;
 
-        if (!releaseNotesExist) {
-                throw Error(`Please add release notes.`);
-        }
 
         if (insidersAlreadyExists) {
                 printConsoleStatus(`Error: Release Quark-insiders-${releaseJson['insiders']} already exists.`, 'warning');
         } else {
+                if (!releaseNotesExist) {
+                        throw Error(`Please add release notes.`);
+                }
 
                 // github-hooks
                 const currentGithubRelease = await getCurrentReleaseForBranch('master-all');
                 const assets = await getAssetsForCurrentRelease(currentGithubRelease.id);
-                if (assets.data.length != 9) {
+                if (assets.data.length >= 9) {
                         printConsoleStatus(`All assets were not released in github releases`, 'danger');
                         throw Error(`All assets were not released in github releases`);
                 }
