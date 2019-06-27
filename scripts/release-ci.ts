@@ -38,7 +38,7 @@ async function release() {
                 // github-hooks
                 const currentGithubRelease = await getCurrentReleaseForBranch('master-all');
                 const assets = await getAssetsForCurrentRelease(currentGithubRelease.id);
-                if (assets.data.length >= 9) {
+                if (assets.data.length != 10) {
                         printConsoleStatus(`All assets were not released in github releases`, 'danger');
                         throw Error(`All assets were not released in github releases`);
                 }
@@ -60,8 +60,8 @@ async function release() {
                 printConsoleStatus(`Increasing version number`, 'info');
                 execSync(`npm --no-git-tag-version version patch`);
 
-                printConsoleStatus(`Running npm install`, 'info');
-                execSync(`npm install`);
+                printConsoleStatus(`Remember to run npm install`, 'info');
+                // execSync(`npm install`);
         }
 
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
