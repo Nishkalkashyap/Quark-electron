@@ -46,7 +46,7 @@ export function getLandingPageWindow(): IBrowserWindow {
 
 export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
     const win = new BrowserWindow({
-        backgroundColor: get(mainProcessData, `bgColors.${getHashKeyForProject(HASHED_KEYS.BG_COLOR, projectPath)}`) || '#222428',
+        backgroundColor: get(mainProcessData, `${getHashKeyForProject(HASHED_KEYS.BG_COLOR, projectPath)}`) || '#222428',
         show: true,
         frame: false,
         minHeight: 600,

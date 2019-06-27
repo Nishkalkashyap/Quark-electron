@@ -16,7 +16,7 @@
     "test": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk",
     "qt": "electron . ./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk",
     "pack": "webpack --config webpack.config.js",
-    "link-local": "npm link @quarkjs/api",
+    "link": "npm link @quarkjs/api",
     "lic": "ts-node ./scripts/license.ts",
     "build-quick": "ts-node ./scripts/prepare-assets.ts && npm run pack && npm run lic && ts-node scripts/build.ts",
     "build-common": "npm install && npm run build-quick",
