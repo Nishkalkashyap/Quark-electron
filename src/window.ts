@@ -28,9 +28,13 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
     const promise: Promise<IBrowserWindow> = new Promise((resolve, reject) => {
         let win: IBrowserWindow;
         let showLandingPage: boolean;
-        if (absoluteFilePath == LANDING_PAGE_APP_PATH || !fs.existsSync(absoluteFilePath)) {
+        const exists = fs.existsSync(absoluteFilePath);
+        if (absoluteFilePath == LANDING_PAGE_APP_PATH || !exists) {
             win = getLandingPageWindow();
             showLandingPage = true;
+            if (!exists) {
+                console.log(`File ${absoluteFilePath} does not exists.`);
+            }
         } else {
             win = getDesignerPageWindow(path.resolve(absoluteFilePath));
             showLandingPage = false;

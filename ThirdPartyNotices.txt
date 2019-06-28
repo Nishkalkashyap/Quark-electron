@@ -2625,7 +2625,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @emotion/is-prop-valid@0.7.3
+Package: @emotion/is-prop-valid@0.8.2
 License: MIT
 License Source: README.md
 Source Text: 
@@ -2650,7 +2650,7 @@ isPropValid('someRandomProp') // false
 ----------------------------------------------------------------------------
 
 
-Package: @emotion/unitless@0.7.3
+Package: @emotion/unitless@0.7.4
 License: MIT
 License Source: README.md
 Source Text: 
@@ -3291,7 +3291,7 @@ IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @types/node@10.14.9
+Package: @types/node@10.14.10
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -5784,6 +5784,36 @@ IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
+Package: asar@2.0.1
+License: MIT
+License Source: LICENSE.md
+Source Text: 
+
+Copyright (c) 2014 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
 Package: asn1.js@4.10.1
 License: MIT
 License Source: README.md
@@ -6739,7 +6769,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: babel-plugin-styled-components@1.10.0
+Package: babel-plugin-styled-components@1.10.4
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -9776,6 +9806,148 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
+Package: chromium-pickle-js@0.2.0
+License: MIT
+License Source: README.md
+Source Text: 
+
+# chromium-pickle-js [![Build Status](https://travis-ci.org/electron/node-chromium-pickle-js.svg?branch=master)](https://travis-ci.org/electron/node-chromium-pickle-js)
+
+This module ports Chromium's `Pickle` class to Node, see `Pickle`'s header for
+introduction:
+
+> This class provides facilities for basic binary value packing and unpacking.
+>
+> The Pickle class supports appending primitive values (ints, strings, etc.)
+> to a pickle instance.  The Pickle instance grows its internal memory buffer
+> dynamically to hold the sequence of primitive values.   The internal memory
+> buffer is exposed as the "data" of the Pickle.  This "data" can be passed
+> to a Pickle object to initialize it for reading.
+>
+> When reading from a Pickle object, it is important for the consumer to know
+> what value types to read and in what order to read them as the Pickle does
+> not keep track of the type of data written to it.
+>
+> The Pickle's data has a header which contains the size of the Pickle's
+> payload.  It can optionally support additional space in the header.  That
+> space is controlled by the header_size parameter passed to the Pickle
+> constructor.
+
+## Install
+
+```bash
+$ npm install chromium-pickle-js
+```
+
+## Usage
+
+### createEmpty()
+
+Returns an empty `Pickle` object.
+
+### createFromBuffer(buffer)
+
+* `buffer` Buffer
+
+Returns a `Pickle` object that initialized from a `buffer`. The data is not
+copied so you have to ensure the `buffer` lives when using the Pickle object,
+and you should never modify the Pickle object created this way.
+
+### Pickle.createIterator()
+
+Returns a `PickleIterator` object that can be used to read data from this
+`Pickle` object.
+
+### Pickle.toBuffer()
+
+Returns a `Buffer` object that contains this `Pickle` object's data.
+
+### Pickle.writeBool(value)
+
+Writes `value` to `Pickle` object as `bool`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeInt(value)
+
+Writes `value` to `Pickle` object as `int`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeUInt32(value)
+
+Writes `value` to `Pickle` object as `uint32`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeInt64(value)
+
+Writes `value` to `Pickle` object as `int64`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeUInt64(value)
+
+Writes `value` to `Pickle` object as `uint64`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeFloat(value)
+
+Writes `value` to `Pickle` object as `float`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeDouble(value)
+
+Writes `value` to `Pickle` object as `Double`. Returns `true` when succeeded and
+returns `false` when failed.
+
+### Pickle.writeString(str)
+
+* `str` String
+
+Writes `str` to `Pickle` object. Returns `true` when succeeded and returns
+`false` when failed.
+
+### PickleIterator.readBool()
+
+Returns current value as `bool` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readInt()
+
+Returns current value as `int` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readUInt32()
+
+Returns current value as `uint32` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readInt64()
+
+Returns current value as `int64` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readUInt64()
+
+Returns current value as `uint64` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readFloat()
+
+Returns current value as `float` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readDouble()
+
+Returns current value as `double` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+### PickleIterator.readString()
+
+Returns current value as `String` and seeks to next data. A`TypeError` exception
+would be thrown when failed.
+
+
+----------------------------------------------------------------------------
+
+
 Package: ci-info@1.6.0
 License: MIT
 License Source: LICENSE
@@ -11645,6 +11817,221 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
+Package: cuint@0.2.2
+License: MIT
+License Source: README.md
+Source Text: 
+
+# C-like unsigned integers for Javascript
+
+## Synopsis
+
+Javascript does not natively support handling of unsigned 32 or 64 bits integers. This library provides that functionality, following C behaviour, enabling the writing of algorithms that depend on it. It was designed with performance in mind and tries its best to be as fast as possible. Any improvement is welcome!
+
+
+## How it works
+
+An unsigned 32 bits integer is represented by an object with its first 16 bits (low bits) and its 16 last ones (high bits). All the supported standard operations on the unsigned integer are then performed transparently.
+
+	e.g.
+	10000010000100000100010000100010 (2182104098 or 0x82104422) is represented by:
+	high=1000001000010000
+	low= 0100010000100010
+
+NB.
+In case of overflow, the unsigned integer is _truncated_ to its lowest 32 bits (in case of UINT32) or 64  bits (in case of UINT64).
+
+The same applies to 64 bits integers, which are split into 4 16 bits ones.
+
+## Installation
+
+In nodejs:
+
+    npm install cuint
+
+In the browser, include the following (file is located in the _build_ directory), and access the constructor with _UINT32_:
+
+`<script src="/your/path/to/uint32.js"></script>
+...
+<script type="text/javascript">
+  var v1 = UINT32('326648991');
+  var v2 = UINT32('265443576');
+  var v1plus2 = v1.add(v2) // 592092567
+</script>`
+
+## Usage
+
+To instantiate an unsigned 32 bits integer, do any of the following:
+
+	var UINT32 = require('cuint').UINT32 // NodeJS
+	UINT32( <low bits>, <high bits> )
+	UINT32( <number> )
+	UINT32( '<number>', <radix> ) // radix = 10 by default
+
+To instantiate an unsigned 64 bits integer, do any of the following:
+
+	var UINT64 = require('cuint').UINT64 // NodeJS
+	UINT64( <low bits>, <high bits> )
+	UINT64( <first low bits>, <second low bits>, <first high bits>, <second high bits> )
+	UINT64( <number> )
+	UINT64( '<number>', <radix> ) // radix = 10 by default
+
+## Important
+
+Most methods __do modify__ the object they are applied to. For instance, the following is equivalent to `x += y`
+
+	UINT(x).add( UINT(y) )
+
+This allows for chaining and reduces the cost of the emulation.
+To have `z = x + y`, do the following:
+
+    z = UINT(x).clone().add( UINT(y) )
+
+## Examples for UINT32
+
+* Using low and high bits
+> `UINT32( 2, 1 )		// 65538`
+> { remainder: null, _low: 2, _high: 1 }
+
+* Using a number (signed 32 bits integer)
+> `UINT32( 65538 ) 	// 65538`
+> { remainder: null, _low: 2, _high: 1 }
+
+* Using a string
+> `UINT32( '65538' )	// 65538`
+> { remainder: null, _low: 2, _high: 1 }
+
+* Using another string
+> `UINT32( '3266489917' )`
+> { remainder: null, _low: 44605, _high: 49842 }
+
+* Divide 2 unsigned 32 bits integers - note that the remainder is also provided
+> `UINT32( '3266489917' ).div( UINT32( '668265263' ) )`
+> {	remainder:
+>			{	remainder: null
+>			,	_low: 385
+>			,	_high: 9055
+>			}
+>	,	_low: 4
+>	,	_high: 0
+>	}
+
+## Examples for UINT64
+
+* Using low and high bits
+> `UINT64( 2, 1 )		// 4294967298`
+> { remainder: null, _a00: 2, _a16: 0, _a32: 1, _a48: 0 }
+
+* Using first/second low and high bits
+> `UINT64( 2, 1, 0, 0 )		// 65538`
+> { remainder: null, _a00: 2, _a16: 1, _a32: 0, _a48: 0 }
+
+* Using a number (signed 32 bits integer)
+> `UINT64( 65538 ) 	// 65538`
+> { remainder: null, _a00: 2, _a16: 1, _a32: 0, _a48: 0 }
+
+* Using a string
+> `UINT64( '65538' )	// 65538`
+> { remainder: null, _a00: 2, _a16: 1, _a32: 0, _a48: 0 }
+
+* Using another string
+> `UINT64( '3266489917' )`
+> { remainder: null, _a00: 44605, _a16: 49842, _a32: 0, _a48: 0 }
+
+* Divide 2 unsigned 64 bits integers - note that the remainder is also provided
+> `UINT64( 'F00000000000', 16 ).div( UINT64( '800000000000', 16 ) )`
+> { remainder: 
+>   { remainder: null,
+>     _a00: 0,
+>     _a16: 0,
+>     _a32: 28672,
+>     _a48: 0 },
+>  _a00: 1,
+>  _a16: 0,
+>  _a32: 0,
+>  _a48: 0 }
+
+## Methods
+
+Methods specific to _UINT32_ and _UINT64_:
+
+* `UINT32.fromBits(<low bits>, <high bits>)*`
+Set the current _UINT32_ object with its low and high bits
+* `UINT64.fromBits(<low bits>, <high bits>)*`
+Set the current _UINT64_ object with its low and high bits
+* `UINT64.fromBits(<first low bits>, <second low bits>, <first high bits>, <second high bits>)*`
+Set the current _UINT64_ object with all its low and high bits
+
+Methods common to _UINT32_ and _UINT64_:
+
+* `UINT.fromNumber(<number>)*`
+Set the current _UINT_ object from a number (first 32 bits only)
+* `UINT.fromString(<string>, <radix>)`
+Set the current _UINT_ object from a string
+* `UINT.toNumber()`
+Convert this _UINT_ to a number
+* `UINT.toString(<radix>)`
+Convert this _UINT_ to a string
+* `UINT.add(<uint>)*`
+Add two _UINT_. The current _UINT_ stores the result
+* `UINT.subtract(<uint>)*`
+Subtract two _UINT_. The current _UINT_ stores the result
+* `UINT.multiply(<uint>)*`
+Multiply two _UINT_. The current _UINT_ stores the result
+* `UINT.div(<uint>)*`
+Divide two _UINT_. The current _UINT_ stores the result.
+The remainder is made available as the _remainder_ property on the _UINT_ object.
+It can be null, meaning there are no remainder.
+* `UINT.negate()`
+Negate the current _UINT_
+* `UINT.equals(<uint>)` alias `UINT.eq(<uint>)`
+Equals
+* `UINT.lessThan(<uint>)` alias `UINT.lt(<uint>)`
+Less than (strict)
+* `UINT.greaterThan(<uint>)` alias `UINT.gt(<uint>)`
+Greater than (strict)
+* `UINT.not()`
+Bitwise NOT
+* `UINT.or(<uint>)*`
+Bitwise OR
+* `UINT.and(<uint>)*`
+Bitwise AND
+* `UINT.xor(<uint>)*`
+Bitwise XOR
+* `UINT.shiftRight(<number>)*` alias `UINT.shiftr(<number>)*`
+Bitwise shift right
+* `UINT.shiftLeft(<number>[, <allowOverflow>])*` alias `UINT.shiftl(<number>[, <allowOverflow>])*`
+Bitwise shift left
+* `UINT.rotateLeft(<number>)*` alias `UINT.rotl(<number>)*`
+Bitwise rotate left
+* `UINT.rotateRight(<number>)*` alias `UINT.rotr(<number>)*`
+Bitwise rotate right
+* `UINT.clone()`
+Clone the current _UINT_
+
+NB. methods with an * do __modify__ the object it is applied to. Input objects are not modified.
+
+## TODO
+
+* more methods:
+    * pow
+    * log
+    * sqrt
+    * ...
+* signed version
+
+
+## License
+
+MIT
+
+
+> Written with [StackEdit](https://stackedit.io/).
+
+
+----------------------------------------------------------------------------
+
+
 Package: currently-unhandled@0.4.1
 License: MIT
 License Source: license
@@ -13495,7 +13882,7 @@ Thanks to [Evolve Labs](https://www.evolvehq.com) for donating the npm package n
 ----------------------------------------------------------------------------
 
 
-Package: electron@4.2.4
+Package: electron@4.2.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -13738,7 +14125,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: elliptic@6.4.1
+Package: elliptic@6.5.0
 License: MIT
 License Source: README.md
 Source Text: 
@@ -16986,6 +17373,38 @@ the licensed code:
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
   DEALINGS IN THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: fsevents@1.2.9
+License: MIT
+License Source: LICENSE
+Source Text: 
+
+MIT License
+-----------
+
+Copyright (C) 2010-2014 Philipp Dunkel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -25366,6 +25785,35 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
+Package: needle@2.3.0
+License: MIT
+License Source: license.txt
+Source Text: 
+
+Copyright (c) Fork, Ltd.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
 Package: neo-async@2.6.1
 License: MIT
 License Source: LICENSE
@@ -25704,6 +26152,43 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: node-pre-gyp@0.12.0
+License: BSD-3-Clause
+License Source: LICENSE
+Source Text: 
+
+Copyright (c), Mapbox
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of node-pre-gyp nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ----------------------------------------------------------------------------
@@ -26530,7 +27015,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: npm@6.9.0
+Package: npm@6.9.2
 License: Artistic-2.0
 License Source: LICENSE
 Source Text: 
@@ -30104,7 +30589,7 @@ The complete list of contributors can be found at: https://github.com/hapijs/qs/
 ----------------------------------------------------------------------------
 
 
-Package: quark@0.4.1
+Package: quark@0.4.8
 License: GPL-3.0
 License Source: LICENSE
 Source Text: 
@@ -30787,7 +31272,7 @@ Public License instead of this License.  But first, please read
 ----------------------------------------------------------------------------
 
 
-Package: query-string@6.2.0
+Package: query-string@6.4.0
 License: MIT
 License Source: license
 Source Text: 
@@ -33180,7 +33665,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: sha@2.0.1
+Package: sha@3.0.0
 License: (BSD-2-Clause OR MIT)
 License Source: LICENSE
 Source Text: 
@@ -35121,7 +35606,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: styled-components@4.3.1
+Package: styled-components@4.3.2
 License: MIT
 License Source: README.md
 Source Text: 
@@ -35148,7 +35633,7 @@ Source Text:
 <br />
 
 > ⚠️ **CANARY:** This is the `canary` branch of `styled-components`. It is published under the
-> `@canary` tag on npm and contains new features and changes for the next major version.
+> `@alpha` tag on npm and contains new features and changes for the next major version.
 
 Utilising [tagged template literals](https://www.styled-components.com/docs/advanced#tagged-template-literals) (a recent addition to JavaScript) and the [power of CSS](https://www.styled-components.com/docs/api#supported-css), `styled-components` allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier!
 
@@ -35158,9 +35643,11 @@ _Supported by [Front End Center](https://frontend.center). Thank you for making 
 
 ## Upgrading from v4
 
-1. Update `react`, `react-dom`, and `react-is` to latest versions to enable hooks support
-2. ??
-3. Profit!
+1. `npm install styled-components@alpha react@^16.8 react-dom@^16.8 react-is@^16.8`
+1. ??
+1. Profit!
+
+> Note that integrations like `jest-styled-components` that make use of internals will need to be updated to work with v5 and likely will not work properly during the alpha/beta period.
 
 ## [Docs](https://www.styled-components.com/docs)
 
@@ -36340,6 +36827,324 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: tmp-promise@1.1.0
+License: MIT
+License Source: README.md
+Source Text: 
+
+# tmp-promise
+
+A simple utility for creating temporary files or directories.
+
+The [tmp](https://github.com/raszi/node-tmp) package with promises support. If you want to use `tmp` with `async/await` then this helper might be for you.
+
+This documentation is mostly copied from that package's - but with promise usage instead of callback usage adapted.
+
+## Installation
+
+    npm i tmp-promise
+
+## About
+
+This adds promises support to a [widely used library][2]. This package is used to create temporary files and directories in a [Node.js][1] environment.
+
+tmp-promise offers both an asynchronous and a synchronous API. For all API calls, all
+the parameters are optional.
+
+Internally, tmp uses crypto for determining random file names, or, when using templates, a six letter random identifier. And just in case that you do not have that much entropy left on your system, tmp will fall back to pseudo random numbers.
+
+You can set whether you want to remove the temporary file on process exit or not, and the destination directory can also be set.
+
+tmp-promise also uses promise [disposers](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern) to provide a nice way to perform cleanup when you're done working with the files.
+
+## Usage (API Reference)
+
+### Asynchronous file creation
+
+Simple temporary file creation, the file will be closed and unlinked on process exit.
+
+With Node.js 10 and es - modules:
+
+```js
+import { file } from 'tmp-promise'
+
+(async () => {
+  const {fd, path, cleanup} = await file();
+  // work with file here in fd
+  cleanup();
+})(); 
+```
+
+Or the older way:
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.file().then(o => {  
+  console.log("File: ", o.path);
+  console.log("Filedescriptor: ", o.fd);
+  
+  // If we don't need the file anymore we could manually call cleanup
+  // But that is not necessary if we didn't pass the keep option because the library
+  // will clean after itself.
+  o.cleanup();
+});
+```
+
+Simple temporary file creation with a [disposer](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern):
+
+With Node.js 10 and es - modules:
+
+```js
+import { withFile } from 'tmp-promise'
+
+withFile(async ({path, fd}) => {
+  // when this function returns or throws - release the file 
+  await doSomethingWithFile(db);
+});
+```
+
+Or the older way:
+
+```js
+tmp.withFile(o => {
+  console.log("File: ", o.path);
+  console.log("Filedescriptor: ", o.fd);
+  // the file remains opens until the below promise resolves
+  return somePromiseReturningFn();
+}).then(v => {
+  // file is closed here automatically, v is the value of somePromiseReturningFn
+});
+```
+
+
+### Synchronous file creation
+
+A synchronous version of the above.
+
+```javascript
+var tmp = require('tmp-promise');
+
+var tmpobj = tmp.fileSync();
+console.log("File: ", tmpobj.name);
+console.log("Filedescriptor: ", tmpobj.fd);
+  
+// If we don't need the file anymore we could manually call the removeCallback
+// But that is not necessary if we didn't pass the keep option because the library
+// will clean after itself.
+tmpobj.removeCallback();
+```
+
+Note that this might throw an exception if either the maximum limit of retries
+for creating a temporary name fails, or, in case that you do not have the permission
+to write to the directory where the temporary file should be created in.
+
+### Asynchronous directory creation
+
+Simple temporary directory creation, it will be removed on process exit.
+
+If the directory still contains items on process exit, then it won't be removed.
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.dir().then(o => {
+  console.log("Dir: ", o.path);
+  
+  // Manual cleanup
+  o.cleanup();
+});
+```
+
+If you want to cleanup the directory even when there are entries in it, then
+you can pass the `unsafeCleanup` option when creating it.
+
+You can also use a [disposer](http://stackoverflow.com/questions/28915677/what-is-the-promise-disposer-pattern) here which takes care of cleanup automatically: 
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.withDir(o => {
+  console.log("Dir: ", o.path);
+  
+  // automatic cleanup when the below promise resolves
+  return somePromiseReturningFn(); 
+}).then(v => {
+  // the directory has been cleaned here
+});
+```
+
+### Synchronous directory creation
+
+A synchronous version of the above.
+
+```javascript
+var tmp = require('tmp-promise');
+
+var tmpobj = tmp.dirSync();
+console.log("Dir: ", tmpobj.name);
+// Manual cleanup
+tmpobj.removeCallback();
+```
+
+Note that this might throw an exception if either the maximum limit of retries
+for creating a temporary name fails, or, in case that you do not have the permission
+to write to the directory where the temporary directory should be created in.
+
+### Asynchronous filename generation
+
+It is possible with this library to generate a unique filename in the specified
+directory.
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.tmpName().then(path => {
+    console.log("Created temporary filename: ", path);
+});
+```
+
+### Synchronous filename generation
+
+A synchronous version of the above.
+
+```javascript
+var tmp = require('tmp-promise');
+
+var name = tmp.tmpNameSync();
+console.log("Created temporary filename: ", name);
+```
+
+## Advanced usage
+
+### Asynchronous file creation
+
+Creates a file with mode `0644`, prefix will be `prefix-` and postfix will be `.txt`.
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.file({ mode: 0644, prefix: 'prefix-', postfix: '.txt' }).then(o => {
+  console.log("File: ", o.path);
+  console.log("Filedescriptor: ", o.fd); 
+});
+```
+
+### Synchronous file creation
+
+A synchronous version of the above.
+
+```javascript
+var tmp = require('tmp-promise');
+
+var tmpobj = tmp.fileSync({ mode: 0644, prefix: 'prefix-', postfix: '.txt' });
+console.log("File: ", tmpobj.name);
+console.log("Filedescriptor: ", tmpobj.fd);
+```
+
+### Asynchronous directory creation
+
+Creates a directory with mode `0755`, prefix will be `myTmpDir_`.
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.dir({ mode: 0750, prefix: 'myTmpDir_' }).then(o => {
+  console.log("Dir: ", o.path);
+});
+```
+
+### Synchronous directory creation
+
+Again, a synchronous version of the above.
+
+```javascript
+var tmp = require('tmp-promise');
+
+var tmpobj = tmp.dirSync({ mode: 0750, prefix: 'myTmpDir_' });
+console.log("Dir: ", tmpobj.name);
+```
+
+
+### mkstemp like, asynchronously
+
+Creates a new temporary directory with mode `0700` and filename like `/tmp/tmp-nk2J1u`.
+
+```javascript
+var tmp = require('tmp-promise');
+tmp.dir({ template: '/tmp/tmp-XXXXXX' }).then(console.log);
+```
+
+
+### mkstemp like, synchronously
+
+This will behave similarly to the asynchronous version.
+
+```javascript
+var tmp = require('tmp-promise');
+
+var tmpobj = tmp.dirSync({ template: '/tmp/tmp-XXXXXX' });
+console.log("Dir: ", tmpobj.name);
+```
+
+### Asynchronous filename generation
+
+The `tmpName()` function accepts the `prefix`, `postfix`, `dir`, etc. parameters also:
+
+```javascript
+var tmp = require('tmp-promise');
+
+tmp.tmpName({ template: '/tmp/tmp-XXXXXX' }).then(path =>
+    console.log("Created temporary filename: ", path);
+);
+```
+
+### Synchronous filename generation
+
+The `tmpNameSync()` function works similarly to `tmpName()`.
+
+```javascript
+var tmp = require('tmp-promise');
+var tmpname = tmp.tmpNameSync({ template: '/tmp/tmp-XXXXXX' });
+console.log("Created temporary filename: ", tmpname);
+```
+
+
+## Graceful cleanup
+
+One may want to cleanup the temporary files even when an uncaught exception
+occurs. To enforce this, you can call the `setGracefulCleanup()` method:
+
+```javascript
+var tmp = require('tmp');
+
+tmp.setGracefulCleanup();
+```
+
+## Options
+
+All options are optional :)
+
+  * `mode`: the file mode to create with, it fallbacks to `0600` on file creation and `0700` on directory creation
+  * `prefix`: the optional prefix, fallbacks to `tmp-` if not provided
+  * `postfix`: the optional postfix, fallbacks to `.tmp` on file creation
+  * `template`: [`mkstemp`][3] like filename template, no default
+  * `dir`: the optional temporary directory, fallbacks to system default (guesses from environment)
+  * `tries`: how many times should the function try to get a unique filename before giving up, default `3`
+  * `keep`: signals that the temporary file or directory should not be deleted on exit, default is `false`, means delete
+    * Please keep in mind that it is recommended in this case to call the provided `cleanupCallback` function manually.
+  * `unsafeCleanup`: recursively removes the created temporary directory, even when it's not empty. default is `false`
+
+
+
+[1]: http://nodejs.org/
+[2]: https://www.npmjs.com/browse/depended/tmp
+[3]: http://www.kernel.org/doc/man-pages/online/pages/man3/mkstemp.3.html
 
 
 ----------------------------------------------------------------------------
@@ -39002,7 +39807,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: webpack@4.34.0
+Package: webpack@4.35.0
 License: MIT
 License Source: LICENSE
 Source Text: 
