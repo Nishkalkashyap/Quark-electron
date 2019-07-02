@@ -64,6 +64,7 @@ UserInterfaceState.xcuserstate
 *.build.qrk
 *.store.qrk
 *.asar.qrk
+*.pack.qrk
 *.qrk.asar
 dev-assets/bills
 index.js

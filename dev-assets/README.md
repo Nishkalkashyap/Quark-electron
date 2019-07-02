@@ -4,6 +4,7 @@
 # when you rename a typescript file, make sure to change path in definitions.   
 add typescript alias for @project/ -->
 <!-- add new file context menu on file manager right click -->
+<!-- fix cannot open asar file error. Opening opens landing page -->
 
 ## Do not delete vscode-language-services.
 needed by vue language
