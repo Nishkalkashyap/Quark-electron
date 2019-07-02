@@ -8,7 +8,7 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "install": "npm install @quarkjs/api@latest",
+    "install": "npm install @quarkjs/api@latest && npm list @quarkjs/api",
     "land": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron .",
     "ql": "npm run pack && electron .",
     "start": "ts-node ./scripts/prepare-assets.ts && npm run pack && electron . ./start.qrk",
@@ -92,7 +92,7 @@
   "devDependencies": {
     "@google-cloud/storage": "^2.5.0",
     "@octokit/rest": "^16.28.2",
-    "@quarkjs/api": "^0.1.9",
+    "@quarkjs/api": "^0.1.10",
     "@types/auto-launch": "^5.0.1",
     "@types/chart.js": "^2.7.54",
     "@types/dotenv": "^6.1.1",
