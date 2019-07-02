@@ -55,7 +55,7 @@ function exitTest() {
             const fileData = fs.readFileSync('./test/__testResults__/test-logs.txt').toString();
             console.log(fileData);
             
-            if (fileData.match(/\[error\]/)) {
+            if (fileData.match(/(\[error\]|UnhandledPromiseRejectionWarning)/)) {
                 throw Error('Test Failed');
             }
             
