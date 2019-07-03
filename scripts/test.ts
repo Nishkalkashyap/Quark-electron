@@ -54,11 +54,12 @@ function exitTest() {
         if (result.value == true) {
             const fileData = fs.readFileSync('./test/__testResults__/test-logs.txt').toString();
             console.log(fileData);
-            
+
             if (fileData.match(/(\[error\]|UnhandledPromiseRejectionWarning)/)) {
+                printConsoleStatus('Test Failed', 'danger');
                 throw Error('Test Failed');
             }
-            
+
             printConsoleStatus('Test successful', 'success');
             process.exit(0);//required
         }
