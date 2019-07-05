@@ -38,29 +38,28 @@ steps:
 - bash: cp $(Agent.TempDirectory)/code-sign.p12 ./dev-assets/code-sign.p12
 - bash: cp $(Agent.TempDirectory)/prod.env ./dev-assets/prod.env
 
-# - script: |
-#     npm install
-#   displayName: 'npm install'
+- script: |
+    npm install
+  displayName: 'npm install'
 
-# - script: sudo apt-get update && sudo apt-get install libgconf-2-4 -y
-#   displayName: Install dependency
+- script: sudo apt-get update && sudo apt-get install libgconf-2-4 -y
+  displayName: Install dependency
 
 # - script: |
 #     export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3
 #   displayName: 'Initialize XVFB'
 
 - script: |
-    # npm run build-ci
-    node -e 'console.log(process.env)'
+    npm run build-ci
   displayName: 'Build'
   env:
     CI : true
 
-# - script: |
-#     xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' npm run test-ci
-#   displayName: 'Test'
+- script: |
+    xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' npm run test-ci
+  displayName: 'Test'
 
-# - script: |
-#     npm run upload-ci
-#   displayName: 'Upload'
+- script: |
+    npm run upload-ci
+  displayName: 'Upload'
 

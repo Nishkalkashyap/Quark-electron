@@ -21,7 +21,7 @@ export type branches = 'master' | 'master-all';
 export type storageUrl = 'https://quark-release.quarkjs.io' | 'https://quark-builds.quarkjs.io';
 export type bucketName = 'quark-release.quarkjs.io' | 'quark-builds.quarkjs.io' | 'quark-build-assets';
 
-export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || process.env['Build.SourceBranchName'] || getCurrentBranch() as any;
+export const currentBranch: branches = process.env.APPVEYOR_REPO_BRANCH || process.env.TRAVIS_BRANCH || process.env['BUILD_SOURCEBRANCHNAME'] || getCurrentBranch() as any;
 export const gitFilePath = './git-commit.txt';
 export const wwwOutPath = './buildResources/www.tar.gz';
 
