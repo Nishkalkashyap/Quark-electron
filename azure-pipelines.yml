@@ -43,9 +43,12 @@ steps:
     npm install
   displayName: 'npm install'
 
-- script: |
-    export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3
-  displayName: 'Initialize XVFB'
+- script: sudo apt-get update && sudo apt-get install libgconf-2-4 -y
+  displayName: Install dependency
+
+# - script: |
+#     export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3
+#   displayName: 'Initialize XVFB'
 
 - script: |
     npm run build-ci
@@ -54,7 +57,7 @@ steps:
     CI : true
 
 - script: |
-    npm run test-ci
+    xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' npm run test-ci
   displayName: 'Test'
 
 - script: |
