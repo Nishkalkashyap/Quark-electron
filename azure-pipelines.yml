@@ -35,6 +35,10 @@ steps:
     secureFile: 'prod.env'
 
 - bash: ls $(Agent.TempDirectory)
+- bash: ls ./
+- bash: cp $(Agent.TempDirectory)/cloud-storage-key.json ./dev-assets/cloud-storage-key.json
+- bash: cp $(Agent.TempDirectory)/code-sign.p12 ./dev-assets/code-sign.p12
+- bash: cp $(Agent.TempDirectory)/prod.env ./dev-assets/prod.env
 
 - script: |
     npm install
