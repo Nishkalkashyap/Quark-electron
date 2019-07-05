@@ -22,6 +22,20 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'cloud-storage-key.json'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'code-sign.p12'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'prod.env'
+
+- bash: ls $(Agent.TempDirectory)
+
 - script: |
     npm install
   displayName: 'npm install'
