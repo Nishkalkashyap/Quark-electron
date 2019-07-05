@@ -12,7 +12,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: sudo apt-get install gcc-multilib g++-multilib libgnome-keyring-dev icnsutils graphicsmagick xz-utils rpm bsdtar snapd
+# - bash: sudo apt-get install gcc-multilib g++-multilib libgnome-keyring-dev icnsutils graphicsmagick xz-utils rpm bsdtar snapd
 # - bash: openssl aes-256-cbc -in ./dev-assets/azure-secrets.tar.enc -out ./dev-assets/azure-secrets.tar -k $(DECRYPT_KEY)
 # - bash: file ./dev-assets/azure-secrets.tar
 # - bash: tar xvf ./dev-assets/azure-secrets.tar -C ./dev-assets
@@ -37,30 +37,30 @@ steps:
 - bash: cp $(Agent.TempDirectory)/cloud-storage-key.json ./dev-assets/cloud-storage-key.json
 - bash: cp $(Agent.TempDirectory)/code-sign.p12 ./dev-assets/code-sign.p12
 - bash: cp $(Agent.TempDirectory)/prod.env ./dev-assets/prod.env
-- bash: ls ./dev-assets
 
-- script: |
-    npm install
-  displayName: 'npm install'
+# - script: |
+#     npm install
+#   displayName: 'npm install'
 
-- script: sudo apt-get update && sudo apt-get install libgconf-2-4 -y
-  displayName: Install dependency
+# - script: sudo apt-get update && sudo apt-get install libgconf-2-4 -y
+#   displayName: Install dependency
 
 # - script: |
 #     export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3
 #   displayName: 'Initialize XVFB'
 
 - script: |
-    npm run build-ci
+    # npm run build-ci
+    node -e 'console.log(process.env)'
   displayName: 'Build'
   env:
     CI : true
 
-- script: |
-    xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' npm run test-ci
-  displayName: 'Test'
+# - script: |
+#     xvfb-run --auto-servernum --server-args='-screen 0, 1600x900x24' npm run test-ci
+#   displayName: 'Test'
 
-- script: |
-    npm run upload-ci
-  displayName: 'Upload'
+# - script: |
+#     npm run upload-ci
+#   displayName: 'Upload'
 
