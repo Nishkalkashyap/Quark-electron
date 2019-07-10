@@ -4,7 +4,7 @@ import * as fs from 'fs-extra';
 dotenv.config({ path: './dev-assets/prod.env' });
 
 const s3 = new AWS.S3({
-    endpoint: `https://quark-release.sfo2.digitaloceanspaces.com`,
+    endpoint: `https://sfo2.digitaloceanspaces.com`,
     accessKeyId: process.env.DIGITAL_OCEAN_ACCESS_KEY,
     secretAccessKey: process.env.DIGITAL_OCEAN_SECRET_KEY
 });
@@ -13,7 +13,6 @@ const s3 = new AWS.S3({
 export function uploadFileToSpace(path: string, Key: string) {
     var params = {
         Body: fs.readFileSync(path),
-        // Bucket: bucketName.replace('.quarkjs.io', ''),
         Bucket: 'quark-release',
         Key,
     };
