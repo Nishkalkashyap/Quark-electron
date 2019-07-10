@@ -1,6 +1,7 @@
 import * as AWS from 'aws-sdk';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs-extra';
+import { currentBranch } from './util';
 dotenv.config({ path: './dev-assets/prod.env' });
 
 const s3 = new AWS.S3({
@@ -13,6 +14,8 @@ const Bucket = `quark-release`;
 
 // uploadFileToSpace('./package.json', 'Quark/package.json');
 export function uploadFileToSpace(path: string, Key: string) {
+    if (currentBranch == 'master') return;
+
     var params = {
         Body: fs.readFileSync(path),
         Bucket,
@@ -25,8 +28,9 @@ export function uploadFileToSpace(path: string, Key: string) {
 }
 
 // doSpaceTransfer('Quark-master-0.5.2', 'stable').then(console.log).catch(console.error)
-
 export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
+    if (currentBranch == 'master') return;
+
     const objects = await s3.listObjectsV2({ Bucket }).promise();
     const promises = objects.Contents.map(async (file) => {
         if (!file.Key.includes(folderFrom)) {
