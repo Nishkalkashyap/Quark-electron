@@ -5,6 +5,7 @@ import * as path from 'path';
 import { Storage, File } from '@google-cloud/storage';
 import request = require('request');
 import { printConsoleStatus } from 'print-console-status';
+import { uploadFileToSpace } from './digital-ocean-transfer';
 export { printConsoleStatus } from 'print-console-status';
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 
@@ -67,6 +68,7 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
         if (fs.existsSync(_path)) {
             const fileName = `Quark-${version}/${path.basename(_path)}`;
             const file = storage.bucket(bucketName).file(fileName);
+            uploadFileToSpace(_path, fileName);
             fs.createReadStream(_path)
                 .pipe(file.createWriteStream())
                 .on('error', function (err) {
