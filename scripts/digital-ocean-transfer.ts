@@ -49,6 +49,8 @@ export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
 
 // cleanSpace('stable', /(blockmap)/).then(console.log).catch(console.error);
 export async function cleanSpace(dirName: string, ignores: RegExp) {
+    if (currentBranch == 'master') return;
+    
     const allFiles = await s3.listObjectsV2({ Bucket }).promise();
     const filesToDelete : PromiseResult<AWS.S3.DeleteObjectOutput, AWS.AWSError>[] = [];
     const promises = allFiles.Contents.map(async (file) => {

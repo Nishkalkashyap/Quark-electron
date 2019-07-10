@@ -5,7 +5,7 @@ import * as path from 'path';
 import { Storage, File } from '@google-cloud/storage';
 import request = require('request');
 import { printConsoleStatus } from 'print-console-status';
-import { uploadFileToSpace } from './digital-ocean-transfer';
+import { uploadFileToSpace, doSpaceTransfer, cleanSpace } from './digital-ocean-transfer';
 export { printConsoleStatus } from 'print-console-status';
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './dev-assets/cloud-storage-key.json';
 
@@ -68,7 +68,9 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
         if (fs.existsSync(_path)) {
             const fileName = `Quark-${version}/${path.basename(_path)}`;
             const file = storage.bucket(bucketName).file(fileName);
+            
             uploadFileToSpace(_path, fileName);
+            
             fs.createReadStream(_path)
                 .pipe(file.createWriteStream())
                 .on('error', function (err) {
@@ -96,6 +98,9 @@ export function uploadFilesToBucket(bucketName: bucketName, version: number | st
 
 export async function cleanDirectory(bucketName: string, dirName: string, ignores: RegExp) {
     printConsoleStatus(`Removing contents from bucket: ${bucketName}/${dirName}`, 'info');
+
+    cleanSpace(dirName, ignores);
+
     const folders = await storage.bucket(bucketName).getFiles();
     const filesToDelete: Promise<[request.Response]>[] = [];
     folders.filter((folder) => {
@@ -116,6 +121,8 @@ export async function cleanDirectory(bucketName: string, dirName: string, ignore
 
 export async function doBucketTransfer(copyFromBucket: bucketName, copyToBucket: bucketName, folderFrom: string, folderTo: string, makePublic: boolean) {
     printConsoleStatus(`Transferring contents from bucket: ${copyFromBucket}/${folderFrom} to ${copyToBucket}/${folderTo};`, 'info');
+
+    doSpaceTransfer(folderFrom, folderTo);
 
     const folders = await storage.bucket(copyFromBucket).getFiles();
     const destBucket = storage.bucket(copyToBucket);
