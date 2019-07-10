@@ -2,6 +2,7 @@ import * as AWS from 'aws-sdk';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs-extra';
 import { currentBranch } from './util';
+import { PromiseResult } from 'aws-sdk/lib/request';
 dotenv.config({ path: './dev-assets/prod.env' });
 
 const s3 = new AWS.S3({
@@ -42,6 +43,24 @@ export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
             CopySource: `${Bucket}/${file.Key}`,
             Key: `${folderTo}${file.Key.replace(objects.Prefix, '').replace(folderFrom, '')}`,
         }).promise();
+    });
+    return await Promise.all(promises);
+}
+
+// cleanSpace('stable', /(blockmap)/).then(console.log).catch(console.error);
+export async function cleanSpace(dirName: string, ignores: RegExp) {
+    const allFiles = await s3.listObjectsV2({ Bucket }).promise();
+    const filesToDelete : PromiseResult<AWS.S3.DeleteObjectOutput, AWS.AWSError>[] = [];
+    const promises = allFiles.Contents.map(async (file) => {
+        if (file.Key.startsWith(dirName)) {
+            const canDeleteFile = !file.Key.match(ignores);
+            if (canDeleteFile) {
+                filesToDelete.push(await s3.deleteObject({
+                    Bucket,
+                    Key : file.Key,
+                }).promise());
+            }
+        }
     });
     return await Promise.all(promises);
 }
