@@ -39,6 +39,7 @@ export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
         return await s3.copyObject({
             Bucket,
             CopySource: `${Bucket}/${file.Key}`,
+            ACL: 'public-read',
             Key: `${folderTo}${file.Key.replace(objects.Prefix, '').replace(folderFrom, '')}`,
         }).promise();
     });
@@ -48,14 +49,14 @@ export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
 // cleanSpace('stable', /(blockmap)/).then(console.log).catch(console.error);
 export async function cleanSpace(dirName: string, ignores: RegExp) {
     const allFiles = await s3.listObjectsV2({ Bucket }).promise();
-    const filesToDelete : PromiseResult<AWS.S3.DeleteObjectOutput, AWS.AWSError>[] = [];
+    const filesToDelete: PromiseResult<AWS.S3.DeleteObjectOutput, AWS.AWSError>[] = [];
     const promises = allFiles.Contents.map(async (file) => {
         if (file.Key.startsWith(dirName)) {
             const canDeleteFile = !file.Key.match(ignores);
             if (canDeleteFile) {
                 filesToDelete.push(await s3.deleteObject({
                     Bucket,
-                    Key : file.Key,
+                    Key: file.Key,
                 }).promise());
             }
         }
