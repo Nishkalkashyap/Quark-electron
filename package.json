@@ -138,6 +138,7 @@
     "progress-stream": "^2.0.0",
     "sharp": "^0.22.1",
     "single-line-log": "^1.1.2",
+    "spectron": "^7.0.0",
     "table": "^5.4.1",
     "tar": "^4.4.10",
     "ts-node": "^8.3.0",
