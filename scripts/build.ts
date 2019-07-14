@@ -178,6 +178,7 @@ builder.build({
             //         arch: ['x64']
             //     }
             // ]),
+            forceCodeSigning: true,
             "darkModeSupport": true
         },
 
