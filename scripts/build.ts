@@ -154,7 +154,7 @@ builder.build({
             // target: 'default',
             // category: 'public.app-category.utilities',
             category: 'public.app-category.developer-tools',
-            target: filterCI([
+            target: filterCIMacOS([
                 {
                     target: 'default',
                     arch: ['x64']
@@ -214,7 +214,7 @@ builder.build({
     }
 });
 
-function filterCI(arr: builder.TargetConfiguration[]) {
+function filterCI<T>(arr: builder.TargetConfiguration[]): builder.TargetConfigType {
     const isMaster = currentBranch == 'master';
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
@@ -226,7 +226,22 @@ function filterCI(arr: builder.TargetConfiguration[]) {
         }
 
         return true;
-    }) as builder.TargetConfigType
+    });
+}
+
+function filterCIMacOS(arr: builder.TargetConfiguration[]): builder.TargetConfiguration[] {
+    const isMaster = currentBranch == 'master';
+    return arr.filter((val) => {
+        if (process.env.CI && isMaster) {
+            return val.target.match(/(nsis|AppImage|yml|dmg)$/);
+        }
+
+        if (!process.env.CI) {
+            return val.target.match(/(nsis|AppImage|yml)$/);
+        }
+
+        return true;
+    });
 }
 
 
