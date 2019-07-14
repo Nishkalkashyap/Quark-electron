@@ -154,24 +154,24 @@ builder.build({
             // target: 'default',
             // category: 'public.app-category.utilities',
             category: 'public.app-category.developer-tools',
-            // target: filterCI([
-            //     {
-            //         target: 'default',
-            //         arch: ['x64']
-            //     },
-            //     {
-            //         target: 'dmg',
-            //         arch: ['x64']
-            //     },
-            //     {
-            //         target: 'pkg',
-            //         arch: ['x64']
-            //     },
-            //     {
-            //         target: 'zip',
-            //         arch: ['x64']
-            //     }
-            // ]),
+            target: filterCI([
+                {
+                    target: 'default',
+                    arch: ['x64']
+                },
+                {
+                    target: 'dmg',
+                    arch: ['x64']
+                },
+                {
+                    target: 'pkg',
+                    arch: ['x64']
+                },
+                {
+                    target: 'zip',
+                    arch: ['x64']
+                }
+            ]),
             "darkModeSupport": true
         },
 
