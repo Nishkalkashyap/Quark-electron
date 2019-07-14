@@ -198,24 +198,24 @@ builder.build({
         //     printConsoleStatus('\n\nBuild Started', 'success');
         //     printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
         // },
-        afterSign: (c) => {
-            // printConsoleStatus('\n\nApplication Signed', 'success');
-        },
-        afterPack: (c) => {
-            // printConsoleStatus('\n\nApplication packaged', 'success');
-            // printConsoleStatus('MetaData:', 'success');
-            // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
-            // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
-            // printConsoleStatus(`Arch: ${c.arch}`, 'info');
-        },
-        afterAllArtifactBuild: async (c) => {
-            // printConsoleStatus('\n\nAll artifacts built', 'success');
-            // printConsoleStatus(`${c.artifactPaths.join(' ')}`, 'info');
-            // printConsoleStatus(`Outdir: ${c.outDir}`, 'info');
+        // afterSign: (c) => {
+        //     // printConsoleStatus('\n\nApplication Signed', 'success');
+        // },
+        // afterPack: (c) => {
+        //     // printConsoleStatus('\n\nApplication packaged', 'success');
+        //     // printConsoleStatus('MetaData:', 'success');
+        //     // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
+        //     // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
+        //     // printConsoleStatus(`Arch: ${c.arch}`, 'info');
+        // },
+        // afterAllArtifactBuild: async (c) => {
+        //     // printConsoleStatus('\n\nAll artifacts built', 'success');
+        //     // printConsoleStatus(`${c.artifactPaths.join(' ')}`, 'info');
+        //     // printConsoleStatus(`Outdir: ${c.outDir}`, 'info');
 
-            // printConsoleStatus('\n\nBuild Success', 'success');
-            return []
-        }
+        //     // printConsoleStatus('\n\nBuild Success', 'success');
+        //     return []
+        // }
     }
 });
 
