@@ -44,8 +44,8 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_56d791a64072_key -iv $encrypted_56d791a64072_iv
   -in ./dev-assets/travis-secrets.tar.enc -out ./dev-assets/travis-secrets.tar -d
 - tar xvf ./dev-assets/travis-secrets.tar -C ./dev-assets
-- if [ "$TRAVIS_OS_NAME" == "linux" ]; then base64 ./dev-assets/code-sign.p12 > ./dev-assets/envValue.txt;
-  fi
+# - if [ "$TRAVIS_OS_NAME" == "linux" ]; then base64 ./dev-assets/mac-code-sign.p12 > ./dev-assets/envValue.txt;
+#   fi
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then base64 -i ./dev-assets/mac-code-sign.p12
   -o ./dev-assets/envValue.txt; fi
 - "if [ $TRAVIS_BRANCH == \"master\" ] || [ $TRAVIS_BRANCH == \"master-all\" ]; then\n
