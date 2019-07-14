@@ -3,13 +3,14 @@ import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch } from './util';
 
-if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
+// if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
+if ((currentBranch == 'master-all' && process.env.CI)) {
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
-if (process.platform == 'darwin') {
-    process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
-}
+// if (process.platform == 'darwin') {
+//     process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
+// }
 
 // if (os.platform() == 'linux') {
 //     process.env.DEBUG = 'electron-builder';
@@ -97,7 +98,7 @@ builder.build({
                 //     arch: ['x64']
                 // }
             ]),
-            forceCodeSigning: !!process.env.CSC_LINK,
+            forceCodeSigning: !!process.env.WIN_CSC_LINK,
             publisherName: 'Nishkal'
         },
         nsis: {

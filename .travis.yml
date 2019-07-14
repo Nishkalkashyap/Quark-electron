@@ -25,9 +25,9 @@ matrix:
     env:
     - ELECTRON_CACHE=$HOME/.cache/electron
     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-  allow_failures:
-  - os: osx
-  fast_finish: true
+  # allow_failures:
+  # - os: osx
+  # fast_finish: true
 addons:
   apt:
     packages:
@@ -46,8 +46,8 @@ before_install:
 - tar xvf ./dev-assets/travis-secrets.tar -C ./dev-assets
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then base64 ./dev-assets/code-sign.p12 > ./dev-assets/envValue.txt;
   fi
-# - if [ "$TRAVIS_OS_NAME" == "osx" ]; then base64 -i ./dev-assets/code-sign.p12 -o
-#   ./dev-assets/envValue.txt; fi
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then base64 -i ./dev-assets/mac-code-sign.p12
+  -o ./dev-assets/envValue.txt; fi
 - "if [ $TRAVIS_BRANCH == \"master\" ] || [ $TRAVIS_BRANCH == \"master-all\" ]; then\n
   \   export QUARK_RUN_BUILD=true;\n  else \n    export QUARK_RUN_BUILD=false;\nfi\n"
 - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ $QUARK_RUN_BUILD == "true" ]; then sudo
