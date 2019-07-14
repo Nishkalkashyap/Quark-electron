@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch } from './util';
 
 // if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
-if ((currentBranch == 'master-all' && process.env.CI)) {
+if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'darwin') {
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
