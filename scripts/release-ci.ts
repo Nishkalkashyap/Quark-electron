@@ -38,7 +38,7 @@ async function release() {
                 // github-hooks
                 const currentGithubRelease = await getCurrentReleaseForBranch('master-all');
                 const assets = await getAssetsForCurrentRelease(currentGithubRelease.id);
-                if (assets.data.length != 10) {
+                if (assets.data.length != 14) {
                         printConsoleStatus(`All assets were not released in github releases`, 'danger');
                         throw Error(`All assets were not released in github releases`);
                 }
