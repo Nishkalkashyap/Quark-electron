@@ -2,8 +2,13 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch } from './util';
+
 if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
     dotenv.config({ path: './dev-assets/prod.env' });
+}
+
+if ((currentBranch == 'master') && process.platform == 'darwin') {
+    process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
 }
 
 // if (os.platform() == 'linux') {
