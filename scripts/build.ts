@@ -177,8 +177,7 @@ builder.build({
             //         arch: ['x64']
             //     }
             // ]),
-            "darkModeSupport": true,
-            forceCodeSigning: !!process.env.CSC_LINK
+            "darkModeSupport": true
         },
 
 
