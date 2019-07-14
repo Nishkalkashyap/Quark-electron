@@ -51,8 +51,8 @@ export function getFilesToUpload(version: number, type: typeof process.platform)
         return [
             `./build/Quark-mac-${version}.dmg`,
             `./build/Quark-mac-${version}.dmg.blockmap`,
-            `./build/Quark-mac-${version}.pkg`,
-            `./build/in.nishkal.plist`,
+            // `./build/Quark-mac-${version}.pkg`,
+            // `./build/in.nishkal.plist`,
             `./build/latest-mac.yml`
         ];
     }
