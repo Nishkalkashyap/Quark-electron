@@ -151,28 +151,29 @@ builder.build({
 
 
         mac: {
-            // target: 'default',
             // category: 'public.app-category.utilities',
             category: 'public.app-category.developer-tools',
-            target: filterCIMacOS([
-                {
-                    target: 'default',
-                    arch: ['x64']
-                },
-                {
-                    target: 'dmg',
-                    arch: ['x64']
-                },
-                {
-                    target: 'pkg',
-                    arch: ['x64']
-                },
-                {
-                    target: 'zip',
-                    arch: ['x64']
-                }
-            ]),
-            "darkModeSupport": true
+            target: 'default',//no need of other
+            // target: filterCIMacOS([
+            //     {
+            //         target: 'default',
+            //         arch: ['x64']
+            //     },
+            //     {
+            //         target: 'dmg',
+            //         arch: ['x64']
+            //     },
+            //     {
+            //         target: 'pkg',
+            //         arch: ['x64']
+            //     },
+            //     {
+            //         target: 'zip',
+            //         arch: ['x64']
+            //     }
+            // ]),
+            "darkModeSupport": true,
+            forceCodeSigning: !!process.env.CSC_LINK
         },
 
 
