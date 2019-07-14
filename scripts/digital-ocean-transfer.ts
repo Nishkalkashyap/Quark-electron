@@ -17,10 +17,11 @@ const Bucket = `quark-release`;
 export function uploadFileToSpace(path: string, Key: string) {
     if (currentBranch == 'master') return;
 
-    var params = {
+    var params: AWS.S3.PutObjectRequest = {
         Body: fs.readFileSync(path),
         Bucket,
         Key,
+        CacheControl: getCacheControlForFile(path)
     };
     s3.putObject(params, function (err, data) {
         if (err) console.error(err, err.stack);
@@ -41,6 +42,7 @@ export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
             CopySource: `${Bucket}/${file.Key}`,
             ACL: 'public-read',
             Key: `${folderTo}${file.Key.replace(objects.Prefix, '').replace(folderFrom, '')}`,
+            CacheControl: getCacheControlForFile(file.Key),
         }).promise();
     });
     return await Promise.all(promises);
@@ -62,4 +64,12 @@ export async function cleanSpace(dirName: string, ignores: RegExp) {
         }
     });
     return await Promise.all(promises);
+}
+
+function getCacheControlForFile(file: string): string | undefined {
+    if (file.match(/\.(yml)$/)) {
+        return `public, max-age=${0}`
+    }
+
+    return undefined;
 }
