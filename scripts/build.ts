@@ -7,7 +7,7 @@ if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'dar
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
-if ((currentBranch == 'master') && process.platform == 'darwin') {
+if (process.platform == 'darwin') {
     process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
 }
 
