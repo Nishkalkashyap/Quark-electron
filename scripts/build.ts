@@ -189,7 +189,9 @@ builder.build({
             //     }
             // ]),
             forceCodeSigning: true,
-            "darkModeSupport": true
+            "darkModeSupport": true,
+
+            hardenedRuntime : true
         },
 
 
