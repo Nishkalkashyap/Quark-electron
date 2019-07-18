@@ -4,7 +4,7 @@ import * as path from 'path';
 import { getFilesToUpload, currentBranch, wwwOutPath } from './util';
 import * as mime from 'mime-types';
 import { printConsoleStatus } from 'print-console-status';
-import { packageJson, octokit, owner, repo, tag_name, getCurrentReleaseForBranch, deleteRelease } from './github-release-assets';
+import { packageJson, octokit, owner, repo, tag_name, getCurrentReleaseForBranch } from './github-release-assets';
 
 const files = getFilesToUpload(packageJson.version, process.platform).concat(wwwOutPath);
 root()
@@ -21,12 +21,10 @@ async function root() {
 
     let release: Octokit.ReposListReleasesResponseItem[] | Octokit.ReposCreateReleaseResponse;
     if (currentReleaseExists) {
-        // release = currentReleaseExists;
-        const deletingRelease = await deleteRelease(currentReleaseExists.id);
-        console.log(deletingRelease);
+        release = currentReleaseExists;
+    } else {
+        release = (await createRelease()).data;
     }
-
-    release = (await createRelease()).data;
 
 
     if (!release.draft) {
