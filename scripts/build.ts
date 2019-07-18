@@ -38,7 +38,7 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!dist",
     "!build",
     "!.vscode",
-    "!definitions",
+    // "!definitions",
     "!release",
     "!dev-assets",
     "!scripts",
@@ -193,12 +193,12 @@ builder.build({
             provider: 'generic',
             url: 'https://quark-release.quarkjs.io/stable'
         },
-        // extraResources: [
-        //     {
-        //         from: 'definitions',
-        //         to: 'definitions'
-        //     }
-        // ],
+        extraResources: [
+            {
+                from: 'definitions',
+                to: 'definitions'
+            }
+        ],
 
         // artifactBuildStarted: (c) => {
         //     printConsoleStatus('\n\nBuild Started', 'success');
