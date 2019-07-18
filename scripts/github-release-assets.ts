@@ -28,12 +28,12 @@ export async function updateRelease(params: Octokit.ReposUpdateReleaseParams) {
 }
 
 
-export async function deleteRelease(params: Octokit.ReposDeleteReleaseParams) {
-    console.log(params);
-    return await octokit.repos.deleteRelease(Object.assign(params, {
+export async function deleteRelease(id: number) {
+    return await octokit.repos.deleteRelease({
         owner,
-        repo
-    }));
+        repo,
+        release_id: id
+    });
 }
 
 export async function getCurrentReleaseForBranch(branch: branches) {

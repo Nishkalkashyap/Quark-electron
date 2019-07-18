@@ -22,7 +22,7 @@ async function root() {
     let release: Octokit.ReposListReleasesResponseItem[] | Octokit.ReposCreateReleaseResponse;
     if (currentReleaseExists) {
         // release = currentReleaseExists;
-        const deletingRelease = await deleteRelease(currentReleaseExists as any);
+        const deletingRelease = await deleteRelease(currentReleaseExists.id);
         console.log(deletingRelease);
     }
 
