@@ -8,9 +8,9 @@ if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'da
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
-// if (process.platform == 'darwin') {
-//     process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
-// }
+if (process.platform == 'darwin') {
+    process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
+}
 
 // if (os.platform() == 'linux') {
 //     process.env.DEBUG = 'electron-builder';
