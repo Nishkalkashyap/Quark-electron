@@ -5,13 +5,30 @@ import { currentBranch } from './util';
 import { PromiseResult } from 'aws-sdk/lib/request';
 dotenv.config({ path: './dev-assets/prod.env' });
 
+const endpoint = `https://sfo2.digitaloceanspaces.com`;
 const s3 = new AWS.S3({
-    endpoint: `https://sfo2.digitaloceanspaces.com`,
+    endpoint,
     accessKeyId: process.env.DIGITAL_OCEAN_ACCESS_KEY,
     secretAccessKey: process.env.DIGITAL_OCEAN_SECRET_KEY
 });
 
 const Bucket = `quark-release`;
+
+// purgeCache();
+// export async function purgeCache() {
+//     const ep = `sfo2.digitaloceanspaces.com`;
+//     const result = await fetch(`https://api.digitalocean.com/v2/cdn/endpoints/${ep}/cache`, {
+//         method : 'deletejj',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${process.env.DIGITAL_OCEAN_API_TOKEN}`
+//         },
+//         body: JSON.stringify({
+//             files: ['insiders/latest.yml']
+//         })
+//     });
+//     console.log(result);
+// }
 
 // uploadFileToSpace('./package.json', 'Quark/package.json');
 export function uploadFileToSpace(path: string, Key: string) {
@@ -68,7 +85,8 @@ export async function cleanSpace(dirName: string, ignores: RegExp) {
 
 function getCacheControlForFile(file: string): string | undefined {
     if (file.match(/\.(yml)$/)) {
-        return `public, max-age=${0}`
+        // return `public, max-age=${0}`
+        return `max-age=${0}`
     }
 
     return undefined;

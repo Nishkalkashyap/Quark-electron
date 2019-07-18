@@ -127,7 +127,6 @@
     "electron-builder": "^20.44.4",
     "express": "^4.17.0",
     "hasha": "^5.0.0",
-    "isomorphic-fetch": "^2.2.1",
     "js-beautify": "^1.10.0",
     "license-checker": "^25.0.1",
     "lodash": "^4.17.13",
