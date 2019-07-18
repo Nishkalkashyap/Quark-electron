@@ -21,6 +21,7 @@ matrix:
     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     compiler: clang
   - os: osx
+    osx_image: xcode10.2
     node_js: lts/*
     env:
     - ELECTRON_CACHE=$HOME/.cache/electron
