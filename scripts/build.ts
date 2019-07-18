@@ -2,6 +2,7 @@ import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch } from './util';
+import { execSync } from 'child_process';
 
 // if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
 if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'darwin') {
@@ -209,13 +210,17 @@ builder.build({
         // afterSign: (c) => {
         //     // printConsoleStatus('\n\nApplication Signed', 'success');
         // },
-        // afterPack: (c) => {
-        //     // printConsoleStatus('\n\nApplication packaged', 'success');
-        //     // printConsoleStatus('MetaData:', 'success');
-        //     // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
-        //     // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
-        //     // printConsoleStatus(`Arch: ${c.arch}`, 'info');
-        // },
+        afterPack: (c) => {
+            if (process.platform == 'darwin') {
+                console.log(process.cwd());
+                execSync(`xattr -cr *`);
+            }
+            // printConsoleStatus('\n\nApplication packaged', 'success');
+            // printConsoleStatus('MetaData:', 'success');
+            // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
+            // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
+            // printConsoleStatus(`Arch: ${c.arch}`, 'info');
+        },
         // afterAllArtifactBuild: async (c) => {
         //     // printConsoleStatus('\n\nAll artifacts built', 'success');
         //     // printConsoleStatus(`${c.artifactPaths.join(' ')}`, 'info');
