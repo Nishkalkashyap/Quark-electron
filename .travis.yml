@@ -56,7 +56,7 @@ before_script:
 - node --version
 - npm --version
 script:
-- if [ "$TRAVIS_OS_NAME" == "mac" ]; then xattr -cr *; fi
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then xattr -cr *; fi
 - npm run build-ci
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then npm run test-ci; fi
 after_success:
