@@ -28,7 +28,7 @@ export async function updateRelease(params: Octokit.ReposUpdateReleaseParams) {
 }
 
 
-export async function deleteRelease() {
+export async function deleteRelease(params : Octokit.ReposDeleteReleaseParams) {
     return await octokit.repos.deleteRelease(Object.assign({
         owner,
         repo
