@@ -10,6 +10,10 @@ if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'da
 }
 
 if (process.platform == 'darwin') {
+
+    console.log('Deleting definitions');
+    console.log(execSync(`rm -rf assets-definitions/electron/dist`).toString());
+
     // process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
     // process.env.CSC_LINK = null;
 
@@ -203,14 +207,10 @@ builder.build({
             }
         ],
 
-        artifactBuildStarted: (c) => {
-            // printConsoleStatus('\n\nBuild Started', 'success');
-            // printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
-            if (process.platform == 'darwin') {
-                console.log('Deleting definitions');
-                console.log(execSync(`rm -rf assets-definitions/electron/dist`).toString());
-            }
-        },
+        // artifactBuildStarted: (c) => {
+        //     // printConsoleStatus('\n\nBuild Started', 'success');
+        //     // printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
+        // },
         // afterSign: (c) => {
         //     // printConsoleStatus('\n\nApplication Signed', 'success');
         // },
