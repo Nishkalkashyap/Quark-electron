@@ -58,8 +58,8 @@ async function copyDefinitions() {
 
             function copyFiles() {
 
-                fs.ensureDirSync('./definitions/' + val);
-                ncp.ncp(`./node_modules/` + val, './definitions/' + val, {
+                fs.ensureDirSync('./assets-definitions/' + val);
+                ncp.ncp(`./node_modules/` + val, './assets-definitions/' + val, {
                     filter: (file) => {
                         let bool = (
                             ((fs.statSync(file).isDirectory() || file.includes('.d.ts') || file.endsWith('package.json'))

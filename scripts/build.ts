@@ -39,6 +39,7 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!build",
     "!.vscode",
     // "!definitions",
+    "!assets-definitions",
     "!release",
     "!dev-assets",
     "!scripts",
@@ -195,7 +196,8 @@ builder.build({
         },
         extraResources: [
             {
-                from: 'definitions',
+                from: 'assets-definitions',
+                // from: 'definitions',
                 to: 'definitions'
             }
         ],
