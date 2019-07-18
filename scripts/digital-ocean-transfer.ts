@@ -54,13 +54,21 @@ export async function doSpaceTransfer(folderFrom: string, folderTo: string) {
             return;
         }
 
-        return await s3.copyObject({
+        const obj: AWS.S3.CopyObjectRequest = {
             Bucket,
             CopySource: `${Bucket}/${file.Key}`,
             ACL: 'public-read',
             Key: `${folderTo}${file.Key.replace(objects.Prefix, '').replace(folderFrom, '')}`,
-            CacheControl: getCacheControlForFile(file.Key),
-        }).promise();
+            CacheControl: getCacheControlForFile(file.Key)
+        }
+
+        if (file.Key.match(/\.(yml)$/)) {
+            obj.Metadata = {
+                'max-age': '0'
+            }
+        }
+
+        return await s3.copyObject(obj).promise();
     });
     return await Promise.all(promises);
 }
