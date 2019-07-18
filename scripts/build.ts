@@ -9,7 +9,7 @@ if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'da
 }
 
 if (process.platform == 'darwin') {
-    process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
+    // process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
     // process.env.CSC_LINK = null;
 }
 
