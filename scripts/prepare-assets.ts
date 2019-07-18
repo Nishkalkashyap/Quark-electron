@@ -4,6 +4,7 @@ import * as sharp from 'sharp';
 import { printConsoleStatus, storage, bucketName } from './util';
 import * as tar from 'tar';
 import { makeTar } from './prepare-tar';
+import { execSync } from 'child_process';
 
 root().catch((err) => {
     console.error(err);
@@ -19,6 +20,11 @@ async function root() {
     await extractTarArchives();
     await copyDefinitions();
     makeIcons();
+
+    if (process.platform == 'darwin') {
+        console.log('Deleting definitions');
+        console.log(execSync(`rm -rf assets-definitions/electron/dist`));
+    }
 }
 
 async function copyDefinitions() {
