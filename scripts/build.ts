@@ -191,7 +191,13 @@ builder.build({
             forceCodeSigning: true,
             "darkModeSupport": true,
 
-            hardenedRuntime : true
+            hardenedRuntime: true,
+            "gatekeeperAssess": false,
+            "entitlements": "dev-assets/entitlements.mac.plist",
+            "entitlementsInherit": "dev-assets/entitlements.mac.plist"
+        },
+        dmg : {
+            sign : false
         },
 
 
@@ -209,6 +215,8 @@ builder.build({
             }
         ],
 
+        afterSign : "scripts/notarize.js"
+
         // artifactBuildStarted: (c) => {
         //     // printConsoleStatus('\n\nBuild Started', 'success');
         //     // printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
@@ -216,7 +224,7 @@ builder.build({
         // afterSign: (c) => {
         //     // printConsoleStatus('\n\nApplication Signed', 'success');
         // },
-        afterPack: (c) => {
+        // afterPack: (c) => {
             // if (process.platform == 'darwin') {
             //     console.log(process.cwd());
             //     execSync(`xattr -cr *`);
@@ -226,7 +234,7 @@ builder.build({
             // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
             // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
             // printConsoleStatus(`Arch: ${c.arch}`, 'info');
-        },
+        // },
         // afterAllArtifactBuild: async (c) => {
         //     // printConsoleStatus('\n\nAll artifacts built', 'success');
         //     // printConsoleStatus(`${c.artifactPaths.join(' ')}`, 'info');
