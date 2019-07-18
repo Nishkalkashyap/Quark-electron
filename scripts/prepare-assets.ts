@@ -20,11 +20,6 @@ async function root() {
     await extractTarArchives();
     await copyDefinitions();
     makeIcons();
-
-    if (process.platform == 'darwin') {
-        console.log('Deleting definitions');
-        console.log(execSync(`rm -rf assets-definitions/electron/dist`));
-    }
 }
 
 async function copyDefinitions() {

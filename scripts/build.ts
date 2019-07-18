@@ -203,18 +203,22 @@ builder.build({
             }
         ],
 
-        // artifactBuildStarted: (c) => {
-        //     printConsoleStatus('\n\nBuild Started', 'success');
-        //     printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
-        // },
+        artifactBuildStarted: (c) => {
+            // printConsoleStatus('\n\nBuild Started', 'success');
+            // printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
+            if (process.platform == 'darwin') {
+                console.log('Deleting definitions');
+                console.log(execSync(`rm -rf assets-definitions/electron/dist`).toString());
+            }
+        },
         // afterSign: (c) => {
         //     // printConsoleStatus('\n\nApplication Signed', 'success');
         // },
         afterPack: (c) => {
-            if (process.platform == 'darwin') {
-                console.log(process.cwd());
-                execSync(`xattr -cr *`);
-            }
+            // if (process.platform == 'darwin') {
+            //     console.log(process.cwd());
+            //     execSync(`xattr -cr *`);
+            // }
             // printConsoleStatus('\n\nApplication packaged', 'success');
             // printConsoleStatus('MetaData:', 'success');
             // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
