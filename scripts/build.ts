@@ -11,6 +11,8 @@ if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'da
 if (process.platform == 'darwin') {
     // process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
     // process.env.CSC_LINK = null;
+
+    // dont do this. not in mac due to security reasons.
     // process.env.DEBUG = 'electron-builder';
 }
 
@@ -191,12 +193,12 @@ builder.build({
             provider: 'generic',
             url: 'https://quark-release.quarkjs.io/stable'
         },
-        extraResources: [
-            {
-                from: 'definitions',
-                to: 'definitions'
-            }
-        ],
+        // extraResources: [
+        //     {
+        //         from: 'definitions',
+        //         to: 'definitions'
+        //     }
+        // ],
 
         // artifactBuildStarted: (c) => {
         //     printConsoleStatus('\n\nBuild Started', 'success');
