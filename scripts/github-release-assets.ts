@@ -27,6 +27,14 @@ export async function updateRelease(params: Octokit.ReposUpdateReleaseParams) {
     }, params));
 }
 
+
+export async function deleteRelease() {
+    return await octokit.repos.deleteRelease(Object.assign({
+        owner,
+        repo
+    }));
+}
+
 export async function getCurrentReleaseForBranch(branch: branches) {
     const releases = await listRelease();
     const currentReleaseExists = releases.data.find((rel) => {
