@@ -40,7 +40,7 @@ async function copyDefinitions() {
         '@types/react-dom',
         '@types/chart.js',
         '@types/styled-components',
-        // 'electron',
+        'electron',
         'vue',
         'tslib',
         'typescript'
