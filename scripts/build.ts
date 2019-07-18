@@ -215,7 +215,7 @@ builder.build({
             }
         ],
 
-        afterSign : "scripts/notarize.js"
+        afterSign : "dev-assets/notarize.js"
 
         // artifactBuildStarted: (c) => {
         //     // printConsoleStatus('\n\nBuild Started', 'success');
