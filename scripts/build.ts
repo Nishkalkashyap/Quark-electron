@@ -4,8 +4,7 @@ import * as dotenv from 'dotenv';
 import { printConsoleStatus, currentBranch } from './util';
 import { execSync } from 'child_process';
 
-// if ((currentBranch == 'master-all' && process.env.CI && process.platform != 'darwin')) {
-if ((currentBranch == 'master-all' && process.env.CI) || process.platform == 'darwin') {
+if ((currentBranch == 'master-all' && process.env.CI)) {
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
@@ -14,16 +13,12 @@ if (process.platform == 'darwin') {
     console.log('Deleting definitions');
     console.log(execSync(`rm -rf assets-definitions/electron/dist`).toString());
 
-    // process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
-    // process.env.CSC_LINK = null;
-
+    if (currentBranch == 'master') {
+        process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
+    }
     // dont do this. not in mac due to security reasons.
     // process.env.DEBUG = 'electron-builder';
 }
-
-// if (os.platform() == 'linux') {
-//     process.env.DEBUG = 'electron-builder';
-// }
 
 const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "**/*",
@@ -108,7 +103,7 @@ builder.build({
                 //     arch: ['x64']
                 // }
             ]),
-            forceCodeSigning: !!process.env.WIN_CSC_LINK,
+            forceCodeSigning: currentBranch == 'master-all',
             publisherName: 'Nishkal'
         },
         nsis: {
@@ -188,16 +183,16 @@ builder.build({
             //         arch: ['x64']
             //     }
             // ]),
-            forceCodeSigning: true,
+            forceCodeSigning: currentBranch == 'master-all',//has to be true for prod
             "darkModeSupport": true,
 
-            hardenedRuntime: true,
+            hardenedRuntime: currentBranch == 'master-all',//has to be true for prod
             "gatekeeperAssess": false,
             "entitlements": "dev-assets/entitlements.mac.plist",
             "entitlementsInherit": "dev-assets/entitlements.mac.plist"
         },
-        dmg : {
-            sign : false
+        dmg: {
+            sign: false
         },
 
 
@@ -210,12 +205,11 @@ builder.build({
         extraResources: [
             {
                 from: 'assets-definitions',
-                // from: 'definitions',
                 to: 'definitions'
             }
         ],
 
-        afterSign : "dev-assets/notarize.js"
+        afterSign: currentBranch == 'master' ? undefined : "dev-assets/notarize.js"
 
         // artifactBuildStarted: (c) => {
         //     // printConsoleStatus('\n\nBuild Started', 'success');
@@ -225,15 +219,15 @@ builder.build({
         //     // printConsoleStatus('\n\nApplication Signed', 'success');
         // },
         // afterPack: (c) => {
-            // if (process.platform == 'darwin') {
-            //     console.log(process.cwd());
-            //     execSync(`xattr -cr *`);
-            // }
-            // printConsoleStatus('\n\nApplication packaged', 'success');
-            // printConsoleStatus('MetaData:', 'success');
-            // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
-            // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
-            // printConsoleStatus(`Arch: ${c.arch}`, 'info');
+        // if (process.platform == 'darwin') {
+        //     console.log(process.cwd());
+        //     execSync(`xattr -cr *`);
+        // }
+        // printConsoleStatus('\n\nApplication packaged', 'success');
+        // printConsoleStatus('MetaData:', 'success');
+        // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
+        // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
+        // printConsoleStatus(`Arch: ${c.arch}`, 'info');
         // },
         // afterAllArtifactBuild: async (c) => {
         //     // printConsoleStatus('\n\nAll artifacts built', 'success');
