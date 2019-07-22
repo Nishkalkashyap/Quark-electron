@@ -19,7 +19,7 @@ export function setTracking() {
             reportLifecycleEvent,
             reportException
         } as Tracking;
-        global['reportMainProcessEvent'] = reportMainProcessEvent;
+        global['reportMainProcessEvent'] = reportMainProcessEventtt;
     } catch (err) {
         console.error(err);
     }
@@ -77,7 +77,7 @@ function reportException(description: string) {
 
 }
 
-function reportMainProcessEvent(action: string, label: string, value?: string) {
+function reportMainProcessEventtt(action: string, label: string, value?: string) {
     try {
         if (!enabledTelemetry) {
             return;
