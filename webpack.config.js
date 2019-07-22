@@ -13,7 +13,7 @@ module.exports = {
         mainFields : ['main']
     },
     externals: [nodeExternals({
-        whitelist: [/@quarkjs.+/, 'lodash']
+        whitelist: [/@quarkjs.+/, 'lodash', 'universal-analytics']
     })],
     module: {
         rules: [
