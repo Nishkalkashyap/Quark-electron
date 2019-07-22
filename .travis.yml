@@ -59,8 +59,9 @@ before_script:
 script:
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then xattr -cr *; fi
 - npm run build-ci
-# - if [ "$TRAVIS_OS_NAME" == "linux" ]; then npm run test-ci; fi
-- npm run test-ci
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then npm run test-ci; fi
+# - npm run test-ci
 after_success:
 - npm run upload-ci
 - ls -la ./build
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then ls -la ./build/mac; fi
