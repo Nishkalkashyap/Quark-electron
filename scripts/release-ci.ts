@@ -68,6 +68,7 @@ async function release() {
         const stableFolderCopyFrom = `Quark-insiders-${releaseJson['stable']}`;
         const stableFolderCopyTo = `Quark-stable-${releaseJson['stable']}`;
         const stableAlreadyExists = await folderAlreadyExists('quark-release.quarkjs.io', stableFolderCopyTo);
+        // const stableAlreadyExists = false;
 
         if ((brokenJson as string[]).includes(releaseJson['stable'])) {
                 printConsoleStatus(`Tried to release broken release`, 'danger');
