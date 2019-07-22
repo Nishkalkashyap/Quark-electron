@@ -1,8 +1,8 @@
 import { mainProcessData } from './util';
 import { get } from 'lodash';
 import { Tracking } from "@quarkjs/api/umd/src/api/electron/electron.internal";
+import ua from 'universal-analytics';
 
-const ua: typeof import('universal-analytics') = global['require']('universal-analytics');
 const userId = get(mainProcessData, 'telemetry.userId', 'qqqwwweeerrr-no-user-id-xxxcccvvvbbb');
 const usr = ua('UA-112064718-3', userId);
 const enabledTelemetry = get(mainProcessData, 'telemetry.enableTelemetry', false);
