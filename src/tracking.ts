@@ -3,9 +3,9 @@ import { get } from 'lodash';
 import { Tracking } from "@quarkjs/api/umd/src/api/electron/electron.internal";
 import ua from 'universal-analytics';
 
-const userId = get(mainProcessData, 'telemetry.userId', 'qqqwwweeerrr-no-user-id-xxxcccvvvbbb');
-const usr = ua('UA-112064718-3', userId);
-const enabledTelemetry = get(mainProcessData, 'telemetry.enableTelemetry', false);
+let userId = null;
+let usr = null;
+let enabledTelemetry = null
 
 declare global {
     var telemetry: Tracking
@@ -13,6 +13,9 @@ declare global {
 }
 
 export function setTracking() {
+    userId = get(mainProcessData, 'telemetry.userId', 'qqqwwweeerrr-no-user-id-xxxcccvvvbbb');
+    usr = ua('UA-112064718-3', userId);
+    enabledTelemetry = get(mainProcessData, 'telemetry.enableTelemetry', false);
     try {
         global['telemetry'] = {
             trackEvent,
