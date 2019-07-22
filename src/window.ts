@@ -61,6 +61,7 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
                 .then((val) => {
                     //val = null if not found
                     if (val == null) {
+                        telemetry.reportException('FailedToParseFile');
                         win.webContents.openDevTools();
                         dialog.showMessageBox(win, {
                             title: 'Error',
@@ -79,10 +80,12 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
 
         win.webContents.on('unresponsive', () => {
             console.log('Unresponsive');
+            telemetry.reportException(`WindowUnresponsive`);
         });
 
         win.webContents.on('crashed', (e, k) => {
             console.error('Window Crashed', k);
+            telemetry.reportException(`WindowCrashed`);
             // if (!k) {
             win.close();
             // }

@@ -80,6 +80,7 @@
     "ts-loader": "^5.4.5",
     "typescript": "^3.5.3",
     "url-loader": "^1.1.2",
+    "uuid": "^3.3.2",
     "vscode-languageserver-types": "^3.14.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
@@ -118,6 +119,7 @@
     "@types/styled-components": "^4.1.17",
     "@types/table": "^4.0.6",
     "@types/tar": "^4.0.3",
+    "@types/universal-analytics": "^0.4.2",
     "@types/yamljs": "^0.2.30",
     "aws-sdk": "^2.490.0",
     "chalk": "^2.4.2",
@@ -144,6 +146,7 @@
     "tar": "^4.4.10",
     "ts-node": "^8.3.0",
     "tslib": "^1.10.0",
+    "universal-analytics": "^0.4.20",
     "webpack-cli": "^3.3.5",
     "yamljs": "^0.3.0"
   },

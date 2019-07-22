@@ -6,6 +6,7 @@ import { initializeLogger, setAutoUpdaterOptions } from './auto-updater';
 import { registerProcessExplorer } from './process.explorer';
 import { enableAutoLaunch } from './auto-launch';
 import { registerTray } from './tray';
+import { setTracking } from './tracking';
 
 const _isSecondInstance = app.requestSingleInstanceLock();
 if (!_isSecondInstance) {
@@ -29,6 +30,7 @@ app.setAppUserModelId(process.execPath);
 app.on('ready', () => {
     // has to be first
     setMainProcessData();
+    setTracking();
 
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();
@@ -39,6 +41,12 @@ app.on('ready', () => {
         console.error(err);
         log.error(`Auto updater failed to initialize`);
     });
+
+    const version = app.getVersion();
+    telemetry.reportLifecycleEvent('StartSession');
+    reportMainProcessEvent('AppVersion', version);
+    reportMainProcessEvent('Platform', process.platform);
+    reportMainProcessEvent('Platform-Version', process.platform, version);
 });
 
 

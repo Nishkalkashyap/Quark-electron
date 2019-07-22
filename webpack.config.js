@@ -9,7 +9,8 @@ module.exports = {
         filename: 'index.js',
     },
     resolve: {
-        extensions: ['.ts', '.js', '.json']
+        extensions: ['.ts', '.js', '.json'],
+        mainFields : ['main']
     },
     externals: [nodeExternals({
         whitelist: [/@quarkjs.+/, 'lodash']
