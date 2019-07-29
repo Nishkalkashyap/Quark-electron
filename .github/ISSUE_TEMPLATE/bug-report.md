@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Bug report issue template.
+about: Create a report to help us improve Quark
 title: "[BUG]"
 labels: ''
 assignees: Nishkalkashyap
