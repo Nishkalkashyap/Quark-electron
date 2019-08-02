@@ -32,7 +32,7 @@ const Bucket = `quark-release`;
 
 // uploadFileToSpace('./package.json', 'Quark/package.json');
 export function uploadFileToSpace(path: string, Key: string) {
-    if (currentBranch == 'master') return;
+    if (currentBranch !== 'master-all') return;
 
     var params: AWS.S3.PutObjectRequest = {
         Body: fs.readFileSync(path),

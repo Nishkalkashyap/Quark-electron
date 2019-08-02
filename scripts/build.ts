@@ -13,7 +13,7 @@ if (process.platform == 'darwin') {
     console.log('Deleting definitions');
     console.log(execSync(`rm -rf assets-definitions/electron/dist`).toString());
 
-    if (currentBranch == 'master') {
+    if (currentBranch !== 'master-all') {
         process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
     }
     // dont do this. not in mac due to security reasons.
@@ -209,7 +209,7 @@ builder.build({
             }
         ],
 
-        afterSign: currentBranch == 'master' ? undefined : "dev-assets/notarize.js"
+        afterSign: currentBranch !== 'master-all' ? undefined : "dev-assets/notarize.js"
 
         // artifactBuildStarted: (c) => {
         //     // printConsoleStatus('\n\nBuild Started', 'success');
@@ -241,7 +241,7 @@ builder.build({
 });
 
 function filterCI<T>(arr: builder.TargetConfiguration[]): builder.TargetConfigType {
-    const isMaster = currentBranch == 'master';
+    const isMaster = currentBranch !== 'master-all';
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml|dmg)$/);
@@ -256,7 +256,7 @@ function filterCI<T>(arr: builder.TargetConfiguration[]): builder.TargetConfigTy
 }
 
 function filterCIMacOS(arr: builder.TargetConfiguration[]): builder.TargetConfiguration[] {
-    const isMaster = currentBranch == 'master';
+    const isMaster = currentBranch !== 'master-all';
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml|dmg)$/);
