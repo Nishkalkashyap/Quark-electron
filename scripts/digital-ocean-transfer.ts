@@ -1,7 +1,7 @@
 import * as AWS from 'aws-sdk';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs-extra';
-import { currentBranch } from './util';
+import { currentBranch, isProductionBranch } from './util';
 import { PromiseResult } from 'aws-sdk/lib/request';
 dotenv.config({ path: './dev-assets/prod.env' });
 
@@ -32,7 +32,7 @@ const Bucket = `quark-release`;
 
 // uploadFileToSpace('./package.json', 'Quark/package.json');
 export function uploadFileToSpace(path: string, Key: string) {
-    if (currentBranch !== 'master-all') return;
+    if (!isProductionBranch) return;
 
     var params: AWS.S3.PutObjectRequest = {
         Body: fs.readFileSync(path),

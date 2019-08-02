@@ -1,10 +1,10 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
-import { printConsoleStatus, currentBranch } from './util';
+import { printConsoleStatus, currentBranch, isProductionBranch } from './util';
 import { execSync } from 'child_process';
 
-if ((currentBranch == 'master-all' && process.env.CI)) {
+if ((isProductionBranch && process.env.CI)) {
     dotenv.config({ path: './dev-assets/prod.env' });
 }
 
@@ -13,7 +13,7 @@ if (process.platform == 'darwin') {
     console.log('Deleting definitions');
     console.log(execSync(`rm -rf assets-definitions/electron/dist`).toString());
 
-    if (currentBranch !== 'master-all') {
+    if (!isProductionBranch) {
         process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
     }
     // dont do this. not in mac due to security reasons.
@@ -103,7 +103,7 @@ builder.build({
                 //     arch: ['x64']
                 // }
             ]),
-            forceCodeSigning: currentBranch == 'master-all',
+            forceCodeSigning: isProductionBranch,
             publisherName: 'Nishkal'
         },
         nsis: {
@@ -183,10 +183,10 @@ builder.build({
             //         arch: ['x64']
             //     }
             // ]),
-            forceCodeSigning: currentBranch == 'master-all',//has to be true for prod
+            forceCodeSigning: isProductionBranch,//has to be true for prod
             "darkModeSupport": true,
 
-            hardenedRuntime: currentBranch == 'master-all',//has to be true for prod
+            hardenedRuntime: isProductionBranch,//has to be true for prod
             "gatekeeperAssess": false,
             "entitlements": "dev-assets/entitlements.mac.plist",
             "entitlementsInherit": "dev-assets/entitlements.mac.plist"
@@ -209,7 +209,7 @@ builder.build({
             }
         ],
 
-        afterSign: currentBranch !== 'master-all' ? undefined : "dev-assets/notarize.js"
+        afterSign: isProductionBranch ? "dev-assets/notarize.js" : undefined
 
         // artifactBuildStarted: (c) => {
         //     // printConsoleStatus('\n\nBuild Started', 'success');
@@ -241,7 +241,7 @@ builder.build({
 });
 
 function filterCI<T>(arr: builder.TargetConfiguration[]): builder.TargetConfigType {
-    const isMaster = currentBranch !== 'master-all';
+    const isMaster = !isProductionBranch;
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml|dmg)$/);
@@ -256,7 +256,7 @@ function filterCI<T>(arr: builder.TargetConfiguration[]): builder.TargetConfigTy
 }
 
 function filterCIMacOS(arr: builder.TargetConfiguration[]): builder.TargetConfiguration[] {
-    const isMaster = currentBranch !== 'master-all';
+    const isMaster = !isProductionBranch;
     return arr.filter((val) => {
         if (process.env.CI && isMaster) {
             return val.target.match(/(nsis|AppImage|yml|dmg)$/);

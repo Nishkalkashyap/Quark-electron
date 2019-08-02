@@ -1,5 +1,5 @@
 import * as fs from 'fs-extra';
-import { getFilesToUpload, uploadFilesToBucket, currentBranch, gitFilePath, wwwOutPath } from './util';
+import { getFilesToUpload, uploadFilesToBucket, currentBranch, gitFilePath, wwwOutPath, isProductionBranch } from './util';
 import * as hasha from 'hasha';
 import * as path from 'path';
 import { execSync } from 'child_process';
@@ -31,7 +31,7 @@ async function root() {
     paths.push('./package.json');
     paths.push('./scripts/broken-releases.json');
 
-    uploadFilesToBucket('quark-builds.quarkjs.io', `${currentBranch}-${json.version}`, paths, currentBranch !== 'master-all');
+    uploadFilesToBucket('quark-builds.quarkjs.io', `${currentBranch}-${json.version}`, paths, !isProductionBranch);
 }
 
 async function createShasumFile(paths: string[], outPath: string) {
