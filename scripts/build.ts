@@ -1,7 +1,7 @@
 import * as builder from 'electron-builder';
 import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
-import { printConsoleStatus, currentBranch, isProductionBranch } from './util';
+import { printConsoleStatus, isProductionBranch } from './util';
 import { execSync } from 'child_process';
 
 if ((isProductionBranch && process.env.CI)) {
@@ -38,7 +38,6 @@ const defaultFiles: PlatformSpecificBuildOptions['files'] = [
     "!dist",
     "!build",
     "!.vscode",
-    // "!definitions",
     "!assets-definitions",
     "!release",
     "!dev-assets",
@@ -84,24 +83,10 @@ builder.build({
                     target: 'zip',
                     arch: ['x64']
                 },
-                // {
-                //     target: 'appx',
-                //     arch: ['x64']
-                // }
                 {
                     target: 'msi',
                     arch: ['x64']
                 },
-                // {
-                //     target: 'squirrel'
-                // },
-                // {
-                //     target: 'nsis-web'
-                // },
-                // {fails
-                //     target: 'portable',
-                //     arch: ['x64']
-                // }
             ]),
             forceCodeSigning: isProductionBranch,
             publisherName: 'Nishkal'
@@ -125,8 +110,6 @@ builder.build({
 
 
 
-
-
         linux: {
             "category": "IDE",
             "target": filterCI([
@@ -142,17 +125,6 @@ builder.build({
                     "target": "tar.gz",
                     arch: ['x64']
                 }
-                // {
-                //     "target": "rpm",
-                //     "arch": ["x64"]
-                // },
-                // {
-                //     "target": "apk"
-                // }
-                // {
-                //     "target": "snap",
-                //     "arch": ["x64"]
-                // }
             ])
         },
         appImage: {
@@ -161,28 +133,10 @@ builder.build({
         },
 
 
+
         mac: {
-            // category: 'public.app-category.utilities',
             category: 'public.app-category.developer-tools',
             target: 'default',//no need of other
-            // target: filterCIMacOS([
-            //     {
-            //         target: 'default',
-            //         arch: ['x64']
-            //     },
-            //     {
-            //         target: 'dmg',
-            //         arch: ['x64']
-            //     },
-            //     {
-            //         target: 'pkg',
-            //         arch: ['x64']
-            //     },
-            //     {
-            //         target: 'zip',
-            //         arch: ['x64']
-            //     }
-            // ]),
             forceCodeSigning: isProductionBranch,//has to be true for prod
             "darkModeSupport": true,
 
@@ -208,35 +162,7 @@ builder.build({
                 to: 'definitions'
             }
         ],
-
         afterSign: isProductionBranch ? "dev-assets/notarize.js" : undefined
-
-        // artifactBuildStarted: (c) => {
-        //     // printConsoleStatus('\n\nBuild Started', 'success');
-        //     // printConsoleStatus(`Mets: ${c.targetPresentableName}; ${c.file}; ${c.arch}`, 'info');
-        // },
-        // afterSign: (c) => {
-        //     // printConsoleStatus('\n\nApplication Signed', 'success');
-        // },
-        // afterPack: (c) => {
-        // if (process.platform == 'darwin') {
-        //     console.log(process.cwd());
-        //     execSync(`xattr -cr *`);
-        // }
-        // printConsoleStatus('\n\nApplication packaged', 'success');
-        // printConsoleStatus('MetaData:', 'success');
-        // printConsoleStatus(`Platform Name: ${c.electronPlatformName}`, 'info');
-        // printConsoleStatus(`Targets: ${c.targets.join(' ')}`, 'info');
-        // printConsoleStatus(`Arch: ${c.arch}`, 'info');
-        // },
-        // afterAllArtifactBuild: async (c) => {
-        //     // printConsoleStatus('\n\nAll artifacts built', 'success');
-        //     // printConsoleStatus(`${c.artifactPaths.join(' ')}`, 'info');
-        //     // printConsoleStatus(`Outdir: ${c.outDir}`, 'info');
-
-        //     // printConsoleStatus('\n\nBuild Success', 'success');
-        //     return []
-        // }
     }
 });
 
