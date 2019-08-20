@@ -28,12 +28,10 @@
     "release": "ts-node ./scripts/release.ts",
     "upload": "cross-env DELETE_FILES=no ts-node ./scripts/upload.ts",
     "notes": "ts-node ./scripts/create-release-notes.ts",
-    "native": "electron-builder install-app-deps",
     "build-ci": "npm run build-quick",
     "test-ci": "ts-node ./scripts/test.ts",
     "upload-ci": "ts-node ./scripts/upload-ci.ts && ts-node ./scripts/github-release.ts",
     "release-ci": "ts-node ./scripts/release-ci.ts",
-    "release-ci-olddddddddddddd": "git checkout release && git merge master && git push && git checkout master",
     "release-master-all": "git checkout master-all && git merge master && git push && git checkout master"
   },
   "dependencies": {
