@@ -166,7 +166,8 @@ builder.build({
         afterSign: isProductionBranch ? "dev-assets/notarize.js" : undefined
     }
 }).then((val) => {
-    console.log(val);
+    console.log(JSON.stringify(val, undefined, 4));
+    printConsoleStatus('Build was successful', 'success');
 }).catch((err) => {
     process.exit(1);
 });
