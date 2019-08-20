@@ -169,6 +169,7 @@ builder.build({
     console.log(JSON.stringify(val, undefined, 4));
     printConsoleStatus('Build was successful', 'success');
 }).catch((err) => {
+    console.log(err);
     process.exit(1);
 });
 
