@@ -3,6 +3,7 @@ import { PlatformSpecificBuildOptions } from 'electron-builder';
 import * as dotenv from 'dotenv';
 import { printConsoleStatus, isProductionBranch } from './util';
 import { execSync } from 'child_process';
+import console = require('console');
 
 if ((isProductionBranch && process.env.CI)) {
     dotenv.config({ path: './dev-assets/prod.env' });
@@ -164,6 +165,10 @@ builder.build({
         ],
         afterSign: isProductionBranch ? "dev-assets/notarize.js" : undefined
     }
+}).then((val) => {
+    console.log(val);
+}).catch((err) => {
+    process.exit(1);
 });
 
 function filterCI<T>(arr: builder.TargetConfiguration[]): builder.TargetConfigType {
