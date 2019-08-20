@@ -13,9 +13,7 @@ exports.default = async function notarizing(context) {
   return await notarize({
     appBundleId: 'in.nishkal',
     appPath: `${appOutDir}/${appName}.app`,
-    appleId: 'fdsfsdfdsf',
-    appleIdPassword: 'fdsfdsfdsf',
-    // appleId: process.env.APPLEID,
-    // appleIdPassword: process.env.APPLEIDPASS,
+    appleId: process.env.APPLEID,
+    appleIdPassword: process.env.APPLEIDPASS,
   });
 };
