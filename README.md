@@ -88,6 +88,10 @@ Quark includes a set of built-in packages. Namely
 
 ## Showcase 
 
+![alt-text-1](./readme/system-monitor.gif "System resource monitor") ![alt-text-2](./readme/control-system.gif "Control System")
+![alt-text-1](./readme/plot-charts.gif "Plot Charts") ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app")
+![alt-text-1](./readme/news-app.gif "News App") ![alt-text-2](./readme/web-browser.gif "Web Browser")
+<!-- 
 #### System resource monitor
 Monitors system resources. View CPU loads, memory usage, process explorer.
 
@@ -117,7 +121,7 @@ News app with multiple country and source filter.
 #### Web Browser
 Web browser with multiple split view support.
 
-![Web Browser](./readme/web-browser.gif)
+![Web Browser](./readme/web-browser.gif) -->
 
 
 ## Feedback
