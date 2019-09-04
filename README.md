@@ -89,13 +89,13 @@ Quark includes a set of built-in packages. Namely
 ## Showcase 
 
 <!-- | ![alt-text-1](./readme/system-monitor.gif "System resource monitor")  | ![alt-text-2](./readme/control-system.gif "Control System") | -->
-| System resource monitor                                               | Arduino data logger                                             |
-| --------------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![alt-text-1](./readme/system-monitor.gif "System resource monitor")  | ![alt-text-2](https://i.imgur.com/vnvEMNx.gif "Control System") |
-| Stock analyzing app                                                   | Plot Charts                                                     |
-| ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app") | ![alt-text-1](./readme/plot-charts.gif "Plot Charts")           |
-| News App                                                              | Web Browser                                                     |
-| ![alt-text-1](./readme/news-app.gif "News App")                       | ![alt-text-2](./readme/web-browser.gif "Web Browser")           |
+| System resource monitor                                                     | Arduino data logger                                                   |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| ![alt-text-1](./readme/system-monitor.gif "System resource monitor" =350x)  | ![alt-text-2](https://i.imgur.com/vnvEMNx.gif "Control System" =350x) |
+| Stock analyzing app                                                         | Plot Charts                                                           |
+| ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app" =350x) | ![alt-text-1](./readme/plot-charts.gif "Plot Charts" =350x)           |
+| News App                                                                    | Web Browser                                                           |
+| ![alt-text-1](./readme/news-app.gif "News App" =350x)                       | ![alt-text-2](./readme/web-browser.gif "Web Browser" =350x)           |
 
 
 
