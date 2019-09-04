@@ -92,11 +92,11 @@ A few projects made with Quark.
 
 | System resource monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_ybxmtnoilpu4nwj0t4/project) | Arduino data logger [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_6if0m0z5ol5inermo8/project) |
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| <img src="./readme/system-monitor.gif" alt="Stock analyzing app" height="240">                                       | <img src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" height="240">                               |
+| <img align="center" src="./readme/system-monitor.gif" alt="Stock analyzing app" height="240">                        | <img align="center" src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" height="240">                               |
 | Web Browser [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_0umm60gvnlierd0ku7/project)             | Activity monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_y43pdal0kqgi99x5fh/project)    |
-| <img src="./readme/web-browser.gif" alt="Web Browser" height="240">                                                  | <img src="https://i.imgur.com/oSEeu18.png" alt="Activity monitor" height="240">                                  |
+| <img align="center" src="./readme/web-browser.gif" alt="Web Browser" height="240">                                   | <img align="center" src="https://i.imgur.com/oSEeu18.png" alt="Activity monitor" height="240">                                  |
 | Prices [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_cwub3h5x8ctfdt6rfs/project)                  | Hash [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_roomlkgizmk1nzc7of/project)                |
-| <img src="https://i.imgur.com/fYmDv8w.png" alt="Prices" height="240">                                                | <img src="https://i.imgur.com/VVCZOHo.png" alt="Hash" height="240">                                              |
+| <img align="center" src="https://i.imgur.com/fYmDv8w.png" alt="Prices" height="240">                                 | <img align="center" src="https://i.imgur.com/VVCZOHo.png" alt="Hash" height="240">                                              |
 
 
 <!-- 
