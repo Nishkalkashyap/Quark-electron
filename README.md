@@ -88,13 +88,15 @@ Quark includes a set of built-in packages. Namely
 
 ## Showcase 
 
-| System resource monitor                                                            | Arduino data logger                                                               |
-| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| <img src="./readme/system-monitor.gif" alt="Stock analyzing app" width="450">      | <img src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" width="450"> |
-| Plot Charts                                                                        | News App                                                                          |
-| <img src="./readme/plot-charts.gif" alt="Plot Charts" width="450">                 | <img src="./readme/news-app.gif" alt="News App" width="450">                      |
-| Stock analyzing app                                                                | Web Browser                                                                       |
-| <img src="./readme/stock-analyzing-app.gif" alt="Stock analyzing app" width="450"> | <img src="./readme/web-browser.gif" alt="Web Browser" width="450">                |
+A few projects made with Quark.
+
+| System resource monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_ybxmtnoilpu4nwj0t4/project) | Arduino data logger [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_6if0m0z5ol5inermo8/project) |
+| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| <img src="./readme/system-monitor.gif" alt="Stock analyzing app" height="270">                                       | <img src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" height="270">                               |
+| Web Browser [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_0umm60gvnlierd0ku7/project)             | Activity monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_y43pdal0kqgi99x5fh/project)    |
+| <img src="./readme/web-browser.gif" alt="Web Browser" height="270">                                                  | <img src="https://i.imgur.com/oSEeu18.png" alt="Activity monitor" height="270">                                  |
+| Prices [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_cwub3h5x8ctfdt6rfs/project)                  | Hash [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_roomlkgizmk1nzc7of/project)                |
+| <img src="https://i.imgur.com/fYmDv8w.png" alt="Prices" height="270">                                                | <img src="https://i.imgur.com/VVCZOHo.png" alt="Hash" height="270">                                              |
 <!-- 
 | System resource monitor                                               | Arduino data logger                                             |
 | --------------------------------------------------------------------- | --------------------------------------------------------------- |
