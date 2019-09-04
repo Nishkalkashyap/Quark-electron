@@ -10,14 +10,9 @@
 This repo is the development repo for the [Quark](https://quarkjs.io) product.
 
 ## Quark
+Quark is a cross-platform, integrated development environment for rapidly building - functional , prototypal projects, written in HTML, CSS and JavaScript with native desktop app like capabilities.
 
 ![Hello World](./readme/hello-world.gif)
-<!-- <video muted autoplay loop style="max-width:100%; height:auto" name="media" poster="./readme/hello-world-intro.png">
-  <source src="./readme/hello-world-intro.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>  -->
-
-Quark is a cross-platform, integrated development environment for rapidly building - functional , prototypal projects, written in HTML, CSS and JavaScript with native desktop app like capabilities.
 
 ## Goals
 
