@@ -88,14 +88,21 @@ Quark includes a set of built-in packages. Namely
 
 ## Showcase 
 
-<!-- | ![alt-text-1](./readme/system-monitor.gif "System resource monitor")  | ![alt-text-2](./readme/control-system.gif "Control System") | -->
-| System resource monitor                                                     | Arduino data logger                                                   |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| ![alt-text-1](./readme/system-monitor.gif "System resource monitor" =350x)  | ![alt-text-2](https://i.imgur.com/vnvEMNx.gif "Control System" =350x) |
-| Stock analyzing app                                                         | Plot Charts                                                           |
-| ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app" =350x) | ![alt-text-1](./readme/plot-charts.gif "Plot Charts" =350x)           |
-| News App                                                                    | Web Browser                                                           |
-| ![alt-text-1](./readme/news-app.gif "News App" =350x)                       | ![alt-text-2](./readme/web-browser.gif "Web Browser" =350x)           |
+| System resource monitor                                                            | Arduino data logger                                                               |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| <img src="./readme/system-monitor.gif" alt="Stock analyzing app" width="450">      | <img src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" width="450"> |
+| Plot Charts                                                                        | News App                                                                          |
+| <img src="./readme/plot-charts.gif" alt="Plot Charts" width="450">                 | <img src="./readme/news-app.gif" alt="News App" width="450">                      |
+| Stock analyzing app                                                                | Web Browser                                                                       |
+| <img src="./readme/stock-analyzing-app.gif" alt="Stock analyzing app" width="450"> | <img src="./readme/web-browser.gif" alt="Web Browser" width="450">                |
+<!-- 
+| System resource monitor                                               | Arduino data logger                                             |
+| --------------------------------------------------------------------- | --------------------------------------------------------------- |
+| ![alt-text-1](./readme/system-monitor.gif "System resource monitor")  | ![alt-text-2](https://i.imgur.com/vnvEMNx.gif "Control System") |
+| Stock analyzing app                                                   | Plot Charts                                                     |
+| ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app") | ![alt-text-1](./readme/plot-charts.gif "Plot Charts")           |
+| News App                                                              | Web Browser                                                     |
+| ![alt-text-1](./readme/news-app.gif "News App")                       | ![alt-text-2](./readme/web-browser.gif "Web Browser")           | --> |
 
 
 
