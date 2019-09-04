@@ -88,12 +88,20 @@ Quark includes a set of built-in packages. Namely
 
 ## Showcase 
 
-<img align="left" width="250" src="./readme/system-monitor.gif" alt="System resource monitor" title="System resource monitor" hspace="20"/>
-<img align="left" width="250" src="./readme/control-system.gif" alt="Control System" title="Control System" hspace="20"/>
-<img align="left" width="250" src="./readme/plot-charts.gif" alt="Plot Charts" title="Plot Charts" hspace="20"/>
-<img align="left" width="250" src="./readme/stock-analyzing-app.gif" alt="Stock analyzing app" title="Stock analyzing app" hspace="20"/>
-<img align="left" width="250" src="./readme/news-app.gif" alt="News App" title="News App" hspace="20"/>
-<img align="left" width="250" src="./readme/web-browser.gif" alt="Web Browser" title="Web Browser" hspace="20"/>
+<img align="left" width="350" src="./readme/system-monitor.gif" alt="System resource monitor" title="System resource monitor" hspace="20"/>
+<img align="left" width="350" src="./readme/control-system.gif" alt="Control System" title="Control System" hspace="20"/>
+<br/>
+<br/>
+<img align="left" width="350" src="./readme/plot-charts.gif" alt="Plot Charts" title="Plot Charts" hspace="20"/>
+<img align="left" width="350" src="./readme/stock-analyzing-app.gif" alt="Stock analyzing app" title="Stock analyzing app" hspace="20"/>
+<br/>
+<br/>
+<img align="left" width="350" src="./readme/news-app.gif" alt="News App" title="News App" hspace="20"/>
+<img align="left" width="350" src="./readme/web-browser.gif" alt="Web Browser" title="Web Browser" hspace="20"/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <!-- ![alt-text-1](./readme/system-monitor.gif "System resource monitor") ![alt-text-2](./readme/control-system.gif "Control System")
 ![alt-text-1](./readme/plot-charts.gif "Plot Charts") ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app")
