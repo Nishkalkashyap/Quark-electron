@@ -104,18 +104,6 @@ A few projects made with Quark.
 | ![alt-text-1](./readme/news-app.gif "News App")                       | ![alt-text-2](./readme/web-browser.gif "Web Browser")           |
 -->
 
-<p align="center">
-
-<img src="./readme/system-monitor.gif" alt="System monitor" width="280" style="padding:20px"/>
-
-<img src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" width="280" style="padding:20px"/>
-
-<img src="./readme/web-browser.gif" alt="Browser" width="280" style="padding:20px"/>
-
-</p>
-
-
-
 
 <!-- 
 #### System resource monitor
