@@ -9,11 +9,9 @@ Quark is a general purpose software tool specifically designed to help you creat
 Visit [the website](https://quarkjs.io) to learn more.
 
 
-<div>
-<img src="./readme/image-1.jpg" alt="Quark IDE screenshot" width="210"/>
-<img src="./readme/image-2.jpg" alt="Quark IDE screenshot" width="420"/>
-<img src="./readme/image-3.jpg" alt="Quark IDE screenshot" width="210"/>
-</div>
+<p align="center">
+    <img src="./readme/hello-world.gif" alt="Quark IDE screenshot" width="420"/>
+</p>
 
 <div>
 <img src="./readme/image-1.jpg" alt="Quark IDE screenshot" width="280"/>
