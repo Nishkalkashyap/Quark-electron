@@ -12,13 +12,10 @@ This repo is the development repo for the [Quark](https://quarkjs.io) product.
 ## Quark
 Quark is a cross-platform, integrated development environment for rapidly building - functional , prototypal projects, written in HTML, CSS and JavaScript with native desktop app like capabilities.
 
-<!-- ![Hello World](./readme/hello-world.gif) -->
 <div>
-<img src="./readme/image-1.jpg" alt="ananas dag screenshot" width="280"/>
-
-<img src="./readme/image-2.jpg" alt="ananas visualization" width="280"/>
-
-<img src="./readme/image-3.jpg" alt="ananas engine" width="280"/>
+<img src="./readme/image-1.jpg" alt="Quark IDE screenshot" width="280"/>
+<img src="./readme/image-2.jpg" alt="Quark IDE screenshot" width="280"/>
+<img src="./readme/image-3.jpg" alt="Quark IDE screenshot" width="280"/>
 </div>
 
 ## Goals
@@ -102,9 +99,9 @@ A few projects made with Quark.
  -->
 
 <div>
-<img src="./readme/system-monitor.gif" alt="ananas dag screenshot" width="280"/>
-<img src="https://i.imgur.com/vnvEMNx.gif" alt="ananas dag screenshot" width="270"/>
-<img src="./readme/web-browser.gif" alt="ananas dag screenshot" width="280"/>
+<img src="./readme/system-monitor.gif" alt="Quark App - System resource monitor" width="280"/>
+<img src="https://i.imgur.com/vnvEMNx.gif" alt="Quark App - Arduino data logger" width="270"/>
+<img src="./readme/web-browser.gif" alt="Quark App - Web Browser" width="280"/>
 </div>                                    
 
 <!-- 
