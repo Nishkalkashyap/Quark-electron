@@ -91,26 +91,21 @@ Quark includes a set of built-in packages. Namely
 ## Showcase 
 
 A few projects made with Quark.
-
+<!-- 
 | System resource monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_ybxmtnoilpu4nwj0t4/project) | Arduino data logger [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_6if0m0z5ol5inermo8/project) |
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | <img align="center" src="./readme/system-monitor.gif" alt="Stock analyzing app" height="240">                        | <img align="center" src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" height="240">                               |
 | Web Browser [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_0umm60gvnlierd0ku7/project)             | Activity monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_y43pdal0kqgi99x5fh/project)    |
 | <img align="center" src="./readme/web-browser.gif" alt="Web Browser" height="240">                                   | <img align="center" src="https://i.imgur.com/oSEeu18.png" alt="Activity monitor" height="240">                                  |
 | Prices [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_cwub3h5x8ctfdt6rfs/project)                  | Hash [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_roomlkgizmk1nzc7of/project)                |
-| <img align="center" src="https://i.imgur.com/fYmDv8w.png" alt="Prices" height="240">                                 | <img align="center" src="https://i.imgur.com/VVCZOHo.png" alt="Hash" height="240">                                              |
+| <img align="center" src="https://i.imgur.com/fYmDv8w.png" alt="Prices" height="240">                                 | <img align="center" src="https://i.imgur.com/VVCZOHo.png" alt="Hash" height="240">          
+ -->
 
-
-<!-- 
-| System resource monitor                                               | Arduino data logger                                             |
-| --------------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![alt-text-1](./readme/system-monitor.gif "System resource monitor")  | ![alt-text-2](https://i.imgur.com/vnvEMNx.gif "Control System") |
-| Stock analyzing app                                                   | Plot Charts                                                     |
-| ![alt-text-2](./readme/stock-analyzing-app.gif "Stock analyzing app") | ![alt-text-1](./readme/plot-charts.gif "Plot Charts")           |
-| News App                                                              | Web Browser                                                     |
-| ![alt-text-1](./readme/news-app.gif "News App")                       | ![alt-text-2](./readme/web-browser.gif "Web Browser")           |
--->
-
+<div>
+<img src="./readme/system-monitor.gif" alt="ananas dag screenshot" width="280"/>
+<img src="https://i.imgur.com/vnvEMNx.gif" alt="ananas dag screenshot" width="270"/>
+<img src="./readme/web-browser.gif" alt="ananas dag screenshot" width="280"/>
+</div>                                    
 
 <!-- 
 #### System resource monitor
