@@ -10,6 +10,12 @@ Visit [the website](https://quarkjs.io) to learn more.
 
 
 <div>
+<img src="./readme/image-1.jpg" alt="Quark IDE screenshot" width="210"/>
+<img src="./readme/image-2.jpg" alt="Quark IDE screenshot" width="420"/>
+<img src="./readme/image-3.jpg" alt="Quark IDE screenshot" width="210"/>
+</div>
+
+<div>
 <img src="./readme/image-1.jpg" alt="Quark IDE screenshot" width="280"/>
 <img src="./readme/image-2.jpg" alt="Quark IDE screenshot" width="280"/>
 <img src="./readme/image-3.jpg" alt="Quark IDE screenshot" width="280"/>
@@ -28,15 +34,6 @@ Quark is built with simplicity in mind, so that creating projects with Quark is 
 
 ## Showcase 
 A few apps built with Quark
-<!-- 
-| System resource monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_ybxmtnoilpu4nwj0t4/project) | Arduino data logger [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_6if0m0z5ol5inermo8/project) |
-| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| <img align="center" src="./readme/system-monitor.gif" alt="Stock analyzing app" height="240">                        | <img align="center" src="https://i.imgur.com/vnvEMNx.gif" alt="Arduino data logger" height="240">                               |
-| Web Browser [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_0umm60gvnlierd0ku7/project)             | Activity monitor [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_y43pdal0kqgi99x5fh/project)    |
-| <img align="center" src="./readme/web-browser.gif" alt="Web Browser" height="240">                                   | <img align="center" src="https://i.imgur.com/oSEeu18.png" alt="Activity monitor" height="240">                                  |
-| Prices [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_cwub3h5x8ctfdt6rfs/project)                  | Hash [Download](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_roomlkgizmk1nzc7of/project)                |
-| <img align="center" src="https://i.imgur.com/fYmDv8w.png" alt="Prices" height="240">                                 | <img align="center" src="https://i.imgur.com/VVCZOHo.png" alt="Hash" height="240">          
- -->
 
 <div>
 <img src="./readme/system-monitor.gif" alt="Quark App - System resource monitor" width="280"/>
@@ -52,39 +49,6 @@ A few apps built with Quark
 * [Hash](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_roomlkgizmk1nzc7of/project) - Simple app that shows the hash values of entered text using different algorithms.
 * [Mirror](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_gnk42qk7gepvshsva1/project) - Simple app that plays a video of the computer's camera at a maximized size like looking into a mirror.
 * [Stock prices](https://dash.quarkjs.io/98ErmpQVApXvbsNWI6lvxLAAhpj2/_cwub3h5x8ctfdt6rfs/project) - Simple app that shows the current price of oil, gold, and silver using the STOOQ API.
-
-<!-- 
-#### System resource monitor
-Monitors system resources. View CPU loads, memory usage, process explorer.
-
-![System Information](./readme/system-monitor.gif)
-
-#### Digital control systems
-Digital control system made with Arduino UNO using pre-installed serialport library.
-
-![Control System](./readme/control-system.gif)
-
-
-#### Plot Charts
-Plot charts using plotly.js
-
-![Plot Charts](./readme/plot-charts.gif)
-
-#### Stock analyzing app
-Analyze historic/real-time stock data.
-
-![Stock analyzing app](./readme/stock-analyzing-app.gif)
-
-#### News App
-News app with multiple country and source filter.
-
-![News App](./readme/news-app.gif)
-
-#### Web Browser
-Web browser with multiple split view support.
-
-![Web Browser](./readme/web-browser.gif)
- -->
 
 ## Feedback
 
