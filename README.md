@@ -12,7 +12,14 @@ This repo is the development repo for the [Quark](https://quarkjs.io) product.
 ## Quark
 Quark is a cross-platform, integrated development environment for rapidly building - functional , prototypal projects, written in HTML, CSS and JavaScript with native desktop app like capabilities.
 
-![Hello World](./readme/hello-world.gif)
+<!-- ![Hello World](./readme/hello-world.gif) -->
+<div>
+<img src="./readme/image-1.jpg" alt="ananas dag screenshot" width="280"/>
+
+<img src="./readme/image-2.jpg" alt="ananas visualization" width="280"/>
+
+<img src="./readme/image-3.jpg" alt="ananas engine" width="280"/>
+</div>
 
 ## Goals
 
