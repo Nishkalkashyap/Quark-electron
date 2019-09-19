@@ -114,7 +114,7 @@
     "chalk": "^2.4.2",
     "cross-env": "^5.2.1",
     "dotenv": "^7.0.0",
-    "electron": "^4.2.10",
+    "electron": "^6.0.10",
     "electron-builder": "^20.44.4",
     "electron-notarize": "^0.1.1",
     "express": "^4.17.0",
