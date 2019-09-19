@@ -16,8 +16,10 @@ async function runTest() {
         }
     }, 1000 * 60 * 2);
 
+    process.platform == 'darwin' ? macOSHandle() : null;
+    
     const testFilePath = './test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk';
-    let command =
+    const cp =
         process.platform == 'win32' ?
             spawn(`./build/win-unpacked/Quark.exe`, [testFilePath]) :
             process.platform == 'linux' ?
@@ -30,7 +32,6 @@ async function runTest() {
     // `${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
     // `${path.resolve(`./build/Quark-mac-${version}.pkg`)}` : null;
 
-    process.platform == 'darwin' ? macOSHandle() : null;
     // if (!command) {
     //     process.exit(0);
     // }
@@ -40,7 +41,6 @@ async function runTest() {
     }
 
     // const cp = spawn(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
-    const cp = command;
     cp.stdout.on('data', function (data) { console.log(data.toString()); });
     cp.stderr.on('data', function (data) { console.log(data.toString()); });
     cp.on('close', (e) => {
