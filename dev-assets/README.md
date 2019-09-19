@@ -41,6 +41,7 @@ npm run release-ci
 #### Other changes:
 #### Dependencies:
 #### Minor Changes:
+#### Major Changes:
 #### Breaking:
 
 add .quarkignore like vscode ignore
