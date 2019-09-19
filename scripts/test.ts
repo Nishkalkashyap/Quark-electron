@@ -17,7 +17,7 @@ async function runTest() {
     }, 1000 * 60 * 2);
 
     process.platform == 'darwin' ? macOSHandle() : null;
-    
+
     const testFilePath = './test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk';
     const cp =
         process.platform == 'win32' ?
@@ -25,7 +25,8 @@ async function runTest() {
             process.platform == 'linux' ?
                 spawn(`./build/Quark-linux-x86_64-${version}.AppImage`, [testFilePath]) :
                 process.platform == 'darwin' ?
-                    spawn(`open ./build/mac/Quark.app`, [testFilePath]) : null;
+                    // spawn(`open ./build/mac/Quark.app`, [testFilePath]) : null;
+                    spawn(`open ./build/Quark-mac-${version}.dmg`, [testFilePath]) : null;
     // './build/mac/Quark.app' : null;
     // 'open ./build/mac/Quark.app' : null;
     // `open ${(`./build/mac/Quark.app`)}` : null;
