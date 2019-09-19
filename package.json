@@ -3,7 +3,7 @@
   "author": "Nishkal Kashyap <hello@nishkal.in>",
   "email": "hello@nishkal.in",
   "homepage": "https://quarkjs.io",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Create projects written in HTML, CSS and JavaScript with native desktop app like capabilities",
   "main": "index.js",
   "bin": "index.js",
