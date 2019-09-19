@@ -36,7 +36,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/core@7.5.4
+Package: @babel/core@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -228,7 +228,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-create-class-features-plugin@7.5.0
+Package: @babel/helper-create-class-features-plugin@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -260,7 +260,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-define-map@7.4.4
+Package: @babel/helper-define-map@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -420,14 +420,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-member-expression-to-functions@7.0.0
+Package: @babel/helper-member-expression-to-functions@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 MIT License
 
-Copyright (c) 2014-2018 Sebastian McKenzie <sebmck@gmail.com>
+Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -484,7 +484,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-module-transforms@7.4.4
+Package: @babel/helper-module-transforms@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -580,7 +580,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-regex@7.4.4
+Package: @babel/helper-regex@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -644,7 +644,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-replace-supers@7.4.4
+Package: @babel/helper-replace-supers@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -772,7 +772,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helpers@7.5.4
+Package: @babel/helpers@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -897,7 +897,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-proposal-class-properties@7.5.0
+Package: @babel/plugin-proposal-class-properties@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -993,7 +993,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-proposal-object-rest-spread@7.5.4
+Package: @babel/plugin-proposal-object-rest-spread@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -1409,7 +1409,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-block-scoping@7.4.4
+Package: @babel/plugin-transform-block-scoping@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -1441,7 +1441,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-classes@7.4.4
+Package: @babel/plugin-transform-classes@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -1505,7 +1505,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-destructuring@7.5.0
+Package: @babel/plugin-transform-destructuring@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -1793,7 +1793,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-modules-commonjs@7.5.0
+Package: @babel/plugin-transform-modules-commonjs@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -1889,7 +1889,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-named-capturing-groups-regex@7.4.5
+Package: @babel/plugin-transform-named-capturing-groups-regex@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -1953,14 +1953,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-object-super@7.2.0
+Package: @babel/plugin-transform-object-super@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 MIT License
 
-Copyright (c) 2014-2018 Sebastian McKenzie and other contributors
+Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -2401,7 +2401,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-typescript@7.4.5
+Package: @babel/plugin-transform-typescript@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -2465,7 +2465,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/preset-env@7.5.4
+Package: @babel/preset-env@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -2529,7 +2529,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/preset-typescript@7.3.3
+Package: @babel/preset-typescript@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -3323,7 +3323,7 @@ IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @types/node@10.14.12
+Package: @types/node@10.14.18
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -3385,7 +3385,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: @vue/component-compiler-utils@2.6.0
+Package: @vue/component-compiler-utils@3.0.0
 License: MIT
 License Source: README.md
 Source Text: 
@@ -3472,8 +3472,8 @@ interface TemplateCompileOptions {
   //   video: ['src', 'poster'],
   //   source: 'src',
   //   img: 'src',
-  //   image: 'xlink:href'
-  //   use: 'xlink:href'
+  //   image: ['xlink:href', 'href'],
+  //   use: ['xlink:href', 'href']
   // }
   transformAssetUrls?: AssetURLOptions | boolean
 
@@ -4713,7 +4713,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: acorn@6.2.0
+Package: acorn@6.2.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -4897,7 +4897,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: agentkeepalive@3.4.1
+Package: agentkeepalive@3.5.2
 License: MIT
 License Source: README.md
 Source Text: 
@@ -4960,7 +4960,7 @@ $ npm install agentkeepalive --save
     Default is `freeSocketKeepAliveTimeout * 2`.
   * `maxSockets` {Number} Maximum number of sockets to allow per
     host. Default = `Infinity`.
-  * `maxFreeSockets` {Number} Maximum number of sockets to leave open
+  * `maxFreeSockets` {Number} Maximum number of sockets (per host) to leave open
     in a free state. Only relevant if `keepAlive` is set to `true`.
     Default = `256`.
   * `socketActiveTTL` {Number} Sets the socket active time to live, even if it's in use.
@@ -5244,74 +5244,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-
-----------------------------------------------------------------------------
-
-
-Package: amdefine@1.0.1
-License: BSD-3-Clause OR MIT
-License Source: LICENSE
-Source Text: 
-
-amdefine is released under two licenses: new BSD, and MIT. You may pick the
-license that best suits your development needs. The text of both licenses are
-provided below.
-
-
-The "New" BSD License:
-----------------------
-
-Copyright (c) 2011-2016, The Dojo Foundation
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-  * Redistributions of source code must retain the above copyright notice, this
-    list of conditions and the following disclaimer.
-  * Redistributions in binary form must reproduce the above copyright notice,
-    this list of conditions and the following disclaimer in the documentation
-    and/or other materials provided with the distribution.
-  * Neither the name of the Dojo Foundation nor the names of its contributors
-    may be used to endorse or promote products derived from this software
-    without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-MIT License
------------
-
-Copyright (c) 2011-2016, The Dojo Foundation
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -7110,7 +7042,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: bin-links@1.1.2
+Package: bin-links@1.1.3
 License: Artistic-2.0
 License Source: LICENSE
 Source Text: 
@@ -7424,31 +7356,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: block-stream@0.0.9
-License: ISC
-License Source: LICENSE
-Source Text: 
-
-The ISC License
-
-Copyright (c) Isaac Z. Schlueter and Contributors
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
-IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -7833,36 +7740,6 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: browser-serialport@2.1.0
-License: MIT
-License Source: LICENSE.md
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2015 Glen Arrowsmith
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-----------------------------------------------------------------------------
-
-
 Package: browserify-aes@1.2.0
 License: MIT
 License Source: LICENSE
@@ -8090,7 +7967,7 @@ IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: browserslist@4.6.4
+Package: browserslist@4.7.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -8434,7 +8311,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: builder-util-runtime@8.2.5
+Package: builder-util-runtime@8.3.0
 License: MIT
 License Source: readme.md
 Source Text: 
@@ -8618,7 +8495,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: cacache@11.3.3
+Package: cacache@12.0.3
 License: ISC
 License Source: LICENSE.md
 Source Text: 
@@ -8674,96 +8551,24 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: call-limit@1.1.0
+Package: call-limit@1.1.1
 License: ISC
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-call-limit
-----------
+Copyright Rebecca Turner
 
-Limit the number of simultaneous executions of a async function.
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-```javascript
-var fs = require('fs')
-var limit = require('call-limit')
-var limitedStat = limit(fs.stat, 5)
-```
-
-Or with promise returning functions:
-
-```javascript
-var fs = Bluebird.promisifyAll(require('fs'))
-var limit = require('call-limit')
-var limitedStat = limit.promise(fs.statAsync, 5)
-```
-
-### USAGE:
-
-Given that:
-
-```javascript
-var limit = require('call-limit')
-```
-
-### limit(func, maxRunning) → limitedFunc
-
-The returned function will execute up to maxRunning calls of `func` at once. 
-Beyond that they get queued and called when the previous call completes.
-
-`func` must accept a callback as the final argument and must call it when
-it completes, or `call-limit` won't know to dequeue the next thing to run.
-
-By contrast, callers to `limitedFunc` do NOT have to pass in a callback, but
-if they do they'll be called when `func` calls its callback.
-
-### limit.promise(func, maxRunning) → limitedFunc
-
-The returned function will execute up to maxRunning calls of `func` at once.
-Beyond that they get queued and called when the previous call completes.
-
-`func` must return a promise.
-
-`limitedFunc` will return a promise that resolves with the promise returned
-from the call to `func`.
-
-### limit.method(class, methodName, maxRunning)
-
-This is sugar for:
-
-```javascript
-class.prototype.methodName = limit(class.prototype.methodName, maxRunning)
-```
-
-### limit.method(object, methodName, maxRunning)
-
-This is sugar for:
-
-```javascript
-object.methodName = limit(object.methodName, maxRunning)
-```
-
-For example `limit.promise.method(fs, 'stat', 5)` is the same as
-`fs.stat = limit.promise(fs.stat, 5)`.
-
-### limit.promise.method(class, methodName, maxRunning)
-
-This is sugar for:
-
-```javascript
-class.prototype.methodName = limit.promise(class.prototype.methodName, maxRunning)
-```
-
-### limit.promise.method(object, methodName, maxRunning)
-
-This is sugar for:
-
-```javascript
-object.methodName = limit.promise(object.methodName, maxRunning)
-```
-
-For example `limit.promise.method(fs, 'statAsync', 5)` is the same as
-`fs.statAsync = limit.promise(fs.statAsync, 5)`.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -8890,7 +8695,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: caniuse-lite@1.0.30000983
+Package: caniuse-lite@1.0.30000989
 License: CC-BY-4.0
 License Source: LICENSE
 Source Text: 
@@ -9378,7 +9183,7 @@ END OF TERMS AND CONDITIONS
 ----------------------------------------------------------------------------
 
 
-Package: chalk@2.1.0
+Package: chalk@2.4.1
 License: MIT
 License Source: license
 Source Text: 
@@ -9507,7 +9312,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: chokidar@2.1.6
+Package: chokidar@2.1.8
 License: MIT
 License Source: README.md
 Source Text: 
@@ -10363,38 +10168,26 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: cmd-shim@2.0.2
-License: BSD-2-Clause
+Package: cmd-shim@3.0.3
+License: ISC
 License Source: LICENSE
 Source Text: 
 
-Copyright (c) Isaac Z. Schlueter ("Author")
-All rights reserved.
+The ISC License
 
-The BSD License
+Copyright (c) npm, Inc. and Contributors
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS
-BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -11308,36 +11101,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: core-js-compat@3.1.4
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-Copyright (c) 2014-2019 Denis Pushkarev
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: core-js-pure@3.1.4
+Package: core-js-compat@3.2.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -11667,14 +11431,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: css-parse@1.7.0
+Package: css-parse@2.0.0
 License: MIT
 License Source: Readme.md
 Source Text: 
 
-# css-parse [![Build Status](https://travis-ci.org/visionmedia/css-parse.png)](https://travis-ci.org/visionmedia/css-parse)
+# css-parse
 
-  JavaScript CSS parser for nodejs and the browser.
+  JavaScript CSS parser for Node.js (exports the `parse` method of [css](https://github.com/reworkcss/css))
 
 ## Installation
 
@@ -11682,134 +11446,7 @@ Source Text:
 
 ## Usage
 
-````javascript
-var parse = require('css-parse');
-
-// CSS input string
-var css = "body { \n background-color: #fff;\n }";
-
-var output_obj = parse(css);
-
-// Position and Source parameters
-var output_obj_pos = parse(css, { position: true, source: 'file.css' });
-
-// Print parsed object as CSS string
-console.log(JSON.stringify(output_obj, null, 2));
-
-````
-
-## Example
-
-css:
-
-```css
-body {
-  background: #eee;
-  color: #888;
-}
-```
-
-parse tree:
-
-```json
-{
-  "type": "stylesheet",
-  "stylesheet": {
-    "rules": [
-      {
-        "type": "rule",
-        "selectors": [
-          "body"
-        ],
-        "declarations": [
-          {
-            "type": "declaration",
-            "property": "background",
-            "value": "#eee"
-          },
-          {
-            "type": "declaration",
-            "property": "color",
-            "value": "#888"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-parse tree with `.position` enabled:
-
-```json
-{
-  "type": "stylesheet",
-  "stylesheet": {
-    "rules": [
-      {
-        "type": "rule",
-        "selectors": [
-          "body"
-        ],
-        "declarations": [
-          {
-            "type": "declaration",
-            "property": "background",
-            "value": "#eee",
-            "position": {
-              "start": {
-                "line": 3,
-                "column": 3
-              },
-              "end": {
-                "line": 3,
-                "column": 19
-              }
-            }
-          },
-          {
-            "type": "declaration",
-            "property": "color",
-            "value": "#888",
-            "position": {
-              "start": {
-                "line": 4,
-                "column": 3
-              },
-              "end": {
-                "line": 4,
-                "column": 14
-              }
-            }
-          }
-        ],
-        "position": {
-          "start": {
-            "line": 2,
-            "column": 1
-          },
-          "end": {
-            "line": 5,
-            "column": 2
-          }
-        }
-      }
-    ]
-  }
-}
-```
-
-If you also pass in `source: 'path/to/original.css'`, that will be set
-on `node.position.source`.
-
-## Performance
-
-  Parsed 15,000 lines of CSS (2mb) in 40ms on my macbook air.
-
-## Related
- 
-  [css-stringify](https://github.com/visionmedia/css-stringify "CSS-Stringify")  
-  [css-value](https://github.com/visionmedia/css-value "CSS-Value")  
+  Please see the [css](https://github.com/reworkcss/css) module documentation.
 
 ## License
 
@@ -11845,6 +11482,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: css@2.2.4
+License: MIT
+License Source: LICENSE
+Source Text: 
+
+(The MIT License)
+
+Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -13514,122 +13170,6 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: ease-component@1.0.0
-License: MIT
-License Source: Readme.md
-Source Text: 
-
-
-# ease
-
-  Easing functions (for canvas etc)
-
-  - linear
-  - inQuad
-  - outQuad
-  - inOutQuad
-  - inCube
-  - outCube
-  - inOutCube
-  - inQuart
-  - outQuart
-  - inOutQuart
-  - inQuint
-  - outQuint
-  - inOutQuint
-  - inSine
-  - outSine
-  - inOutSine
-  - inExpo
-  - outExpo
-  - inOutExpo
-  - inCirc
-  - outCirc
-  - inOutCirc
-  - inBack
-  - outBack
-  - inOutBack
-  - inBounce
-  - outBounce
-  - inOutBounce
-
-## Aliases
-
-  - in-quad
-  - out-quad
-  - in-out-quad
-  - in-cube
-  - out-cube
-  - in-out-cube
-  - in-quart
-  - out-quart
-  - in-out-quart
-  - in-quint
-  - out-quint
-  - in-out-quint
-  - in-sine
-  - out-sine
-  - in-out-sine
-  - in-expo
-  - out-expo
-  - in-out-expo
-  - in-circ
-  - out-circ
-  - in-out-circ
-  - in-back
-  - out-back
-  - in-out-back
-  - in-bounce
-  - out-bounce
-  - in-out-bounce
-
-## Example
-
-```js
-var ease = require('ease');
-var requestAnimationFrame = require('raf');
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
-
-var stop = false;
-function animate() {
-  if (stop) return;
-  requestAnimationFrame(animate);
-  draw();
-}
-
-var startx = 20;
-var x = startx;
-var destx = 300;
-var y = 400 / 2;
-var duration = 1000;
-var start = Date.now();
-var end = start + duration;
-
-function draw() {
-  var now = Date.now();
-  if (now - start >= duration) stop = true;
-  var p = (now - start) / duration;
-  val = ease.inOutBounce(p);
-  x = startx + (destx - startx) * val;
-  canvas.width = canvas.width;
-  ctx.fillStyle = 'red';
-  ctx.arc(x, y, 10, 0, Math.PI * 2, false);
-  ctx.fill();
-}
-
-animate();
-
-```
-
-# License
-
-  MIT
-
-
-----------------------------------------------------------------------------
-
-
 Package: ecc-jsbn@0.1.2
 License: MIT
 License Source: LICENSE
@@ -13730,7 +13270,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: electron-log@3.0.6
+Package: electron-log@3.0.8
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -13935,7 +13475,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: electron-to-chromium@1.3.188
+Package: electron-to-chromium@1.3.261
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -13950,7 +13490,7 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 ----------------------------------------------------------------------------
 
 
-Package: electron-updater@4.0.14
+Package: electron-updater@4.1.2
 License: MIT
 License Source: README.md
 Source Text: 
@@ -13975,12 +13515,12 @@ Thanks to [Evolve Labs](https://www.evolvehq.com) for donating the npm package n
 ----------------------------------------------------------------------------
 
 
-Package: electron@4.2.6
+Package: electron@6.0.10
 License: MIT
 License Source: LICENSE
 Source Text: 
 
-Copyright (c) 2013-2018 GitHub Inc.
+Copyright (c) 2013-2019 GitHub Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -14218,7 +13758,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: elliptic@6.5.0
+Package: elliptic@6.5.1
 License: MIT
 License Source: README.md
 Source Text: 
@@ -15039,7 +14579,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: es6-promise@4.2.6
+Package: es6-promise@4.2.8
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -17351,37 +16891,6 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: fs-extra-p@8.1.0
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2017 Vladimir Krivosheev
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: fs-extra@4.0.3
 License: MIT
 License Source: LICENSE
@@ -17407,7 +16916,7 @@ OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHE
 ----------------------------------------------------------------------------
 
 
-Package: fs-minipass@1.2.5
+Package: fs-minipass@1.2.6
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -17533,63 +17042,6 @@ the licensed code:
 ----------------------------------------------------------------------------
 
 
-Package: fsevents@1.2.9
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-MIT License
------------
-
-Copyright (C) 2010-2014 Philipp Dunkel
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: fstream@1.0.12
-License: ISC
-License Source: LICENSE
-Source Text: 
-
-The ISC License
-
-Copyright (c) Isaac Z. Schlueter and Contributors
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
-IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: ftp@0.3.10
 License: MIT
 License Source: LICENSE
@@ -17702,7 +17154,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: gentle-fs@2.0.1
+Package: gentle-fs@2.2.1
 License: Artistic-2.0
 License Source: LICENSE
 Source Text: 
@@ -18326,7 +17778,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: glob@7.0.6
+Package: glob@7.1.4
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -18346,6 +17798,12 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+## Glob Logo
+
+Glob's logo created by Tanya Brassie <http://tanyabrassie.com/>, licensed
+under a Creative Commons Attribution-ShareAlike 4.0 International License
+https://creativecommons.org/licenses/by-sa/4.0/
 
 
 ----------------------------------------------------------------------------
@@ -18491,32 +17949,20 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: has-flag@2.0.0
+Package: has-flag@3.0.0
 License: MIT
 License Source: license
 Source Text: 
 
-The MIT License (MIT)
+MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -19886,6 +19332,31 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
 ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: infer-owner@1.0.4
+License: ISC
+License Source: LICENSE
+Source Text: 
+
+The ISC License
+
+Copyright (c) npm, Inc. and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -21354,628 +20825,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: johnny-five@1.1.0
-License: MIT
-License Source: README.md
-Source Text: 
-
-![](https://github.com/rwaldron/johnny-five/raw/master/assets/sgier-johnny-five.png)
-
-# Johnny-Five
-### The JavaScript Robotics Programming Framework
-
-<!-- 
-
-    Hello!
-
-    Please don't edit this file!
-
-    If you'd like to make changes to the readme contents, please make them in the tpl/.readme.md file. If you'd like to add an example: 
-
-    1. Add the file in `eg/`
-    2. Add a breadboard image in `docs/breadboards`
-    3. Add an entry to `tpl/programs.json`. 
-    4. Generated the markdown with: `grunt examples`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
-
-
-_Artwork by [Mike Sgier](http://msgierillustration.com)_
-
-[![Travis Build Status](https://travis-ci.org/rwaldron/johnny-five.svg?branch=master)](https://travis-ci.org/rwaldron/johnny-five)
-[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/hmke71k7uemtnami/branch/master?svg=true)](https://ci.appveyor.com/project/rwaldron/johnny-five)
-[![Coverage Status](https://coveralls.io/repos/github/rwaldron/johnny-five/badge.svg?branch=master)](https://coveralls.io/github/rwaldron/johnny-five?branch=master)
-[![Install Size](https://packagephobia.now.sh/badge?p=johnny-five)](https://packagephobia.now.sh/result?p=johnny-five)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/rwaldron/johnny-five)
-
-
-
-**Johnny-Five is an Open Source, Firmata Protocol based, IoT and Robotics programming framework, developed at [Bocoup](http://bocoup.com). Johnny-Five programs can be written for Arduino (all models), Electric Imp, Beagle Bone, Intel Galileo & Edison, Linino One, Pinoccio, pcDuino3, Raspberry Pi, Particle/Spark Core & Photon, Tessel 2, TI Launchpad and more!**
-
-Johnny-Five has grown from a passion project into a tool for inspiring learning and creativity for people of all ages, backgrounds, and from all across the world.
-
-Just interested in learning and building awesome things? You might want to start with the official [Johnny-Five website](http://johnny-five.io). The website combines content from this repo, the wiki, tutorials from the Bocoup blog and several third-party websites into a single, easily-discoverable source:
-
-* If you want to find the API documentation, [that’s right here](http://johnny-five.io/api/).
-* Need to figure out what platform to use for a project? We put that stuff [here](http://johnny-five.io/platform-support/).
-* Need inspiration for your next NodeBot? Check out the [examples](http://johnny-five.io/examples/).
-* Want to stay up-to-date with projects in the community? [Check this out](http://johnny-five.io/articles/).
-* Need NodeBots community or Johnny-Five project updates and announcements? [This](http://johnny-five.io/news/) is what you’re looking for.
-
-
-Johnny-Five does not attempt to provide "all the things", but instead focuses on delivering robust, reality tested, highly composable APIs that behave consistently across all supported hardware platforms. Johnny-Five wants to be a baseline control kit for hardware projects, allowing you the freedom to build, grow and experiment with diverse JavaScript libraries of your own choice. Johnny-Five couples comfortably with:
-
-- Popular application libraries such as [Express.js](http://expressjs.com/) and [Socket.io](http://socket.io/).
-- Fellow hardware projects like [ar-drone](https://github.com/felixge/node-ar-drone), [Aerogel](https://github.com/ceejbot/aerogel) and [Spheron](https://github.com/alchemycs/spheron)
-- Bluetooth game controllers like [XBox Controller](https://github.com/andrew/node-xbox-controller) and [DualShock](https://github.com/rdepena/node-dualshock-controller)
-- IoT frameworks, such as [Octoblu](http://www.octoblu.com/)
-
-...And that's only a few of the many explorable possibilities. Check out these exciting projects: [node-pulsesensor](https://www.npmjs.org/package/node-pulsesensor), [footballbot-workshop-ui](https://www.npmjs.org/package/footballbot-workshop-ui), [nodebotui](https://www.npmjs.org/package/nodebotui), [dublin-disco](https://www.npmjs.org/package/dublin-disco), [node-slot-car-bot](https://www.npmjs.org/package/node-slot-car-bot), [servo-calibrator](https://www.npmjs.org/package/servo-calibrator), [node-ardx](https://www.npmjs.org/package/node-ardx), [nodebot-workshop](https://www.npmjs.org/package/nodebot-workshop), [phone-home](https://www.npmjs.org/package/phone-home), [purple-unicorn](https://www.npmjs.org/package/purple-unicorn), [webduino](https://www.npmjs.org/package/webduino), [leapduino](https://www.npmjs.org/package/leapduino), [lasercat-workshop](https://www.npmjs.org/package/lasercat-workshop), [simplesense](https://www.npmjs.org/package/simplesense), [five-redbot](https://www.npmjs.org/package/five-redbot), [robotnik](https://www.npmjs.org/package/robotnik), [the-blender](https://www.npmjs.org/package/the-blender)
-
-
-**Why JavaScript?**
-[NodeBots: The Rise of JavaScript Robotics](http://www.voodootikigod.com/nodebots-the-rise-of-js-robotics)
-
-## Hello Johnny
-
-The ubiquitous "Hello World" program of the microcontroller and SoC world is "blink an LED". The following code demonstrates how this is done using the Johnny-Five framework.
-
-```javascript
-var five = require("johnny-five");
-var board = new five.Board();
-
-board.on("ready", function() {
-  // Create an Led on pin 13
-  var led = new five.Led(13);
-  // Blink every half second
-  led.blink(500);
-});
-```
-
-<img src="https://github.com/rwaldron/johnny-five/raw/master/assets/led-blink.gif">
-
-> Note: Node will crash if you try to run johnny-five in the node REPL, but board instances will create their own contextual REPL. Put your script in a file.
-
-
-## Supported Hardware
-
-Johnny-Five has been tested on a variety of Arduino-compatible [Boards](https://github.com/rwaldron/johnny-five/wiki/Board).
-
-For non-Arduino based projects, a number of platform-specific [IO Plugins](https://github.com/rwaldron/johnny-five/wiki/IO-Plugins) are available. IO Plugins allow Johnny-Five code to communicate with any non-Arduino based hardware in whatever language that platforms speaks!
-
-## Documentation
-
-Documentation for the Johnny-Five API can be found [here](http://johnny-five.io/api/) and [example programs here](http://johnny-five.io/examples/).
-
-## Guidance
-
-Need help? Ask a question on the [NodeBots Community Forum](http://forums.nodebots.io). If you just have a quick question or are interested in ongoing design discussions, join us in the [Johnny-Five Gitter Chat](https://gitter.im/rwaldron/johnny-five).
-
-For step-by-step examples, including an electronics primer, check out [Arduino Experimenter's Guide for NodeJS](http://node-ardx.org/) by [@AnnaGerber](https://twitter.com/AnnaGerber)
-
-Here is a list of [prerequisites](https://github.com/rwaldron/johnny-five/wiki/Getting-Started#prerequisites) for Linux, OSX or Windows.
-
-Check out the [bluetooth guide](https://github.com/rwaldron/johnny-five/wiki/JY-MCU-Bluetooth-Serial-Port-Module-Notes) if you want to remotely control your robot.
-
-## Setup and Assemble Arduino
-
-- Recommended Starting Kit: [Sparkfun Inventor's Kit](https://www.sparkfun.com/products/12001)
-- Download [Arduino IDE](http://arduino.cc/en/main/software)
-- Plug in your Arduino or Arduino compatible microcontroller via USB
-- Open the Arduino IDE, select: File > Examples > Firmata > StandardFirmataPlus
-    + StandardFirmataPlus is available in Firmata v2.5.0 or greater
-- Click the "Upload" button.
-
-If the upload was successful, the board is now prepared and you can close the Arduino IDE.
-
-For non-Arduino projects, each IO Plugin's repo will provide its own platform specific setup instructions.
-
-
-## Hey you, here's Johnny!
-
-#### Source Code:
-
-``` bash
-git clone git://github.com/rwaldron/johnny-five.git && cd johnny-five
-
-npm install
-```
-
-#### npm package:
-
-Install the module with:
-
-```bash
-npm install johnny-five
-```
-
-
-## Example Programs
-
-To get you up and running quickly, we provide a variety of examples for using each Johnny-Five component. One thing we’re especially excited about is the extensive collection of [Fritzing](http://fritzing.org/home/) diagrams you’ll find throughout the site. A huge part of doing any Johnny-Five project is handling the actual hardware, and we’ve included these as part of the documentation because we realised that instructions on how to write code to control a servo are insufficient without instructions on how to connect a servo!
-
-To interactively navigate the examples, visit the [Johnny-Five examples](http://johnny-five.io/examples/) page on the official website. If you want to link directly to the examples in this repo, you can use one of the following links.
-
-**There are presently 363 example programs with code and diagrams!**
-
-<!--extract-start:examples-->
-
-### Board
-- [Board - Basic Initialization](https://github.com/rwaldron/johnny-five/blob/master/docs/board.md)
-- [Board - Cleanup in 'exit' event](https://github.com/rwaldron/johnny-five/blob/master/docs/board-cleanup.md)
-- [Board - Multiple in one program](https://github.com/rwaldron/johnny-five/blob/master/docs/board-multi.md)
-- [Board - Specify Sampling Interval](https://github.com/rwaldron/johnny-five/blob/master/docs/board-sampling-interval.md)
-- [Board - Specify port](https://github.com/rwaldron/johnny-five/blob/master/docs/board-with-port.md)
-- [Custom Data Properties](https://github.com/rwaldron/johnny-five/blob/master/docs/custom-properties.md)
-- [Pin](https://github.com/rwaldron/johnny-five/blob/master/docs/pin.md)
-- [REPL](https://github.com/rwaldron/johnny-five/blob/master/docs/repl.md)
-
-### LED
-- [LED](https://github.com/rwaldron/johnny-five/blob/master/docs/led.md)
-- [LED - Blink](https://github.com/rwaldron/johnny-five/blob/master/docs/led-blink.md)
-- [LED - Demo sequence](https://github.com/rwaldron/johnny-five/blob/master/docs/led-demo-sequence.md)
-- [LED - Fade](https://github.com/rwaldron/johnny-five/blob/master/docs/led-fade.md)
-- [LED - Fade callback](https://github.com/rwaldron/johnny-five/blob/master/docs/led-fade-callback.md)
-- [LED - Fade with animation](https://github.com/rwaldron/johnny-five/blob/master/docs/led-fade-animation.md)
-- [LED - PCA9685](https://github.com/rwaldron/johnny-five/blob/master/docs/led-PCA9685.md)
-- [LED - Pulse](https://github.com/rwaldron/johnny-five/blob/master/docs/led-pulse.md)
-- [LED - Pulse with animation](https://github.com/rwaldron/johnny-five/blob/master/docs/led-pulse-animation.md)
-- [LED - Slider](https://github.com/rwaldron/johnny-five/blob/master/docs/led-slider.md)
-- [LED - Tessel Servo Module](https://github.com/rwaldron/johnny-five/blob/master/docs/led-tessel-servo-module.md)
-- [LEDs - An array of LEDs](https://github.com/rwaldron/johnny-five/blob/master/docs/led-array.md)
-- [LEDs - Controlling an array of LEDs](https://github.com/rwaldron/johnny-five/blob/master/docs/led-array-controller.md)
-
-### LED: RGB
-- [LED - RGB](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb.md)
-- [LED - RGB (Common Anode)](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-anode.md)
-- [LED - RGB (Common Anode) PCA9685](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-anode-PCA9685.md)
-- [LED - RGB Intensity](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-intensity.md)
-- [LED - Rainbow](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rainbow.md)
-- [LED - Rainbow BlinkM](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-BLINKM.md)
-
-### LED: Digits & Matrix
-- [LED - Digital Clock](https://github.com/rwaldron/johnny-five/blob/master/docs/led-digits-clock.md)
-- [LED - Digital Clock, Dual Displays](https://github.com/rwaldron/johnny-five/blob/master/docs/led-digits-clock-dual.md)
-- [LED - Digital Clock, HT16K33](https://github.com/rwaldron/johnny-five/blob/master/docs/led-digits-clock-HT16K33.md)
-- [LED - Draw Matrix Characters Demo](https://github.com/rwaldron/johnny-five/blob/master/docs/led-chars-demo.md)
-- [LED - Enumerate Matrix Characters & Symbols](https://github.com/rwaldron/johnny-five/blob/master/docs/led-enumeratechars.md)
-- [LED - Matrix](https://github.com/rwaldron/johnny-five/blob/master/docs/led-matrix.md)
-- [LED - Matrix Demo](https://github.com/rwaldron/johnny-five/blob/master/docs/led-matrix-tutorial.md)
-- [LED - Matrix HT16K33](https://github.com/rwaldron/johnny-five/blob/master/docs/led-matrix-HT16K33.md)
-- [LED - Matrix HT16K33 16x8](https://github.com/rwaldron/johnny-five/blob/master/docs/led-matrix-HT16K33-16x8.md)
-
-### Servo
-- [Servo](https://github.com/rwaldron/johnny-five/blob/master/docs/servo.md)
-- [Servo - Continuous](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-continuous.md)
-- [Servo - Drive](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-drive.md)
-- [Servo - Multi-Turn](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-multi-turn.md)
-- [Servo - PCA9685](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-PCA9685.md)
-- [Servo - Prompt](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-prompt.md)
-- [Servo - Slider control](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-slider.md)
-- [Servo - Sweep](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-sweep.md)
-- [Servo - Tessel Servo Module](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-tessel-servo-module.md)
-- [Servos - An array of servos](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-array.md)
-
-### GPS
-- [GPS - Adafruit Ultimate GPS Breakout](https://github.com/rwaldron/johnny-five/blob/master/docs/gps-adafruit.md)
-- [GPS - Default GPS](https://github.com/rwaldron/johnny-five/blob/master/docs/gps.md)
-- [GPS - Sparkfun GP-20U7](https://github.com/rwaldron/johnny-five/blob/master/docs/gps-GP-20U7.md)
-
-### Servo Animation
-- [Servo - Animation](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-animation.md)
-- [Servo - Leg Animation](https://github.com/rwaldron/johnny-five/blob/master/docs/servo-animation-leg.md)
-
-### Color
-- [Color - EVShield EV3 (Code)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-EVS_EV3.md)
-- [Color - EVShield EV3 (Raw)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-raw-EVS_EV3.md)
-- [Color - EVShield NXT (Code)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-EVS_NXT.md)
-- [Color - ISL29125](https://github.com/rwaldron/johnny-five/blob/master/docs/color-ISL29125.md)
-
-### Motor
-- [Motor](https://github.com/rwaldron/johnny-five/blob/master/docs/motor.md)
-- [Motor - 3 pin](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-3-pin.md)
-- [Motor - Adafruit DRV8871 DC Motor Driver Breakout](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-drv8871.md)
-- [Motor - Brake](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-brake.md)
-- [Motor - Current](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-current.md)
-- [Motor - Directional](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-directional.md)
-- [Motor - EVShield EV3](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-EVS_EV3.md)
-- [Motor - EVShield NXT](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-EVS_NXT.md)
-- [Motor - Enable Pin](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-enable.md)
-- [Motor - GROVE_I2C_MOTOR_DRIVER](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-GROVE_I2C.md)
-- [Motor - H-Bridge](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-hbridge.md)
-- [Motor - LUDUS](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-LUDUS.md)
-- [Motor - PCA9685](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-PCA9685.md)
-- [Motor - Sparkfun Dual H-bridge Edison Block](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-sparkfun-edison-hbridge.md)
-- [Motor - Sparkfun TB6612FNG](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-TB6612FNG.md)
-- [Motor - l298 Breakout](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-l298-breakout.md)
-- [Motors - Dual H-Bridge](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-hbridge-dual.md)
-
-### Stepper Motor
-- [Stepper - Driver](https://github.com/rwaldron/johnny-five/blob/master/docs/stepper-driver.md)
-- [Stepper - Sweep](https://github.com/rwaldron/johnny-five/blob/master/docs/stepper-sweep.md)
-
-### ESC & Brushless Motor
-- [ESC - Bidirectional](https://github.com/rwaldron/johnny-five/blob/master/docs/esc-bidirectional.md)
-- [ESC - Bidirectional Forward-Reverse](https://github.com/rwaldron/johnny-five/blob/master/docs/esc-bidirectional-forward-reverse.md)
-- [ESC - Dualshock controlled ESCs](https://github.com/rwaldron/johnny-five/blob/master/docs/esc-dualshock.md)
-- [ESC - Keypress controlled ESCs](https://github.com/rwaldron/johnny-five/blob/master/docs/esc-keypress.md)
-- [ESC - PCA9685](https://github.com/rwaldron/johnny-five/blob/master/docs/esc-PCA9685.md)
-- [ESCs - An array of ESCs](https://github.com/rwaldron/johnny-five/blob/master/docs/esc-array.md)
-
-### Button / Switch
-- [Button](https://github.com/rwaldron/johnny-five/blob/master/docs/button.md)
-- [Button - Bumper](https://github.com/rwaldron/johnny-five/blob/master/docs/button-bumper.md)
-- [Button - EVShield EV3](https://github.com/rwaldron/johnny-five/blob/master/docs/button-EVS_EV3.md)
-- [Button - EVShield NXT](https://github.com/rwaldron/johnny-five/blob/master/docs/button-EVS_NXT.md)
-- [Button - Options](https://github.com/rwaldron/johnny-five/blob/master/docs/button-options.md)
-- [Button - Pullup](https://github.com/rwaldron/johnny-five/blob/master/docs/button-pullup.md)
-- [Buttons - Collection w/ AT42QT1070](https://github.com/rwaldron/johnny-five/blob/master/docs/button-collection-AT42QT1070.md)
-- [Switch - Magnetic Door](https://github.com/rwaldron/johnny-five/blob/master/docs/switch-magnetic-door.md)
-- [Switch - Tilt SW-200D](https://github.com/rwaldron/johnny-five/blob/master/docs/switch-tilt-SW_200D.md)
-- [Toggle Switch](https://github.com/rwaldron/johnny-five/blob/master/docs/toggle-switch.md)
-
-### Keypad
-- [Keypad - 3x4 I2C Nano Backpack](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-3X4_I2C_NANO_BACKPACK.md)
-- [Keypad - 4x4 I2C Nano Backpack](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-4X4_I2C_NANO_BACKPACK.md)
-- [Keypad - VKEY](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-analog-vkey.md)
-- [Keypad - Waveshare AD](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-analog-ad.md)
-- [Touchpad - Grove QTouch](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-QTOUCH.md)
-- [Touchpad - MPR121](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-MPR121.md)
-- [Touchpad - MPR121, Sensitivity](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-MPR121-sensitivity.md)
-- [Touchpad - MPR121QR2_SHIELD](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-MPR121QR2_SHIELD.md)
-- [Touchpad - MPR121_KEYPAD](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-MPR121_KEYPAD.md)
-- [Touchpad - MPR121_SHIELD](https://github.com/rwaldron/johnny-five/blob/master/docs/keypad-MPR121_SHIELD.md)
-
-### Relay
-- [Relay](https://github.com/rwaldron/johnny-five/blob/master/docs/relay.md)
-- [Relay - Collection](https://github.com/rwaldron/johnny-five/blob/master/docs/relay-collection.md)
-- [Relay On Analog Pin](https://github.com/rwaldron/johnny-five/blob/master/docs/relay-on-analog-pin.md)
-
-### Shift Register
-- [Shift Register](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register.md)
-- [Shift Register - Common Anode Seven Segment controller](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register-seven-segment-anode.md)
-- [Shift Register - Common Anode Seven segments, Chained](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register-daisy-chain-anode.md)
-- [Shift Register - Seven Segment controller](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register-seven-segment.md)
-- [Shift Register - Seven segments, Chained](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register-daisy-chain.md)
-
-### Infrared Reflectance
-- [IR Motion](https://github.com/rwaldron/johnny-five/blob/master/docs/ir-motion.md)
-- [IR Proximity](https://github.com/rwaldron/johnny-five/blob/master/docs/ir-proximity.md)
-- [IR Reflectance](https://github.com/rwaldron/johnny-five/blob/master/docs/ir-reflect.md)
-- [IR Reflectance Array](https://github.com/rwaldron/johnny-five/blob/master/docs/ir-reflect-array.md)
-
-### Proximity
-- [Proximity](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity.md)
-- [Proximity - EVShield EV3 (IR)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_IR-alert.md)
-- [Proximity - EVShield EV3 (IR)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_IR.md)
-- [Proximity - EVShield EV3 (Ultrasonic)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_US.md)
-- [Proximity - EVShield EV3 (Ultrasonic)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_US-alert.md)
-- [Proximity - GP2Y0A710K0F](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-GP2Y0A710K0F.md)
-- [Proximity - HC-SR04](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-hcsr04.md)
-- [Proximity - HC-SR04 (Analog)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-hcsr04-analog.md)
-- [Proximity - HC-SR04 I2C Backpack](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-hcsr04-i2c.md)
-- [Proximity - LIDAR-Lite](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-lidarlite.md)
-- [Proximity - MB1000](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-mb1000.md)
-- [Proximity - MB1003](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-mb1003.md)
-- [Proximity - MB1010](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-mb1010.md)
-- [Proximity - MB1230](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-mb1230.md)
-- [Proximity - SRF10](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-srf10.md)
-
-### Motion
-- [Motion](https://github.com/rwaldron/johnny-five/blob/master/docs/motion.md)
-- [Motion - GP2Y0A60SZLF](https://github.com/rwaldron/johnny-five/blob/master/docs/motion-GP2Y0A60SZLF.md)
-- [Motion - GP2Y0D805Z0F](https://github.com/rwaldron/johnny-five/blob/master/docs/motion-gp2y0d805z0f.md)
-- [Motion - GP2Y0D810Z0F](https://github.com/rwaldron/johnny-five/blob/master/docs/motion-gp2y0d810z0f.md)
-- [Motion - GP2Y0D810Z0F](https://github.com/rwaldron/johnny-five/blob/master/docs/motion-gp2y0d815z0f.md)
-
-### Joystick
-- [Joystick](https://github.com/rwaldron/johnny-five/blob/master/docs/joystick.md)
-- [Joystick - Esplora](https://github.com/rwaldron/johnny-five/blob/master/docs/joystick-esplora.md)
-- [Joystick - Pan + Tilt control](https://github.com/rwaldron/johnny-five/blob/master/docs/joystick-pantilt.md)
-- [Joystick - Sparkfun Shield](https://github.com/rwaldron/johnny-five/blob/master/docs/joystick-shield.md)
-
-### LCD
-- [Grove - RGB LCD Color Previewer](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-rgb-bgcolor-previewer.md)
-- [LCD](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd.md)
-- [LCD - Enumerate characters](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-enumeratechars.md)
-- [LCD - I2C](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-i2c.md)
-- [LCD - I2C PCF8574](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-i2c-PCF8574.md)
-- [LCD - I2C Runner](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-i2c-runner.md)
-- [LCD - Runner 16x2](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-runner.md)
-- [LCD - Runner 20x4](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-runner-20x4.md)
-- [LCD - Tessel 2 16x2](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-16x2-tessel.md)
-- [Tessel 2 + Grove - RGB LCD Color Previewer](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-rgb-bgcolor-previewer-tessel.md)
-- [Tessel 2 + Grove - RGB LCD Display](https://github.com/rwaldron/johnny-five/blob/master/docs/lcd-rgb-tessel-grove-JHD1313M1.md)
-
-### Compass/Magnetometer
-- [Compass - Find north](https://github.com/rwaldron/johnny-five/blob/master/docs/magnetometer-north.md)
-- [Compass - HMC5883L](https://github.com/rwaldron/johnny-five/blob/master/docs/compass-hmc5883l.md)
-- [Compass - HMC6352](https://github.com/rwaldron/johnny-five/blob/master/docs/compass-hmc6352.md)
-- [Compass - Logger](https://github.com/rwaldron/johnny-five/blob/master/docs/magnetometer-log.md)
-- [Compass - MAG3110](https://github.com/rwaldron/johnny-five/blob/master/docs/compass-MAG3110.md)
-- [Compass - MAG3110 on Tessel 2](https://github.com/rwaldron/johnny-five/blob/master/docs/compass-MAG3110-tessel.md)
-- [Compass / Magnetometer](https://github.com/rwaldron/johnny-five/blob/master/docs/magnetometer.md)
-
-### Piezo
-- [Piezo](https://github.com/rwaldron/johnny-five/blob/master/docs/piezo.md)
-
-### IMU/Multi
-- [IMU - BNO055](https://github.com/rwaldron/johnny-five/blob/master/docs/imu-bno055.md)
-- [IMU - BNO055 (Orientation)](https://github.com/rwaldron/johnny-five/blob/master/docs/imu-bno055-orientation.md)
-- [IMU - LSM303C](https://github.com/rwaldron/johnny-five/blob/master/docs/imu-lsm303c.md)
-- [IMU - MPU6050](https://github.com/rwaldron/johnny-five/blob/master/docs/imu-mpu6050.md)
-- [Multi - BME280](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-BME280.md)
-- [Multi - BMP085](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-bmp085.md)
-- [Multi - BMP180](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-bmp180.md)
-- [Multi - DHT11_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-DHT11_I2C_NANO_BACKPACK.md)
-- [Multi - DHT21_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-DHT21_I2C_NANO_BACKPACK.md)
-- [Multi - DHT22_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-DHT22_I2C_NANO_BACKPACK.md)
-- [Multi - HIH6130](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-HIH6130.md)
-- [Multi - HTU21D](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-htu21d.md)
-- [Multi - MPL115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-mpl115a2.md)
-- [Multi - MPL3115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-mpl3115a2.md)
-- [Multi - MS5611](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-MS5611.md)
-- [Multi - SHT31D](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-sht31d.md)
-- [Multi - SI7020](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-SI7020.md)
-- [Multi - SI7021](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-SI7021.md)
-- [Multi - TH02](https://github.com/rwaldron/johnny-five/blob/master/docs/multi-TH02.md)
-
-### Sensors
-- [Accelerometer](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer.md)
-- [Accelerometer - ADXL335](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-adxl335.md)
-- [Accelerometer - ADXL345](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-adxl345.md)
-- [Accelerometer - LIS3DH](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-LIS3DH.md)
-- [Accelerometer - MMA7361](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-mma7361.md)
-- [Accelerometer - MMA8452](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-MMA8452.md)
-- [Accelerometer - MPU6050](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-mpu6050.md)
-- [Accelerometer - Pan + Tilt](https://github.com/rwaldron/johnny-five/blob/master/docs/accelerometer-pan-tilt.md)
-- [Altimeter - BMP085](https://github.com/rwaldron/johnny-five/blob/master/docs/altimeter-BMP085.md)
-- [Altimeter - BMP180](https://github.com/rwaldron/johnny-five/blob/master/docs/altimeter-BMP180.md)
-- [Altimeter - MPL3115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/altimeter-mpl3115a2.md)
-- [Altimeter - MS5611](https://github.com/rwaldron/johnny-five/blob/master/docs/altimeter-MS5611.md)
-- [Barometer - BMP085](https://github.com/rwaldron/johnny-five/blob/master/docs/barometer-BMP085.md)
-- [Barometer - BMP180](https://github.com/rwaldron/johnny-five/blob/master/docs/barometer-BMP180.md)
-- [Barometer - MPL115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/barometer-mpl115a2.md)
-- [Barometer - MPL3115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/barometer-mpl3115a2.md)
-- [Barometer - MS5611](https://github.com/rwaldron/johnny-five/blob/master/docs/barometer-MS5611.md)
-- [Gyro](https://github.com/rwaldron/johnny-five/blob/master/docs/gyro.md)
-- [Gyro - Analog LPR5150AL](https://github.com/rwaldron/johnny-five/blob/master/docs/gyro-lpr5150l.md)
-- [Gyro - I2C MPU6050](https://github.com/rwaldron/johnny-five/blob/master/docs/gyro-mpu6050.md)
-- [Hygrometer - DHT11_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-DHT11_I2C_NANO_BACKPACK.md)
-- [Hygrometer - DHT21_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-DHT21_I2C_NANO_BACKPACK.md)
-- [Hygrometer - DHT22_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-DHT22_I2C_NANO_BACKPACK.md)
-- [Hygrometer - HIH6130](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-HIH6130.md)
-- [Hygrometer - HTU21D](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-htu21d.md)
-- [Hygrometer - SHT31D](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-sht31d.md)
-- [Hygrometer - SI7021](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-SI7021.md)
-- [Hygrometer - TH02](https://github.com/rwaldron/johnny-five/blob/master/docs/hygrometer-TH02.md)
-- [Sensor](https://github.com/rwaldron/johnny-five/blob/master/docs/sensor.md)
-- [Sensor - Digital Microwave](https://github.com/rwaldron/johnny-five/blob/master/docs/sensor-digital-microwave.md)
-- [Sensor - Flex sensor](https://github.com/rwaldron/johnny-five/blob/master/docs/flex.md)
-- [Sensor - Force sensitive resistor](https://github.com/rwaldron/johnny-five/blob/master/docs/sensor-fsr.md)
-- [Sensor - Microphone](https://github.com/rwaldron/johnny-five/blob/master/docs/microphone.md)
-- [Sensor - Photoresistor](https://github.com/rwaldron/johnny-five/blob/master/docs/photoresistor.md)
-- [Sensor - Potentiometer](https://github.com/rwaldron/johnny-five/blob/master/docs/potentiometer.md)
-- [Sensor - Slide potentiometer](https://github.com/rwaldron/johnny-five/blob/master/docs/sensor-slider.md)
-- [Thermometer - BMP085](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-bmp085.md)
-- [Thermometer - BMP180](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-BMP180.md)
-- [Thermometer - DHT11_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-DHT11_I2C_NANO_BACKPACK.md)
-- [Thermometer - DHT21_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-DHT21_I2C_NANO_BACKPACK.md)
-- [Thermometer - DHT22_I2C_NANO_BACKPACK](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-DHT22_I2C_NANO_BACKPACK.md)
-- [Thermometer - DS18B20](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-ds18b20.md)
-- [Thermometer - HIH6130](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-HIH6130.md)
-- [Thermometer - HTU21D](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-htu21d.md)
-- [Thermometer - LM335](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-lm335.md)
-- [Thermometer - LM35](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-lm35.md)
-- [Thermometer - MAX31850](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-max31850k.md)
-- [Thermometer - MCP9808](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-MCP9808.md)
-- [Thermometer - MPL115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-mpl115a2.md)
-- [Thermometer - MPL3115A2](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-mpl3115a2.md)
-- [Thermometer - MPU6050](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-mpu6050.md)
-- [Thermometer - MS5611](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-MS5611.md)
-- [Thermometer - SHT31D](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-sht31d.md)
-- [Thermometer - SI7020](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-SI7020.md)
-- [Thermometer - SI7021](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-SI7021.md)
-- [Thermometer - TH02](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-TH02.md)
-- [Thermometer - TMP102](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-tmp102.md)
-- [Thermometer - TMP36](https://github.com/rwaldron/johnny-five/blob/master/docs/temperature-tmp36.md)
-
-### Expander
-- [Expander - 74HC595](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-74HC595.md)
-- [Expander - CD74HC4067, 16 Channel Analog Input Breakout](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-CD74HC4067_NANO_BACKPACK.md)
-- [Expander - LIS3DH](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-LIS3DH.md)
-- [Expander - MCP23008](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-MCP23008.md)
-- [Expander - MCP23017](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-MCP23017.md)
-- [Expander - MUXSHIELD2, Analog Sensors](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-MUXSHIELD2-analog-read.md)
-- [Expander - MUXSHIELD2, Digital Input and Output](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-MUXSHIELD2-mixed.md)
-- [Expander - PCA9685](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-PCA9685.md)
-- [Expander - PCF8574](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-PCF8574.md)
-- [Expander - PCF8575](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-PCF8575.md)
-- [Expander - PCF8591](https://github.com/rwaldron/johnny-five/blob/master/docs/expander-PCF8591.md)
-
-### Photon Weather Shield
-- [Photon Weather Shield: Moisture](https://github.com/rwaldron/johnny-five/blob/master/docs/sensor-photon-weather-shield-moisture.md)
-
-### Lego EVShield
-- [Button - EVShield EV3](https://github.com/rwaldron/johnny-five/blob/master/docs/button-EVS_EV3.md)
-- [Button - EVShield NXT](https://github.com/rwaldron/johnny-five/blob/master/docs/button-EVS_NXT.md)
-- [Color - EVShield EV3 (Code)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-EVS_EV3.md)
-- [Color - EVShield EV3 (Raw)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-raw-EVS_EV3.md)
-- [Color - EVShield NXT (Code)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-EVS_NXT.md)
-- [Light - BH1750](https://github.com/rwaldron/johnny-five/blob/master/docs/light-ambient-BH1750.md)
-- [Light - EVShield EV3 (Ambient)](https://github.com/rwaldron/johnny-five/blob/master/docs/light-ambient-EVS_EV3.md)
-- [Light - EVShield EV3 (Reflected)](https://github.com/rwaldron/johnny-five/blob/master/docs/light-reflected-EVS_EV3.md)
-- [Light - EVShield NXT (Ambient)](https://github.com/rwaldron/johnny-five/blob/master/docs/light-ambient-EVS_NXT.md)
-- [Light - EVShield NXT (Reflected)](https://github.com/rwaldron/johnny-five/blob/master/docs/light-reflected-EVS_NXT.md)
-- [Light - TSL2561](https://github.com/rwaldron/johnny-five/blob/master/docs/light-ambient-TSL2561.md)
-- [Motor - EVShield EV3](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-EVS_EV3.md)
-- [Motor - EVShield NXT](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-EVS_NXT.md)
-- [Proximity - EVShield EV3 (IR)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_IR-alert.md)
-- [Proximity - EVShield EV3 (Ultrasonic)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_US-alert.md)
-
-### Intel Edison + Grove IoT Kit
-- [Intel Edison + Grove - Accelerometer (ADXL345)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-accelerometer-adxl345-edison.md)
-- [Intel Edison + Grove - Accelerometer (MMA7660)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-accelerometer-mma7660-edison.md)
-- [Intel Edison + Grove - Air quality sensor](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-gas-tp401-edison.md)
-- [Intel Edison + Grove - Barometer (BMP180)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-barometer-edison.md)
-- [Intel Edison + Grove - Button](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-button-edison.md)
-- [Intel Edison + Grove - Compass (HMC588L)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-compass-edison.md)
-- [Intel Edison + Grove - Flame Sensor](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-flame-sensor-edison.md)
-- [Intel Edison + Grove - Gas (MQ2)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-gas-mq2-edison.md)
-- [Intel Edison + Grove - Humidity & Temperature (TH02)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-humidity-temperature-edison.md)
-- [Intel Edison + Grove - I2C Motor Driver](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-i2c-motor-driver-edison.md)
-- [Intel Edison + Grove - Joystick](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-joystick-edison.md)
-- [Intel Edison + Grove - LED](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-led-edison.md)
-- [Intel Edison + Grove - Light Sensor (TSL2561)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-light-sensor-edison.md)
-- [Intel Edison + Grove - Moisture Sensor](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-moisture-edison.md)
-- [Intel Edison + Grove - Q Touch](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-q-touch.md)
-- [Intel Edison + Grove - RGB LCD](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-lcd-rgb-edison.md)
-- [Intel Edison + Grove - RGB LCD Color Previewer](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-lcd-rgb-bgcolor-previewer-edison.md)
-- [Intel Edison + Grove - RGB LCD temperature display](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-lcd-rgb-temperature-display-edison.md)
-- [Intel Edison + Grove - Relay](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-relay-edison.md)
-- [Intel Edison + Grove - Rotary Potentiometer](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-rotary-potentiometer-edison.md)
-- [Intel Edison + Grove - Servo](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-servo-edison.md)
-- [Intel Edison + Grove - Touch](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-touch-edison.md)
-
-### Grove IoT Kit (Seeed Studio)
-- [Grove - Button](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-button.md)
-- [Grove - Joystick](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-joystick.md)
-- [Grove - LED](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-led.md)
-- [Grove - Motor (I2C Driver)](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-i2c-motor-driver.md)
-- [Grove - RGB LCD](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-lcd-rgb.md)
-- [Grove - RGB LCD temperature display](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-lcd-rgb-temperature-display.md)
-- [Grove - Rotary Potentiometer](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-rotary-potentiometer.md)
-- [Grove - Servo](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-servo.md)
-- [Grove - Touch](https://github.com/rwaldron/johnny-five/blob/master/docs/grove-touch.md)
-
-### Micro Magician V2
-- [Micro Magician V2 - Accelerometer](https://github.com/rwaldron/johnny-five/blob/master/docs/micromagician-accelerometer.md)
-- [Micro Magician V2 - Motor](https://github.com/rwaldron/johnny-five/blob/master/docs/micromagician-motor.md)
-- [Micro Magician V2 - Servo](https://github.com/rwaldron/johnny-five/blob/master/docs/micromagician-servo.md)
-
-### TinkerKit
-- [TinkerKit - Accelerometer](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-accelerometer.md)
-- [TinkerKit - Blink](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-blink.md)
-- [TinkerKit - Button](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-button.md)
-- [TinkerKit - Combo](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-combo.md)
-- [TinkerKit - Continuous servo](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-continuous-servo.md)
-- [TinkerKit - Gyro](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-gyroscope.md)
-- [TinkerKit - Joystick](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-joystick.md)
-- [TinkerKit - Linear potentiometer](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-linear-pot.md)
-- [TinkerKit - Rotary potentiometer](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-rotary.md)
-- [TinkerKit - Temperature](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-thermistor.md)
-- [TinkerKit - Tilt](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-tilt.md)
-- [TinkerKit - Touch](https://github.com/rwaldron/johnny-five/blob/master/docs/tinkerkit-touch.md)
-
-### Wii
-- [Wii Classic Controller](https://github.com/rwaldron/johnny-five/blob/master/docs/classic-controller.md)
-- [Wii Nunchuck](https://github.com/rwaldron/johnny-five/blob/master/docs/nunchuk.md)
-
-### Complete Bots / Projects
-- [BOE Bot](https://github.com/rwaldron/johnny-five/blob/master/docs/boe-test-servos.md)
-- [Bug](https://github.com/rwaldron/johnny-five/blob/master/docs/bug.md)
-- [Kinect Robotic Arm Controller](https://github.com/rwaldron/johnny-five/blob/master/docs/kinect-arm-controller.md)
-- [Laser Trip Wire](https://github.com/rwaldron/johnny-five/blob/master/docs/laser-trip-wire.md)
-- [Line Follower](https://github.com/rwaldron/johnny-five/blob/master/docs/line-follower.md)
-- [Lynxmotion Biped BRAT](https://github.com/rwaldron/johnny-five/blob/master/docs/brat.md)
-- [Motobot](https://github.com/rwaldron/johnny-five/blob/master/docs/motobot.md)
-- [Navigator](https://github.com/rwaldron/johnny-five/blob/master/docs/navigator.md)
-- [Nodebot](https://github.com/rwaldron/johnny-five/blob/master/docs/nodebot.md)
-- [Phoenix Hexapod](https://github.com/rwaldron/johnny-five/blob/master/docs/phoenix.md)
-- [Radar](https://github.com/rwaldron/johnny-five/blob/master/docs/radar.md)
-- [Robotic Claw](https://github.com/rwaldron/johnny-five/blob/master/docs/claw.md)
-- [Whisker](https://github.com/rwaldron/johnny-five/blob/master/docs/whisker.md)
-
-### Component Plugin Template
-- [Example plugin](https://github.com/rwaldron/johnny-five/blob/master/docs/plugin.md)
-
-### IO Plugins
-- [Led Blink on Electric Imp](https://github.com/rwaldron/johnny-five/blob/master/docs/imp-io.md)
-- [Led Blink on Intel Edison Arduino Board](https://github.com/rwaldron/johnny-five/blob/master/docs/edison-io-arduino.md)
-- [Led Blink on Intel Edison Mini Board](https://github.com/rwaldron/johnny-five/blob/master/docs/edison-io-miniboard.md)
-- [Led Blink on Intel Galileo Gen 2](https://github.com/rwaldron/johnny-five/blob/master/docs/galileo-io.md)
-- [Led Blink on Raspberry Pi](https://github.com/rwaldron/johnny-five/blob/master/docs/raspi-io.md)
-- [Led Blink on Spark Core](https://github.com/rwaldron/johnny-five/blob/master/docs/spark-io.md)
-- [Led Blink on pcDuino3](https://github.com/rwaldron/johnny-five/blob/master/docs/pcduino-io.md)
-
-<!--extract-end:examples-->
-
-## Many fragments. Some large, some small.
-
-#### [Wireless Nodebot](http://jsfiddle.net/rwaldron/88M6b/show/light)
-#### [Kinect Controlled Robot Arm](http://jsfiddle.net/rwaldron/XMsGQ/show/light/)
-#### [Biped Nodebot](http://jsfiddle.net/rwaldron/WZkn5/show/light/)
-#### [LCD Running Man](http://jsfiddle.net/rwaldron/xKwaU/show/light/)
-#### [Slider Controlled Panning Servo](http://jsfiddle.net/rwaldron/kZakv/show/light/)
-#### [Joystick Controlled Laser (pan/tilt) 1](http://jsfiddle.net/rwaldron/HPqms/show/light/)
-#### [Joystick Controlled Laser (pan/tilt) 2](http://jsfiddle.net/rwaldron/YHb7A/show/light/)
-#### [Joystick Controlled Claw](http://jsfiddle.net/rwaldron/6ZXFe/show/light/)
-#### [Robot Claw](http://jsfiddle.net/rwaldron/CFSZJ/show/light/)
-#### [Joystick, Motor & Led](http://jsfiddle.net/rwaldron/gADSz/show/light/)
-#### [Build you own drone](http://github.com/darioodiaz/node-open-pilot/)
-
-
-
-## Make: JavaScript Robotics
-
-[![](http://ecx.images-amazon.com/images/I/91ae8ZZDQ2L.jpg)](http://shop.oreilly.com/product/0636920031390.do)
-
-
-
-
-## Contributing
-All contributions must adhere to the [Idiomatic.js Style Guide](https://github.com/rwaldron/idiomatic.js),
-by maintaining the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/gruntjs/grunt).
-
-
-## License
-Copyright (c) 2012, 2013, 2014 Rick Waldron <waldron.rick@gmail.com>
-Licensed under the MIT license.
-Copyright (c) 2014, 2015 The Johnny-Five Contributors
-Licensed under the MIT license.
-
-
-----------------------------------------------------------------------------
-
-
 Package: js-levenshtein@1.1.6
 License: MIT
 License Source: LICENSE
@@ -22686,24 +21535,36 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libcipm@3.0.3
+Package: libcipm@4.0.3
 License: MIT
 License Source: LICENSE.md
 Source Text: 
 
-Copyright 2017 Kat Marchán and Contributors
+Copyright npm, Inc., Kat Marchán, and Contributors
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: libnpm@2.0.1
+Package: libnpm@3.0.1
 License: ISC
 License Source: LICENSE.md
 Source Text: 
@@ -22729,7 +21590,7 @@ USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libnpmaccess@3.0.1
+Package: libnpmaccess@3.0.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -22775,7 +21636,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libnpmhook@5.0.2
+Package: libnpmhook@5.0.3
 License: ISC
 License Source: LICENSE.md
 Source Text: 
@@ -22801,7 +21662,7 @@ USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libnpmorg@1.0.0
+Package: libnpmorg@1.0.1
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -22824,7 +21685,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libnpmpublish@1.1.1
+Package: libnpmpublish@1.1.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -22847,7 +21708,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libnpmsearch@2.0.0
+Package: libnpmsearch@2.0.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -22870,7 +21731,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: libnpmteam@1.0.1
+Package: libnpmteam@1.0.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -23647,63 +22508,6 @@ terms above.
 ----------------------------------------------------------------------------
 
 
-Package: lodash.debounce@4.0.8
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-Copyright jQuery Foundation and other contributors <https://jquery.org/>
-
-Based on Underscore.js, copyright Jeremy Ashkenas,
-DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
-
-This software consists of voluntary contributions made by many
-individuals. For exact contribution history, see the revision history
-available at https://github.com/lodash/lodash
-
-The following license applies to all parts of this software except as
-documented below:
-
-====
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-====
-
-Copyright and related rights for sample code are waived via CC0. Sample
-code is defined as all source code displayed within the prose of the
-documentation.
-
-CC0: http://creativecommons.org/publicdomain/zero/1.0/
-
-====
-
-Files located in the node_modules and vendor directories are externally
-maintained libraries used by this software which have their own
-licenses; we recommend you read them, as their terms may differ from the
-terms above.
-
-
-----------------------------------------------------------------------------
-
-
 Package: lodash.isarguments@3.1.0
 License: MIT
 License Source: LICENSE
@@ -23882,12 +22686,12 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: lodash.merge@4.6.1
+Package: lodash.merge@4.6.2
 License: MIT
 License Source: LICENSE
 Source Text: 
 
-Copyright JS Foundation and other contributors <https://js.foundation/>
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
 Based on Underscore.js, copyright Jeremy Ashkenas,
 DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
@@ -24142,7 +22946,7 @@ terms above.
 ----------------------------------------------------------------------------
 
 
-Package: lodash@4.17.13
+Package: lodash@4.17.15
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -24434,7 +23238,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: make-fetch-happen@4.0.1
+Package: make-fetch-happen@5.0.0
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -24585,7 +23389,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: markdown-loader@5.0.0
+Package: markdown-loader@5.1.0
 License: MIT
 License Source: README.md
 Source Text: 
@@ -24677,7 +23481,7 @@ MIT (http://www.opensource.org/licenses/mit-license.php)
 ----------------------------------------------------------------------------
 
 
-Package: marked@0.6.2
+Package: marked@0.7.0
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -25636,7 +24440,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 ----------------------------------------------------------------------------
 
 
-Package: mixin-deep@1.3.1
+Package: mixin-deep@1.3.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -25864,270 +24668,6 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: nanotimer@0.3.10
-License: Custom: https://api.travis-ci.org/Krb686/nanoTimer.png
-License Source: README.md
-Source Text: 
-
-# nanoTimer
-# Current Version - 0.3.10
-
-![](https://api.travis-ci.org/Krb686/nanoTimer.png)
-
-[![NPM](https://nodei.co/npm/nanotimer.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nanotimer/)
-
-A much higher accuracy timer object that makes use of the node.js [hrtime](http://nodejs.org/api/process.html#process_process_hrtime) function call.
-
-The nanotimer recreates the internal javascript timing functions with higher resolution.
-
-##Note
-
-- 1) With the normal timing functions, instead of dealing with the obscurities of multiple setTimeout and 
-setInterval calls, now there is a concrete timer object, each of which can handle exactly 1 timeOut and 
-setInterval task. This also means a reference is not needed to clear an interval since each timer object is
-unique.
-
-- 2) Timer objects use the non-blocking feature **setImmediate** for time counting and synchronization. This requires node v0.10.13 or greater
-
-- 3) Errors in timing are also non-cumulative.  For example, when using the setInterval command, the timer counts
-and compares the time difference since starting against the interval length specified and if it has run past the interval, 
-it resets.  If the code had an error of 1 millisecond delay, the timer would actually count to 1001 milliseconds before resetting, and that
-1 millisecond error would propagate through each cycle and add up very quickly!  To solve that problem, rather than resetting
-the interval variable each cycle, it is instead incremented with each cycle count.  So on the 2nd cycle, it compares to 2000 milliseconds, 
-and it may run to 2001.  Then 3000 milliseconds, running to 3001, and so on.  This is only limited by the comparison variable potentially overflowing, so I 
-somewhat arbitrarily chose a value of 8 quadrillion (max is roughly 9 quadrillion in javascript) before it resets.  Even using nanosecond resolution however, 
-the comparison variable would reach 8 quadrillion every 8 million seconds, or every 93.6ish days.
-
-##Usage
-
-```js
-
-var NanoTimer = require('nanotimer');
-
-var timerA = new NanoTimer();
-
-
-```
-
-Each NanoTimer object can run other functions that are already defined.  This can be done in 2 ways, either with a literal function object, or with a function declaration.
-
-### By function object
-```js
-var NanoTimer = require('nanotimer');
-var timerObject = new NanoTimer();
-
-
-var countToOneBillion = function () {
-    var i = 0;
-    while(i < 1000000000){
-        i++;
-    }
-};
-
-var microsecs = timerObject.time(countToOneBillion, 'u');
-console.log(microsecs);
-```
-
-or something like this:
-
-### by function declaration
-
-```js
-var NanoTimer = require('nanotimer');
-
-function main(){
-    var timerObject = new NanoTimer();
-    
-    var microsecs = timerObject.time(countToOneBillion, 'u');
-    console.log(microsecs);
-}
-
-function countToOneBillion(){
-    var i = 0;
-    while(i < 1000000000){
-        i++;
-    }
-}
-
-main();
-```
-  
-##Full example
-
-```js
-var NanoTimer = require('nanotimer');
-
-var count = 10;
-
-
-function main(){
-    var timer = new NanoTimer();
-    
-    timer.setInterval(countDown, '', '1s');
-    timer.setTimeout(liftOff, [timer], '10s');
-    
-
-
-}
-
-function countDown(){
-    console.log('T - ' + count);
-    count--;
-}
-
-function liftOff(timer){
-    timer.clearInterval();
-    console.log('And we have liftoff!');
-}
-
-main();
-```
-
-### In the above example, the interval can also be cleared another way rather than having to pass in the timer object to the liftOff task.
-Instead, it can be done by specifying a callback to setTimeout, since the timer object will exist in that scope.  Like so:
-
-```js
-timer.setTimeout(liftOff, '', '10s', function(){
-    timer.clearInterval();
-});
-```
-
-
-## .setTimeout(task, args, timeout, [callback])
-* Calls function 'task' with argument(s) 'args' after specified amount of time, 'timeout'.
-* timeout, specified as a number plus a letter concatenated into a string. ex - '200u', '150n', '35m', '10s'.
-* callback is optional.  If it is specified, it is called when setTimeout runs it's assigned task, and it is sent a parameter that
-tells the actual amount of time that passed before the specifed task was run, in nanoseconds.
-
-```js
-console.log("It's gonna be legen-wait for it...");
-
-timerA.setTimeout(dary, '', '2s');
-
-function dary(){
-    console.log("dary!!");
-}
-```
-
-## .setInterval(task, args, interval, [callback])
-* Repeatedly calls function 'task' with arguments 'args' after every interval amount of time. If interval is specified as 0, it will run as fast as possible!
-* This function is self correcting, error does not propagate through each cycle, as described above.
-* interval, specified as a number plus a letter concatenated into a string. ex - '200u', '150n', '35m', '10s'.
-* callback is optional, and is only called once the interval is cleared.
-
-```js
-timerA.setInterval(task, '100m', function(err) {
-    if(err) {
-        //error
-    }
-});
-```
-
-## .time(task, args, format, [callback])
-* Returns the amount of time taken to run function 'task', called with arguments 'args'.
-* format specifies the units time will be returned in. Options are 's' for seconds, 'm' for milliseconds, 'u' for microseconds, 
-and 'n' for nanoseconds. if no format is specified, returns the default array of [s, n] where s is seconds and n is nanoseconds.
-* callback is optional
-
-### Synchronous Example:
-```js
-
-var runtimeSeconds = timerA.time(doMath, 'u');
-
-function doMath(){
-    //do math
-}
-
-```
-
-### Asynchronous Use: (yes, it can time asynchronous stuff! here's how)
-
-In order to time something asynchronous, it's no surprise that the timer object must somehow be notified whenever that asynchronous task finishes.
-To do that, you must have your function to be timed accept a callback as a parameter, and manually call that callback (to the timer function) inside of the asynchronous task's
-callback. It's essentially a chain of callbacks, which is probably already familiar to you. Here's an example that times how long it takes to read a file.
-Suppose you're using node.js's fs.ReadFile, which is asynchronous, then create a wrapper like so: 
-```js
-var NanoTimer = require('nanotimer');
-var fs = require('fs');
-
-var timer = new NanoTimer();
-
-
-timer.time(loadFile, '', 'u', function(time){
-    console.log("It took " + time + " microseconds to read that file!");
-});
-
-function loadFile(callback){
-    fs.readFile('testReadFile.js', function(err, data){
-        if(err) throw err;
-        console.log(data);
-        
-        callback();
-    });
-}
-```
-
-Once again, just two changes from normal.  First, your function to be timed, in this case 'loadFile' (which is just a proxy function to perfom fs.readFile) must
-accept a callback parameter.  Second, in the callback of whatever asynchronous task is being performed inside the proxy, the callback passed in must be called after everything
-is finished. That callback that you call manually immediately takes the 2nd reference time, and then calls your callback specified in timer.time, ending the process.
-
-## .clearInterval()
-* Clears current running interval
-```js
-timer.clearInterval();
-```
-
-## .clearTimeout()
-* Clears current running timeOut
-```js
-timer.clearTimeout();
-```
-
-#Logging
-* Added preliminary logging feature.  If a timer is created by passing in 'log', it will enable verbose logging from the timer, so you can
-figure out the real amount of time being taken for setTimeout or setInterval
-* Currently only works on setInterval, and displays the 'cycle time', or real interval time to demonstrate how error does not propagate.  This will 
-be further expanded on.
-
-# Tests
-
-* Test suite used is mocha.
-* Tests also require **should**
-* In order for the test to perform properly, the timeout must be altered.
-* I prefer running tests with `mocha -R spec -t 10000`
-
-![](https://raw.github.com/Krb686/nanotimer/master/test/nanotimer_0_2_6_test_partial.png "Test Results")
-
-# Performance
-
-Version 0.3.1 brings about a potentially massive performance boost over previous versions.
-
-Previous versions used a setImmediate loop running as fast as possible for checking when to execute, inside setTimeout and setInterval.
-In 0.3.1, this has changed when using an intervalTime (setInterval), or delayTime (setTimeout) that is longer than 25ms.  Execution will be deferred to the standard
-javascript setTimeout, aimed for 25ms before scheduled execution, where the setImmediate loop will resume.
-
-The assumed error of javascript's setTimeout is 25ms.
-
-Below is a test case with setInterval set to 1 second.
-
-![](https://raw.github.com/Krb686/nanotimer/master/test/nanotimer_non_deferred.png "Non-Deferred")
-
-![](https://raw.github.com/Krb686/nanotimer/master/test/nanotimer_deferred.png "Deferred")
-
-
-
-
-
-
-
-
-
-
-
-
-----------------------------------------------------------------------------
-
-
 Package: napi-build-utils@1.0.1
 License: MIT
 License Source: LICENSE
@@ -26154,35 +24694,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: needle@2.3.0
-License: MIT
-License Source: license.txt
-Source Text: 
-
-Copyright (c) Fork, Ltd.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -26465,7 +24976,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: node-gyp@3.8.0
+Package: node-gyp@5.0.3
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -26526,43 +25037,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: node-pre-gyp@0.12.0
-License: BSD-3-Clause
-License Source: LICENSE
-Source Text: 
-
-Copyright (c), Mapbox
-
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-    * Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
-    * Neither the name of node-pre-gyp nor the names of its contributors
-      may be used to endorse or promote products derived from this software
-      without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ----------------------------------------------------------------------------
@@ -26647,7 +25121,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: node-releases@1.1.25
+Package: node-releases@1.1.32
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -26924,7 +25398,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: npm-lifecycle@2.1.0
+Package: npm-lifecycle@3.1.3
 License: Artistic-2.0
 License Source: LICENSE
 Source Text: 
@@ -27195,7 +25669,7 @@ USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: npm-package-arg@6.1.0
+Package: npm-package-arg@6.1.1
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -27220,7 +25694,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: npm-packlist@1.4.1
+Package: npm-packlist@1.4.4
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -27245,7 +25719,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: npm-pick-manifest@2.2.3
+Package: npm-pick-manifest@3.0.2
 License: ISC
 License Source: LICENSE.md
 Source Text: 
@@ -27271,7 +25745,7 @@ USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: npm-profile@4.0.1
+Package: npm-profile@4.0.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -27296,7 +25770,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: npm-registry-fetch@3.9.0
+Package: npm-registry-fetch@4.0.0
 License: ISC
 License Source: LICENSE.md
 Source Text: 
@@ -27389,7 +25863,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: npm@6.10.0
+Package: npm@6.11.3
 License: Artistic-2.0
 License Source: LICENSE
 Source Text: 
@@ -28727,13 +27201,13 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: pacote@9.5.1
+Package: pacote@9.5.8
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 The MIT License (MIT)
-Copyright (c) 2017 Kat Marchán
+Copyright (c) Kat Marchán, npm, Inc., and Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -31025,7 +29499,7 @@ The complete list of contributors can be found at: https://github.com/hapijs/qs/
 ----------------------------------------------------------------------------
 
 
-Package: quark@0.5.4
+Package: quark@0.6.1
 License: GPL-3.0
 License Source: LICENSE
 Source Text: 
@@ -31708,7 +30182,7 @@ Public License instead of this License.  But first, please read
 ----------------------------------------------------------------------------
 
 
-Package: query-string@6.4.0
+Package: query-string@6.8.2
 License: MIT
 License Source: license
 Source Text: 
@@ -31958,7 +30432,7 @@ limitations under the License.
 ----------------------------------------------------------------------------
 
 
-Package: react-dom@16.8.6
+Package: react-dom@16.9.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -32020,7 +30494,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: react@16.8.6
+Package: react@16.9.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -32051,47 +30525,25 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: read-cmd-shim@1.0.1
+Package: read-cmd-shim@1.0.4
 License: ISC
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-# read-cmd-shim
+Copyright (c) 2015, Rebecca Turner <me@re-becca.org>
 
-Figure out what a [`cmd-shim`](https://github.com/ForbesLindesay/cmd-shim)
-is pointing at.  This acts as the equivalent of
-[`fs.readlink`](https://nodejs.org/api/fs.html#fs_fs_readlink_path_callback).
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-### Usage
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-```
-var readCmdShim = require('read-cmd-shim')
-
-readCmdShim('/path/to/shim.cmd', function (er, destination) {
-  …
-})
-
-var destination = readCmdShim.sync('/path/to/shim.cmd')
-
-### readCmdShim(path, callback)
-
-Reads the `cmd-shim` located at `path` and calls back with the _relative_
-path that the shim points at. Consider this as roughly the equivalent of
-`fs.readlink`.
-
-This can read both `.cmd` style that are run by the Windows Command Prompt
-and Powershell, and the kind without any extension that are used by Cygwin.
-
-This can return errors that `fs.readFile` returns, except that they'll
-include a stack trace from where `readCmdShim` was called.  Plus it can
-return a special `ENOTASHIM` exception, when it can't find a cmd-shim in the
-file referenced by `path`.  This should only happen if you pass in a
-non-command shim.
-
-
-### readCmdShim.sync(path)
-
-Same as above but synchronous. Errors are thrown.
 
 
 ----------------------------------------------------------------------------
@@ -32123,7 +30575,7 @@ PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: read-package-json@2.0.13
+Package: read-package-json@2.1.0
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -32495,57 +30947,32 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: regenerator-transform@0.14.0
+Package: regenerator-transform@0.14.1
 License: MIT
-License Source: README.md
+License Source: LICENSE
 Source Text: 
 
-# regenerator-transform
+MIT License
 
-Transform async/generator functions with [regenerator](https://github.com/facebook/regenerator)
+Copyright (c) 2014-present, Facebook, Inc.
 
-## Installation
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-```sh
-$ npm install regenerator-transform
-```
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Usage
-
-### Via `.babelrc` (Recommended)
-
-**.babelrc**
-
-```js
-// without options
-{
-  "plugins": ["regenerator-transform"]
-}
-// with options
-{
-  "plugins": [
-    ["regenerator-transform", {
-      asyncGenerators: false, // true by default
-      generators: false, // true by default
-      async: false // true by default
-    }]
-  ]
-}
-```
-
-### Via CLI
-
-```sh
-$ babel --plugins regenerator-transform script.js
-```
-
-### Via Node API
-
-```javascript
-require("@babel/core").transformSync("code", {
-  plugins: ["regenerator-transform"]
-});
-```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -32582,7 +31009,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: regexp-tree@0.1.11
+Package: regexp-tree@0.1.13
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -32613,7 +31040,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: regexpu-core@4.5.4
+Package: regexpu-core@4.6.0
 License: MIT
 License Source: LICENSE-MIT.txt
 Source Text: 
@@ -33707,49 +32134,58 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: sax@0.5.8
-License: BSD*
+Package: sax@1.1.4
+License: ISC
 License Source: LICENSE
 Source Text: 
 
-Copyright (c) Isaac Z. Schlueter ("Author")
-All rights reserved.
+The ISC License
 
-The BSD License
+Copyright (c) Isaac Z. Schlueter and Contributors
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
+====
 
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS
-BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+`String.fromCodePoint` by Mathias Bynens used according to terms of MIT
+License, as follows:
 
+    Copyright Mathias Bynens <https://mathiasbynens.be/>
 
-The file "examples/strict.dtd" is licensed by the W3C and used according
-to the terms of the W3C SOFTWARE NOTICE AND LICENSE.  See LICENSE-W3C.html
-for details.
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
 
 
-Package: scheduler@0.13.6
+Package: scheduler@0.15.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -33866,7 +32302,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: serialize-javascript@1.7.0
+Package: serialize-javascript@1.9.1
 License: BSD-3-Clause
 License Source: LICENSE
 Source Text: 
@@ -33958,7 +32394,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: set-value@0.4.3
+Package: set-value@2.0.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -34433,7 +32869,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: smart-buffer@4.0.1
+Package: smart-buffer@4.0.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -34556,7 +32992,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: socks-proxy-agent@4.0.1
+Package: socks-proxy-agent@4.0.2
 License: MIT
 License Source: README.md
 Source Text: 
@@ -34629,8 +33065,7 @@ console.log('attempting to GET %j', endpoint);
 var opts = url.parse(endpoint);
 
 // create an instance of the `SocksProxyAgent` class with the proxy server information
-// NOTE: the `true` second argument! Means to use TLS encryption on the socket
-var agent = new SocksProxyAgent(proxy, true);
+var agent = new SocksProxyAgent(proxy);
 opts.agent = agent;
 
 https.get(opts, function (res) {
@@ -34700,7 +33135,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: socks@2.2.0
+Package: socks@2.3.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -34927,8 +33362,8 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: source-map@0.1.43
-License: BSD
+Package: source-map@0.5.7
+License: BSD-3-Clause
 License Source: LICENSE
 Source Text: 
 
@@ -35342,6 +33777,25 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: split-on-first@1.1.0
+License: MIT
+License Source: license
+Source Text: 
+
+MIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -36300,7 +34754,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: stylus@0.54.5
+Package: stylus@0.54.7
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -36665,7 +35119,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: supports-color@4.5.0
+Package: supports-color@5.4.0
 License: MIT
 License Source: license
 Source Text: 
@@ -36807,16 +35261,19 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: tar@2.2.2
+Package: tar@4.4.10
 License: ISC
 License Source: LICENSE
 Source Text: 
 
 The ISC License
+
 Copyright (c) Isaac Z. Schlueter and Contributors
+
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
 copyright notice and this permission notice appear in all copies.
+
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
 MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
@@ -36824,38 +35281,6 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: temporal@0.7.1
-License: MIT
-License Source: LICENSE-MIT
-Source Text: 
-
-Copyright (c) 2012, 2013, 2014, 2015 Rick Waldron
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -36892,7 +35317,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: terser-webpack-plugin@1.3.0
+Package: terser-webpack-plugin@1.4.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -36922,7 +35347,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: terser@4.1.2
+Package: terser@4.3.1
 License: BSD-2-Clause
 License Source: LICENSE
 Source Text: 
@@ -37156,7 +35581,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: timers-browserify@2.0.10
+Package: timers-browserify@2.0.11
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -38290,7 +36715,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: typescript@3.5.3
+Package: typescript@3.6.3
 License: Apache-2.0
 License Source: LICENSE.txt
 Source Text: 
@@ -38601,7 +37026,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: union-value@1.0.0
+Package: union-value@1.0.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -40880,7 +39305,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: vue-loader@15.7.0
+Package: vue-loader@15.7.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -41233,7 +39658,7 @@ POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: webpack-merge@4.2.1
+Package: webpack-merge@4.2.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -41325,7 +39750,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: webpack@4.35.3
+Package: webpack@4.40.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -41687,7 +40112,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: worker-farm@1.6.0
+Package: worker-farm@1.7.0
 License: MIT
 License Source: LICENSE.md
 Source Text: 
