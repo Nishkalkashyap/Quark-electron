@@ -22,7 +22,8 @@ install:
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/code-sign.p12.enc -secret %ENCRYPT_FILE_KEY%
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/prod.env.enc -secret %ENCRYPT_FILE_KEY%
   
-  - ps: Install-Product node 10 x64
+  - ps: Install-Product node 12 x64
+  # - ps: Install-Product node 10 x64
   # - ps: Install-Product node ''
   # - ps: Install-Product node 10.15.3 x64
   - set CI=true
