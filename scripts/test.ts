@@ -21,7 +21,7 @@ async function runTest() {
             // './build/linux-unpacked/quark' : process.platform == 'darwin' ?
             `./build/Quark-linux-x86_64-${version}.AppImage` : process.platform == 'darwin' ?
                 './build/mac/Quark.app' : null;
-                // `open ${(`./build/mac/Quark.app`)}` : null;
+    // `open ${(`./build/mac/Quark.app`)}` : null;
     // `${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
     // `${path.resolve(`./build/Quark-mac-${version}.pkg`)}` : null;
 
@@ -55,8 +55,15 @@ function exitTest() {
             const fileData = fs.readFileSync('./test/__testResults__/test-logs.txt').toString();
             console.log(fileData);
 
-            if (fileData.match(/(\[error\]|UnhandledPromiseRejectionWarning)/)) {
+            // if (fileData.match(/(\[error\]|UnhandledPromiseRejectionWarning)/)) {
+            if (fileData.match(/(UnhandledPromiseRejectionWarning)/)) {
                 printConsoleStatus('Test Failed', 'danger');
+                throw Error('Test Failed');
+            }
+
+            const numberOfErrors = (fileData.match(/[error]/g) || []).length;
+            const linuxHeadlessException = (fileData.match(/no version information available/g) || []).length;
+            if (numberOfErrors - linuxHeadlessException !== 0) {
                 throw Error('Test Failed');
             }
 
