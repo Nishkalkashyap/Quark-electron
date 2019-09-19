@@ -53,9 +53,9 @@ before_install:
 - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ $QUARK_RUN_BUILD == "true" ]; then export
   DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
 # - sudo npm i -g node-gyp
-- sudo rm -rf ~/.node-gyp
-- npm i -g node-gyp
-- sudo apt-get install -y build-essential
+# - sudo rm -rf ~/.node-gyp
+# - npm i -g node-gyp
+# - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -y build-essential; fi
 install:
 - echo $QUARK_RUN_BUILD
 - npm install
