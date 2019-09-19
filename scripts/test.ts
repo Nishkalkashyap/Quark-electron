@@ -16,27 +16,31 @@ async function runTest() {
         }
     }, 1000 * 60 * 2);
 
+    const testFilePath = './test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk';
     let command =
-        process.platform == 'win32' ? `./build/win-unpacked/Quark.exe `.concat('./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk') :
-            process.platform == 'linux' ? `./build/Quark-linux-x86_64-${version}.AppImage `.concat('./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk') :
+        process.platform == 'win32' ?
+            spawn(`./build/win-unpacked/Quark.exe`, [testFilePath]) :
+            process.platform == 'linux' ?
+                spawn(`./build/Quark-linux-x86_64-${version}.AppImage`, [testFilePath]) :
                 process.platform == 'darwin' ?
-                    // './build/mac/Quark.app' : null;
-                    'open ./build/mac/Quark.app' : null;
+                    spawn(`open ./build/mac/Quark.app`, [testFilePath]) : null;
+    // './build/mac/Quark.app' : null;
+    // 'open ./build/mac/Quark.app' : null;
     // `open ${(`./build/mac/Quark.app`)}` : null;
     // `${path.resolve(`./build/Quark-mac-${version}.dmg`)}` : null;
     // `${path.resolve(`./build/Quark-mac-${version}.pkg`)}` : null;
 
-    command.match(/(mac|dmg)/) ? macOSHandle() : null;
-    if (!command) {
-        process.exit(0);
-    }
+    process.platform == 'darwin' ? macOSHandle() : null;
+    // if (!command) {
+    //     process.exit(0);
+    // }
 
     if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
     }
 
     // const cp = spawn(command, ['./test/__testing__fjdsbfkbsdibsdi__testing__testing.qrk']);
-    const cp = spawn(command);
+    const cp = command;
     cp.stdout.on('data', function (data) { console.log(data.toString()); });
     cp.stderr.on('data', function (data) { console.log(data.toString()); });
     cp.on('close', (e) => {
@@ -63,7 +67,7 @@ function exitTest() {
                 throw Error('Test Failed');
             }
 
-            const numberOfErrors = (fileData.match(/[error]/g) || []);
+            const numberOfErrors = (fileData.match(/\[error\]/g) || []);
             const linuxHeadlessException = (fileData.match(/no version information available/g) || []);
             if (numberOfErrors.length - linuxHeadlessException.length !== 0) {
                 console.log(`numberOfErrors: ${JSON.stringify(numberOfErrors, undefined, 4)} ${numberOfErrors.length}`);
