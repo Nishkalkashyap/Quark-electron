@@ -81,7 +81,7 @@
   },
   "devDependencies": {
     "@google-cloud/storage": "^2.5.0",
-    "@octokit/rest": "^16.28.9",
+    "@octokit/rest": "^16.29.0",
     "@quarkjs/api": "^0.1.14",
     "@types/auto-launch": "^5.0.1",
     "@types/chart.js": "^2.8.5",
@@ -110,7 +110,7 @@
     "@types/tar": "^4.0.3",
     "@types/universal-analytics": "^0.4.3",
     "@types/yamljs": "^0.2.30",
-    "aws-sdk": "^2.530.0",
+    "aws-sdk": "^2.531.0",
     "chalk": "^2.4.2",
     "cross-env": "^5.2.1",
     "dotenv": "^7.0.0",
