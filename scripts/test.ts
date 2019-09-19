@@ -68,7 +68,7 @@ function exitTest() {
             }
 
             const numberOfErrors = (fileData.match(/\[error\]/g) || []);
-            const linuxHeadlessException = (fileData.match(/no version information available/g) || []);
+            const linuxHeadlessException = (fileData.match(/(no version information available|Timer 'added-libs' does not exist)/g) || []);
             if (numberOfErrors.length - linuxHeadlessException.length !== 0) {
                 console.log(`numberOfErrors: ${JSON.stringify(numberOfErrors, undefined, 4)} ${numberOfErrors.length}`);
                 console.log(`linuxHeadlessException: ${JSON.stringify(linuxHeadlessException, undefined, 4)} ${linuxHeadlessException.length}`);
