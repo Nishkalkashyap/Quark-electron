@@ -129,7 +129,7 @@ builder.build({
             ])
         },
         appImage: {
-            systemIntegration: 'ask',
+            // systemIntegration: 'ask',//removed in latest version
             license: 'LICENSE'
         },
 

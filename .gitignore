@@ -74,3 +74,4 @@ secrets.tar
 travis-secrets.tar
 azure-secrets.tar
 assets-definitions
+buildResources/www.tar.gz
