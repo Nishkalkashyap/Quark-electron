@@ -4,14 +4,14 @@ This application bundles the following third-party packages in accordance with t
 ----------------------------------------------------------------------------
 
 
-Package: @babel/code-frame@7.0.0
+Package: @babel/code-frame@7.5.5
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 MIT License
 
-Copyright (c) 2014-2018 Sebastian McKenzie <sebmck@gmail.com>
+Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -68,7 +68,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/generator@7.4.4
+Package: @babel/generator@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -228,7 +228,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/helper-create-class-features-plugin@7.5.5
+Package: @babel/helper-create-class-features-plugin@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -804,14 +804,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/highlight@7.0.0
+Package: @babel/highlight@7.5.0
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 MIT License
 
-Copyright (c) 2014-2018 Sebastian McKenzie <sebmck@gmail.com>
+Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -836,7 +836,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/parser@7.4.5
+Package: @babel/parser@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -2113,14 +2113,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/plugin-transform-react-jsx-source@7.2.0
+Package: @babel/plugin-transform-react-jsx-source@7.5.0
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 MIT License
 
-Copyright (c) 2014-2018 Sebastian McKenzie and other contributors
+Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -2561,7 +2561,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/template@7.4.4
+Package: @babel/template@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -2593,7 +2593,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/traverse@7.4.5
+Package: @babel/traverse@7.6.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -2625,7 +2625,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @babel/types@7.4.4
+Package: @babel/types@7.6.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -2657,7 +2657,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: @emotion/is-prop-valid@0.8.2
+Package: @emotion/is-prop-valid@0.8.3
 License: MIT
 License Source: README.md
 Source Text: 
@@ -3354,7 +3354,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: @types/semver@6.0.1
+Package: @types/semver@6.0.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -4713,7 +4713,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: acorn@6.2.1
+Package: acorn@6.3.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -5186,7 +5186,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: ajv-keywords@3.4.0
+Package: ajv-keywords@3.4.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -6259,7 +6259,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: async-limiter@1.0.0
+Package: async-limiter@1.0.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -6277,7 +6277,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: async@2.6.2
+Package: async@2.6.3
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -6764,7 +6764,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: babel-plugin-styled-components@1.10.4
+Package: babel-plugin-styled-components@1.10.6
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -6871,14 +6871,14 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: base64-js@1.3.0
+Package: base64-js@1.3.1
 License: MIT
 License Source: LICENSE
 Source Text: 
 
 The MIT License (MIT)
 
-Copyright (c) 2014
+Copyright (c) 2014 Jameson Little
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -7338,7 +7338,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: bl@1.2.2
+Package: bl@3.0.0
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -7346,7 +7346,7 @@ Source Text:
 The MIT License (MIT)
 =====================
 
-Copyright (c) 2013-2016 bl contributors
+Copyright (c) 2013-2018 bl contributors
 ----------------------------------
 
 *bl contributors listed at <https://github.com/rvagg/bl#contributors>*
@@ -7992,179 +7992,6 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
-Package: buffer-alloc-unsafe@1.1.0
-License: MIT
-License Source: readme.md
-Source Text: 
-
-# Buffer Alloc Unsafe
-
-A [ponyfill](https://ponyfill.com) for `Buffer.allocUnsafe`.
-
-Works as Node.js: `v7.0.0` <br>
-Works on Node.js: `v0.10.0`
-
-## Installation
-
-```sh
-npm install --save buffer-alloc-unsafe
-```
-
-## Usage
-
-```js
-const allocUnsafe = require('buffer-alloc-unsafe')
-
-console.log(allocUnsafe(10))
-//=> <Buffer 78 0c 80 03 01 00 00 00 05 00>
-
-console.log(allocUnsafe(10))
-//=> <Buffer 58 ed bf 5f ff 7f 00 00 01 00>
-
-console.log(allocUnsafe(10))
-//=> <Buffer 50 0c 80 03 01 00 00 00 0a 00>
-
-allocUnsafe(-10)
-//=> RangeError: "size" argument must not be negative
-```
-
-## API
-
-### allocUnsafe(size)
-
-- `size` &lt;Integer&gt; The desired length of the new `Buffer`
-
-Allocates a new *non-zero-filled* `Buffer` of `size` bytes. The `size` must be
-less than or equal to the value of `buffer.kMaxLength` and greater than or equal
-to zero. Otherwise, a `RangeError` is thrown.
-
-## See also
-
-- [buffer-alloc](https://github.com/LinusU/buffer-alloc) A ponyfill for `Buffer.alloc`
-- [buffer-fill](https://github.com/LinusU/buffer-fill) A ponyfill for `Buffer.fill`
-- [buffer-from](https://github.com/LinusU/buffer-from) A ponyfill for `Buffer.from`
-
-
-----------------------------------------------------------------------------
-
-
-Package: buffer-alloc@1.2.0
-License: MIT
-License Source: readme.md
-Source Text: 
-
-# Buffer Alloc
-
-A [ponyfill](https://ponyfill.com) for `Buffer.alloc`.
-
-Works as Node.js: `v7.0.0` <br>
-Works on Node.js: `v0.10.0`
-
-## Installation
-
-```sh
-npm install --save buffer-alloc
-```
-
-## Usage
-
-```js
-const alloc = require('buffer-alloc')
-
-console.log(alloc(4))
-//=> <Buffer 00 00 00 00>
-
-console.log(alloc(6, 0x41))
-//=> <Buffer 41 41 41 41 41 41>
-
-console.log(alloc(10, 'linus', 'utf8'))
-//=> <Buffer 6c 69 6e 75 73 6c 69 6e 75 73>
-```
-
-## API
-
-### alloc(size[, fill[, encoding]])
-
-- `size` &lt;Integer&gt; The desired length of the new `Buffer`
-- `fill` &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; A value to pre-fill the new `Buffer` with. **Default:** `0`
-- `encoding` &lt;String&gt; If `fill` is a string, this is its encoding. **Default:** `'utf8'`
-
-Allocates a new `Buffer` of `size` bytes. If `fill` is `undefined`, the `Buffer` will be zero-filled.
-
-## See also
-
-- [buffer-alloc-unsafe](https://github.com/LinusU/buffer-alloc-unsafe) A ponyfill for `Buffer.allocUnsafe`
-- [buffer-fill](https://github.com/LinusU/buffer-fill) A ponyfill for `Buffer.fill`
-- [buffer-from](https://github.com/LinusU/buffer-from) A ponyfill for `Buffer.from`
-
-
-----------------------------------------------------------------------------
-
-
-Package: buffer-fill@1.0.0
-License: MIT
-License Source: readme.md
-Source Text: 
-
-# Buffer Fill
-
-A [ponyfill](https://ponyfill.com) for `Buffer.fill`.
-
-Works as Node.js: `v6.4.0` <br>
-Works on Node.js: `v0.10.0`
-
-## Installation
-
-```sh
-npm install --save buffer-fill
-```
-
-## Usage
-
-```js
-const fill = require('buffer-fill')
-const buf = Buffer.allocUnsafe(5)
-
-console.log(buf.fill(8))
-//=> <Buffer 08 08 08 08 08>
-
-console.log(buf.fill(9, 2, 4))
-//=> <Buffer 08 08 09 09 08>
-
-console.log(buf.fill('linus', 'latin1'))
-//=> <Buffer 6c 69 6e 75 73>
-
-console.log(buf.fill('\u0222'))
-//=> <Buffer c8 a2 c8 a2 c8>
-```
-
-## API
-
-### fill(buf, value[, offset[, end]][, encoding])
-
-- `value` &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; The value to fill `buf` with
-- `offset` &lt;Integer&gt; Where to start filling `buf`. **Default:** `0`
-- `end` &lt;Integer&gt; Where to stop filling `buf` (not inclusive). **Default:** `buf.length`
-- `encoding` &lt;String&gt; If `value` is a string, this is its encoding. **Default:** `'utf8'`
-- Return: &lt;Buffer&gt; A reference to `buf`
-
-Fills `buf` with the specified `value`. If the `offset` and `end` are not given,
-the entire `buf` will be filled. This is meant to be a small simplification to
-allow the creation and filling of a `Buffer` to be done on a single line.
-
-If the final write of a `fill()` operation falls on a multi-byte character, then
-only the first bytes of that character that fit into `buf` are written.
-
-## See also
-
-- [buffer-alloc-unsafe](https://github.com/LinusU/buffer-alloc-unsafe) A ponyfill for `Buffer.allocUnsafe`
-- [buffer-alloc](https://github.com/LinusU/buffer-alloc) A ponyfill for `Buffer.alloc`
-- [buffer-from](https://github.com/LinusU/buffer-from) A ponyfill for `Buffer.from`
 
 
 ----------------------------------------------------------------------------
@@ -9616,7 +9443,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: chownr@1.1.1
+Package: chownr@1.1.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -11456,7 +11283,7 @@ Source Text:
 ----------------------------------------------------------------------------
 
 
-Package: css-to-react-native@2.3.1
+Package: css-to-react-native@2.3.2
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -11831,30 +11658,26 @@ MIT
 ----------------------------------------------------------------------------
 
 
-Package: d@1.0.0
-License: MIT
+Package: d@1.0.1
+License: ISC
 License Source: LICENSE
 Source Text: 
 
-Copyright (C) 2013 Mariusz Nowak (www.medikoo.com)
+ISC License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright (c) 2013-2019, Mariusz Nowak, @medikoo, medikoo.com
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -12141,32 +11964,20 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: decompress-response@3.3.0
+Package: decompress-response@4.2.1
 License: MIT
 License Source: license
 Source Text: 
 
-`The MIT License (MIT)
+MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -13475,7 +13286,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: electron-to-chromium@1.3.261
+Package: electron-to-chromium@1.3.262
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -14523,7 +14334,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: es5-ext@0.10.50
+Package: es5-ext@0.10.51
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -14707,30 +14518,26 @@ Published under the [MIT License](http://opensource.org/licenses/MIT).
 ----------------------------------------------------------------------------
 
 
-Package: es6-symbol@3.1.1
-License: MIT
+Package: es6-symbol@3.1.2
+License: ISC
 License Source: LICENSE
 Source Text: 
 
-Copyright (C) 2013-2015 Mariusz Nowak (www.medikoo.com)
+ISC License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright (c) 2013-2019, Mariusz Nowak, @medikoo, medikoo.com
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -14815,7 +14622,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: escodegen@1.11.1
+Package: escodegen@1.12.0
 License: BSD-2-Clause
 License Source: LICENSE.BSD
 Source Text: 
@@ -15088,7 +14895,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: estraverse@4.2.0
+Package: estraverse@4.3.0
 License: BSD-2-Clause
 License Source: LICENSE.BSD
 Source Text: 
@@ -15117,8 +14924,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------------
 
 
-Package: esutils@2.0.2
-License: BSD
+Package: esutils@2.0.3
+License: BSD-2-Clause
 License Source: LICENSE.BSD
 Source Text: 
 
@@ -15382,7 +15189,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: external-editor@3.0.3
+Package: external-editor@3.1.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -17878,7 +17685,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: graceful-fs@4.1.15
+Package: graceful-fs@4.2.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -18324,7 +18131,7 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: hosted-git-info@2.7.1
+Package: hosted-git-info@2.8.2
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -18596,7 +18403,7 @@ if (!oldPolicy.satisfiesWithoutRevalidation(newRequest)) {
 ----------------------------------------------------------------------------
 
 
-Package: http-errors@1.7.2
+Package: http-errors@1.7.3
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -18771,7 +18578,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: https-proxy-agent@2.2.1
+Package: https-proxy-agent@2.2.2
 License: MIT
 License Source: README.md
 Source Text: 
@@ -19463,7 +19270,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: inquirer@6.3.1
+Package: inquirer@6.5.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -20592,7 +20399,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: is-what@3.2.3
+Package: is-what@3.3.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -21045,8 +20852,8 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: json-schema-typed@7.0.0
-License: BSD-2-Clause
+Package: json-schema-typed@7.0.1
+License: BSD*
 License Source: LICENSE
 Source Text: 
 
@@ -21780,7 +21587,7 @@ USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: linkify-it@2.1.0
+Package: linkify-it@2.2.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -23200,7 +23007,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: macos-release@2.2.0
+Package: macos-release@2.3.0
 License: MIT
 License Source: license
 Source Text: 
@@ -23699,7 +23506,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: memoize-one@5.0.4
+Package: memoize-one@5.1.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -23824,7 +23631,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: merge-anything@2.2.5
+Package: merge-anything@2.4.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -24102,7 +23909,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: mimic-response@1.0.1
+Package: mimic-response@2.0.0
 License: MIT
 License Source: license
 Source Text: 
@@ -24614,7 +24421,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: nan@2.12.1
+Package: nan@2.14.0
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -24913,7 +24720,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: node-abi@2.8.0
+Package: node-abi@2.11.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -25042,7 +24849,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: node-pty@0.8.1
+Package: node-pty@0.9.0-beta26
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -27324,7 +27131,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: parse-asn1@5.1.4
+Package: parse-asn1@5.1.5
 License: ISC
 License Source: LICENSE
 Source Text: 
@@ -28126,7 +27933,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: postcss@7.0.17
+Package: postcss@7.0.18
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -28156,7 +27963,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: prebuild-install@5.3.0
+Package: prebuild-install@5.3.2
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -29139,7 +28946,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: pump@1.0.3
+Package: pump@2.0.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -30345,7 +30152,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: raw-body@2.4.0
+Package: raw-body@2.4.1
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -30463,7 +30270,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: react-is@16.8.6
+Package: react-is@16.9.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -32710,7 +32517,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: simple-get@2.8.1
+Package: simple-get@3.1.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -33300,7 +33107,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: source-map-support@0.5.12
+Package: source-map-support@0.5.13
 License: MIT
 License Source: LICENSE.md
 Source Text: 
@@ -35201,7 +35008,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: tar-fs@1.16.3
+Package: tar-fs@2.0.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -35231,7 +35038,7 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: tar-stream@1.6.2
+Package: tar-stream@2.1.0
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -36075,37 +35882,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: to-buffer@1.1.1
-License: MIT
-License Source: LICENSE
-Source Text: 
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-----------------------------------------------------------------------------
-
-
 Package: to-fast-properties@2.0.0
 License: MIT
 License Source: license
@@ -36634,6 +36410,31 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+----------------------------------------------------------------------------
+
+
+Package: type@1.0.3
+License: ISC
+License Source: LICENSE
+Source Text: 
+
+ISC License
+
+Copyright (c) 2019, Mariusz Nowak, @medikoo, medikoo.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 
 
 ----------------------------------------------------------------------------
@@ -37320,12 +37121,12 @@ THE SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: upath@1.1.2
+Package: upath@1.2.0
 License: MIT
 License Source: LICENSE
 Source Text: 
 
-Copyright(c) 2014-2017 Angelos Pikoulas (agelos.pikoulas@gmail.com)
+Copyright(c) 2014-2019 Angelos Pikoulas (agelos.pikoulas@gmail.com)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -39274,7 +39075,7 @@ THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----------------------------------------------------------------------------
 
 
-Package: vue-hot-reload-api@2.3.3
+Package: vue-hot-reload-api@2.3.4
 License: MIT
 License Source: LICENSE
 Source Text: 
@@ -39719,7 +39520,7 @@ SOFTWARE.
 ----------------------------------------------------------------------------
 
 
-Package: webpack-sources@1.3.0
+Package: webpack-sources@1.4.3
 License: MIT
 License Source: LICENSE
 Source Text: 
