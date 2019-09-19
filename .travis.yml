@@ -54,7 +54,7 @@ before_install:
   DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; sleep 3; fi
 # - sudo npm i -g node-gyp
 - sudo rm -rf ~/.node-gyp
-- sudo npm i -g node-gyp
+- npm i -g node-gyp
 - sudo apt-get install -y build-essential
 install:
 - echo $QUARK_RUN_BUILD
