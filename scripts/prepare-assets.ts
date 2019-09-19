@@ -32,7 +32,7 @@ async function copyDefinitions() {
         '@quarkjs/api',
         '@types/firmata',
         '@types/fs-extra',
-        '@types/johnny-five',
+        // '@types/johnny-five',
         '@types/node',
         '@types/serialport',
         '@types/react',
