@@ -11,12 +11,15 @@ root().catch((err) => {
     throw Error('Failed to prepare assets');
 });
 async function root() {
-    if (process.env.CI) {
-        await downloadTarArchive();
-    } else {
-        const wwwOutPath = './buildResources/www.tar.gz';
-        await makeTar('./../QuarkUMD/dist', wwwOutPath, '');
-    }
+    await downloadTarArchive();
+
+    // if (process.env.CI) {
+    //     await downloadTarArchive();
+    // } else {
+    //     const wwwOutPath = './buildResources/www.tar.gz';
+    //     await makeTar('./../QuarkUMD/dist', wwwOutPath, '');
+    // }
+
     await extractTarArchives();
     await copyDefinitions();
     makeIcons();
