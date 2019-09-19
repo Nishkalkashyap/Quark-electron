@@ -61,9 +61,11 @@ function exitTest() {
                 throw Error('Test Failed');
             }
 
-            const numberOfErrors = (fileData.match(/[error]/g) || []).length;
-            const linuxHeadlessException = (fileData.match(/no version information available/g) || []).length;
-            if (numberOfErrors - linuxHeadlessException !== 0) {
+            const numberOfErrors = (fileData.match(/[error]/g) || []);
+            const linuxHeadlessException = (fileData.match(/no version information available/g) || []);
+            if (numberOfErrors.length - linuxHeadlessException.length !== 0) {
+                console.log(`numberOfErrors: ${JSON.stringify(numberOfErrors, undefined, 4)} ${numberOfErrors.length}`);
+                console.log(`linuxHeadlessException: ${JSON.stringify(linuxHeadlessException, undefined, 4)} ${linuxHeadlessException.length}`);
                 throw Error('Test Failed');
             }
 

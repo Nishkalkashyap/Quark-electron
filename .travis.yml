@@ -13,6 +13,7 @@ notifications:
   slack:
     secure: Tm4Hp9fO/MB/b0t/r14XU2AYLPYFV7m0XzI4f0F652wiJ+ThWC/+cWlLsUYrXVNLvWe6Ry+ifZFV4u2tkbK07EN5HvmN27/BHg2PA7cnewrBN+BqJBAjK/U+yKN3L4Gl9N2xKKkBEUwxaeoxcCmiRlIRLnSWdFk3rSZyC3YDCAsduVZ7QX1dkiyX3no5aIZ7BN7G7zJyIIciwH+i9f6wET+7p5pO+Ypeb9avXVTA0oB7DhSXv+PcS/GljVNdSLolsxj44XtWut40Q4QnHamHwT2MgCewXnWD4k3x76UMy1axlyWmN8ezvXV7917gz+ufQ50ahV/92Mi5EoY2mfw1rFK+cAYPcoGNZbou8fVOhcfHcjDT2Xq8Ua9t9M6IPhCNCprSPybsy2riIEL1XAQD1auKs5CHuTTiB7jc7nkdsAUkH6kJbcmSEuudgdbq7oeKThL86oTW2GMfgJCx18KwJFuVWyHz1a0QusDSUYGQGIFgPNPe6ei4R0OzoH2W3MWrJG3U91bsraXCVI2NEWgf/u1UITrsS/vtFleAhCSOjnVtGOyoAs+FpLBKXnDnEZmQ3WTph6faEMgANInYcxPkLDf/lK2cjy4qNZjBiG+72FKSfDT6JBSurEv5QJyj13o1MNvlWqonoF9wLpGCAhCzVkn1KobFvhaMCGYLoL7JrDc=
 matrix:
+  fast_finish: true
   include:
   - os: linux
     # node_js: lts/*
