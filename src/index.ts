@@ -7,6 +7,7 @@ import { registerProcessExplorer } from './process.explorer';
 import { enableAutoLaunch } from './auto-launch';
 import { registerTray } from './tray';
 import { setTracking } from './tracking';
+import { enableWebviewSecurity } from './security/webview';
 
 const _isSecondInstance = app.requestSingleInstanceLock();
 if (!_isSecondInstance) {
@@ -31,6 +32,9 @@ app.on('ready', () => {
     // has to be first
     setMainProcessData();
     setTracking();
+
+    // security
+    enableWebviewSecurity();
 
     createNewInstanceWindow(process.argv).catch(console.error);
     registerListeners();

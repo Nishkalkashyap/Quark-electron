@@ -28,13 +28,17 @@ export function setMainProcessData() {
 export function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         backgroundColor: '#000000',
-        resizable: !app.isPackaged,
+        // resizable: !app.isPackaged,
+        //do not use this flag. produces in-consistencies in build
+        resizable: false,
         show: true,
         width: 400,
         height: 600,
         frame: true,
-        autoHideMenuBar: false,
+        autoHideMenuBar: true,
         webPreferences: {
+            // Required in electron@6
+            webviewTag : true,
             webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
@@ -54,6 +58,8 @@ export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
         width: 900,
         height: 700,
         webPreferences: {
+            // Required in electron@6
+            webviewTag : true,
             webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
