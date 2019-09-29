@@ -21,8 +21,8 @@ install:
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/cloud-storage-key.json.enc -secret %ENCRYPT_FILE_KEY%
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/code-sign.p12.enc -secret %ENCRYPT_FILE_KEY%
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/prod.env.enc -secret %ENCRYPT_FILE_KEY%
-  
-  - ps: Install-Product node 12 x64
+
+  - ps: Install-Product node 12.4.0 x64
   # - ps: Install-Product node 10 x64
   # - ps: Install-Product node ''
   # - ps: Install-Product node 10.15.3 x64
@@ -48,7 +48,6 @@ test_script:
 after_test:
   - npm run upload-ci
   # - npm run release-ci
-
 # artifacts:
 #   - path: build/*.exe
 #     name: exe
@@ -71,4 +70,4 @@ after_test:
 #   prerelease: true
 #   force_update: true
 #   on:
-#     APPVEYOR_REPO_TAG: false 
+#     APPVEYOR_REPO_TAG: false
