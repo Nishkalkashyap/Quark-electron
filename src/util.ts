@@ -29,16 +29,18 @@ export function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         backgroundColor: '#000000',
         // resizable: !app.isPackaged,
+        // frame: !app.isPackaged,
+        // autoHideMenuBar: !app.isPackaged,
         //do not use this flag. produces in-consistencies in build
         resizable: false,
+        frame: true,
         show: true,
         width: 400,
         height: 600,
-        frame: true,
         autoHideMenuBar: true,
         webPreferences: {
             // Required in electron@6
-            webviewTag : true,
+            webviewTag: true,
             webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
@@ -59,7 +61,7 @@ export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
         height: 700,
         webPreferences: {
             // Required in electron@6
-            webviewTag : true,
+            webviewTag: true,
             webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
