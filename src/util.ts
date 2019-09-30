@@ -34,10 +34,11 @@ export function getLandingPageWindow(): IBrowserWindow {
         //do not use this flag. produces in-consistencies in build
         resizable: false,
         frame: true,
+        autoHideMenuBar: true,
+
         show: true,
         width: 400,
         height: 600,
-        autoHideMenuBar: true,
         webPreferences: {
             // Required in electron@6
             webviewTag: true,
