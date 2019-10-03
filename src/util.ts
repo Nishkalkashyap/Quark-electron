@@ -28,13 +28,13 @@ export function setMainProcessData() {
 export function getLandingPageWindow(): IBrowserWindow {
     const win = new BrowserWindow({
         backgroundColor: '#000000',
-        // resizable: !app.isPackaged,
-        // frame: !app.isPackaged,
-        // autoHideMenuBar: !app.isPackaged,
+        resizable: !app.isPackaged,
+        frame: !app.isPackaged,
+        autoHideMenuBar: app.isPackaged,
         //do not use this flag. produces in-consistencies in build
-        resizable: false,
-        frame: true,
-        autoHideMenuBar: true,
+        // resizable: false,
+        // frame: true,
+        // autoHideMenuBar: true,
 
         show: true,
         width: 400,
