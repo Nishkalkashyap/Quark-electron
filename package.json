@@ -23,7 +23,9 @@
     "test-ci": "ts-node ./scripts/test.ts",
     "upload-ci": "ts-node ./scripts/upload-ci.ts && ts-node ./scripts/github-release.ts",
     "release-ci": "ts-node ./scripts/release-ci.ts",
-    "release-master-all": "git checkout master-all && git merge master && git push && git checkout master"
+    "release-master-all": "git checkout master-all && git merge master && git push && git checkout master",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "^7.6.2",
@@ -76,7 +78,8 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.0",
     "webpack-merge": "^4.2.2",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "@google-cloud/storage": "^2.5.0",
@@ -141,5 +144,6 @@
     "Quark",
     "Electron"
   ],
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "snyk": true
 }
