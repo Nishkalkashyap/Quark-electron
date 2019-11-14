@@ -74,12 +74,14 @@ async function copyDefinitions() {
                         return bool;
                     },
                     // dereference: true
-                }, (e) => {
-                    if (e) {
-                        console.error(e);
-                        printConsoleStatus(`Error: ${e.name}`, 'danger');
-                        printConsoleStatus(`Error: ${e.message}`, 'danger');
-                        throw Error(`Error: ${e.message}`);
+                }, (_e) => {
+                    if (_e) {
+                        _e.map((e) => {
+                            console.error(e);
+                            printConsoleStatus(`Error: ${e.name}`, 'danger');
+                            printConsoleStatus(`Error: ${e.message}`, 'danger');
+                            throw Error(`Error: ${e.message}`);
+                        })
                     } else {
                         printConsoleStatus(`Copied definitions from ${val}`, 'success');
                     }
