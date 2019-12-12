@@ -1,0 +1,12 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-TREEKILL-536781:
+    - ionic > @ionic/utils-process > tree-kill:
+        patched: '2019-12-12T02:47:12.940Z'
+    - ionic > @ionic/cli-framework > @ionic/utils-process > tree-kill:
+        patched: '2019-12-12T02:47:12.940Z'
+    - ionic > @ionic/cli-framework > @ionic/utils-subprocess > @ionic/utils-process > tree-kill:
+        patched: '2019-12-12T02:47:12.940Z'
