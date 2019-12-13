@@ -55,7 +55,7 @@
     "material-icon-theme": "^3.7.1",
     "memory-fs": "^0.4.1",
     "node-pty": "^0.9.0",
-    "npm": "^6.13.1",
+    "npm": "^6.13.4",
     "prop-types": "^15.7.2",
     "raw-loader": "^1.0.0",
     "react": "^16.12.0",
