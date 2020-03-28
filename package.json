@@ -44,7 +44,7 @@
     "electron-log": "^3.0.9",
     "electron-process-manager": "^0.7.1",
     "electron-store": "^3.3.0",
-    "electron-updater": "^4.2.0",
+    "electron-updater": "^4.2.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "firmata-io": "^2.2.0",
     "fs-extra": "^8.1.0",
