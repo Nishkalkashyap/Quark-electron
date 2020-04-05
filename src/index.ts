@@ -26,7 +26,7 @@ crashReporter.start({
     submitURL: 'https://quarkjs.io/crash-reporter'
 });
 
-app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
+// app.commandLine.appendSwitch('--enable-experimental-web-platform-features');
 app.setAppUserModelId(process.execPath);
 app.on('ready', () => {
     // has to be first

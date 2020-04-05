@@ -45,7 +45,8 @@ export function getLandingPageWindow(): IBrowserWindow {
             webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
-            allowRunningInsecureContent: true
+            allowRunningInsecureContent: false,
+            enableRemoteModule: true
         }
     });
     return <IBrowserWindow>win;
@@ -66,7 +67,8 @@ export function getDesignerPageWindow(projectPath: string): IBrowserWindow {
             webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
-            allowRunningInsecureContent: true
+            allowRunningInsecureContent: false,
+            enableRemoteModule: true
         }
     });
     return <IBrowserWindow>win;
