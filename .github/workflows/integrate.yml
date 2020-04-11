@@ -1,4 +1,4 @@
-name: Greet Everyone
+name: Build and release
 on:
   push:
     branches:

@@ -1,9 +1,18 @@
-removed unused deps. added svg-inline-loader
-bug fixed due to electron version change
-reverted back to electron v6
-removed enable-experimental-web-platform-features flag from ./index.ts
-added flag enableRemoteModule: true
-changed flag allowRunningInsecureContent: false (before: true)
+#### Bug fixes:
+Bug fixes due to electron version change
+
+#### Other changes:
+* Removed unused dependencies
+* Removed `enable-experimental-web-platform-features` flag
+* Added flag `enableRemoteModule: true`
+* Changed flag `allowRunningInsecureContent: false` *(before: true)*
+* Added new **windows code signing certificate**
+
+#### Dependencies:
+* Reverted back to electron v6
+* Added svg-inline-loader
+
 
 TODO: fix export bug
-Added new windows code signing certificate
+
+
