@@ -10,8 +10,7 @@ Bug fixes due to electron version change
 
 #### Dependencies:
 * Reverted back to electron v6
-* Added svg-inline-loader
-
+* Added `svg-inline-loader`
 
 TODO: fix export bug
 
