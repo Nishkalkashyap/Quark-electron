@@ -13,5 +13,7 @@ Bug fixes due to electron version change
 * Added `svg-inline-loader`
 
 TODO: fix export bug
+added github actions
+removed travis and appvoyer
 
 

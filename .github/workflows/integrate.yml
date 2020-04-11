@@ -38,13 +38,13 @@ jobs:
           run: npm run test-ci
       - name: Upload binaries
         run: npm run upload-ci
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v1
-        if: runner.os == 'macOS'
-        with:
-          name: build
-          path: ./build
-      - name: Send slack notification
-        uses: rtCamp/action-slack-notify@v2.0.0
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      # - name: Upload artifacts
+      #   uses: actions/upload-artifact@v1
+      #   if: runner.os == 'macOS'
+      #   with:
+      #     name: build
+      #     path: ./build
+      # - name: Send slack notification
+      #   uses: rtCamp/action-slack-notify@v2.0.0
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
