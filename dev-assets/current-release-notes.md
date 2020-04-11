@@ -6,3 +6,4 @@ added flag enableRemoteModule: true
 changed flag allowRunningInsecureContent: false (before: true)
 
 TODO: fix export bug
+Added new windows code signing certificate
