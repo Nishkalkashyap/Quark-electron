@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build Linux
+    name: Build ${{ matrix.os }}
     strategy:
       matrix:
         # os: [macos-latest, ubuntu-latest, windows-latest]
@@ -20,9 +20,11 @@ jobs:
           node-version: 12
       - name: Decrypt secret file
         run: gpg --quiet --batch --yes --decrypt --passphrase="$GPG_KEY" --output ./dev-assets/github-actions.secrets.tar ./dev-assets/github-actions.secrets.tar.gpg
+        shell: bash
         env:
           GPG_KEY: ${{ secrets.GPG_KEY }}
       - name: Extract tar archive
+        shell: bash
         run: tar xvf ./dev-assets/github-actions.secrets.tar -C ./dev-assets
       - name: Install dependencies
         run: npm install
