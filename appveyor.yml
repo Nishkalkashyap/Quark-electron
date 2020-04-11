@@ -19,6 +19,7 @@ branches:
 install:
   - ps: iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/appveyor/secure-file/master/install.ps1'))
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/cloud-storage-key.json.enc -secret %ENCRYPT_FILE_KEY%
+  - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/windows-2020-2021.p12.enc -secret %ENCRYPT_FILE_KEY%
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/code-sign.p12.enc -secret %ENCRYPT_FILE_KEY%
   - cmd: appveyor-tools\secure-file -decrypt ./dev-assets/prod.env.enc -secret %ENCRYPT_FILE_KEY%
 
