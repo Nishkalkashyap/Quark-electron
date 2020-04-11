@@ -8,8 +8,9 @@ environment:
 
 branches:
   only:
-    - master
-    - master-all
+    - null
+    # - master
+    # - master-all
 
 # cache:
 #   - node_modules
