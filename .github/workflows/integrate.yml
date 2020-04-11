@@ -19,7 +19,7 @@ jobs:
         env:
           GPG_KEY: ${{ secrets.GPG_KEY }}
       - name: Extract tar archive
-        run: tar xvf github-actions.secrets.tar -C ./dev-assets
+        run: tar xvf ./dev-assets/github-actions.secrets.tar -C ./dev-assets
       - name: Install dependencies
         run: npm install
       - name: Build binaries
