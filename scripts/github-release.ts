@@ -63,7 +63,8 @@ async function uploadAssets(url: string, release_id: number) {
         printConsoleStatus(`Uploading file: ${name}`, 'info');
         return await octokit.repos.uploadReleaseAsset({
             name,
-            file: fs.readFileSync(file),
+            data: fs.readFileSync(file),
+            // file: fs.readFileSync(file),
             url,
             headers: {
                 "content-length": fs.statSync(file).size,
