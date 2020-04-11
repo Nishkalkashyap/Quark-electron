@@ -1,4 +1,4 @@
-import * as Octokit from '@octokit/rest';
+import { Octokit } from '@octokit/rest';
 import * as fs from 'fs-extra';
 import { currentBranch, branches } from './util';
 import * as dotenv from 'dotenv';
