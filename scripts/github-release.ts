@@ -1,4 +1,4 @@
-import * as Octokit from '@octokit/rest';
+import { Octokit } from '@octokit/rest';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { getFilesToUpload, currentBranch, wwwOutPath } from './util';
@@ -19,7 +19,7 @@ root()
 async function root() {
     const currentReleaseExists = await getCurrentReleaseForBranch(currentBranch);
 
-    let release: Octokit.ReposListReleasesResponseItem[] | Octokit.ReposCreateReleaseResponse;
+    let release: Octokit.ReposCreateReleaseResponse;
     if (currentReleaseExists) {
         release = currentReleaseExists;
     } else {

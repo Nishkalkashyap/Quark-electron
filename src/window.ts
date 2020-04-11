@@ -63,15 +63,24 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
                     if (val == null) {
                         telemetry.reportException('FailedToParseFile');
                         win.webContents.openDevTools();
+                        // dialog.showMessageBox(win, {
+                        //     title: 'Error',
+                        //     message: 'Failed to parse file.',
+                        //     buttons: ['Close']
+                        // }, (r, c) => {
+                        //     if (app.isPackaged) {
+                        //         win.close();
+                        //     }
+                        // });
                         dialog.showMessageBox(win, {
                             title: 'Error',
                             message: 'Failed to parse file.',
                             buttons: ['Close']
-                        }, (r, c) => {
+                        }).then(() => {
                             if (app.isPackaged) {
                                 win.close();
                             }
-                        });
+                        }).catch(console.error);
                     }
                 })
                 .catch((err) => { console.log(err, 'never executed'); })
@@ -90,15 +99,25 @@ async function _createWindow(windowTypes: IBrowserWindow[], absoluteFilePath: st
             win.close();
             // }
 
-            dialog.showMessageBox({
+            // dialog.showMessageBox({
+            //     title: 'Window Crashed',
+            //     message: 'Reopen current project? ',
+            //     buttons: ['Yes', 'No']
+            // }, (r, c) => {
+            //     if (r == 0) {
+            //         createOrFocusWindow(windowTypes, absoluteFilePath);
+            //     }
+            // });
+
+            dialog.showMessageBox(win, {
                 title: 'Window Crashed',
                 message: 'Reopen current project? ',
                 buttons: ['Yes', 'No']
-            }, (r, c) => {
-                if (r == 0) {
+            }).then(({ response, checkboxChecked }) => {
+                if (response == 0) {
                     createOrFocusWindow(windowTypes, absoluteFilePath);
                 }
-            });
+            })
         });
 
 
