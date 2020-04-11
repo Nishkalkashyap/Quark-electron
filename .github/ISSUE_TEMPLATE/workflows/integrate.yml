@@ -1,0 +1,20 @@
+name: Greet Everyone
+on:
+  push:
+    branches:
+      - master
+      - master-all
+
+jobs:
+  build:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: npm install
+      - name: Build binaries
+        run: npm run build-ci
