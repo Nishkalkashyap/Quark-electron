@@ -14,36 +14,30 @@ const s3 = new AWS.S3({
 
 const Bucket = `quark-release`;
 
-// purgeCache();
-// export async function purgeCache() {
-//     const ep = `sfo2.digitaloceanspaces.com`;
-//     const result = await fetch(`https://api.digitalocean.com/v2/cdn/endpoints/${ep}/cache`, {
-//         method : 'deletejj',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${process.env.DIGITAL_OCEAN_API_TOKEN}`
-//         },
-//         body: JSON.stringify({
-//             files: ['insiders/latest.yml']
-//         })
-//     });
-//     console.log(result);
-// }
-
 // uploadFileToSpace('./package.json', 'Quark/package.json');
-export function uploadFileToSpace(path: string, Key: string) {
-    if (!isProductionBranch) return;
-
-    var params: AWS.S3.PutObjectRequest = {
-        Body: fs.readFileSync(path),
-        Bucket,
-        Key,
-        CacheControl: getCacheControlForFile(path)
-    };
-    s3.putObject(params, function (err, data) {
-        if (err) console.error(err, err.stack);
-        else console.log(data);
-    });
+export async function uploadFileToSpace(path: string, Key: string) {
+    return new Promise((resolve, reject)=>{
+        if (!isProductionBranch){
+            resolve();
+        };
+    
+        const params: AWS.S3.PutObjectRequest = {
+            Body: fs.readFileSync(path),
+            Bucket,
+            Key,
+            CacheControl: getCacheControlForFile(path)
+        };
+        s3.putObject(params, function (err, data) {
+            if (err) {
+                console.error(err);
+                reject(err);
+            }
+            else {
+                console.log(data);
+                resolve();
+            }
+        });
+    })
 }
 
 // doSpaceTransfer('Quark-master-0.5.2', 'stable').then(console.log).catch(console.error)
