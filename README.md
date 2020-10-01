@@ -4,7 +4,7 @@
 [![Build Status](https://ci.appveyor.com/api/projects/status/e9n73kxva64pccwe/branch/master-all?svg=true)](https://ci.appveyor.com/project/Nishkalkashyap/quark-electron)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Nishkalkashyap/Quark-docs)
 
-Quark is a general purpose software tool specifically designed to help you create projects written in HTML, CSS and JavaScript with native desktop app like capabilities. Quark apps run on Mac, Windows, and Linux from a single codebase.
+Quark is an Amazing software tool specifically designed to help you create projects written in HTML, CSS and JavaScript with native desktop app like capabilities. Quark app runs on Mac, Windows, and Linux from a single codebase.
 
 Visit [the website](https://quarkjs.io) to learn more.
 
