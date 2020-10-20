@@ -38,7 +38,7 @@
     "auto-launch": "^5.0.5",
     "babel-loader": "^8.1.0",
     "builtin-modules": "^3.1.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "chokidar": "^2.1.8",
     "css-loader": "^2.1.1",
     "electron-log": "^3.0.9",
