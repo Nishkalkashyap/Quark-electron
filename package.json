@@ -66,7 +66,7 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "svg-inline-loader": "^0.8.2",
-    "ts-loader": "^5.4.5",
+    "ts-loader": "^6.0.0",
     "typescript": "^3.8.3",
     "url-loader": "^1.1.2",
     "uuid": "^3.4.0",
@@ -75,7 +75,7 @@
     "vue-loader": "^15.9.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.42.1",
+    "webpack": "^5.0.0",
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   },
