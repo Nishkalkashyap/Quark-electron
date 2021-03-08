@@ -39,7 +39,7 @@
     "babel-loader": "^8.1.0",
     "builtin-modules": "^3.1.0",
     "chart.js": "^2.9.3",
-    "chokidar": "^2.1.8",
+    "chokidar": "^3.0.0",
     "css-loader": "^2.1.1",
     "electron-log": "^3.0.9",
     "electron-process-manager": "^0.7.1",
