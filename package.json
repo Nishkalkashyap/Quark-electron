@@ -61,7 +61,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "recursive-readdir": "^2.2.2",
-    "serialport": "^8.0.7",
+    "serialport": "^9.0.0",
     "styled-components": "^4.4.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
