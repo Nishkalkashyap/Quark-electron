@@ -120,7 +120,7 @@
     "ncp": "^2.0.0",
     "print-console-status": "^1.0.3",
     "progress-stream": "^2.0.0",
-    "sharp": "^0.23.4",
+    "sharp": "^0.30.5",
     "spectron": "^7.0.0",
     "tar": "^4.4.13",
     "ts-node": "^8.8.2",
