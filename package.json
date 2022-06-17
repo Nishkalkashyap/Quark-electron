@@ -109,7 +109,7 @@
     "aws-sdk": "^2.653.0",
     "cross-env": "^5.2.1",
     "dotenv": "^7.0.0",
-    "electron": "^6.1.9",
+    "electron": "^15.5.5",
     "electron-builder": "^22.4.1",
     "electron-notarize": "^0.3.0",
     "express": "^4.17.0",
