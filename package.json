@@ -60,7 +60,7 @@
     "raw-loader": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "recursive-readdir": "^2.2.2",
+    "recursive-readdir": "^2.2.3",
     "serialport": "^8.0.7",
     "styled-components": "^4.4.1",
     "stylus": "^0.54.7",
