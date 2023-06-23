@@ -43,7 +43,7 @@
     "css-loader": "^2.1.1",
     "electron-log": "^3.0.9",
     "electron-process-manager": "^0.7.1",
-    "electron-store": "^3.3.0",
+    "electron-store": "^8.0.0",
     "electron-updater": "^4.2.5",
     "extract-text-webpack-plugin": "^3.0.2",
     "firmata-io": "^2.2.0",
@@ -75,7 +75,7 @@
     "vue-loader": "^15.9.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.42.1",
+    "webpack": "^5.1.1",
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   },
