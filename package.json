@@ -62,7 +62,7 @@
     "react-dom": "^16.13.1",
     "recursive-readdir": "^2.2.2",
     "serialport": "^8.0.7",
-    "styled-components": "^4.4.1",
+    "styled-components": "^6.1.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "svg-inline-loader": "^0.8.2",
